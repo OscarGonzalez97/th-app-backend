@@ -1,32 +1,50 @@
 package com.roshka.modelo;
 
+import javax.persistence.*;
 import java.util.Date;
 
+
+@Entity
+@Table(name="postulante")
 public class Postulante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name="nombre")
     private String nombre;
 
+    @Column(name = "apellido")
     private String apellido;
 
+    @Column(name = "ci")
     private String ci;
 
+    @Column(name = "correo")
     private String correo;
 
+    @Column(name = "ciudad")
     private String ciudad;
 
+    @Column(name = "telefono")
     private String telefono;
 
+    @Column(name = "fecha_nacimiento")
     private Date fechaNacimiento;
 
+    @Column(name = "resumen")
     private String resumen;
 
+    @Column(name = "nivel_ingles")
     private long nivelIngles;
 
+    @Column(name = "curriculum")
     private String curriculum;
 
+    @Column(name = "modalidad")
     private String modalidad;
 
+    @Column(name = "disponibilidad")
     private String disponibilidad;
 
     public long getId() {
