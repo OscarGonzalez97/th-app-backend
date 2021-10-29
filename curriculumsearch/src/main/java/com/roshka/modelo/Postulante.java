@@ -2,6 +2,7 @@ package com.roshka.modelo;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -46,6 +47,18 @@ public class Postulante {
 
     @Column(name = "disponibilidad")
     private String disponibilidad;
+
+    @OneToMany(mappedBy = "postulante")
+    @JoinColumn()
+    private List<PostulanteTecnologia> tecnologias;
+    
+    @OneToMany(mappedBy = "postulante")
+    @JoinColumn()
+    private List<Experiencia> experiencias;
+
+    @OneToMany(mappedBy = "postulante")
+    @JoinColumn
+    private List<Estudio> estudios;
 
     public long getId() {
         return id;
@@ -149,5 +162,25 @@ public class Postulante {
 
     public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public List<PostulanteTecnologia> getTecnologias() {
+        return tecnologias;
+    }
+    public void setTecnologias(List<PostulanteTecnologia> tecnologias) {
+        this.tecnologias = tecnologias;
+    }
+
+    public List<Estudio> getEstudios() {
+        return estudios;
+    }
+    public List<Experiencia> getExperiencias() {
+        return experiencias;
+    }
+    public void setEstudios(List<Estudio> estudios) {
+        this.estudios = estudios;
+    }
+    public void setExperiencias(List<Experiencia> experiencias) {
+        this.experiencias = experiencias;
     }
 }
