@@ -1,12 +1,15 @@
 package com.roshka.modelo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="estudio")
@@ -26,13 +29,41 @@ public class Estudio {
     private String referencias;
     @Column(name="titulo")
     private String titulo;
+    
+    @ManyToOne
+    @JoinColumn
+    private Postulante postulante;
+    
+    @ManyToOne
+    @JoinColumn
+    private List<EstudioReconocimiento> estudioReconocimiento;
+    
+    
+    
+    public List<EstudioReconocimiento> getEstudioReconocimiento() {
+		return estudioReconocimiento;
+	}
 
+	public void setEstudioReconocimiento(List<EstudioReconocimiento> estudioReconocimiento) {
+		this.estudioReconocimiento = estudioReconocimiento;
+	}
 
-    public long getId() {
+	public Postulante getPostulante() {
+		return postulante;
+	}
+
+	public void setPostulante(Postulante postulante) {
+		this.postulante = postulante;
+	}
+
+	
+
+	public long getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+ 
+	public void setId(long id) {
         this.id = id;
     }
 

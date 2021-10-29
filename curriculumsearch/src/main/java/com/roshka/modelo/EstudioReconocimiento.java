@@ -6,20 +6,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="estudio_reconocimiento")
 public class EstudioReconocimiento {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     @Column(name="nombre")
     private String nombre;
     @Column(name="certificado")
     private String certificado;
+    @ManyToOne
+    @JoinColumn
+    private Postulante postulante;
+    
+    public Postulante getPostulante() {
+		return postulante;
+	}
 
-    public EstudioReconocimiento(Long id, String nombre, String certificado) {
+	public void setPostulante(Postulante postulante) {
+		this.postulante = postulante;
+	}
+
+	public EstudioReconocimiento(Long id, String nombre, String certificado) {
         this.id = id;
         this.nombre = nombre;
         this.certificado = certificado;
