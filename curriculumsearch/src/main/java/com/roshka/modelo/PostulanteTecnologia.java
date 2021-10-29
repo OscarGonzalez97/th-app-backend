@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity 
 @Table(name="postulante_tecnologia")
@@ -15,10 +17,14 @@ public class PostulanteTecnologia {
    private long id ;
    @Column(name="nivel")
    private Long nivel;
-   @Column(name="tecnologias")
-   private long tecnologias;
+   @Column(name="tecnologia")
+    @ManyToOne()
+    @JoinColumn
+   private Tecnologia tecnologia;
    @Column(name="postulante")
-   private long postulante;
+   @ManyToOne()
+   @JoinColumn
+   private Postulante postulante;
 public long getId() {
     return id;
 }
@@ -31,18 +37,20 @@ public Long getNivel() {
 public void setNivel(Long nivel) {
     this.nivel = nivel;
 }
-public long getTecnologias() {
-    return tecnologias;
+public Tecnologia getTecnologia() {
+    return tecnologia;
 }
-public void setTecnologias(long tecnologias) {
-    this.tecnologias = tecnologias;
+public void setTecnologia(Tecnologia tecnologia) {
+    this.tecnologia = tecnologia;
 }
-public long getPostulante() {
+public Postulante getPostulante() {
     return postulante;
 }
-public void setPostulante(long postulante) {
+public void setPostulante(Postulante postulante) {
     this.postulante = postulante;
 }
+
+
 
 
 
