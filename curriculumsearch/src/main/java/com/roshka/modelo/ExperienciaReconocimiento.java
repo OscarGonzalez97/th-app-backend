@@ -7,11 +7,13 @@ import javax.persistence.*;
 public class ExperienciaReconocimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private long id;
-    @Column(name ="experiencia_id")
-    private long experienciaId;
-    @Column(name = "tecnologia_id")
-    private long tecnologiaId;
+    
+    @ManyToOne
+    @JoinColumn
+    private Experiencia experiencia;
+  
     @Column(name = "nivel")
     private long nivel;
 
@@ -21,17 +23,11 @@ public class ExperienciaReconocimiento {
     public void setId(long id) {
         this.id = id;
     }
-    public long getExperienciaId() {
-        return experienciaId;
+    public Experiencia getExperiencia() {
+        return experiencia;
     }
-    public void setExperienciaId(long experienciaId) {
-        this.experienciaId = experienciaId;
-    }
-    public long getTecnologiaId() {
-        return tecnologiaId;
-    }
-    public void setTecnologiaId(long tecnologiaId) {
-        this.tecnologiaId = tecnologiaId;
+    public void setExperiencia(Experiencia experiencia) {
+        this.experiencia = experiencia;
     }
     public long getNivel() {
         return nivel;

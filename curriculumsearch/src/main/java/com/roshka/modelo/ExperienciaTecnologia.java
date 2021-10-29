@@ -1,5 +1,6 @@
 package com.roshka.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 public class ExperienciaTecnologia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
 
     @ManyToOne
@@ -23,6 +25,7 @@ public class ExperienciaTecnologia {
     @JoinColumn
     private Tecnologia tecnologia;
 
+    @Column(name="nivel")
     private Long nivel;
 
     public Long getId() {

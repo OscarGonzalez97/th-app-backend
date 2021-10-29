@@ -24,6 +24,9 @@ public class Experiencia {
     private String referencias;
     @Column(name = "cargo")
     private String cargo;
+    @ManyToOne
+    @JoinColumn
+    private Postulante postulante;
 
     public long getId() {
         return id;
@@ -61,5 +64,10 @@ public class Experiencia {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-
+    public void setPostulante(Postulante postulante) {
+        this.postulante = postulante;
+    }
+    public Postulante getPostulante() {
+        return postulante;
+    }
 }

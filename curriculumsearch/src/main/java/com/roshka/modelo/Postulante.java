@@ -10,6 +10,7 @@ import java.util.List;
 public class Postulante {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private long id;
 
     @Column(name="nombre")
@@ -49,15 +50,12 @@ public class Postulante {
     private String disponibilidad;
 
     @OneToMany(mappedBy = "postulante")
-    @JoinColumn()
     private List<PostulanteTecnologia> tecnologias;
     
     @OneToMany(mappedBy = "postulante")
-    @JoinColumn()
     private List<Experiencia> experiencias;
 
     @OneToMany(mappedBy = "postulante")
-    @JoinColumn
     private List<Estudio> estudios;
 
     public long getId() {

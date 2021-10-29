@@ -14,14 +14,13 @@ import javax.persistence.Table;
 public class PostulanteTecnologia {
    @Id 
    @GeneratedValue(strategy = GenerationType.AUTO)
+   @Column(name="id")
    private long id ;
    @Column(name="nivel")
    private Long nivel;
-   @Column(name="tecnologia")
     @ManyToOne()
     @JoinColumn
    private Tecnologia tecnologia;
-   @Column(name="postulante")
    @ManyToOne()
    @JoinColumn
    private Postulante postulante;

@@ -15,6 +15,7 @@ import javax.persistence.Table;
 public class EstudioReconocimiento {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
     @Column(name="nombre")
     private String nombre;
@@ -22,15 +23,8 @@ public class EstudioReconocimiento {
     private String certificado;
     @ManyToOne
     @JoinColumn
-    private Postulante postulante;
+    private Estudio estudio;
     
-    public Postulante getPostulante() {
-		return postulante;
-	}
-
-	public void setPostulante(Postulante postulante) {
-		this.postulante = postulante;
-	}
 
 	public EstudioReconocimiento(Long id, String nombre, String certificado) {
         this.id = id;
@@ -60,5 +54,11 @@ public class EstudioReconocimiento {
 
     public void setCertificado(String certificado) {
         this.certificado = certificado;
+    }
+    public Estudio getEstudio() {
+        return estudio;
+    }
+    public void setEstudio(Estudio estudio) {
+        this.estudio = estudio;
     }
 }

@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="estudio")
 public class Estudio {  
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)    
+    @GeneratedValue(strategy=GenerationType.IDENTITY) 
+    @Column(name="id")   
     private long id;
     @Column(name="tipo_de_studio")
     private String tipoDeEstudio;
@@ -34,8 +36,7 @@ public class Estudio {
     @JoinColumn
     private Postulante postulante;
     
-    @ManyToOne
-    @JoinColumn
+    @OneToMany(mappedBy = "estudio")
     private List<EstudioReconocimiento> estudioReconocimiento;
     
     
