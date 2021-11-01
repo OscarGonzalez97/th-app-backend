@@ -1,30 +1,48 @@
 var cont_experiencia = 0;
 let cont_estudios = 0;
 let cont_tecnologia = 0;
-function agregarFieldExpierncia(evt){
+const experiencias = [];
+const estudios = [];
+const tecnologias = [];
+function agregarFieldExpierncia(){
+    //recoger del form
+    const pairs = {};
+    const formexp = document.querySelector("[name=experiencia-form]");
+    const formData = new FormData(formexp);
+    for (const [name, value] of formData){
+        pairs[name] = value
+    }
+    experiencias[cont_experiencia] = pairs;
+    formexp.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#experiencias")
+    const div1 = document.createElement('div');
+    let content='<ul>'
     
-    const btn = evt.target
+    for (let index = 0; index < experiencias.length; index++) {
+        const exp = experiencias[index];
+        if(exp==null) continue;
+        content += `
+        <li id="exp-${index}">        
+            ${exp.institucion}
+            <button type="button" onclick="eliminarExperiencia(event)">Eliminar</button>
+        </li>
+        
+        `
+    }
+    content += "</ul>" 
+    div1.innerHTML = content
+    div.innerHTML = '';
+    div.appendChild(div1);
     cont_experiencia++;
-    
-    const nee = document.createElement("div")
-    nee.innerHTML = `
-    <label for="institucion" class="form-label">Institucion</label>
-    <input type="text" class="form-control  " name="experiencia-${cont_experiencia}-institucion" id="institucion" >
-    <label for="fechaDesde" class="form-label">FechaDesde</label>
-    <input type="date" class="form-control  " name="experiencia-${cont_experiencia}-fechaDesde" id="fechaDesde" >
-    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-    <input type="date" class="form-control  " name="experiencia-${cont_experiencia}-fechaHasta" id="fechaHasta" >
-    <label for="cargo" class="form-label">Cargo</label>
-    <input type="cargo" class="form-control  " name="experiencia-${cont_experiencia}-cargo" id="cargo" >
-    <label for="refNombre" class="form-label">Referencia Nombre</label>
-    <input type="text" class="form-control  " name="experiencia-${cont_experiencia}-referencias" id="refNombre" >
-    <button type="button" onclick="eliminarExperiencia(event)">Eliminar</button>
-    `;
-    nee.className = "mb-3 col-5"
-    form.insertBefore(nee,btn)
+
 }
 
 function eliminarExperiencia(event) {
+    //eliminar del array
+    console.log(event.target.parentElement.id.split("-")[1])
+    experiencias[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
     event.target.parentElement.remove()
 }
 function serializeJSON (form) {
@@ -33,37 +51,10 @@ function serializeJSON (form) {
 
     // Create an object to hold the name/value pairs
     const pairs = {};
-    const experiencias = [];
-    const estudios = [];
-    const tecnologias = [];
 
     // Add each name/value pair to the object
     for (const [name, value] of formData) {
-        //los atributos no primitivos tiene una nomenclatura distinta en sus names
-        //ej.: experiencia-4-institucion == experencias[4].institucion
-        let codificacion = name.split("-")
-        if(codificacion.length==1){
-            pairs[name] = value
-        }
-        else{
-            switch (codificacion[0]) {
-                case "experiencia":
-                    if(experiencias[codificacion[1]]==null) experiencias[codificacion[1]]={};
-                    experiencias[codificacion[1]][codificacion[2]] = value
-                    break;
-                case "estudio":
-                    if(estudios[codificacion[1]]==null) estudios[codificacion[1]]={};
-                    estudios[codificacion[1]][codificacion[2]] = value
-                    break;
-                case "tecnologia":
-                    if(tecnologias[codificacion[1]]==null) tecnologias[codificacion[1]]={};
-                    tecnologias[codificacion[1]][codificacion[2]] = value
-                    break;
-            
-                default:
-                    break;
-            }
-        }
+        pairs[name] = value
     }
     pairs["experiencias"] = experiencias.filter(exp => exp)//eliminacion de nulos
     pairs["estudios"] = estudios.filter(est => est)//eliminacion de nulos
