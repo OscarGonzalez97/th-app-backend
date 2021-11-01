@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.roshka.modelo.Experiencia;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.PostulanteRepository;
 
@@ -33,8 +34,11 @@ public class PostulanteController {
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
-        System.out.println(postulante.getExperiencias().get(0).getCargo());
-        
+        post.save(postulante);
+        for(Experiencia exp: postulante.getExperiencias()){
+            exp.setPostulante(postulante);
+        }
+        post.save(postulante);
         return "redirect:/";
     }
 
