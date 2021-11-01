@@ -1,6 +1,8 @@
 package com.roshka.modelo;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,11 +48,31 @@ public class Experiencia {
     public void setFechaDesde(Date fechaDesde) {
         this.fechaDesde = fechaDesde;
     }
+    public void setFechaDesde(String fechaDesde) {
+        if(fechaDesde==null || fechaDesde.isEmpty()) return;
+
+        try {
+            this.fechaDesde = new SimpleDateFormat("yyyy-mm-dd").parse(fechaDesde);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     public Date getFechaHasta() {
         return fechaHasta;
     }
     public void setFechaHasta(Date fechaHasta) {
         this.fechaHasta = fechaHasta;
+    }
+    public void setFechaHasta(String fechaHasta) {
+        if(fechaHasta==null || fechaHasta.isEmpty()) return;
+
+        try {
+            this.fechaHasta = new SimpleDateFormat("yyyy-mm-dd").parse(fechaHasta);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     public String getReferencias() {
         return referencias;

@@ -1,6 +1,9 @@
 package com.roshka.modelo;
 
 import javax.persistence.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -8,24 +11,6 @@ import java.util.List;
 @Entity
 @Table(name="postulante")
 public class Postulante {
-
-    
-    public Postulante(String nombre, String apellido, String ci, String correo, String ciudad, String telefono,
-            Date fechaNacimiento, String resumen, long nivelIngles, String curriculum, String modalidad,
-            String disponibilidad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.ci = ci;
-        this.correo = correo;
-        this.ciudad = ciudad;
-        this.telefono = telefono;
-        this.fechaNacimiento = fechaNacimiento;
-        this.resumen = resumen;
-        this.nivelIngles = nivelIngles;
-        this.curriculum = curriculum;
-        this.modalidad = modalidad;
-        this.disponibilidad = disponibilidad;
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
@@ -75,6 +60,7 @@ public class Postulante {
 
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Estudio> estudios;
+
 
     public long getId() {
         return id;
@@ -138,6 +124,18 @@ public class Postulante {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        if(fechaNacimiento==null || fechaNacimiento.isEmpty()) return;
+        try {
+
+            this.fechaNacimiento = new SimpleDateFormat("yyyy-mm-dd").parse(fechaNacimiento);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            System.err.println("Error al parsear");
+            e.printStackTrace();
+        }
     }
 
     public String getResumen() {
