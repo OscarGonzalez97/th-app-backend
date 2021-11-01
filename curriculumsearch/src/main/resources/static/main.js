@@ -18,9 +18,14 @@ function agregarFieldExpierncia(evt){
     <input type="cargo" class="form-control  " name="experiencia-${cont_experiencia}-cargo" id="cargo" >
     <label for="refNombre" class="form-label">Referencia Nombre</label>
     <input type="text" class="form-control  " name="experiencia-${cont_experiencia}-referencias" id="refNombre" >
+    <button type="button" onclick="eliminarExperiencia(event)">Eliminar</button>
     `;
     nee.className = "mb-3 col-5"
     form.insertBefore(nee,btn)
+}
+
+function eliminarExperiencia(event) {
+    event.target.parentElement.remove()
 }
 function serializeJSON (form) {
     // Create a new FormData object
@@ -28,9 +33,9 @@ function serializeJSON (form) {
 
     // Create an object to hold the name/value pairs
     const pairs = {};
-    const experiencias = [{}];
-    const estudios = [{}];
-    const tecnologias = [{}];
+    const experiencias = [];
+    const estudios = [];
+    const tecnologias = [];
 
     // Add each name/value pair to the object
     for (const [name, value] of formData) {
@@ -60,9 +65,9 @@ function serializeJSON (form) {
             }
         }
     }
-    pairs["experiencias"] = experiencias
-    pairs["estudios"] = estudios
-    pairs["tecnologias"] = tecnologias
+    pairs["experiencias"] = experiencias.filter(exp => exp)//eliminacion de nulos
+    pairs["estudios"] = estudios.filter(est => est)//eliminacion de nulos
+    pairs["tecnologias"] = tecnologias.filter(tec => tec)//eliminacion de nulos
     
     // Return the JSON string
     return JSON.stringify(pairs, null, 2);

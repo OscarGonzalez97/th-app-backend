@@ -68,19 +68,6 @@
             <input type="text" class="form-control  " name="modalidad" id="modalidad" >
         </div>
       
-        <div class="mb-3 col-5">
-            
-            <label for="institucion" class="form-label">Institucion</label>
-            <input type="text" class="form-control  " name="experiencia-0-institucion" id="institucion" >
-            <label for="fechaDesde" class="form-label">FechaDesde</label>
-            <input type="date" class="form-control  " name="experiencia-0-fechaDesde" id="fechaDesde" >
-            <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-            <input type="date" class="form-control  " name="experiencia-0-fechaHasta" id="fechaHasta" >
-            <label for="cargo" class="form-label">Cargo</label>
-            <input type="cargo" class="form-control  " name="experiencia-0-cargo" id="cargo" >
-            <label for="refNombre" class="form-label">Referencia Nombre</label>
-            <input type="text" class="form-control  " name="experiencia-0-referencias" id="refNombre" >
-        </div>
         
       
       <button type="button" name="addExp" onclick="agregarFieldExpierncia(event)">Agregar</button>
