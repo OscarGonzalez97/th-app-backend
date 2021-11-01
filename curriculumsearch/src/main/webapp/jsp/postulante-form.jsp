@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Postulante</title>
   </head>
   <body class="container">
-    <h1>Hello, world!</h1>
+    <h1>Curriculum</h1>
 
     <form name="postulante" method="post">
         <div class="mb-3 col-5">
@@ -74,7 +74,7 @@
             Agregar Experiencia
         </button>
         <div id="experiencias">
-            
+
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

@@ -40,7 +40,6 @@ function agregarFieldExpierncia(){
 
 function eliminarExperiencia(event) {
     //eliminar del array
-    console.log(event.target.parentElement.id.split("-")[1])
     experiencias[event.target.parentElement.id.split("-")[1]]=null
     //eliminar en html
     event.target.parentElement.remove()
@@ -87,7 +86,6 @@ form.addEventListener("submit",(evt)=>{
     
     postData('postulante', serializeJSON(form))
     .then(response => {
-        console.log(response); // JSON data parsed by `data.json()` call
         location.replace(response.url);
     });
     evt.preventDefault();
