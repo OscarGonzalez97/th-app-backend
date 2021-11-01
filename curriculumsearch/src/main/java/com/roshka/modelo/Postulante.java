@@ -8,6 +8,24 @@ import java.util.List;
 @Entity
 @Table(name="postulante")
 public class Postulante {
+
+    
+    public Postulante(String nombre, String apellido, String ci, String correo, String ciudad, String telefono,
+            Date fechaNacimiento, String resumen, long nivelIngles, String curriculum, String modalidad,
+            String disponibilidad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.ci = ci;
+        this.correo = correo;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.resumen = resumen;
+        this.nivelIngles = nivelIngles;
+        this.curriculum = curriculum;
+        this.modalidad = modalidad;
+        this.disponibilidad = disponibilidad;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
@@ -49,13 +67,13 @@ public class Postulante {
     @Column(name = "disponibilidad")
     private String disponibilidad;
 
-    @OneToMany(mappedBy = "postulante")
+    @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<PostulanteTecnologia> tecnologias;
     
-    @OneToMany(mappedBy = "postulante")
+    @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Experiencia> experiencias;
 
-    @OneToMany(mappedBy = "postulante")
+    @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Estudio> estudios;
 
     public long getId() {

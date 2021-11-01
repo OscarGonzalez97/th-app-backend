@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CurriculumsearchApplication<curriculumsearch>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.roshka.CurriculumsearchApplication",
+            "projectName": "curriculumsearch",
+            "args": ""
+        }
+    ]
+}
