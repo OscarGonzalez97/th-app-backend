@@ -1,6 +1,7 @@
 package com.roshka.modelo;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,36 +18,52 @@ public class Postulante {
     private long id;
 
     @Column(name="nombre")
+    @NotBlank
+    @Size(max = 255)
     private String nombre;
 
     @Column(name = "apellido")
+    @NotBlank
+    @Size(max = 255)
     private String apellido;
 
     @Column(name = "ci")
+    @NotBlank
+    @Size(max = 120)
     private String ci;
 
     @Column(name = "correo")
+    @NotBlank
+    @Email(message = "Formato incorrecto de correo")
     private String correo;
 
     @Column(name = "ciudad")
+    @NotBlank
+    @Size(max = 120)
     private String ciudad;
 
     @Column(name = "telefono")
+    @NotBlank
     private String telefono;
 
     @Column(name = "fecha_nacimiento")
+    @NotNull
+    @Past
     private Date fechaNacimiento;
 
     @Column(name = "resumen")
     private String resumen;
 
     @Column(name = "nivel_ingles")
+    @Min(value = 1)
+    @Max(value = 5)
     private long nivelIngles;
 
     @Column(name = "curriculum")
     private String curriculum;
 
     @Column(name = "modalidad")
+    @NotNull
     private String modalidad;
 
     @Column(name = "disponibilidad")
