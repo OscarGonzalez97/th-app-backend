@@ -96,7 +96,9 @@ form.addEventListener("submit",(evt)=>{
     
     postData('postulante', serializeJSON(form))
     .then(response => {
-        location.replace(response.url);
+        if(response.status==200 || response.status==302){
+            location.replace(response.url);
+        }
     });
     evt.preventDefault();
 } );
