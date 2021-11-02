@@ -14,6 +14,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(name = "experiencia")
@@ -21,10 +24,16 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @Column(name = "institucion")
+    @NotBlank
     private String institucion;
+
     @Column(name = "fecha_desde")
+    @Past
+    @NotNull
     private Date fechaDesde;
+
     @Column(name = "fecha_hasta")
     private Date fechaHasta;
     @Column(name = "nombre_referencia")
@@ -32,9 +41,12 @@ public class Experiencia {
     @Column(name = "telefono_referencia")
     private String telefonoReferencia;
     @Column(name = "cargo")
+    @NotBlank
     private String cargo;
+
     @Column(name = "descripcion")
     private String descripcion;
+
     @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn

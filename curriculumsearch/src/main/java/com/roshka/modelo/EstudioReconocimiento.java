@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -19,10 +20,15 @@ public class EstudioReconocimiento {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private Long id;
+
     @Column(name="nombre")
+    @NotBlank
     private String nombre;
+
     @Column(name="certificado")
+    @NotBlank
     private String certificado;
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn

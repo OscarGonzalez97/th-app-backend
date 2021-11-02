@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity 
@@ -18,15 +21,20 @@ public class PostulanteTecnologia {
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name="id")
    private long id ;
+
    @Column(name="nivel")
+   @Min(value = 1)
+   @Max(value = 5)
    private Long nivel;
+
     @ManyToOne()
     @JoinColumn
    private Tecnologia tecnologia;
-   @ManyToOne()
+
+    @ManyToOne()
    @JoinColumn
    @JsonBackReference
-   private Postulante postulante;
+    private Postulante postulante;
 public long getId() {
     return id;
 }
