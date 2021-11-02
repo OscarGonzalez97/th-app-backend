@@ -26,12 +26,12 @@ public class Experiencia {
     private long id;
 
     @Column(name = "institucion")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String institucion;
 
     @Column(name = "fecha_desde")
-    @Past
-    @NotNull
+    @Past(message = "Este campo no puede estar en el futuro")
+    @NotNull(message = "Este campo no puede estar vacio")
     private Date fechaDesde;
 
     @Column(name = "fecha_hasta")
@@ -41,7 +41,7 @@ public class Experiencia {
     @Column(name = "telefono_referencia")
     private String telefonoReferencia;
     @Column(name = "cargo")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String cargo;
 
     @Column(name = "descripcion")

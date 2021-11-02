@@ -17,7 +17,7 @@ public class Tecnologia {
 	private long id;
 	
 	@Column(name="nombre")
-	@NotBlank
+	@NotBlank(message = "Este campo no puede estar vacio")
     private String nombre;
     
 	

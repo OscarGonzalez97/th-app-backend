@@ -27,16 +27,16 @@ public class Estudio {
     private long id;
 
     @Column(name="tipo_de_studio")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String tipoDeEstudio;
 
     @Column(name="institucion")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String institucion;
 
     @Column(name="fecha_desde")
-    @NotNull
-    @Past
+    @NotNull(message = "Este campo no puede estar vacio")
+    @Past(message = "Este campo no puede estar en el futuro")
     private Date fechaDesde;
 
     @Column(name="fecha_hasta")
@@ -46,7 +46,7 @@ public class Estudio {
     private String referencias;
 
     @Column(name="titulo")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String titulo;
     
     @ManyToOne

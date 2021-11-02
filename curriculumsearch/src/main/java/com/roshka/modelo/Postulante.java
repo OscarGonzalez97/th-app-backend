@@ -21,37 +21,37 @@ public class Postulante {
     private long id;
 
     @Column(name="nombre")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 255)
     private String nombre;
 
     @Column(name = "apellido")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 255)
     private String apellido;
 
     @Column(name = "ci")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
     private String ci;
 
     @Column(name = "correo")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     @Email(message = "Formato incorrecto de correo")
     private String correo;
 
     @Column(name = "ciudad")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
     private String ciudad;
 
     @Column(name = "telefono")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String telefono;
 
     @Column(name = "fecha_nacimiento")
-    @NotNull
-    @Past
+    @NotNull(message = "Este campo no puede estar vacio")
+    @Past(message = "Este campo no puede estar en el futuro")
     private Date fechaNacimiento;
 
     @Column(name = "resumen")
