@@ -69,25 +69,30 @@
         <div class="mb-3 col-5">
             <label for="modalidad" class="form-label">Modalidad</label>
             <input type="text" class="form-control  " name="modalidad" id="modalidad" >
-        </div>
-      
-        
-      
+        </div>     
+        <br>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienciaForm">
             Agregar Experiencia
         </button>
-        <div id="experiencias">
-
+        <div id="experiencias"></div>
+        <br>
+        
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estudioForm">
+          Agregar Estudios
+       </button>
+        <br><br>
+        <div id="estudios">
         </div>
+        
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tecnologiaForm">
           Agregar Tecnologia
         </button>
         <div id="tecnologias"> 
-
-      </div>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
+      <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -160,32 +165,95 @@
               </button>
             </div>
             <div class="modal-body">
-                <form name="tecnologia-form">
-                  <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
-                  <div class="input-group mb-3">
-                    <select class="form-select" name="tecnologia-id" aria-label="Default select example">
-                      <option value="-1" selected>Open this select menu</option>
-                      <c:forEach items="${tecnologias}" var="tecnologia">
-                        <option value="${tecnologia.id}">${tecnologia.nombre}</option>
-                      </c:forEach>
-                    </select>
-                    <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
-                  </div>
-                    
-                    
-                    <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
-                    <label for="nivel" class="form-label">Nivel</label>
-                    <input type="number" class="form-control" name="nivel" id="nivel" >
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="agregarFieldTecnologia()" data-dismiss="modal">Agregar</button>
-            </div>
+              <form name="tecnologia-form">
+                <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
+                <div class="input-group mb-3">
+                  <select class="form-select" name="tecnologia-id" aria-label="Default select example">
+                    <option value="-1" selected>Open this select menu</option>
+                    <c:forEach items="${tecnologias}" var="tecnologia">
+                      <option value="${tecnologia.id}">${tecnologia.nombre}</option>
+                    </c:forEach>
+                  </select>
+                  <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
+                </div>
+                  
+                  
+                  <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
+                  <label for="nivel" class="form-label">Nivel</label>
+                  <input type="number" class="form-control" name="nivel" id="nivel" >
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="agregarFieldTecnologia()" data-dismiss="modal">Agregar</button>
           </div>
         </div>
-      </div>      
-    <!--------------------------------------------------------------------------------------->
+      </div>
+    </div>      
+  <!--------------------------------------------------------------------------------------->
+
+
+      <!--Modal de Estudios-->
+      <div class="modal fade" id="estudioForm" tabindex="-1" role="dialog" aria-labelledby="estudioForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form name="estudio-form">
+                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>
+                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">
+                <label for="institucion" class="form-label">Institucion</label>
+                <input type="text" class="form-control  " name="institucion" id="institucion">                 
+                <label for="fechaDesde" class="form-label">Fecha Desde</label>
+                <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                <label for="fechaHasta" class="form-label">Fecha Hasta</label>
+                <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control  " name="titulo" id="titulo" >
+
+                <label class="form-label">Reconocimientos</label>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldEstudio()" data-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

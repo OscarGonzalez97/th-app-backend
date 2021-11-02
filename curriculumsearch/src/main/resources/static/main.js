@@ -153,3 +153,65 @@ form.addEventListener("submit",(evt)=>{
 } );
 
 document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
+
+
+//Metodos para Estudios
+
+
+
+function agregarFieldEstudio(){
+    //recoger del form
+    const pairs = {};
+    const formest = document.querySelector("[name=estudio-form");
+    const formData = new FormData(formest);
+    const estudioReconocimiento = [{},{},{}];
+    let pos_rec;
+    for (const [name, value] of formData){
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            estudioReconocimiento[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+        
+    }
+    pairs["estudioReconocimiento"] = estudioReconocimiento.filter(rec => rec.nombre);
+    estudios[cont_estudios] = pairs;
+    formest.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#estudios")
+    const div1 = document.createElement('div');
+    let content='<ul>'
+    
+    for (let index = 0; index < estudios.length; index++) {
+        const est = estudios[index];
+        if(est==null) continue;
+        content += `
+        <li id="est-${index}">        
+            ${est.institucion}
+            <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
+        </li>
+        
+        `
+    }
+    content += "</ul>" 
+    div1.innerHTML = content
+    div.innerHTML = '';
+    div.appendChild(div1);
+    cont_estudios++;
+
+}
+
+function eliminarEstudio(event) {
+    //eliminar del array
+    estudios[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+
+
+
+
+
+

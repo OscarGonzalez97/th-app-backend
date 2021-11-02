@@ -3,6 +3,7 @@ package com.roshka.modelo;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table(name="estudio")
 public class Estudio {  
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY) 
+    @GeneratedValue(strategy=GenerationType.AUTO) 
     @Column(name="id")   
     private long id;
 
@@ -41,10 +42,7 @@ public class Estudio {
 
     @Column(name="fecha_hasta")
     private Date fechaHasta;
-
-    @Column(name="referencias")
-    private String referencias;
-
+    
     @Column(name="titulo")
     @NotBlank(message = "Este campo no puede estar vacio")
     private String titulo;
@@ -55,7 +53,7 @@ public class Estudio {
     private Postulante postulante;
     
     @JsonManagedReference
-    @OneToMany(mappedBy = "estudio")
+    @OneToMany(mappedBy = "estudio",cascade = CascadeType.ALL)
     private List<EstudioReconocimiento> estudioReconocimiento;
     
     
@@ -117,14 +115,6 @@ public class Estudio {
 
     public void setFechaHasta(Date fechaHasta) {
         this.fechaHasta = fechaHasta;
-    }
-
-    public String getReferencias() {
-        return this.referencias;
-    }
-
-    public void setReferencias(String referencias) {
-        this.referencias = referencias;
     }
 
     public String getTitulo() {
