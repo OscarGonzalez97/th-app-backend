@@ -3,8 +3,11 @@ package com.roshka.modelo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -69,12 +72,15 @@ public class Postulante {
     @Column(name = "disponibilidad")
     private String disponibilidad;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<PostulanteTecnologia> tecnologias;
     
+    @JsonManagedReference
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
-    private List<Experiencia> experiencias;
+    private List<Experiencia> experiencias = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Estudio> estudios;
 

@@ -2,6 +2,8 @@ package com.roshka.modelo;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "experiencia_reconocimiento")
 public class ExperienciaReconocimiento {
@@ -10,12 +12,16 @@ public class ExperienciaReconocimiento {
     @Column(name="id")
     private long id;
     
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn
+    @JsonBackReference
     private Experiencia experiencia;
   
-    @Column(name = "nivel")
-    private long nivel;
+    @Column(name="nombre")
+    private String nombre;
+
+    @Column(name="certificado")
+    private String certificado;
 
     public long getId() {
         return id;
@@ -29,10 +35,16 @@ public class ExperienciaReconocimiento {
     public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
     }
-    public long getNivel() {
-        return nivel;
+    public String getCertificado() {
+        return certificado;
     }
-    public void setNivel(long nivel) {
-        this.nivel = nivel;
+    public String getNombre() {
+        return nombre;
+    }
+    public void setCertificado(String certificado) {
+        this.certificado = certificado;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

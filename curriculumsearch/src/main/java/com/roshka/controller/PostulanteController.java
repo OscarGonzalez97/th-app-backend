@@ -38,10 +38,6 @@ public class PostulanteController {
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
         post.save(postulante);
-        for(Experiencia exp: postulante.getExperiencias()){
-            exp.setPostulante(postulante);
-        }
-        post.save(postulante);
         return "redirect:/";
     }
 

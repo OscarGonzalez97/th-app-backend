@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Postulante</title>
   </head>
   <body class="container">
-    <h1>Hello, world!</h1>
+    <h1>Curriculum</h1>
 
     <form name="postulante" method="post">
         <div class="mb-3 col-5">
@@ -74,7 +74,7 @@
             Agregar Experiencia
         </button>
         <div id="experiencias">
-            
+
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -97,9 +97,34 @@
                     <label for="fechaHasta" class="form-label">Fecha Hasta</label>
                     <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
                     <label for="cargo" class="form-label">Cargo</label>
-                    <input type="cargo" class="form-control  " name="cargo" id="cargo" >
+                    <input type="text" class="form-control  " name="cargo" id="cargo" >
                     <label for="refNombre" class="form-label">Referencia Nombre</label>
                     <input type="text" class="form-control  " name="referencias" id="refNombre" >
+                    <label class="form-label">Reconocimientos</label>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
