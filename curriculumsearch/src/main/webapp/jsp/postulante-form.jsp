@@ -9,74 +9,214 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+
+    <style type="text/css" media="screen">
+          body {
+    background-color: blue
+}
+
+.card {
+    border: none
+}
+
+.image {
+    position: relative
+}
+
+.image span {
+    background-color: blue;
+    color: #fff;
+    padding: 6px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    font-size: 13px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -0px;
+    right: 0px
+}
+
+.user-details h4 {
+    color: blue
+}
+
+.ratings {
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #f9b43a
+}
+
+.user-details span {
+    text-align: left
+}
+
+.inputs label {
+    display: flex;
+    margin-left: 3px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 4px
+}
+
+.inputs input {
+    font-size: 14px;
+    height: 40px;
+    border: 2px solid #ced4da
+}
+
+.inputs input:focus {
+    box-shadow: none;
+    border: 2px solid blue
+}
+
+.about-inputs label {
+    display: flex;
+    margin-left: 3px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 4px
+}
+
+.about-inputs textarea {
+    font-size: 14px;
+    height: 100px;
+    border: 2px solid #ced4da;
+    resize: none
+}
+
+.about-inputs textarea:focus {
+    box-shadow: none
+}
+
+.btn {
+    font-weight: 600
+}
+
+.btn:focus {
+    box-shadow: none
+}
+
+select {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px
+}
+
+select:focus {
+    outline: none
+}
+    </style>
+
+
   </head>
   <body class="container">
-    <h1>Hello, world!</h1>
 
     <form name="postulante" method="post">
-        <div class="mb-3 col-5">
-          <label for="correo" class="form-label">Email address</label>
-          <input type="email" name="correo" class="form-control  " id="correo" >
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
 
-        <div class="mb-3 col-5">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" name="nombre" class="form-control  " id="nombre" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" name="apellido" class="form-control  " id="apellido" >
-        </div>
+                        <div class="container mt-3">
+                          <div class="card p-3 text-center">
+                              <div class="d-flex flex-row justify-content-center mb-3">
+                                  <div class="image"> <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle"> <span><i class='bx bxs-camera-plus'></i></span> </div>
+                                  <div class="d-flex flex-column ms-3 user-details">
+                                      <h4 class="mb-0">Zenda Grace</h4>
+                                      <div class="ratings"> <span>4.0</span> <i class='bx bx-star ms-1'></i> </div> <span>Pro Member</span>
+                                  </div>
+                              </div>
+                              <h4>Edit Profile</h4>
+                              <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control  " id="nombre" >
+                                  </div>
+                                  
+                                  <div class="mb-3 col-md-6">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" name="apellido" class="form-control  " id="apellido" >
+                                  </div>
+          
 
-        <div class="mb-3 col-3">
-            <label for="ci" class="form-label">Cedula de identidad</label>
-            <input type="number" name="ci" class="form-control  " id="ci" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="ciudad" class="form-label">Ciudad</label>
-            <input type="text" name="ciudad" class="form-control  " id="ciudad" >
-        </div>
+                                  <div class="mb-3 col-md-6">
+                                    <label for="correo" class="form-label">Email address</label>
+                                    <input type="email" name="correo" class="form-control  " id="correo" >
+                                  </div>
+                                  
+                    
+                              
+                                  <div class="col-md-6">
+                                    <label for="ci" class="form-label">Cedula de identidad</label>
+                                    <input type="number" name="ci" class="form-control  " id="ci" >
+                                  </div>
+                                  
+                                  <div class="col-md-6">
+                                    <label form="ciudad" class="form-label">Ciudad</label>
+                                    <input type="text" name="ciudad" class="form-control " id="ciudad" >
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                    <label for="telefono" class="form-label">Telefono</label>
+                                    <input type="number" name="telefono" class="form-control  " id="telefono" >
+                                  </div>
 
-        <div class="mb-3 col-5">
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="number" name="telefono" class="form-control  " id="telefono" >
-        </div>
+                                <div class="mb-3 col-md-6">
+                                  <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                  <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" >
+                                </div>
+                              
+                        
+                                <div class="col-md-6"> <label for="nivelIngles"> Nivel de ingles</label> <select name="nivelIngles" id="nivelIngles" class="bg-light">
+                                  <option value="1" selected>1</option>
+                                  <option value="2" >2</option>
+                                  <option value="3" >3</option>
+                                  <option value="4" >4</option>
+                                  <option value="5" >5</option>
+                                 
+                      
+                                </select> </div>
 
-        <div class="mb-3 col-5">
-            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-            <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="resumen" class="form-label">Resumen</label>
-            <textarea  class="form-control  " name="resumen" id="resumen" > </textarea>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="nivelIngles" class="form-label">Nivel de ingles</label>
-            <input type="number" class="form-control"  name="nivelIngles" id="nivelIngles" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="curriculum" class="form-label">Curriculum</label>
-            <input type="text" name="curriculum" class="form-control  " id="curriculum" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="disponibilidad" class="form-label">Disponibilidad</label>
-            <input type="text" class="form-control  " name="disponibilidad" id="disponibilidad" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="modalidad" class="form-label">Modalidad</label>
-            <input type="text" class="form-control  " name="modalidad" id="modalidad" >
-        </div>
-      
-        
-      
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienciaForm">
-            Agregar Experiencia
-        </button>
-        <div id="experiencias">
-            
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="col-md-6"> <label for="disponibilidad"> Disponibilidad</label> <select name="disponibilidad" id="disponibilidad" class="bg-light">
+                                  <option value="Tiempo completo" selected>Tiempo completo</option>
+                                  <option value="Medio tiempo">Medio tiempo</option>
+                      
+                                </select> </div>
+                                
+                                <div class="col-md-6"> <label for="modalidad"> Modalidad</label> <select name="modalidad" id="modalidad" class="bg-light">
+                                  <option value="Pesencial" selected>Presencial</option>
+                                  <option value="Semi presencial">Semi presencial</option>
+                                  <option value="Remoto">Remoto</option>
+                      
+                                </select> </div>
+                                <div class="mb-3 col-md-6">
+                                  <label for="curriculum" class="form-label">Curriculum</label>
+                                  <input type="text" name="curriculum" class="form-control  " id="curriculum" >
+                                </div>
+
+                              </div>
+
+                              <div class="row">
+                                <div class="class about-inputs">
+                                  <label for="resumen" class="form-label">Resumen</label>
+                                  <textarea  class="form-control  " name="resumen" id="resumen" > </textarea>
+                                </div>
+                                   
+                            </div>
+                          
+                                  <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>   
+                                </div>
+                              <div class="mt-3 gap-2 d-flex justify-content-end"> <button class="px-3 btn btn-sm btn-outline-primary">Cancel</button> <button class="px-3 btn btn-sm btn-primary" type="submit">Save</button> </div>
+                          </div>
+                      </div>
+
+  
+  
       </form>
 
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
