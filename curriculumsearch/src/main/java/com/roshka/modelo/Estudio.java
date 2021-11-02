@@ -3,6 +3,7 @@ package com.roshka.modelo;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,8 +31,6 @@ public class Estudio {
     private Date fechaDesde;
     @Column(name="fecha_hasta")
     private Date fechaHasta;
-    @Column(name="referencias")
-    private String referencias;
     @Column(name="titulo")
     private String titulo;
     
@@ -41,7 +40,7 @@ public class Estudio {
     private Postulante postulante;
     
     @JsonManagedReference
-    @OneToMany(mappedBy = "estudio")
+    @OneToMany(mappedBy = "estudio",cascade = CascadeType.ALL)
     private List<EstudioReconocimiento> estudioReconocimiento;
     
     
@@ -103,14 +102,6 @@ public class Estudio {
 
     public void setFechaHasta(Date fechaHasta) {
         this.fechaHasta = fechaHasta;
-    }
-
-    public String getReferencias() {
-        return this.referencias;
-    }
-
-    public void setReferencias(String referencias) {
-        this.referencias = referencias;
     }
 
     public String getTitulo() {

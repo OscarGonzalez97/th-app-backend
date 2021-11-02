@@ -112,9 +112,19 @@ function agregarFieldEstudio(){
     const pairs = {};
     const formest = document.querySelector("[name=estudio-form");
     const formData = new FormData(formest);
+    const estudioReconocimiento = [{},{},{}];
+    let pos_rec;
     for (const [name, value] of formData){
-        pairs[name] = value
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            estudioReconocimiento[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+        
     }
+    pairs["estudioReconocimiento"] = estudioReconocimiento.filter(rec => rec.nombre);
     estudios[cont_estudios] = pairs;
     formest.reset();
     //imprimir lista actualizada
