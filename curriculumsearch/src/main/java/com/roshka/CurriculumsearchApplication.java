@@ -14,4 +14,5 @@ public class CurriculumsearchApplication {
 		SpringApplication.run(CurriculumsearchApplication.class, args);
 	}
 
+	
 }

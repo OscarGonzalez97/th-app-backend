@@ -1,5 +1,6 @@
 package com.roshka.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,7 @@ public class PostulanteTecnologia {
    @Min(value = 1)
    @Max(value = 5)
    private Long nivel;
-
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
    private Tecnologia tecnologia;
 
