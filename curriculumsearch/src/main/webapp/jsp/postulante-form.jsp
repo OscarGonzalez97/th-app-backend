@@ -98,8 +98,14 @@
                     <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
                     <label for="cargo" class="form-label">Cargo</label>
                     <input type="text" class="form-control  " name="cargo" id="cargo" >
-                    <label for="refNombre" class="form-label">Referencia Nombre</label>
-                    <input type="text" class="form-control  " name="referencias" id="refNombre" >
+                    
+                    <label for="descripcion" class="form-label">Descripcion</label>
+                    <textarea  class="form-control  " name="descripcion" id="descripcion" > </textarea>
+                    
+                    <label for="refNombre" class="form-label">Nombre de la Referencia</label>
+                    <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
+                    <label for="refTel" class="form-label">Telefono de la Referencia</label>
+                    <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
                     <label class="form-label">Reconocimientos</label>
                     <div class="row mb-3">
                       <div class="col">
