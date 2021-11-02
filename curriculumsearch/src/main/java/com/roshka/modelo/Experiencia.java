@@ -3,11 +3,16 @@ package com.roshka.modelo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,9 +31,16 @@ public class Experiencia {
     private String referencias;
     @Column(name = "cargo")
     private String cargo;
-    @ManyToOne
+    @Column(name = "descripcion")
+    private String descripcion;
+    @JsonBackReference
+    @ManyToOne(optional = false)
     @JoinColumn
     private Postulante postulante;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "experiencia",cascade = CascadeType.ALL)
+    private List<ExperienciaReconocimiento> reconocimientos;
 
     public long getId() {
         return id;
@@ -91,5 +103,17 @@ public class Experiencia {
     }
     public Postulante getPostulante() {
         return postulante;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public void setReconocimientos(List<ExperienciaReconocimiento> reconocimientos) {
+        this.reconocimientos = reconocimientos;
+    }
+    public List<ExperienciaReconocimiento> getReconocimientos() {
+        return reconocimientos;
     }
 }

@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="estudio_reconocimiento")
 public class EstudioReconocimiento {
@@ -21,6 +23,7 @@ public class EstudioReconocimiento {
     private String nombre;
     @Column(name="certificado")
     private String certificado;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn
     private Estudio estudio;
