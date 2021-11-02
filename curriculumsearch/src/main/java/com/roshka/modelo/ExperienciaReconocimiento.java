@@ -2,6 +2,8 @@ package com.roshka.modelo;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "experiencia_reconocimiento")
 public class ExperienciaReconocimiento {
@@ -10,8 +12,9 @@ public class ExperienciaReconocimiento {
     @Column(name="id")
     private long id;
     
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn
+    @JsonBackReference
     private Experiencia experiencia;
   
     @Column(name="nombre")

@@ -9,9 +9,19 @@ function agregarFieldExpierncia(){
     const pairs = {};
     const formexp = document.querySelector("[name=experiencia-form]");
     const formData = new FormData(formexp);
+    const reconocimientos = [{},{},{}];
+    let pos_rec;
     for (const [name, value] of formData){
-        pairs[name] = value
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            reconocimientos[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+        
     }
+    pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
     experiencias[cont_experiencia] = pairs;
     formexp.reset();
     //imprimir lista actualizada

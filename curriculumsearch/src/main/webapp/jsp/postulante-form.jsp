@@ -100,9 +100,40 @@
                     <label for="fechaHasta" class="form-label">Fecha Hasta</label>
                     <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
                     <label for="cargo" class="form-label">Cargo</label>
-                    <input type="cargo" class="form-control  " name="cargo" id="cargo" >
-                    <label for="refNombre" class="form-label">Referencia Nombre</label>
-                    <input type="text" class="form-control  " name="referencias" id="refNombre" >
+                    <input type="text" class="form-control  " name="cargo" id="cargo" >
+                    
+                    <label for="descripcion" class="form-label">Descripcion</label>
+                    <textarea  class="form-control  " name="descripcion" id="descripcion" > </textarea>
+                    
+                    <label for="refNombre" class="form-label">Nombre de la Referencia</label>
+                    <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
+                    <label for="refTel" class="form-label">Telefono de la Referencia</label>
+                    <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
+                    <label class="form-label">Reconocimientos</label>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
+                      </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

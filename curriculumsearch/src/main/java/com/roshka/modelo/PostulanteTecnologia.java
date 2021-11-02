@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity 
 @Table(name="postulante_tecnologia")
 
@@ -23,6 +25,7 @@ public class PostulanteTecnologia {
    private Tecnologia tecnologia;
    @ManyToOne()
    @JoinColumn
+   @JsonBackReference
    private Postulante postulante;
 public long getId() {
     return id;

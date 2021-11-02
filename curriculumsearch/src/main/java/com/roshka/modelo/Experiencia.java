@@ -3,11 +3,16 @@ package com.roshka.modelo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,13 +27,22 @@ public class Experiencia {
     private Date fechaDesde;
     @Column(name = "fecha_hasta")
     private Date fechaHasta;
-    @Column(name = "referencias")
-    private String referencias;
+    @Column(name = "nombre_referencia")
+    private String nombreReferencia;
+    @Column(name = "telefono_referencia")
+    private String telefonoReferencia;
     @Column(name = "cargo")
     private String cargo;
-    @ManyToOne
+    @Column(name = "descripcion")
+    private String descripcion;
+    @JsonBackReference
+    @ManyToOne(optional = false)
     @JoinColumn
     private Postulante postulante;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "experiencia",cascade = CascadeType.ALL)
+    private List<ExperienciaReconocimiento> reconocimientos;
 
     public long getId() {
         return id;
@@ -74,11 +88,17 @@ public class Experiencia {
             e.printStackTrace();
         }
     }
-    public String getReferencias() {
-        return referencias;
+    public String getNombreReferencia() {
+        return nombreReferencia;
     }
-    public void setReferencias(String referencias) {
-        this.referencias = referencias;
+    public String getTelefonoReferencia() {
+        return telefonoReferencia;
+    }
+    public void setNombreReferencia(String nombreReferencia) {
+        this.nombreReferencia = nombreReferencia;
+    }
+    public void setTelefonoReferencia(String telefonoReferencia) {
+        this.telefonoReferencia = telefonoReferencia;
     }
     public String getCargo() {
         return cargo;
@@ -91,5 +111,17 @@ public class Experiencia {
     }
     public Postulante getPostulante() {
         return postulante;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public void setReconocimientos(List<ExperienciaReconocimiento> reconocimientos) {
+        this.reconocimientos = reconocimientos;
+    }
+    public List<ExperienciaReconocimiento> getReconocimientos() {
+        return reconocimientos;
     }
 }
