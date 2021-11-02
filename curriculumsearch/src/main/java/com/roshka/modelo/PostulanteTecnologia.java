@@ -35,30 +35,30 @@ public class PostulanteTecnologia {
    @JoinColumn
    @JsonBackReference
     private Postulante postulante;
-public long getId() {
-    return id;
-}
-public void setId(long id) {
-    this.id = id;
-}
-public Long getNivel() {
-    return nivel;
-}
-public void setNivel(Long nivel) {
-    this.nivel = nivel;
-}
-public Tecnologia getTecnologia() {
-    return tecnologia;
-}
-public void setTecnologia(Tecnologia tecnologia) {
-    this.tecnologia = tecnologia;
-}
-public Postulante getPostulante() {
-    return postulante;
-}
-public void setPostulante(Postulante postulante) {
-    this.postulante = postulante;
-}
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public Long getNivel() {
+        return nivel;
+    }
+    public void setNivel(Long nivel) {
+        this.nivel = nivel;
+    }
+    public Tecnologia getTecnologia() {
+        return tecnologia;
+    }
+    public void setTecnologia(Tecnologia tecnologia) {
+        this.tecnologia = tecnologia;
+    }
+    public Postulante getPostulante() {
+        return postulante;
+    }
+    public void setPostulante(Postulante postulante) {
+        this.postulante = postulante;
+    }
 
 
 

@@ -153,7 +153,7 @@ public class Postulante {
         if(fechaNacimiento==null || fechaNacimiento.isEmpty()) return;
         try {
 
-            this.fechaNacimiento = new SimpleDateFormat("yyyy-mm-dd").parse(fechaNacimiento);
+                this.fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             System.err.println("Error al parsear");
