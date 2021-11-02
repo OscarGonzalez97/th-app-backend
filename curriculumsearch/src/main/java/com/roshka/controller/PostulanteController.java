@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
 
 import com.roshka.modelo.Experiencia;
 import com.roshka.modelo.Postulante;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;

@@ -4,13 +4,51 @@ let cont_tecnologia = 0;
 const experiencias = [];
 const estudios = [];
 const tecnologias = [];
-function agregarFieldExpierncia(){
+
+const formValidator = function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+    var expForm = document.querySelector('#agregar-exp')
+
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+}
+
+function agregarFieldExpierncia(event){
     //recoger del form
     const pairs = {};
     const formexp = document.querySelector("[name=experiencia-form]");
     const formData = new FormData(formexp);
     const reconocimientos = [{},{},{}];
     let pos_rec;
+    let returnFlag = false;
+
+    formData.forEach((value, key)=>{
+        if((key === "institucion" || key === "cargo" || key === "fechaDesde")
+        && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        alert("Rellene Institucion, Fechas y Cargo como minimo");
+        return;
+    }
+
     for (const [name, value] of formData){
         pos_rec = name.split("-");//rec-nombre-index
         if (pos_rec.length > 1) {
@@ -45,7 +83,6 @@ function agregarFieldExpierncia(){
     div.innerHTML = '';
     div.appendChild(div1);
     cont_experiencia++;
-
 }
 
 function eliminarExperiencia(event) {
@@ -90,10 +127,14 @@ async function postData(url = '', data = {}) {
     });
     return response; // parses JSON response into native JavaScript objects
 }
-
+formValidator()
 form = document.querySelector("form");
 form.addEventListener("submit",(evt)=>{
-    
+    // if (!form.checkValidity()) {
+    //     evt.preventDefault()
+    //     evt.stopPropagation()
+    // }
+    // form.classList.add('was-validated')
     postData('postulante', serializeJSON(form))
     .then(response => {
         if(response.status==200 || response.status==302){
