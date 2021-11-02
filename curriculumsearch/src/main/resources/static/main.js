@@ -9,9 +9,19 @@ function agregarFieldExpierncia(){
     const pairs = {};
     const formexp = document.querySelector("[name=experiencia-form]");
     const formData = new FormData(formexp);
+    const reconocimientos = [{},{},{}];
+    let pos_rec;
     for (const [name, value] of formData){
-        pairs[name] = value
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            reconocimientos[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+        
     }
+    pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
     experiencias[cont_experiencia] = pairs;
     formexp.reset();
     //imprimir lista actualizada
@@ -25,7 +35,7 @@ function agregarFieldExpierncia(){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)">Eliminar</button>
+            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
         </li>
         
         `
@@ -40,7 +50,6 @@ function agregarFieldExpierncia(){
 
 function eliminarExperiencia(event) {
     //eliminar del array
-    console.log(event.target.parentElement.id.split("-")[1])
     experiencias[event.target.parentElement.id.split("-")[1]]=null
     //eliminar en html
     event.target.parentElement.remove()
@@ -87,7 +96,6 @@ form.addEventListener("submit",(evt)=>{
     
     postData('postulante', serializeJSON(form))
     .then(response => {
-        console.log(response); // JSON data parsed by `data.json()` call
         location.replace(response.url);
     });
     evt.preventDefault();

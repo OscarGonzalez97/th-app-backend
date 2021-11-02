@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.roshka.modelo.Experiencia;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.PostulanteRepository;
 
