@@ -98,6 +98,8 @@ form.addEventListener("submit",(evt)=>{
     .then(response => {
         if(response.status==200 || response.status==302){
             location.replace(response.url);
+        }else{
+            console.log(response.text().then(value => console.log(value)))
         }
     });
     evt.preventDefault();

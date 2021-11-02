@@ -22,11 +22,11 @@ public class EstudioReconocimiento {
     private Long id;
 
     @Column(name="nombre")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String nombre;
 
     @Column(name="certificado")
-    @NotBlank
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String certificado;
 
     @JsonBackReference
