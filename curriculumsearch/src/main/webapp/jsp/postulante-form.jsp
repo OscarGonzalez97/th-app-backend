@@ -66,19 +66,22 @@
         <div class="mb-3 col-5">
             <label for="modalidad" class="form-label">Modalidad</label>
             <input type="text" class="form-control  " name="modalidad" id="modalidad" >
-        </div>
-      
-        
-      
+        </div>     
+        <br>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienciaForm">
             Agregar Experiencia
         </button>
-        <div id="experiencias">
-
-        </div>
+        <div id="experiencias"></div>
+        <br>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estudioForm">
+          Agregar Estudios
+       </button>
+        <br><br>
+        <div id="estudios"></div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
+      <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -109,6 +112,47 @@
           </div>
         </div>
       </div>
+
+
+      <!--Modal de Estudios-->
+      <div class="modal fade" id="estudioForm" tabindex="-1" role="dialog" aria-labelledby="estudioForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form name="estudio-form">
+                    <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>
+                    <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">
+                    <label for="institucion" class="form-label">Institucion</label>
+                    <input type="text" class="form-control  " name="institucion" id="institucion">
+                   
+                    <label for="fechaDesde" class="form-label">Fecha Desde</label>
+                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
+                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+
+                    <label for="referencias" class="form-label">Referencias</label>
+                    <input type="text" class="form-control  " name="referencias" id="referencias" >
+
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <input type="text" class="form-control  " name="titulo" id="titulo" >
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" onclick="agregarFieldEstudio()" data-dismiss="modal">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 

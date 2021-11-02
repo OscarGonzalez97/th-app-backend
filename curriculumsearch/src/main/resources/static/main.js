@@ -90,3 +90,56 @@ form.addEventListener("submit",(evt)=>{
     });
     evt.preventDefault();
 } );
+
+
+
+//Metodos para Estudios
+
+
+
+function agregarFieldEstudio(){
+    //recoger del form
+    const pairs = {};
+    const formest = document.querySelector("[name=estudio-form");
+    const formData = new FormData(formest);
+    for (const [name, value] of formData){
+        pairs[name] = value
+    }
+    estudios[cont_estudios] = pairs;
+    formest.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#estudios")
+    const div1 = document.createElement('div');
+    let content='<ul>'
+    
+    for (let index = 0; index < estudios.length; index++) {
+        const est = estudios[index];
+        if(est==null) continue;
+        content += `
+        <li id="est-${index}">        
+            ${est.institucion}
+            <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
+        </li>
+        
+        `
+    }
+    content += "</ul>" 
+    div1.innerHTML = content
+    div.innerHTML = '';
+    div.appendChild(div1);
+    cont_estudios++;
+
+}
+
+function eliminarEstudio(event) {
+    //eliminar del array
+    estudios[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+
+
+
+
+
+
