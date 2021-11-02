@@ -18,7 +18,6 @@ function agregarFieldExpierncia(){
     const div = document.querySelector("#experiencias")
     const div1 = document.createElement('div');
     let content='<ul>'
-    
     for (let index = 0; index < experiencias.length; index++) {
         const exp = experiencias[index];
         if(exp==null) continue;
@@ -37,13 +36,60 @@ function agregarFieldExpierncia(){
     cont_experiencia++;
 
 }
+/*--------------------------------------------------------------------*/
+function agregarFieldTecnologia(){
+    //recoger del form
+    const pairs = {};
+    const formtecn = document.querySelector("[name=tecnologia-form]");
+    const formData = new FormData(formtecn);
+    for (const [name, value] of formData){
+        pairs[name] = value
+    }
+    tecnologias[cont_tecnologia]={}
+    tecnologias[cont_tecnologia]["tecnologia"]={nombre: pairs.nombre}
+    tecnologias[cont_tecnologia]["nivel"]=pairs.nivel
+    //tecnologias[cont_tecnologia] = pairs;
+    formtecn.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#tecnologias")
+    const div1 = document.createElement('div');
+    console.log(tecnologias[0])
 
+    let content1='<ul>'
+    for (let index = 0; index < tecnologias.length; index++) {
+        const tecn = tecnologias[index];
+        if(tecn==null) continue;
+        content1 += `
+        <li id="tecn-${index}">        
+            ${tecn.tecnologia.nombre} 
+            <button type="button" onclick="eliminarTecnologia(event)">Eliminar</button>
+        </li>
+        
+        `
+    }
+    content1 += "</ul>" 
+    div1.innerHTML = content1
+    div.innerHTML = '';
+    div.appendChild(div1);
+    cont_tecnologia++;
+}
+
+
+/*--------------------------------------------------------------------*/
 function eliminarExperiencia(event) {
     //eliminar del array
     experiencias[event.target.parentElement.id.split("-")[1]]=null
     //eliminar en html
     event.target.parentElement.remove()
 }
+/*----------------------------------------------------------------- */
+function eliminarTecnologia(event) {
+    //eliminar del array
+    tecnologias[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*----------------------------------------------------------------- */
 function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
