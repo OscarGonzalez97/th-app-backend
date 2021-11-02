@@ -78,7 +78,7 @@ public class Experiencia {
         if(fechaDesde==null || fechaDesde.isEmpty()) return;
 
         try {
-            this.fechaDesde = new SimpleDateFormat("yyyy-mm-dd").parse(fechaDesde);
+            this.fechaDesde = new SimpleDateFormat("yyyy-MM-dd").parse(fechaDesde);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class Experiencia {
         if(fechaHasta==null || fechaHasta.isEmpty()) return;
 
         try {
-            this.fechaHasta = new SimpleDateFormat("yyyy-mm-dd").parse(fechaHasta);
+            this.fechaHasta = new SimpleDateFormat("yyyy-MM-dd").parse(fechaHasta);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
