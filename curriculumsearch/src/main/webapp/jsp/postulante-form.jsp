@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -158,8 +161,19 @@
             </div>
             <div class="modal-body">
                 <form name="tecnologia-form">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" >
+                  <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
+                  <div class="input-group mb-3">
+                    <select class="form-select" name="tecnologia-id" aria-label="Default select example">
+                      <option value="-1" selected>Open this select menu</option>
+                      <c:forEach items="${tecnologias}" var="tecnologia">
+                        <option value="${tecnologia.id}">${tecnologia.nombre}</option>
+                      </c:forEach>
+                    </select>
+                    <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
+                  </div>
+                    
+                    
+                    <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
                     <label for="nivel" class="form-label">Nivel</label>
                     <input type="number" class="form-control" name="nivel" id="nivel" >
                 </form>

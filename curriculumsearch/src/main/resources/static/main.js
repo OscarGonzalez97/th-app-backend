@@ -56,10 +56,11 @@ function agregarFieldTecnologia(){
         pairs[name] = value
     }
     tecnologias[cont_tecnologia]={}
-    tecnologias[cont_tecnologia]["tecnologia"]={nombre: pairs.nombre}
+    tecnologias[cont_tecnologia]["tecnologia"]=pairs["tecnologia-id"]=="-1"?{nombre: pairs["tecnologia-nombre"]}:{id: pairs["tecnologia-id"],nombre:document.querySelector('option[value="'+pairs["tecnologia-id"]+'"]').innerHTML}
     tecnologias[cont_tecnologia]["nivel"]=pairs.nivel
     //tecnologias[cont_tecnologia] = pairs;
     formtecn.reset();
+    document.querySelector("#tecnologia-nombre").classList.add('d-none')
     //imprimir lista actualizada
     const div = document.querySelector("#tecnologias")
     const div1 = document.createElement('div');
@@ -150,3 +151,5 @@ form.addEventListener("submit",(evt)=>{
     });
     evt.preventDefault();
 } );
+
+document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})

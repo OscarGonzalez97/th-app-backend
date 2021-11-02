@@ -9,13 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity 
-@Table(name="postulante_tecnologia")
+@Table(name="postulante_tecnologia",
+uniqueConstraints=@UniqueConstraint(columnNames={"postulante_id", "tecnologia_id"}))
 
 public class PostulanteTecnologia {
    @Id 
@@ -27,7 +29,7 @@ public class PostulanteTecnologia {
    @Min(value = 1)
    @Max(value = 5)
    private Long nivel;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},optional = false)
     @JoinColumn
    private Tecnologia tecnologia;
 
