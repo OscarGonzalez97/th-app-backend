@@ -6,8 +6,6 @@ import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.roshka.utils.Helper;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,12 +64,12 @@ public class Postulante {
     @Column(name = "curriculum")
     private String curriculum;
 
-    @Column(name = "modalidad")
+    @Column(name = "modalidad", length = 2)
     @NotNull
-    private String modalidad;
+    private Modalidad modalidad;
 
-    @Column(name = "disponibilidad")
-    private String disponibilidad;
+    @Column(name = "disponibilidad", length = 2)
+    private Disponibilidad disponibilidad;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
@@ -178,19 +176,19 @@ public class Postulante {
         this.curriculum = curriculum;
     }
 
-    public String getModalidad() {
+    public Modalidad getModalidad() {
         return modalidad;
     }
 
-    public void setModalidad(String modalidad) {
+    public void setModalidad(Modalidad modalidad) {
         this.modalidad = modalidad;
     }
 
-    public String getDisponibilidad() {
+    public Disponibilidad getDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(String disponibilidad) {
+    public void setDisponibilidad(Disponibilidad disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 

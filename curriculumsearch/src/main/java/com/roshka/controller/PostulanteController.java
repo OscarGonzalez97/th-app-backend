@@ -3,7 +3,8 @@ package com.roshka.controller;
 
 import javax.validation.ConstraintViolationException;
 
-
+import com.roshka.modelo.Disponibilidad;
+import com.roshka.modelo.Modalidad;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
@@ -33,6 +34,8 @@ public class PostulanteController {
     @RequestMapping("/postulante")
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
+        model.addAttribute("modalidades", Modalidad.values());
+        model.addAttribute("disponibilidades", Disponibilidad.values());
         return "postulante-form";
     }
 
