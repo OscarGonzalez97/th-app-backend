@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -150,15 +151,7 @@ public class Postulante {
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        if(fechaNacimiento==null || fechaNacimiento.isEmpty()) return;
-        try {
-
-                this.fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            System.err.println("Error al parsear");
-            e.printStackTrace();
-        }
+        this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
     }
 
     public String getResumen() {

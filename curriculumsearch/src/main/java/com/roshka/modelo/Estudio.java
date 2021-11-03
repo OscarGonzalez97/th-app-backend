@@ -19,6 +19,7 @@ import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 @Entity
 @Table(name="estudio")
 public class Estudio {  
@@ -42,7 +43,7 @@ public class Estudio {
 
     @Column(name="fecha_hasta")
     private Date fechaHasta;
-    
+
     @Column(name="titulo")
     @NotBlank(message = "Este campo no puede estar vacio")
     private String titulo;
@@ -73,6 +74,13 @@ public class Estudio {
 	public void setPostulante(Postulante postulante) {
 		this.postulante = postulante;
 	}
+
+    public void setFechaDesde(String fechaDesde) {
+        this.fechaDesde = Helper.convertirFecha(fechaDesde);
+    }
+    public void setFechaHasta(String fechaHasta) {
+        this.fechaHasta = Helper.convertirFecha(fechaHasta);
+    }
 
 	
 

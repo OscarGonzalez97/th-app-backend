@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -75,14 +76,7 @@ public class Experiencia {
         this.fechaDesde = fechaDesde;
     }
     public void setFechaDesde(String fechaDesde) {
-        if(fechaDesde==null || fechaDesde.isEmpty()) return;
-
-        try {
-            this.fechaDesde = new SimpleDateFormat("yyyy-MM-dd").parse(fechaDesde);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.fechaDesde = Helper.convertirFecha(fechaDesde);
     }
     public Date getFechaHasta() {
         return fechaHasta;
@@ -91,14 +85,7 @@ public class Experiencia {
         this.fechaHasta = fechaHasta;
     }
     public void setFechaHasta(String fechaHasta) {
-        if(fechaHasta==null || fechaHasta.isEmpty()) return;
-
-        try {
-            this.fechaHasta = new SimpleDateFormat("yyyy-MM-dd").parse(fechaHasta);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.fechaHasta = Helper.convertirFecha(fechaHasta);
     }
     public String getNombreReferencia() {
         return nombreReferencia;
