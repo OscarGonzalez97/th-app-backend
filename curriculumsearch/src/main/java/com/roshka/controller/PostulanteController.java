@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Locale;
 
 
 @Controller
@@ -72,7 +73,7 @@ public class PostulanteController {
     public ModelAndView getPostTec(@PathVariable("name") String name){
         System.out.println(name);
         ModelAndView mv = new ModelAndView("list-test");
-        mv.addObject("lista", post.buscarPostulantesPorTecnologia(name));
+        mv.addObject("lista", post.buscarPostulantesPorTecnologia(name.toLowerCase()));
         return mv;
     }
 
