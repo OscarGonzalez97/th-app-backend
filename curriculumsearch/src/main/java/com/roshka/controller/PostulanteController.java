@@ -31,6 +31,13 @@ public class PostulanteController {
         return "index";
     }
 
+    @RequestMapping("/postulantes")
+    public String postulantes(Model model) {
+        model.addAttribute("tecnologias", tecRepo.findAll());
+        model.addAttribute("postulantes", post.findAll());
+        return "postulantes";
+    }
+
     @RequestMapping("/postulante")
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
