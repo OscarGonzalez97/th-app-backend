@@ -15,6 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.sql.SQLOutput;
+import java.util.List;
 
 
 @Controller
@@ -62,6 +66,14 @@ public class PostulanteController {
             ConstraintViolationException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
+    }
+
+    @GetMapping("/getPostulanteByTec_test/{name}")
+    public ModelAndView getPostTec(@PathVariable("name") String name){
+        System.out.println(name);
+        ModelAndView mv = new ModelAndView("list-test");
+        mv.addObject("lista", post.buscarPostulantesPorTecnologia(name));
+        return mv;
     }
 
 }
