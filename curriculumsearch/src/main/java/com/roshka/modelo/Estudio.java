@@ -3,6 +3,7 @@ package com.roshka.modelo;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,27 +13,39 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 @Entity
 @Table(name="estudio")
 public class Estudio {  
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY) 
+    @GeneratedValue(strategy=GenerationType.AUTO) 
     @Column(name="id")   
     private long id;
+
     @Column(name="tipo_de_studio")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String tipoDeEstudio;
+
     @Column(name="institucion")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String institucion;
+
     @Column(name="fecha_desde")
+    @NotNull(message = "Este campo no puede estar vacio")
+    @Past(message = "Este campo no puede estar en el futuro")
     private Date fechaDesde;
+
     @Column(name="fecha_hasta")
     private Date fechaHasta;
-    @Column(name="referencias")
-    private String referencias;
+
     @Column(name="titulo")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String titulo;
     
     @ManyToOne
@@ -41,7 +54,7 @@ public class Estudio {
     private Postulante postulante;
     
     @JsonManagedReference
-    @OneToMany(mappedBy = "estudio")
+    @OneToMany(mappedBy = "estudio",cascade = CascadeType.ALL)
     private List<EstudioReconocimiento> estudioReconocimiento;
     
     
@@ -61,6 +74,13 @@ public class Estudio {
 	public void setPostulante(Postulante postulante) {
 		this.postulante = postulante;
 	}
+
+    public void setFechaDesde(String fechaDesde) {
+        this.fechaDesde = Helper.convertirFecha(fechaDesde);
+    }
+    public void setFechaHasta(String fechaHasta) {
+        this.fechaHasta = Helper.convertirFecha(fechaHasta);
+    }
 
 	
 
@@ -103,14 +123,6 @@ public class Estudio {
 
     public void setFechaHasta(Date fechaHasta) {
         this.fechaHasta = fechaHasta;
-    }
-
-    public String getReferencias() {
-        return this.referencias;
-    }
-
-    public void setReferencias(String referencias) {
-        this.referencias = referencias;
     }
 
     public String getTitulo() {

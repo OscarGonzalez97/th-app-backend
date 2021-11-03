@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Hello, world!</title>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
@@ -128,101 +131,146 @@
   </head>
 
   <body class="container">
-    <form name="postulante" method="post">
-                        <div class="container mt-3">
+    <form name="postulante" method="post" class="needs-validation" novalidate>
+                      <div class="container mt-3">
                           <div class="card p-3 text-center">
                               <div class="d-flex flex-row justify-content-center mb-3">
                                 
                               </div>
                               <h4>Curriculum</h4>
                               <div class="row">
-                                <div class="about-inputs  mb-3 col-md-12 center">
-                                  <label for="resumen" class="form-label">Resumen</label>
-                                  <textarea  class="form-control center  " name="resumen" id="resumen" > </textarea>
-                                </div>
+                                  <div class="about-inputs  mb-3 col-md-12 center">
+                                    <label for="resumen" class="form-label">Resumen</label>
+                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                    
+                                  </div>
 
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control  " id="nombre" >
+                                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="apellido" class="form-label">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control  " id="apellido" >
+                                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
           
 
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="correo" class="form-label">Email address</label>
-                                    <input type="email" name="correo" class="form-control  " id="correo" >
+                                    <input type="email" name="correo" class="form-control  " id="correo" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
                                   
                               
                                   <div class="inputs  mb-3 col-md-6">
                                     <label for="ci" class="form-label">Cedula de identidad</label>
-                                    <input type="number" name="ci" class="form-control  " id="ci" >
+                                    <input type="number" name="ci" class="form-control  " id="ci" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
                                     <label form="ciudad" class="form-label">Ciudad</label>
-                                    <input type="text" name="ciudad" class="form-control " id="ciudad" >
+                                    <input type="text" name="ciudad" class="form-control " id="ciudad" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="number" name="telefono" class="form-control  " id="telefono" >
+                                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
                                   </div>
 
-                                <div class="inputs mb-3 col-md-6">
-                                  <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                                  <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" >
-                                </div>
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
                               
                         
-                                <div class="inputs col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
-                                  <select name="nivelIngles" id="nivelIngles" class="bg-light">
-                                  <option value="1" selected>1</option>
-                                  <option value="2" >2</option>
-                                  <option value="3" >3</option>
-                                  <option value="4" >4</option>
-                                  <option value="5" >5</option>
-                                  </select> 
-                                </div>
+                                  <div class="inputs col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
+                                    <select name="nivelIngles" id="nivelIngles" class="bg-light">
+                                    <option value="1" selected>1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    </select> 
+                                  </div>
                                 
-                                <div class="inputs mb-3 col-md-6"> 
-                                  <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
-                                  <select name="disponibilidad" id="disponibilidad" class="bg-light">
-                                  <option value="Tiempo completo" selected>Tiempo completo</option>
-                                  <option value="Medio tiempo">Medio tiempo</option>
-                      
-                                </select> </div>
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
+                                    <select name="disponibilidad" id="disponibilidad" class="bg-light">
+                                    <option value="Tiempo completo" selected>Tiempo completo</option>
+                                    <option value="Medio tiempo">Medio tiempo</option>
+                        
+                                  </select> </div>
                                 
-                                <div class="inputs mb-3 col-md-6"> 
-                                  <label for="modalidad" class="form-label"> Modalidad</label> 
-                                  <select name="modalidad" id="modalidad" class="bg-light">
-                                  <option value="Pesencial" selected>Presencial</option>
-                                  <option value="Semi presencial">Semi presencial</option>
-                                  <option value="Remoto">Remoto</option>
-                      
-                                </select> </div>
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="modalidad" class="form-label"> Modalidad</label> 
+                                    <select name="modalidad" id="modalidad" class="bg-light">
+                                    <option value="Pesencial" selected>Presencial</option>
+                                    <option value="Semi presencial">Semi presencial</option>
+                                    <option value="Remoto">Remoto</option>
+                        
+                                  </select> </div>
                               
-                                <div class="inputs p-3 py-5">
-                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Experiencia</span></div><br>   
-                              </div>
-                              </div>
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+                                  </div>
 
-                        
-                                <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
+                                  </div>
+                                    
+                               
+                                  <div class="inputs p-3 py-5">
+                                   <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
+                                  </div>
+                                 
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
+                                  </div>
+                            
+                               
+                               
+                                <div class="inputs p-3 py-5">
+                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
                                 </div>
+                                
+                                <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
+                                </div>
+                              
+                      
+                        
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-end">
                                   <button class="px-3 btn btn-sm btn-outline-primary">Cancelar</button> 
                                   <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
                                 </div>
                               </div>
+                          </div>
                       </div>
+    </form>
 
-      </form>
 
+      <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -234,6 +282,7 @@
             </div>
             <div class="modal-body">
                 <form name="experiencia-form">
+
                         <div class="inputs">
                             <label for="institucion" class="inputs form-label">Institucion</label>
                             <input type="text" class="inputs form-control  " name="institucion" id="institucion" >
@@ -286,21 +335,121 @@
                               <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
                             </div>
                           </div>
+
                 </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="agregarFieldExpierncia()" data-dismiss="modal">Agregar</button>
+              <button id="agregar-exp" type="button" class="btn btn-primary" onclick="agregarFieldExpierncia()" data-dismiss="modal">Agregar</button>
             </div>
           </div>
         </div>
       </div>
+    <!--------------------------------------------------------------------------------------->
+      <div class="modal fade" id="tecnologiaForm" tabindex="-2" role="dialog" aria-labelledby="tecnologiaForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form name="tecnologia-form">
+                <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
+                <div class="input-group mb-3">
+                  <select class="form-select" name="tecnologia-id" aria-label="Default select example">
+                    <option value="-1" selected>Open this select menu</option>
+                    <c:forEach items="${tecnologias}" var="tecnologia">
+                      <option value="${tecnologia.id}">${tecnologia.nombre}</option>
+                    </c:forEach>
+                  </select>
+                  <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
+                </div>
+                  
+                  
+                  <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
+                  <label for="nivel" class="form-label">Nivel</label>
+                  <input type="number" class="form-control" name="nivel" id="nivel" >
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="agregarFieldTecnologia()" data-dismiss="modal">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>      
+  <!--------------------------------------------------------------------------------------->
+
+
+      <!--Modal de Estudios-->
+      <div class="modal fade" id="estudioForm" tabindex="-1" role="dialog" aria-labelledby="estudioForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form name="estudio-form">
+                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>
+                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">
+                <label for="institucion" class="form-label">Institucion</label>
+                <input type="text" class="form-control  " name="institucion" id="institucion">                 
+                <label for="fechaDesde" class="form-label">Fecha Desde</label>
+                <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                <label for="fechaHasta" class="form-label">Fecha Hasta</label>
+                <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control  " name="titulo" id="titulo" >
+
+                <label class="form-label">Reconocimientos</label>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
+                  </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldEstudio()" data-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
   </body>
 </html>

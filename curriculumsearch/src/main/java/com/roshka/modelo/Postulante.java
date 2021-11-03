@@ -1,8 +1,10 @@
 package com.roshka.modelo;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,36 +22,52 @@ public class Postulante {
     private long id;
 
     @Column(name="nombre")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    @Size(max = 255)
     private String nombre;
 
     @Column(name = "apellido")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    @Size(max = 255)
     private String apellido;
 
     @Column(name = "ci")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    @Size(max = 120)
     private String ci;
 
     @Column(name = "correo")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    @Email(message = "Formato incorrecto de correo")
     private String correo;
 
     @Column(name = "ciudad")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    @Size(max = 120)
     private String ciudad;
 
     @Column(name = "telefono")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String telefono;
 
     @Column(name = "fecha_nacimiento")
+    @NotNull(message = "Este campo no puede estar vacio")
+    @Past(message = "Este campo no puede estar en el futuro")
     private Date fechaNacimiento;
 
     @Column(name = "resumen")
     private String resumen;
 
     @Column(name = "nivel_ingles")
+    @Min(value = 1)
+    @Max(value = 5)
     private long nivelIngles;
 
     @Column(name = "curriculum")
     private String curriculum;
 
     @Column(name = "modalidad")
+    @NotNull
     private String modalidad;
 
     @Column(name = "disponibilidad")
@@ -133,15 +151,7 @@ public class Postulante {
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        if(fechaNacimiento==null || fechaNacimiento.isEmpty()) return;
-        try {
-
-            this.fechaNacimiento = new SimpleDateFormat("yyyy-mm-dd").parse(fechaNacimiento);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            System.err.println("Error al parsear");
-            e.printStackTrace();
-        }
+        this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
     }
 
     public String getResumen() {

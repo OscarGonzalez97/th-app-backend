@@ -12,8 +12,12 @@ import javax.persistence.GenerationType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.roshka.utils.Helper;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(name = "experiencia")
@@ -21,18 +25,29 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @Column(name = "institucion")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String institucion;
+
     @Column(name = "fecha_desde")
+    @Past(message = "Este campo no puede estar en el futuro")
+    @NotNull(message = "Este campo no puede estar vacio")
     private Date fechaDesde;
+
     @Column(name = "fecha_hasta")
     private Date fechaHasta;
-    @Column(name = "referencias")
-    private String referencias;
+    @Column(name = "nombre_referencia")
+    private String nombreReferencia;
+    @Column(name = "telefono_referencia")
+    private String telefonoReferencia;
     @Column(name = "cargo")
+    @NotBlank(message = "Este campo no puede estar vacio")
     private String cargo;
+
     @Column(name = "descripcion")
     private String descripcion;
+
     @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn
@@ -55,14 +70,7 @@ public class Experiencia {
         this.institucion = institucion;
     }
     public void setFechaDesde(String fechaDesde) {
-        if(fechaDesde==null || fechaDesde.isEmpty()) return;
-
-        try {
-            this.fechaDesde = new SimpleDateFormat("yyyy-mm-dd").parse(fechaDesde);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.fechaDesde = Helper.convertirFecha(fechaDesde);
     }
     public Date getFechaHasta() {
         return fechaHasta;
@@ -71,20 +79,19 @@ public class Experiencia {
         this.fechaHasta = fechaHasta;
     }
     public void setFechaHasta(String fechaHasta) {
-        if(fechaHasta==null || fechaHasta.isEmpty()) return;
-
-        try {
-            this.fechaHasta = new SimpleDateFormat("yyyy-mm-dd").parse(fechaHasta);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.fechaHasta = Helper.convertirFecha(fechaHasta);
     }
-    public String getReferencias() {
-        return referencias;
+    public String getNombreReferencia() {
+        return nombreReferencia;
     }
-    public void setReferencias(String referencias) {
-        this.referencias = referencias;
+    public String getTelefonoReferencia() {
+        return telefonoReferencia;
+    }
+    public void setNombreReferencia(String nombreReferencia) {
+        this.nombreReferencia = nombreReferencia;
+    }
+    public void setTelefonoReferencia(String telefonoReferencia) {
+        this.telefonoReferencia = telefonoReferencia;
     }
     public String getCargo() {
         return cargo;
