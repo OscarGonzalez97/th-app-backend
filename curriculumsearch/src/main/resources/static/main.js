@@ -93,7 +93,7 @@ function agregarFieldTecnologia(){
         pairs[name] = value
     }
     tecnologias[cont_tecnologia]={}
-    tecnologias[cont_tecnologia]["tecnologia"]=pairs["tecnologia-id"]=="-1"?{nombre: pairs["tecnologia-nombre"]}:{id: pairs["tecnologia-id"],nombre:document.querySelector('option[value="'+pairs["tecnologia-id"]+'"]').innerHTML}
+    tecnologias[cont_tecnologia]["tecnologia"]=pairs["tecnologia-id"]=="-1"?{nombre: pairs["tecnologia-nombre"]}:{id: pairs["tecnologia-id"],nombre:document.querySelector('[name=tecnologia-id] > option[value="'+pairs["tecnologia-id"]+'"]').innerHTML}
     tecnologias[cont_tecnologia]["nivel"]=pairs.nivel
     //tecnologias[cont_tecnologia] = pairs;
     formtecn.reset();

@@ -219,17 +219,19 @@
                                   <div class="inputs mb-3 col-md-6"> 
                                     <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
                                     <select name="disponibilidad" id="disponibilidad" class="bg-light">
-                                    <option value="Tiempo completo" selected>Tiempo completo</option>
-                                    <option value="Medio tiempo">Medio tiempo</option>
-                        
+                                      <c:forEach items="${disponibilidades}" var="disponibilidad">
+                                        <option value="${disponibilidad.getCode()}">${disponibilidad.getDescripcion()}</option>
+                                      </c:forEach>
+                                    
                                   </select> </div>
                                 
                                   <div class="inputs mb-3 col-md-6"> 
                                     <label for="modalidad" class="form-label"> Modalidad</label> 
                                     <select name="modalidad" id="modalidad" class="bg-light">
-                                    <option value="Pesencial" selected>Presencial</option>
-                                    <option value="Semi presencial">Semi presencial</option>
-                                    <option value="Remoto">Remoto</option>
+                                      <c:forEach items="${modalidades}" var="modalidad">
+                                        <option value="${modalidad.getCode()}">${modalidad.getDescripcion()}</option>
+                                      </c:forEach>
+                                    
                         
                                   </select> </div>
                               
@@ -303,8 +305,17 @@
                         </div>
 
                         <div class="inputs">
-                            <label for="refNombre" class="form-label">Referencia Nombre</label>
-                            <input type="text" class="form-control  " name="referencias" id="refNombre" >
+                          <label for="descripcion" class="form-label">Descripcion</label>
+                          <textarea  class="form-control  " name="descripcion" id="descripcion" > </textarea>
+
+                        </div>
+                        <div class="inputs">
+                          <label for="refNombre" class="form-label">Nombre de la Referencia</label>
+                          <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
+                        </div>
+                        <div class="inputs">
+                          <label for="refTel" class="form-label">Telefono de la Referencia</label>
+                          <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
                         </div>
                           
                           <div class="inputs">
