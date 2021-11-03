@@ -10,122 +10,265 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Hello, world!</title>
 
-    <title>Postulante</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+          body {
+                  background-color: blue
+              }
+
+              .card {
+                  border: none
+              }
+
+              .image {
+                  position: relative
+              }
+
+              .image span {
+                  background-color: blue;
+                  color: #fff;
+                  padding: 6px;
+                  height: 30px;
+                  width: 30px;
+                  border-radius: 50%;
+                  font-size: 13px;
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  top: -0px;
+                  right: 0px
+              }
+
+              .user-details h4 {
+                  color: blue
+              }
+
+              .ratings {
+                  font-size: 30px;
+                  font-weight: 600;
+                  display: flex;
+                  justify-content: left;
+                  align-items: center;
+                  color: #f9b43a
+              }
+
+              .user-details span {
+                  text-align: left
+              }
+
+              .inputs label {
+                  display: flex;
+                  margin-left: 3px;
+                  font-weight: 500;
+                  font-size: 13px;
+                  margin-bottom: 4px
+              }
+
+              .inputs input {
+                  font-size: 14px;
+                  height: 40px;
+                  border: 2px solid #ced4da
+              }
+
+              .inputs input:focus {
+                  box-shadow: none;
+                  border: 2px solid blue
+              }
+
+              .about-inputs label {
+                  display: flex;
+                  margin-left: 3px;
+                  font-weight: 500;
+                  font-size: 13px;
+                  margin-bottom: 4px
+              }
+
+              .about-inputs textarea {
+                  font-size: 14px;
+                  height: 100px;
+                  border: 2px solid #ced4da;
+                  resize: none
+              }
+
+              .about-inputs textarea:focus {
+                  box-shadow: none
+              }
+
+              .btn {
+                  font-weight: 600
+              }
+
+              .btn:focus {
+                  box-shadow: none
+              }
+
+              select {
+                  display: block;
+                  width: 100%;
+                  border: 1px solid #ddd;
+                  border-radius: 10px;
+                  height: 40px;
+                  padding: 5px 10px
+              }
+
+              select:focus {
+                  outline: none
+              }
+
+              .add-experience:hover {
+                  background: blue;
+                  color: #fff;
+                  cursor: pointer;
+                  border: solid 1px blue
+              }
+    </style>
+
+
   </head>
+
   <body class="container">
-    <h1>Curriculum</h1>
+    <form name="postulante" method="post" class="needs-validation" novalidate>
+                      <div class="container mt-3">
+                          <div class="card p-3 text-center">
+                              <div class="d-flex flex-row justify-content-center mb-3">
+                                
+                              </div>
+                              <h4>Curriculum</h4>
+                              <div class="row">
+                                  <div class="about-inputs  mb-3 col-md-12 center">
+                                    <label for="resumen" class="form-label">Resumen</label>
+                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                    
+                                  </div>
 
-    <form name="postulante" method="post" class="row g-3 needs-validation" novalidate>
-        <div class="mb-3 col-5">
-          <label for="correo" class="form-label">Email address</label>
-          <input type="email" name="correo" class="form-control  " id="correo" required>
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-          <div class="valid-feedback">
-              Luce Bien!
-          </div>
-        </div>
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+          
 
-        <div class="mb-3 col-5">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" name="nombre" class="form-control" id="nombre" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" name="apellido" class="form-control  " id="apellido" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="correo" class="form-label">Email address</label>
+                                    <input type="email" name="correo" class="form-control  " id="correo" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+                                  
+                              
+                                  <div class="inputs  mb-3 col-md-6">
+                                    <label for="ci" class="form-label">Cedula de identidad</label>
+                                    <input type="number" name="ci" class="form-control  " id="ci" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label form="ciudad" class="form-label">Ciudad</label>
+                                    <input type="text" name="ciudad" class="form-control " id="ciudad" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="telefono" class="form-label">Telefono</label>
+                                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
 
-        <div class="mb-3 col-3">
-            <label for="ci" class="form-label">Cedula de identidad</label>
-            <input type="number" name="ci" class="form-control  " id="ci" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="ciudad" class="form-label">Ciudad</label>
-            <input type="text" name="ciudad" class="form-control  " id="ciudad" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
+                              
+                        
+                                  <div class="inputs col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
+                                    <select name="nivelIngles" id="nivelIngles" class="bg-light">
+                                    <option value="1" selected>1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    </select> 
+                                  </div>
+                                
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
+                                    <select name="disponibilidad" id="disponibilidad" class="bg-light">
+                                    <option value="Tiempo completo" selected>Tiempo completo</option>
+                                    <option value="Medio tiempo">Medio tiempo</option>
+                        
+                                  </select> </div>
+                                
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="modalidad" class="form-label"> Modalidad</label> 
+                                    <select name="modalidad" id="modalidad" class="bg-light">
+                                    <option value="Pesencial" selected>Presencial</option>
+                                    <option value="Semi presencial">Semi presencial</option>
+                                    <option value="Remoto">Remoto</option>
+                        
+                                  </select> </div>
+                              
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+                                  </div>
 
-        <div class="mb-3 col-5">
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="number" name="telefono" class="form-control  " id="telefono" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
+                                  </div>
+                                    
+                               
+                                  <div class="inputs p-3 py-5">
+                                   <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
+                                  </div>
+                                 
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
+                                  </div>
+                            
+                               
+                               
+                                <div class="inputs p-3 py-5">
+                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
+                                </div>
+                                
+                                <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
+                                </div>
+                              
+                      
+                        
+                                
+                                <div class="mt-3 gap-2 d-flex justify-content-end">
+                                  <button class="px-3 btn btn-sm btn-outline-primary">Cancelar</button> 
+                                  <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+    </form>
 
-        <div class="mb-3 col-5">
-            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-            <input type="date" min="1910-01-01" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="resumen" class="form-label">Resumen</label>
-            <textarea  class="form-control  " name="resumen" id="resumen" required> </textarea>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="nivelIngles" class="form-label">Nivel de ingles</label>
-            <input type="number" class="form-control"  name="nivelIngles" id="nivelIngles" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="curriculum" class="form-label">Curriculum</label>
-            <input type="text" name="curriculum" class="form-control  " id="curriculum" >
-        </div>
-        <div class="mb-3 col-5">
-            <label for="disponibilidad" class="form-label">Disponibilidad</label>
-            <input type="text" class="form-control  " name="disponibilidad" id="disponibilidad" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <div class="mb-3 col-5">
-            <label for="modalidad" class="form-label">Modalidad</label>
-            <input type="text" class="form-control  " name="modalidad" id="modalidad" required>
-            <div class="valid-feedback">
-                Luce Bien!
-            </div>
-        </div>
-        <br>
-        
-      
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienciaForm">
-            Agregar Experiencia
-        </button>
-        <div id="experiencias"></div>
-        <br>
-        
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estudioForm">
-          Agregar Estudios
-       </button>
-        <br><br>
-        <div id="estudios">
-        </div>
-        
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tecnologiaForm">
-          Agregar Tecnologia
-        </button>
-        <div id="tecnologias"> 
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
 
       <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
@@ -139,50 +282,60 @@
             </div>
             <div class="modal-body">
                 <form name="experiencia-form">
-                    <label for="institucion" class="form-label">Institucion</label>
-                    <input type="text" class="form-control  " name="institucion" id="institucion" required>
 
-                    <label for="fechaDesde" class="form-label">FechaDesde</label>
-                    <input type="date" min="1960-01-01" class="form-control  " name="fechaDesde" id="fechaDesde" required>
+                        <div class="inputs">
+                            <label for="institucion" class="inputs form-label">Institucion</label>
+                            <input type="text" class="inputs form-control  " name="institucion" id="institucion" >
+                        </div>
+                        <div class="inputs">
+                            <label for="fechaDesde" class="form-label">Fecha Desde</label>
+                            <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                        </div>
+                         
+                        <div class="inputs">
+                            <label for="fechaHasta" class="form-label">Fecha Hasta</label>
+                            <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                        </div>
+                        
+                        <div class="inputs">
+                            <label for="cargo" class="form-label">Cargo</label>
+                            <input type="text" class="form-control  " name="cargo" id="cargo" >
+                        </div>
 
-                    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                        <div class="inputs">
+                            <label for="refNombre" class="form-label">Referencia Nombre</label>
+                            <input type="text" class="form-control  " name="referencias" id="refNombre" >
+                        </div>
+                          
+                          <div class="inputs">
+                            <label class="form-label">Reconocimientos</label>
+                          </div>
+                          
+                          <div class="row mb-3">
+                            <div class="inputs col">
+                              <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
+                            </div>
+                            <div class=" inputs col">
+                              <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="inputs col">
+                              <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
+                            </div>
+                            <div class="inputs col">
+                              <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="inputs col">
+                              <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                            </div>
+                            <div class="inputs col">
+                              <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
+                            </div>
+                          </div>
 
-                    <label for="cargo" class="form-label">Cargo</label>
-                    <input type="text" class="form-control  " name="cargo" id="cargo" required>
-                    
-                    <label for="descripcion" class="form-label">Descripcion</label>
-                    <textarea  class="form-control  " name="descripcion" id="descripcion" > </textarea>
-                    
-                    <label for="refNombre" class="form-label">Nombre de la Referencia</label>
-                    <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
-                    <label for="refTel" class="form-label">Telefono de la Referencia</label>
-                    <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
-                    <label class="form-label">Reconocimientos</label>
-                    <div class="row mb-3">
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
-                      </div>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">

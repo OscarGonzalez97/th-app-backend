@@ -69,12 +69,6 @@ public class Experiencia {
     public void setInstitucion(String institucion) {
         this.institucion = institucion;
     }
-    public Date getFechaDesde() {
-        return fechaDesde;
-    }
-    public void setFechaDesde(Date fechaDesde) {
-        this.fechaDesde = fechaDesde;
-    }
     public void setFechaDesde(String fechaDesde) {
         this.fechaDesde = Helper.convertirFecha(fechaDesde);
     }

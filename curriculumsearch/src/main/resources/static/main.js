@@ -72,7 +72,7 @@ function agregarFieldExpierncia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)">Eliminar</button>
+            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
         </li>
         
         `
