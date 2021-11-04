@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "nombre": "ASUNCION"
+  },
+  {
+    "id": 1,
+    "nombre": "CONCEPCION"
+  },
+  {
+    "id": 2,
+    "nombre": "SAN PEDRO"
+  },
+  {
+    "id": 3,
+    "nombre": "CORDILLERA"
+  },
+  {
+    "id": 4,
+    "nombre": "GUAIRA"
+  },
+  {
+    "id": 5,
+    "nombre": "CAAGUAZU"
+  },
+  {
+    "id": 6,
+    "nombre": "CAAZAPA"
+  },
+  {
+    "id": 7,
+    "nombre": "ITAPUA"
+  },
+  {
+    "id": 8,
+    "nombre": "MISIONES"
+  },
+  {
+    "id": 9,
+    "nombre": "PARAGUARI"
+  },
+  {
+    "id": 10,
+    "nombre": "ALTO PARANA"
+  },
+  {
+    "id": 11,
+    "nombre": "CENTRAL"
+  },
+  {
+    "id": 12,
+    "nombre": "NEEMBUCU"
+  },
+  {
+    "id": 13,
+    "nombre": "AMAMBAY"
+  },
+  {
+    "id": 14,
+    "nombre": "CANINDEYU"
+  },
+  {
+    "id": 15,
+    "nombre": "PRESIDENTE HAYES"
+  },
+  {
+    "id": 16,
+    "nombre": "BOQUERON"
+  },
+  {
+    "id": 17,
+    "nombre": "ALTO PARAGUAY"
+  }
+]

@@ -39,10 +39,28 @@ public class Postulante {
     @Email(message = "Formato incorrecto de correo")
     private String correo;
 
-    @Column(name = "ciudad")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    @Size(max = 120)
-    private String ciudad;
+    @ManyToOne(targetEntity = Ciudad.class,fetch = FetchType.EAGER)
+    @JoinColumn(name="ciudad_id",insertable = false, updatable = false)
+    private Ciudad ciudad;
+    @Column(name="ciudad_id")
+    private Long ciudadId;
+
+
+    public Ciudad getCiudad() {
+        return this.ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Long getCiudadId() {
+        return this.ciudadId;
+    }
+
+    public void setCiudadId(Long ciudadId) {
+        this.ciudadId = ciudadId;
+    }
 
     @Column(name = "telefono")
     @NotBlank(message = "Este campo no puede estar vacio")
@@ -122,14 +140,6 @@ public class Postulante {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
     }
 
     public String getTelefono() {
