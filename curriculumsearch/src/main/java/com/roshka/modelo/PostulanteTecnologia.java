@@ -63,10 +63,4 @@ public class PostulanteTecnologia {
     }
 
 
-
-
-
-
-
-
 }

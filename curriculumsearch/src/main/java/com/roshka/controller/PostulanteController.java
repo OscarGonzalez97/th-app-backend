@@ -1,10 +1,13 @@
 package com.roshka.controller;
 
 
+import java.util.List;
+
 import javax.validation.ConstraintViolationException;
 
 
 import com.roshka.modelo.Postulante;
+import com.roshka.modelo.PostulanteTecnologia;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
 
@@ -63,5 +66,7 @@ public class PostulanteController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
     }
+    
+
 
 }
