@@ -38,7 +38,7 @@ public class Postulante {
     @NotBlank(message = "Este campo no puede estar vacio")
     @Email(message = "Formato incorrecto de correo")
     private String correo;
-
+    
     @Column(name = "ciudad")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
@@ -64,9 +64,20 @@ public class Postulante {
     @Column(name = "curriculum")
     private String curriculum;
 
-    @Column(name = "modalidad", length = 2)
+    @Column(name="estado_civil", length = 5)
     @NotNull
-    private Modalidad modalidad;
+    private String estado_civil;
+
+   
+   
+    @Column(name="nacionalidad", length = 2)
+    @NotNull
+    private String nacionalidad;
+
+    @Column(name = "tipo_documento", length = 2)
+    @NotBlank(message = "este campo debe estar completo")
+    private String tipo_documento;
+
 
     @Column(name = "disponibilidad", length = 2)
     private Disponibilidad disponibilidad;
@@ -176,17 +187,34 @@ public class Postulante {
         this.curriculum = curriculum;
     }
 
-    public Modalidad getModalidad() {
-        return modalidad;
-    }
-
-    public void setModalidad(Modalidad modalidad) {
-        this.modalidad = modalidad;
-    }
+    
 
     public Disponibilidad getDisponibilidad() {
         return disponibilidad;
-    }
+}
+
+public String getEstado_civil() {
+    return estado_civil;
+}
+
+public void setEstado_civil(String estado_civil) {
+    this.estado_civil = estado_civil;
+}
+public String getNacionalidad() {
+    return nacionalidad;
+}
+
+public void setNacionalidad(String nacionalidad) {
+    this.nacionalidad = nacionalidad;
+}
+
+public String getTipo_documento() {
+    return tipo_documento;
+}
+
+public void setTipo_documento(String tipo_documento) {
+    this.tipo_documento = tipo_documento;
+}
 
     public void setDisponibilidad(Disponibilidad disponibilidad) {
         this.disponibilidad = disponibilidad;
