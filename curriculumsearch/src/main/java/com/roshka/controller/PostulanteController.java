@@ -8,6 +8,7 @@ import javax.validation.ConstraintViolationException;
 import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.Modalidad;
 import com.roshka.modelo.Postulante;
+import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
 
@@ -35,6 +36,8 @@ public class PostulanteController {
     @Autowired
     TecnologiaRepository tecRepo;
 
+    @Autowired
+    ExperienciaRepository expRepo;
     @RequestMapping("/")
     public String index() {
       List<Postulante> j=  post.personasConExperienciaMayor(30);
