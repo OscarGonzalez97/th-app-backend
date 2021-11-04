@@ -14,7 +14,7 @@ public class ExperienciaReconocimiento {
     
     @ManyToOne(optional = false)
     @JoinColumn
-    @JsonBackReference
+    @JsonBackReference(value = "experienciareconocimiento-experiencia")
     private Experiencia experiencia;
   
     @Column(name="nombre")

@@ -48,12 +48,12 @@ public class Experiencia {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @JsonBackReference
+    @JsonBackReference(value = "experiencia-postulante")
     @ManyToOne(optional = false)
     @JoinColumn
     private Postulante postulante;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "experienciareconocimiento-experiencia")
     @OneToMany(mappedBy = "experiencia",cascade = CascadeType.ALL)
     private List<ExperienciaReconocimiento> reconocimientos;
 

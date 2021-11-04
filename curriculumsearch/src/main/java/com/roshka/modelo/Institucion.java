@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "institucion")
 public class Institucion {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
@@ -24,4 +25,36 @@ public class Institucion {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "institucion", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Estudio> estudioList;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getSubNombre() {
+        return subNombre;
+    }
+
+    public void setSubNombre(String subNombre) {
+        this.subNombre = subNombre;
+    }
+
+    public List<Estudio> getEstudioList() {
+        return estudioList;
+    }
+
+    public void setEstudioList(List<Estudio> estudioList) {
+        this.estudioList = estudioList;
+    }
 }

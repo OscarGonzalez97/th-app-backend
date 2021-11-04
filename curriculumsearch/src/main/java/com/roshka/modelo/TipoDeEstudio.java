@@ -1,25 +1,21 @@
 package com.roshka.modelo;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.util.List;
 
-@Entity
-@Table(name = "tipo_de_estudio")
-public class TipoDeEstudio {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+public enum TipoDeEstudio {
+    TERCIARIO("Terciario"),
+    SECUNDARIO("Secundario"),
+    CURSO("Curso"),
+    OTRO("Otro");
 
-    @Column(name = "nombre")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    private String nombre;
+    private final String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "tipoDeEstudio", fetch = FetchType.LAZY)
-    @JsonManagedReference
-    private List<Estudio> estudioList;
+    TipoDeEstudio(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 
 }

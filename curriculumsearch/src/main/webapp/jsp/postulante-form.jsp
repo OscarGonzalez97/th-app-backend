@@ -406,41 +406,43 @@
             </div>
             <div class="modal-body">
               <form name="estudio-form">
-                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>
-                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">
-                <label for="institucion" class="form-label">Institucion</label>
-                <input type="text" class="form-control  " name="institucion" id="institucion">                 
-                <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
-                <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
-                <label for="titulo" class="form-label">Titulo</label>
-                <input type="text" class="form-control  " name="titulo" id="titulo" >
 
-                <label class="form-label">Reconocimientos</label>
-                <div class="row mb-3">
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
-                  </div>
+
+                <div class="form-group">
+                    <label for="tipoDeEstudio">Tipo de Estudio</label>
+                    <select name="tipoDeEstudio" id="tipoDeEstudio">
+                        <option value="-1" selected disabled hidden>Seleccionar</option>
+                        <c:forEach items="${tiposDeEstudio}" var="tipo">
+                            <option value="${tipo}">${tipo.name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
-                  </div>
+<%--                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>--%>
+<%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
+                <div class="form-group">
+                    <label for="institucion" class="form-label">Institucion</label>
+                    <input type="text" class="form-control" name="institucion" id="institucion">
                 </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
+                <div class="form-group">
+                    <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
+                    <input type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" >
+                </div>
+                  <div class="form-group">
+                      <label for="estado">Estado</label>
+                      <select name="estado" id="estado">
+                          <option value="-1" selected disabled hidden>Seleccionar</option>
+                          <c:forEach items="${estadosEstudio}" var="estado">
+                              <option value="${estado}">${estado.name}</option>
+                          </c:forEach>
+                      </select>
                   </div>
-                  <div class="col">
-                    <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
-                  </div>
+                <div class="form-group">
+                    <label for="fechaDesde" class="form-label">Fecha Desde</label>
+                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                </div>
+                <div class="form-group">
+                    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
+                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
                 </div>
 
 

@@ -71,15 +71,15 @@ public class Postulante {
     @Column(name = "disponibilidad", length = 2)
     private Disponibilidad disponibilidad;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "postulantetecnologia-postulante")
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<PostulanteTecnologia> tecnologias;
     
-    @JsonManagedReference
+    @JsonManagedReference(value = "experiencia-postulante")
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Experiencia> experiencias = new ArrayList<>();
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "estudio-postulante")
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Estudio> estudios;
 

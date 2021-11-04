@@ -19,9 +19,8 @@ public class Estudio {
     @Column(name="id")   
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @Column(name = "tipo_de_estudio")
     @NotNull(message = "Este campo no puede ser null")
-    @JsonBackReference
     private TipoDeEstudio tipoDeEstudio;
 
     @NotNull(message = "Este campo no puede estar vacio")
@@ -29,14 +28,14 @@ public class Estudio {
     @JsonBackReference
     private Institucion institucion;
 
-    @Column(name = "estado")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    private String estado;
-
     //Carrera, Bachiller
     @Column(name="tema_de_estudio")
     @NotBlank(message = "Este campo no puede estar vacio")
     private String temaDeEstudio;
+
+    @Column(name = "estado")
+    @NotNull(message = "Este campo no puede estar vacio")
+    private EstadoEstudio estado;
 
     @Column(name="fecha_desde")
     @NotNull(message = "Este campo no puede estar vacio")
@@ -49,7 +48,7 @@ public class Estudio {
     
     @ManyToOne
     @JoinColumn
-    @JsonBackReference
+    @JsonBackReference(value = "estudio-postulante")
     private Postulante postulante;
 
 	public Postulante getPostulante() {
@@ -79,7 +78,7 @@ public class Estudio {
         this.institucion = institucion;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoEstudio estado) {
         this.estado = estado;
     }
 
@@ -99,7 +98,7 @@ public class Estudio {
         return institucion;
     }
 
-    public String getEstado() {
+    public EstadoEstudio getEstado() {
         return estado;
     }
 

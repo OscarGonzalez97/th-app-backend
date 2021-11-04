@@ -202,8 +202,8 @@ document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.q
 
 function agregarFieldEstudio(){
     //recoger del form
-    const pairs = {};
-    const formest = document.querySelector("[name=estudio-form");
+    let pairs = {};
+    const formest = document.querySelector("[name=estudio-form]");
     const formData = new FormData(formest);
     const estudioReconocimiento = [{},{},{}];
     let pos_rec;
@@ -217,6 +217,12 @@ function agregarFieldEstudio(){
         }
         
     }
+    let nombre = pairs["institucion"]
+    delete pairs["institucion"]
+    console.log(pairs)
+    pairs["institucion"] = {  }
+    pairs["institucion"].nombre = nombre
+    pairs["institucion"].subNombre = ""
     pairs["estudioReconocimiento"] = estudioReconocimiento.filter(rec => rec.nombre);
     estudios[cont_estudios] = pairs;
     formest.reset();
@@ -230,7 +236,7 @@ function agregarFieldEstudio(){
         if(est==null) continue;
         content += `
         <li id="est-${index}">        
-            ${est.institucion}
+            ${est.institucion.nombre}
             <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
         </li>
         

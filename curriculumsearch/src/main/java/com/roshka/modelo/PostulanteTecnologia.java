@@ -35,7 +35,7 @@ public class PostulanteTecnologia {
 
     @ManyToOne()
    @JoinColumn
-   @JsonBackReference
+    @JsonBackReference(value = "postulantetecnologia-postulante")
     private Postulante postulante;
     public long getId() {
         return id;

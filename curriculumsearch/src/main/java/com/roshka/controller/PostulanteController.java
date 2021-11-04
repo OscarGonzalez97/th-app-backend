@@ -5,10 +5,9 @@ import java.util.List;
 
 import javax.validation.ConstraintViolationException;
 
-import com.roshka.modelo.Disponibilidad;
-import com.roshka.modelo.Modalidad;
-import com.roshka.modelo.Postulante;
+import com.roshka.modelo.*;
 import com.roshka.repositorio.ExperienciaRepository;
+import com.roshka.repositorio.InstitucionRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
 
@@ -24,15 +23,18 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostulanteController {
-    @Autowired
-    PostulanteRepository post;  
-
-    @Autowired
+    PostulanteRepository post;
     TecnologiaRepository tecRepo;
+    ExperienciaRepository expRepo;
+    InstitucionRepository institucionRepository;
 
     @Autowired
-    ExperienciaRepository expRepo;
-
+    public PostulanteController(PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo, InstitucionRepository institucionRepository) {
+        this.post = post;
+        this.tecRepo = tecRepo;
+        this.expRepo = expRepo;
+        this.institucionRepository = institucionRepository;
+    }
 
     @RequestMapping("/")
     public String index() {
@@ -53,11 +55,20 @@ public class PostulanteController {
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("modalidades", Modalidad.values());
         model.addAttribute("disponibilidades", Disponibilidad.values());
+        model.addAttribute("tiposDeEstudio", TipoDeEstudio.values());
+        model.addAttribute("estadosEstudio", EstadoEstudio.values());
         return "postulante-form";
     }
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
+        System.out.println("hola");
+        for(Estudio estudio: postulante.getEstudios()){
+            if(institucionRepository.findByNombre(estudio.getInstitucion().getNombre())==null){
+                institucionRepository.save(estudio.getInstitucion());
+            }
+        }
+        System.out.println("hola");
         post.save(postulante);
         return "redirect:/";
     }
