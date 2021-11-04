@@ -36,8 +36,10 @@ function agregarFieldExpierncia(event){
     let pos_rec;
     let returnFlag = false;
 
+    let requiredValues = ["institucion", "cargo", "fechaDesde"]
+
     formData.forEach((value, key)=>{
-        if((key === "institucion" || key === "cargo" || key === "fechaDesde")
+        if(requiredValues.includes(key)
         && value==="" && returnFlag == false){
             console.log(key, value)
             returnFlag = true;
@@ -45,7 +47,12 @@ function agregarFieldExpierncia(event){
     });
 
     if(returnFlag===true){
-        alert("Rellene Institucion, Fechas y Cargo como minimo");
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
         return;
     }
 
@@ -57,7 +64,7 @@ function agregarFieldExpierncia(event){
         else{
             pairs[name] = value
         }
-        
+
     }
     pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
     experiencias[cont_experiencia] = pairs;
@@ -89,6 +96,30 @@ function agregarFieldTecnologia(){
     const pairs = {};
     const formtecn = document.querySelector("[name=tecnologia-form]");
     const formData = new FormData(formtecn);
+
+    //Validacion
+    let returnFlag = false;
+
+    let requiredValues = ["nombre", "nivel"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+            && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
+        return;
+    }
+
     for (const [name, value] of formData){
         pairs[name] = value
     }
@@ -205,6 +236,31 @@ function agregarFieldEstudio(){
     let pairs = {};
     const formest = document.querySelector("[name=estudio-form]");
     const formData = new FormData(formest);
+
+    //Validacion
+    let returnFlag = false;
+
+    let requiredValues = ["tipoDeEstudio", "institucion", "estado", "fechaDesde", "temaDeEstudio"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+            && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
+        return;
+    }
+
+
     const estudioReconocimiento = [{},{},{}];
     let pos_rec;
     for (const [name, value] of formData){

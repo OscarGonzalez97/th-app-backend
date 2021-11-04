@@ -6,6 +6,7 @@ public enum TipoDeEstudio {
     TERCIARIO("Terciario"),
     SECUNDARIO("Secundario"),
     CURSO("Curso"),
+    POSTGRADO("Post Grado"),
     OTRO("Otro");
 
     private final String name;

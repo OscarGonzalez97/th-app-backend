@@ -282,15 +282,15 @@
               </button>
             </div>
             <div class="modal-body">
-                <form name="experiencia-form">
+                <form name="experiencia-form" class="needs-validation" novalidate>
 
                         <div class="inputs">
                             <label for="institucion" class="inputs form-label">Institucion</label>
-                            <input type="text" class="inputs form-control  " name="institucion" id="institucion" >
+                            <input type="text" class="inputs form-control  " name="institucion" id="institucion" required>
                         </div>
                         <div class="inputs">
                             <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                            <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                            <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
                         </div>
                          
                         <div class="inputs">
@@ -300,12 +300,12 @@
                         
                         <div class="inputs">
                             <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control  " name="cargo" id="cargo" >
+                            <input type="text" class="form-control  " name="cargo" id="cargo" required>
                         </div>
 
                         <div class="inputs">
                           <label for="descripcion" class="form-label">Descripcion</label>
-                          <textarea  class="form-control  " name="descripcion" id="descripcion" > </textarea>
+                          <textarea  class="form-control  " name="descripcion" id="descripcion"> </textarea>
 
                         </div>
                         <div class="inputs">
@@ -366,10 +366,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <form name="tecnologia-form">
+              <form name="tecnologia-form" class="needs-validation" novalidate>
                 <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
                 <div class="input-group mb-3">
-                  <select class="form-select" name="tecnologia-id" aria-label="Default select example">
+                  <select class="form-select" name="tecnologia-id" aria-label="Default select example" required>
                     <option value="-1" selected>Open this select menu</option>
                     <c:forEach items="${tecnologias}" var="tecnologia">
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>
@@ -381,7 +381,7 @@
                   
                   <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
                   <label for="nivel" class="form-label">Nivel</label>
-                  <input type="number" class="form-control" name="nivel" id="nivel" >
+                  <input type="number" class="form-control" name="nivel" id="nivel" required>
               </form>
           </div>
           <div class="modal-footer">
@@ -405,12 +405,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <form name="estudio-form">
+              <form name="estudio-form" class="needs-validation" novalidate>
 
 
                 <div class="form-group">
                     <label for="tipoDeEstudio">Tipo de Estudio</label>
-                    <select name="tipoDeEstudio" id="tipoDeEstudio">
+                    <select name="tipoDeEstudio" id="tipoDeEstudio" required>
                         <option value="-1" selected disabled hidden>Seleccionar</option>
                         <c:forEach items="${tiposDeEstudio}" var="tipo">
                             <option value="${tipo}">${tipo.name}</option>
@@ -421,15 +421,15 @@
 <%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
                 <div class="form-group">
                     <label for="institucion" class="form-label">Institucion</label>
-                    <input type="text" class="form-control" name="institucion" id="institucion">
+                    <input type="text" class="form-control" name="institucion" id="institucion" required>
                 </div>
                 <div class="form-group">
                     <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
-                    <input type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" >
+                    <input type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" required>
                 </div>
                   <div class="form-group">
                       <label for="estado">Estado</label>
-                      <select name="estado" id="estado">
+                      <select name="estado" id="estado" required>
                           <option value="-1" selected disabled hidden>Seleccionar</option>
                           <c:forEach items="${estadosEstudio}" var="estado">
                               <option value="${estado}">${estado.name}</option>
@@ -438,7 +438,7 @@
                   </div>
                 <div class="form-group">
                     <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" >
+                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
                 </div>
                 <div class="form-group">
                     <label for="fechaHasta" class="form-label">Fecha Hasta</label>
