@@ -45,18 +45,18 @@ public class Experiencia {
     @NotBlank(message = "Este campo no puede estar vacio")
     private String cargo;
 
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name="motivo_salida")
+    private String motivoSalida;
 
     @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn
     private Postulante postulante;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "experiencia",cascade = CascadeType.ALL)
-    private List<ExperienciaReconocimiento> reconocimientos;
-
+    @ManyToOne
+    private TipoExperiencia tipoExperiencia;
+    
+	
     public long getId() {
         return id;
     }
@@ -105,16 +105,5 @@ public class Experiencia {
     public Postulante getPostulante() {
         return postulante;
     }
-    public String getDescripcion() {
-        return descripcion;
-    }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-    public void setReconocimientos(List<ExperienciaReconocimiento> reconocimientos) {
-        this.reconocimientos = reconocimientos;
-    }
-    public List<ExperienciaReconocimiento> getReconocimientos() {
-        return reconocimientos;
-    }
+
 }
