@@ -5,6 +5,7 @@ import javax.validation.ConstraintViolationException;
 
 
 import com.roshka.modelo.Postulante;
+import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
 
@@ -25,6 +26,8 @@ public class PostulanteController {
     @Autowired
     TecnologiaRepository tecRepo;
 
+    @Autowired
+    ExperienciaRepository expRepo;
     @RequestMapping("/")
     public String index() {
         return "index";
