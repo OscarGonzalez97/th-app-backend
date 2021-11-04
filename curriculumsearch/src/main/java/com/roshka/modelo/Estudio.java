@@ -3,16 +3,7 @@ package com.roshka.modelo;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -28,13 +19,24 @@ public class Estudio {
     @Column(name="id")   
     private long id;
 
-    @Column(name="tipo_de_studio")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    private String tipoDeEstudio;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull(message = "Este campo no puede ser null")
+    @JsonBackReference
+    private TipoDeEstudio tipoDeEstudio;
 
-    @Column(name="institucion")
+    @NotNull(message = "Este campo no puede estar vacio")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
+    private Institucion institucion;
+
+    @Column(name = "estado")
     @NotBlank(message = "Este campo no puede estar vacio")
-    private String institucion;
+    private String estado;
+
+    //Carrera, Bachiller
+    @Column(name="tema_de_estudio")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    private String temaDeEstudio;
 
     @Column(name="fecha_desde")
     @NotNull(message = "Este campo no puede estar vacio")
@@ -44,28 +46,11 @@ public class Estudio {
     @Column(name="fecha_hasta")
     private Date fechaHasta;
 
-    @Column(name="titulo")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    private String titulo;
     
     @ManyToOne
     @JoinColumn
     @JsonBackReference
     private Postulante postulante;
-    
-    @JsonManagedReference
-    @OneToMany(mappedBy = "estudio",cascade = CascadeType.ALL)
-    private List<EstudioReconocimiento> estudioReconocimiento;
-    
-    
-    
-    public List<EstudioReconocimiento> getEstudioReconocimiento() {
-		return estudioReconocimiento;
-	}
-
-	public void setEstudioReconocimiento(List<EstudioReconocimiento> estudioReconocimiento) {
-		this.estudioReconocimiento = estudioReconocimiento;
-	}
 
 	public Postulante getPostulante() {
 		return postulante;
@@ -82,54 +67,51 @@ public class Estudio {
         this.fechaHasta = Helper.convertirFecha(fechaHasta);
     }
 
-	
-
-	public long getId() {
-        return this.id;
-    }
-
- 
-	public void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getTipoDeEstudio() {
-        return this.tipoDeEstudio;
-    }
-
-    public void setTipoDeEstudio(String tipoDeEstudio) {
+    public void setTipoDeEstudio(TipoDeEstudio tipoDeEstudio) {
         this.tipoDeEstudio = tipoDeEstudio;
     }
 
-    public String getInstitucion() {
-        return this.institucion;
-    }
-
-    public void setInstitucion(String institucion) {
+    public void setInstitucion(Institucion institucion) {
         this.institucion = institucion;
     }
 
-    public Date getFechaDesde() {
-        return this.fechaDesde;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public void setFechaDesde(Date fechaDesde) {
-        this.fechaDesde = fechaDesde;
+    public void setTemaDeEstudio(String temaDeEstudio) {
+        this.temaDeEstudio = temaDeEstudio;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public TipoDeEstudio getTipoDeEstudio() {
+        return tipoDeEstudio;
+    }
+
+    public Institucion getInstitucion() {
+        return institucion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getTemaDeEstudio() {
+        return temaDeEstudio;
+    }
+
+    public Date getFechaDesde() {
+        return fechaDesde;
     }
 
     public Date getFechaHasta() {
-        return this.fechaHasta;
-    }
-
-    public void setFechaHasta(Date fechaHasta) {
-        this.fechaHasta = fechaHasta;
-    }
-
-    public String getTitulo() {
-        return this.titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        return fechaHasta;
     }
 }

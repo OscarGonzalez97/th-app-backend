@@ -32,13 +32,10 @@ public class PostulanteController {
 
     @Autowired
     ExperienciaRepository expRepo;
+
+
     @RequestMapping("/")
     public String index() {
-      List<Postulante> j=  post.personasConExperienciaMayor(30);
-      for (Postulante postulante : j) {
-          System.out.println(postulante.getNombre());
-
-      }  
       return "index";
     }
 
@@ -61,12 +58,6 @@ public class PostulanteController {
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
-        //se obtiene referencia de todas las tecnologias existentes
-        postulante.getTecnologias().stream().filter(
-                    tec -> tec.getTecnologia().getId() != 0 
-            ).forEach(
-                    tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                    );
         post.save(postulante);
         return "redirect:/";
     }
