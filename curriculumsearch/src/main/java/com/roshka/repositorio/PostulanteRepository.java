@@ -1,11 +1,12 @@
 package com.roshka.repositorio;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
-
 import com.roshka.modelo.Postulante;
+import com.roshka.modelo.PostulanteTecnologia;
 
 public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
@@ -30,4 +31,8 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
         "having sum(fecha_hasta-fecha_desde)>?1 * INTERVAL '1' month",
         nativeQuery = true )
     public List<Postulante> personasConExperienciaMayor(long meses);      
+	@Query("select pos from Postulante pos join PostulanteTecnologia pt on pt.postulante.id=pos.id "+
+			"join Tecnologia tec on pt.tecnologia.id=tec.id "+
+			 "where tec.nombre=?1 and pt.nivel=?2")
+	public List<Postulante> findByPostulanteTecnologiaM(String tecno,long idt);
 }
