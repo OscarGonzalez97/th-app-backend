@@ -3,6 +3,7 @@ package com.roshka.modelo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.roshka.utils.Helper;
 
@@ -45,23 +46,6 @@ public class Postulante {
     @Column(name="ciudad_id")
     private Long ciudadId;
 
-
-    public Ciudad getCiudad() {
-        return this.ciudad;
-    }
-
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public Long getCiudadId() {
-        return this.ciudadId;
-    }
-
-    public void setCiudadId(Long ciudadId) {
-        this.ciudadId = ciudadId;
-    }
-
     @Column(name = "telefono")
     @NotBlank(message = "Este campo no puede estar vacio")
     private String telefono;
@@ -85,8 +69,6 @@ public class Postulante {
     @Column(name="estado_civil")
     @NotNull
     private String estadoCivil;
-
-   
    
     @Column(name="nacionalidad", length = 2)
     @NotNull
@@ -111,6 +93,18 @@ public class Postulante {
     @JsonManagedReference
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<Estudio> estudios;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
+    private List<ReferenciaPersonal> referencias;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(uniqueConstraints = @UniqueConstraint(columnNames = {"postulante_id","convocatoria_cargo_id"}),
+                joinColumns = @JoinColumn(name="postulante_id", referencedColumnName="id"),
+                inverseJoinColumns= @JoinColumn(name="convocatoria_cargo_id", referencedColumnName="id")
+    )
+    @JsonIgnore
+    private List<ConvocatoriaCargo> postulaciones;
 
 
     public long getId() {
@@ -201,26 +195,42 @@ public class Postulante {
 
     public Disponibilidad getDisponibilidad() {
         return disponibilidad;
-}
-public void setEstadoCivil(String estadoCivil) {
-    this.estadoCivil = estadoCivil;
-}
-public void setTipoDocumento(String tipoDocumento) {
-    this.tipoDocumento = tipoDocumento;
-}
-public String getEstadoCivil() {
-    return estadoCivil;
-}
-public String getTipoDocumento() {
-    return tipoDocumento;
-}
-public String getNacionalidad() {
-    return nacionalidad;
-}
+    }
 
-public void setNacionalidad(String nacionalidad) {
-    this.nacionalidad = nacionalidad;
-}
+    public Ciudad getCiudad() {
+        return this.ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Long getCiudadId() {
+        return this.ciudadId;
+    }
+
+    public void setCiudadId(Long ciudadId) {
+        this.ciudadId = ciudadId;
+    }
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
 
     public void setDisponibilidad(Disponibilidad disponibilidad) {
         this.disponibilidad = disponibilidad;
@@ -244,5 +254,19 @@ public void setNacionalidad(String nacionalidad) {
     }
     public void setExperiencias(List<Experiencia> experiencias) {
         this.experiencias = experiencias;
+    }
+    public List<ConvocatoriaCargo> getPostulaciones() {
+        return postulaciones;
+    }
+    public void setPostulaciones(List<ConvocatoriaCargo> postulaciones) {
+        this.postulaciones = postulaciones;
+    }
+
+    public void setReferencias(List<ReferenciaPersonal> referencias) {
+        this.referencias = referencias;
+    }
+
+    public List<ReferenciaPersonal> getReferencias() {
+        return referencias;
     }
 }
