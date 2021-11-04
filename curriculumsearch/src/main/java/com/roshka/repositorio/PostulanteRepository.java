@@ -16,6 +16,5 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
         "group by p.id" +
         "having sum(fecha_hasta-fecha_desde)>?1 * INTERVAL '1' month",
         nativeQuery = true )
-    public List<Postulante> personasConExperienciaMayor(long meses);        
-
+    public List<Postulante> personasConExperienciaMayor(long meses);      
 }

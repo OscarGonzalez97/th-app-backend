@@ -1,6 +1,8 @@
 package com.roshka.controller;
 
 
+import java.util.List;
+
 import javax.validation.ConstraintViolationException;
 
 import com.roshka.modelo.Disponibilidad;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 
+
+
 @Controller
 public class PostulanteController {
     @Autowired
@@ -28,7 +32,12 @@ public class PostulanteController {
 
     @RequestMapping("/")
     public String index() {
-        return "index";
+      List<Postulante> j=  post.personasConExperienciaMayor(30);
+      for (Postulante postulante : j) {
+          System.out.println(postulante.getNombre());
+
+      }  
+      return "index";
     }
 
     @RequestMapping("/postulante")
