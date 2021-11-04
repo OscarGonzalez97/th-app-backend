@@ -24,4 +24,10 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
             "WHERE t.id = ?1")
 	public List<Postulante> buscarPostulantesPorTecnologia(long tecnologiaId);
 
+    @Query(value = "select p" +
+        "from postulante p join experiencia x on x.postulante_id= p.id" +
+        "group by p.id" +
+        "having sum(fecha_hasta-fecha_desde)>?1 * INTERVAL '1' month",
+        nativeQuery = true )
+    public List<Postulante> personasConExperienciaMayor(long meses);      
 }
