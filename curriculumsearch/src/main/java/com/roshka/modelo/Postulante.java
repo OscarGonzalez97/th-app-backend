@@ -39,10 +39,28 @@ public class Postulante {
     @Email(message = "Formato incorrecto de correo")
     private String correo;
 
-    @Column(name = "ciudad")
-    @NotBlank(message = "Este campo no puede estar vacio")
-    @Size(max = 120)
-    private String ciudad;
+    @ManyToOne(targetEntity = Ciudad.class,fetch = FetchType.EAGER)
+    @JoinColumn(name="ciudad_id",insertable = false, updatable = false)
+    private Ciudad ciudad;
+    @Column(name="ciudad_id")
+    private Long ciudadId;
+
+
+    public Ciudad getCiudad() {
+        return this.ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Long getCiudadId() {
+        return this.ciudadId;
+    }
+
+    public void setCiudadId(Long ciudadId) {
+        this.ciudadId = ciudadId;
+    }
 
     @Column(name = "telefono")
     @NotBlank(message = "Este campo no puede estar vacio")
@@ -64,9 +82,20 @@ public class Postulante {
     @Column(name = "curriculum")
     private String curriculum;
 
-    @Column(name = "modalidad", length = 2)
+    @Column(name="estado_civil")
     @NotNull
-    private Modalidad modalidad;
+    private String estadoCivil;
+
+   
+   
+    @Column(name="nacionalidad", length = 2)
+    @NotNull
+    private String nacionalidad;
+
+    @Column(name = "tipo_documento", length = 2)
+    @NotBlank(message = "este campo debe estar completo")
+    private String tipoDocumento;
+
 
     @Column(name = "disponibilidad", length = 2)
     private Disponibilidad disponibilidad;
@@ -124,14 +153,6 @@ public class Postulante {
         this.correo = correo;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -176,17 +197,30 @@ public class Postulante {
         this.curriculum = curriculum;
     }
 
-    public Modalidad getModalidad() {
-        return modalidad;
-    }
-
-    public void setModalidad(Modalidad modalidad) {
-        this.modalidad = modalidad;
-    }
+    
 
     public Disponibilidad getDisponibilidad() {
         return disponibilidad;
-    }
+}
+public void setEstadoCivil(String estadoCivil) {
+    this.estadoCivil = estadoCivil;
+}
+public void setTipoDocumento(String tipoDocumento) {
+    this.tipoDocumento = tipoDocumento;
+}
+public String getEstadoCivil() {
+    return estadoCivil;
+}
+public String getTipoDocumento() {
+    return tipoDocumento;
+}
+public String getNacionalidad() {
+    return nacionalidad;
+}
+
+public void setNacionalidad(String nacionalidad) {
+    this.nacionalidad = nacionalidad;
+}
 
     public void setDisponibilidad(Disponibilidad disponibilidad) {
         this.disponibilidad = disponibilidad;

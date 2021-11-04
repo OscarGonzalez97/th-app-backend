@@ -1,0 +1,1252 @@
+[
+  {
+    "departamentoId": 0,
+    
+    "nombre": "ASUNCION"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "CONCEPCION"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "BELEN"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "HORQUETA"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "LORETO"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "SAN CARLOS DEL APA"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "SAN LAZARO"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "YBY YAU"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "AZOTE'Y"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "SARGENTO JOSE FELIX LOPEZ"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "SAN ALFREDO"
+  },
+  {
+    "departamentoId": 1,
+    
+    "nombre": "PASO BARRETO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "SAN PEDRO DEL YCUAMANDYYU"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "ANTEQUERA"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "CHORE"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "GENERAL ELIZARDO AQUINO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "ITACURUBI DEL ROSARIO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "LIMA"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "NUEVA GERMANIA"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "SAN ESTANISLAO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "SAN PABLO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "TACUATI"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "UNION"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "25 DE DICIEMBRE"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "VILLA DEL ROSARIO"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "GENERAL FRANCISCO ISIDORO RESQUIN"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "YATAITY DEL NORTE"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "GUAJAYVI"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "CAPIIBARY"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "SANTA ROSA DEL AGUARAY"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "YRYBUCUA"
+  },
+  {
+    "departamentoId": 2,
+    
+    "nombre": "LIBERACION"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "CAACUPE"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "ALTOS"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "ARROYOS Y ESTEROS"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "ATYRA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "CARAGUATAY"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "EMBOSCADA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "EUSEBIO AYALA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "ISLA PUCU"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "ITACURUBI DE LA CORDILLERA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "JUAN DE MENA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "LOMA GRANDE"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "MBOCAYATY DEL YHAGUY"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "NUEVA COLOMBIA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "PIRIBEBUY"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "PRIMERO DE MARZO"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "SAN BERNARDINO"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "SANTA ELENA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "TOBATI"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "VALENZUELA"
+  },
+  {
+    "departamentoId": 3,
+    
+    "nombre": "SAN JOSE OBRERO"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "VILLARRICA"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "BORJA"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "CAPITAN MAURICIO JOSE TROCHE"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "CORONEL MARTINEZ"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "FELIX PEREZ CARDOZO"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "GRAL. EUGENIO A. GARAY"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "INDEPENDENCIA"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "ITAPE"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "ITURBE"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "JOSE FASSARDI"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "MBOCAYATY"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "NATALICIO TALAVERA"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "NUMI"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "SAN SALVADOR"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "YATAITY"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "DOCTOR BOTTRELL"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "PASO YOBAI"
+  },
+  {
+    "departamentoId": 4,
+    
+    "nombre": "TEBICUARY"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "CORONEL OVIEDO"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "CAAGUAZU"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "CARAYAO"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "DR. CECILIO BAEZ"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "SANTA ROSA DEL MBUTUY"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "DR. JUAN MANUEL FRUTOS"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "REPATRIACION"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "NUEVA LONDRES"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "SAN JOAQUIN"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "SAN JOSE DE LOS ARROYOS"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "YHU"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "DR. J. EULOGIO ESTIGARRIBIA"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "R.I. 3 CORRALES"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "RAUL ARSENIO OVIEDO"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "JOSE DOMINGO OCAMPOS"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "MARISCAL FRANCISCO SOLANO LOPEZ"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "LA PASTORA"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "3 DE FEBRERO"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "SIMON BOLIVAR"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "VAQUERIA"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "TEMBIAPORA"
+  },
+  {
+    "departamentoId": 5,
+    
+    "nombre": "NUEVA TOLEDO"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "CAAZAPA"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "ABAI"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "BUENA VISTA"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "DR. MOISES S. BERTONI"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "GRAL. HIGINIO MORINIGO"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "MACIEL"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "SAN JUAN NEPOMUCENO"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "TAVAI"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "YEGROS"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "YUTY"
+  },
+  {
+    "departamentoId": 6,
+    
+    "nombre": "3 DE MAYO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "ENCARNACION"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "BELLA VISTA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CAMBYRETA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CAPITAN MEZA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CAPITAN MIRANDA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "NUEVA ALBORADA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CARMEN DEL PARANA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CORONEL BOGADO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "CARLOS ANTONIO LOPEZ"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "NATALIO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "FRAM"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "GENERAL ARTIGAS"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "GENERAL DELGADO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "HOHENAU"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "JESUS"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "JOSE LEANDRO OVIEDO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "OBLIGADO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "MAYOR JULIO DIONISIO OTANO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "SAN COSME Y DAMIAN"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "SAN PEDRO DEL PARANA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "SAN RAFAEL DEL PARANA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "TRINIDAD"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "EDELIRA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "TOMAS ROMERO PEREIRA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "ALTO VERA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "LA PAZ"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "YATYTAY"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "SAN JUAN DEL PARANA"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "PIRAPO"
+  },
+  {
+    "departamentoId": 7,
+    
+    "nombre": "ITAPUA POTY"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SAN JUAN BAUTISTA DE LAS MISIONES"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "AYOLAS"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SAN IGNACIO"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SAN MIGUEL"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SAN PATRICIO"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SANTA MARIA"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SANTA ROSA"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "SANTIAGO"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "VILLA FLORIDA"
+  },
+  {
+    "departamentoId": 8,
+    
+    "nombre": "YABEBYRY"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "PARAGUARI"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "ACAHAY"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "CAAPUCU"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "CABALLERO"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "CARAPEGUA"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "ESCOBAR"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "LA COLMENA"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "MBUYAPEY"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "PIRAYU"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "QUIINDY"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "QUYQUYHO"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "ROQUE GONZALEZ DE SANTACRUZ"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "SAPUCAI"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "TEBICUARY-MI"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "YAGUARON"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "YBYCUI"
+  },
+  {
+    "departamentoId": 9,
+    
+    "nombre": "YBYTYMI"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "CIUDAD DEL ESTE"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "PRESIDENTE FRANCO"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "DOMINGO MARTINEZ DE IRALA"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "DR. JUAN LEON MALLORQUIN"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "HERNANDARIAS"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "ITAKYRY"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "JUAN E. O'LEARY"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "NACUNDAY"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "YGUAZU"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "LOS CEDRALES"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "MINGA GUAZU"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "SAN CRISTOBAL"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "SANTA RITA"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "NARANJAL"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "SANTA ROSA DEL MONDAY"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "MINGA PORA"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "MBARACAYU"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "SAN ALBERTO"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "IRUNA"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "SANTA FE DEL PARANA"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "TAVAPY"
+  },
+  {
+    "departamentoId": 10,
+    
+    "nombre": "DR. RAUL PENA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "AREGUA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "CAPIATA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "FERNANDO DE LA MORA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "GUARAMBARE"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "ITA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "ITAUGUA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "LAMBARE"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "LIMPIO"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "LUQUE"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "MARIANO ROQUE ALONSO"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "NUEVA ITALIA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "NEMBY"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "SAN ANTONIO"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "SAN LORENZO"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "VILLA ELISA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "VILLETA"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "YPACARAI"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "YPANE"
+  },
+  {
+    "departamentoId": 11,
+    
+    "nombre": "J. AUGUSTO SALDIVAR"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "PILAR"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "ALBERDI"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "CERRITO"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "DESMOCHADOS"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "GRAL. JOSE EDUVIGIS DIAZ"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "GUAZU-CUA"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "HUMAITA"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "ISLA UMBU"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "LAURELES"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "MAYOR JOSE DEJESUS MARTINEZ"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "PASO DE PATRIA"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "SAN JUAN BAUTISTA DE NEEMBUCU"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "TACUARAS"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "VILLA FRANCA"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "VILLA OLIVA"
+  },
+  {
+    "departamentoId": 12,
+    
+    "nombre": "VILLALBIN"
+  },
+  {
+    "departamentoId": 13,
+    
+    "nombre": "PEDRO JUAN CABALLERO"
+  },
+  {
+    "departamentoId": 13,
+    
+    "nombre": "BELLA VISTA"
+  },
+  {
+    "departamentoId": 13,
+    
+    "nombre": "CAPITAN BADO"
+  },
+  {
+    "departamentoId": 13,
+    
+    "nombre": "ZANJA PYTA"
+  },
+  {
+    "departamentoId": 13,
+    
+    "nombre": "KARAPAI"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "SALTO DEL GUAIRA"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "CORPUS CHRISTI"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "VILLA CURUGUATY"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "VILLA YGATIMI"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "ITANARA"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "YPEJHU"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "FRANCISCO CABALLERO ALVAREZ"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "KATUETE"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "LA PALOMA DEL ESPIRITU SANTO"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "NUEVA ESPERANZA"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "YASY CANY"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "YBYRAROBANA"
+  },
+  {
+    "departamentoId": 14,
+    
+    "nombre": "YBY PYTA"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "BENJAMIN ACEVAL"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "PUERTO PINASCO"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "VILLA HAYES"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "NANAWA"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "JOSE FALCON"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "TTE. 1ER MANUEL IRALA FERNANDEZ"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "TENIENTE ESTEBAN MARTINEZ"
+  },
+  {
+    "departamentoId": 15,
+    
+    "nombre": "GENERAL JOSE MARIA BRUGUEZ"
+  },
+  {
+    "departamentoId": 16,
+    
+    "nombre": "MARISCAL JOSE FELIX ESTIGARRIBIA"
+  },
+  {
+    "departamentoId": 16,
+    
+    "nombre": "FILADELFIA"
+  },
+  {
+    "departamentoId": 16,
+    
+    "nombre": "LOMA PLATA"
+  },
+  {
+    "departamentoId": 17,
+    
+    "nombre": "FUERTE OLIMPO"
+  },
+  {
+    "departamentoId": 17,
+    
+    "nombre": "PUERTO CASADO"
+  },
+  {
+    "departamentoId": 17,
+    
+    "nombre": "BAHIA NEGRA"
+  },
+  {
+    "departamentoId": 17,
+    
+    "nombre": "CARMELO PERALTA"
+  }
+]
