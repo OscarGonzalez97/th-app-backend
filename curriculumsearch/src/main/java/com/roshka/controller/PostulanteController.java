@@ -64,8 +64,11 @@ public class PostulanteController {
     public String guardarPostulante(@RequestBody Postulante postulante){
         System.out.println("hola");
         for(Estudio estudio: postulante.getEstudios()){
-            if(institucionRepository.findByNombre(estudio.getInstitucion().getNombre())==null){
+            Institucion institucion = institucionRepository.findByNombre(estudio.getInstitucion().getNombre());
+            if(institucion==null){
                 institucionRepository.save(estudio.getInstitucion());
+            }else{
+                estudio.setInstitucion(institucion);
             }
         }
         System.out.println("hola");
