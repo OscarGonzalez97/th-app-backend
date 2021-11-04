@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "python"
+  },
+  {
+    "id": 2,
+    "nombre": "flutter"
+  },
+  {
+    "id": 3,
+    "nombre": "c#"
+  },
+  {
+    "id": 4,
+    "nombre": "c"
+  },
+  {
+    "id": 5,
+    "nombre": "spring"
+  }
+]

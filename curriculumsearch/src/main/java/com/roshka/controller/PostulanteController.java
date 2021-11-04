@@ -16,6 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.sql.SQLOutput;
+import java.util.List;
+import java.util.Locale;
 
 
 @Controller
@@ -32,9 +37,11 @@ public class PostulanteController {
     }
 
     @RequestMapping("/postulantes")
-    public String postulantes(Model model) {
+    public String postulantes(Model model,
+                            @RequestParam(required = false,name = "tec")Long tecnologidaId) {
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("postulantes", post.findAll());
+        if(tecnologidaId==null) model.addAttribute("postulantes", post.findAll());
+        else model.addAttribute("postulantes", post.buscarPostulantesPorTecnologia(tecnologidaId));
         return "postulantes";
     }
 
@@ -73,5 +80,6 @@ public class PostulanteController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
     }
+
 
 }

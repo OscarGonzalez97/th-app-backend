@@ -1,0 +1,338 @@
+[
+  {
+    "resumen": "Esse elit mollit minim pariatur ea dolor nulla aute ullamco duis reprehenderit cillum.",
+    "nombre": "Lorraine",
+    "apellido": "Hensley",
+    "correo": "mercadospears@translink.com",
+    "ci": 3679238,
+    "ciudad": "Clarence",
+    "telefono": "(851) 511-3993",
+    "fechaNacimiento": "2021-08-13",
+    "nivelIngles": 2,
+    "disponibilidad": "C",
+    "modalidad": "P",
+    "experiencias": [
+      {
+        "institucion": "Housedown",
+        "fechaDesde": "2014-01-29",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Lorem proident ullamco consectetur magna officia reprehenderit culpa consectetur cupidatat aute commodo et voluptate incididunt.",
+        "nombreReferencia": "Clayton",
+        "telefonoReferencia": "(924) 476-3465",
+        "reconocimientos": [
+          {
+            "nombre": "mejor alumno",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "ua",
+        "fechaDesde": "2014-06-15",
+        "fechaHasta": "2016-01-01",
+        "titulo": "lic inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "c#"
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "nombre": "JAVA"
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "resumen": "Aute est duis qui incididunt nulla minim officia officia non nulla consectetur adipisicing occaecat.",
+    "nombre": "Stanton",
+    "apellido": "Adams",
+    "correo": "leonvazquez@syntac.com",
+    "ci": 4577602,
+    "ciudad": "Tuskahoma",
+    "telefono": "(955) 586-3144",
+    "fechaNacimiento": "2021-04-11",
+    "nivelIngles": 1,
+    "disponibilidad": "P",
+    "modalidad": "P",
+    "experiencias": [
+      {
+        "institucion": "Centuria",
+        "fechaDesde": "2014-08-21",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Dolor sit aliqua consequat in ullamco in ea.",
+        "nombreReferencia": "Sharlene",
+        "telefonoReferencia": "(849) 570-2353",
+        "reconocimientos": [
+          {
+            "nombre": "ganador de x",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "ua",
+        "fechaDesde": "2014-01-07",
+        "fechaHasta": "2016-01-01",
+        "titulo": "ing inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "python"
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "nombre": "c"
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "resumen": "Aute consequat occaecat ipsum dolore ad enim ut.",
+    "nombre": "Grace",
+    "apellido": "Joyner",
+    "correo": "miriamlevy@quizka.com",
+    "ci": 5206543,
+    "ciudad": "Wikieup",
+    "telefono": "(941) 577-2187",
+    "fechaNacimiento": "2021-03-05",
+    "nivelIngles": 3,
+    "disponibilidad": "C",
+    "modalidad": "S",
+    "experiencias": [
+      {
+        "institucion": "Aquamate",
+        "fechaDesde": "2014-10-20",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "In pariatur sint minim commodo enim labore esse tempor fugiat veniam.",
+        "nombreReferencia": "Sonya",
+        "telefonoReferencia": "(816) 540-2926",
+        "reconocimientos": [
+          {
+            "nombre": "ganador de x",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "una",
+        "fechaDesde": "2014-11-05",
+        "fechaHasta": "2016-01-01",
+        "titulo": "lic inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "laravel"
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "nombre": "dot net"
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "resumen": "Ex est enim pariatur ut proident do ullamco sit nulla aute irure ullamco.",
+    "nombre": "Pat",
+    "apellido": "Kim",
+    "correo": "cheribenton@interodeo.com",
+    "ci": 2095699,
+    "ciudad": "Ferney",
+    "telefono": "(802) 538-3821",
+    "fechaNacimiento": "2021-07-23",
+    "nivelIngles": 2,
+    "disponibilidad": "P",
+    "modalidad": "R",
+    "experiencias": [
+      {
+        "institucion": "Shopabout",
+        "fechaDesde": "2014-11-09",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Reprehenderit deserunt ea laboris occaecat pariatur veniam officia irure quis occaecat elit laboris eiusmod officia.",
+        "nombreReferencia": "Bray",
+        "telefonoReferencia": "(824) 544-3117",
+        "reconocimientos": [
+          {
+            "nombre": "ganador de x",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "uca",
+        "fechaDesde": "2014-07-08",
+        "fechaHasta": "2016-01-01",
+        "titulo": "ing inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "spring"
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "resumen": "Commodo sunt officia aliquip sunt incididunt sit nostrud laboris adipisicing enim velit occaecat cupidatat.",
+    "nombre": "Shelia",
+    "apellido": "Moore",
+    "correo": "auroraweaver@extragene.com",
+    "ci": 3943771,
+    "ciudad": "Bourg",
+    "telefono": "(929) 413-3014",
+    "fechaNacimiento": "2021-04-03",
+    "nivelIngles": 1,
+    "disponibilidad": "C",
+    "modalidad": "S",
+    "experiencias": [
+      {
+        "institucion": "Rugstars",
+        "fechaDesde": "2014-02-06",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Lorem ipsum adipisicing et minim nulla anim nulla est qui labore laborum dolore.",
+        "nombreReferencia": "Jeannine",
+        "telefonoReferencia": "(851) 533-2842",
+        "reconocimientos": [
+          {
+            "nombre": "ganador de x",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "uca",
+        "fechaDesde": "2014-09-16",
+        "fechaHasta": "2016-01-01",
+        "titulo": "ing inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "postgres"
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "resumen": "Tempor sunt non officia reprehenderit consequat est deserunt nisi ut tempor quis eu.",
+    "nombre": "Clarissa",
+    "apellido": "Moses",
+    "correo": "clarkshepherd@imant.com",
+    "ci": 1710741,
+    "ciudad": "Rivers",
+    "telefono": "(871) 416-2866",
+    "fechaNacimiento": "2021-10-26",
+    "nivelIngles": 2,
+    "disponibilidad": "P",
+    "modalidad": "S",
+    "experiencias": [
+      {
+        "institucion": "Imperium",
+        "fechaDesde": "2014-11-15",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Incididunt id elit do officia esse in aute duis ipsum ea incididunt.",
+        "nombreReferencia": "Tamara",
+        "telefonoReferencia": "(846) 444-3812",
+        "reconocimientos": [
+          {
+            "nombre": "ganador de x",
+            "certificado": "cert"
+          }
+        ]
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "universitario",
+        "institucion": "uca",
+        "fechaDesde": "2014-12-21",
+        "fechaHasta": "2016-01-01",
+        "titulo": "ing inf",
+        "estudioReconocimiento": [
+          {
+            "nombre": "titest",
+            "certificado": "titest"
+          }
+        ]
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "nombre": "django"
+        },
+        "nivel": 1
+      }
+    ]
+  }
+]

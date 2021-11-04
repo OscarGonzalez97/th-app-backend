@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import java.util.Locale;
 
 @Entity
 @Table(name="tecnologia")
@@ -28,7 +29,7 @@ public class Tecnologia {
 		this.id = id;
 	}
 	public String getNombre() {
-		return nombre;
+		return nombre.toLowerCase();
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

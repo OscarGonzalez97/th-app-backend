@@ -31,7 +31,7 @@
           
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <c:forEach items="${tecnologias}" var="tecnologia">
-                    <li><a class="dropdown-item" href="#">${tecnologia.nombre}</a></li>
+                    <li><a class="dropdown-item" href="?tec=${tecnologia.id}">${tecnologia.nombre}</a></li>
                 </c:forEach>
             </ul>
         </div>

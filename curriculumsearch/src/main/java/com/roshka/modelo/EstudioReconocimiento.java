@@ -34,6 +34,9 @@ public class EstudioReconocimiento {
     @JoinColumn
     private Estudio estudio;
     
+    public EstudioReconocimiento() {
+        
+    }
 
 	public EstudioReconocimiento(Long id, String nombre, String certificado) {
         this.id = id;
