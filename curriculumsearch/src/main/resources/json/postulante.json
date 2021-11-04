@@ -1,6 +1,9 @@
 [
   {
     "resumen": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Taylor",
     "apellido": "Obrien",
     "correo": "gladysalexander@dadabase.com",
@@ -10,7 +13,7 @@
     "fechaNacimiento": "2021-08-16",
     "nivelIngles": 1,
     "disponibilidad": "C",
-    "modalidad": "S",
+    
     "experiencias": [
       {
         "institucion": "Fanfare",
@@ -66,6 +69,9 @@
   },
   {
     "resumen": "Do nostrud aliqua adipisicing in sunt aute id do elit ut dolor ad aliquip.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Hopkins",
     "apellido": "Parks",
     "correo": "grahamgriffith@zilidium.com",
@@ -75,7 +81,7 @@
     "fechaNacimiento": "2021-09-04",
     "nivelIngles": 5,
     "disponibilidad": "C",
-    "modalidad": "P",
+    
     "experiencias": [
       {
         "institucion": "Pyramia",
@@ -119,6 +125,9 @@
   },
   {
     "resumen": "Occaecat non cupidatat amet reprehenderit consectetur ullamco et.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Alejandra",
     "apellido": "Riggs",
     "correo": "ruthrobertson@homelux.com",
@@ -128,7 +137,7 @@
     "fechaNacimiento": "2021-01-28",
     "nivelIngles": 3,
     "disponibilidad": "P",
-    "modalidad": "P",
+    
     "experiencias": [
       {
         "institucion": "Geeky",
@@ -172,6 +181,9 @@
   },
   {
     "resumen": "Qui ullamco excepteur velit ad ullamco id id nisi irure dolore cupidatat mollit ullamco veniam.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Angelina",
     "apellido": "Wallace",
     "correo": "christiwalls@capscreen.com",
@@ -181,7 +193,7 @@
     "fechaNacimiento": "2021-06-05",
     "nivelIngles": 4,
     "disponibilidad": "C",
-    "modalidad": "S",
+    
     "experiencias": [
       {
         "institucion": "Orbiflex",
@@ -225,6 +237,9 @@
   },
   {
     "resumen": "Deserunt tempor ut et eiusmod et labore Lorem.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Rivas",
     "apellido": "Owens",
     "correo": "shirleyguzman@equitox.com",
@@ -234,7 +249,7 @@
     "fechaNacimiento": "2021-09-09",
     "nivelIngles": 5,
     "disponibilidad": "P",
-    "modalidad": "S",
+    
     "experiencias": [
       {
         "institucion": "Uncorp",
@@ -278,6 +293,9 @@
   },
   {
     "resumen": "Aliqua est adipisicing do exercitation sit laborum aliquip aliqua adipisicing enim aute.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Estelle",
     "apellido": "Gamble",
     "correo": "mclaughlinpate@enomen.com",
@@ -287,7 +305,7 @@
     "fechaNacimiento": "2021-03-24",
     "nivelIngles": 1,
     "disponibilidad": "P",
-    "modalidad": "R",
+    
     "experiencias": [
       {
         "institucion": "Extrawear",
@@ -331,6 +349,9 @@
   },
   {
     "resumen": "Officia eiusmod ut reprehenderit tempor consequat elit amet ex voluptate aute anim do.",
+    "nacionalidad":"py",
+    "estadoCivil":"SOLTERO",
+    "tipoDocumento":"ci",
     "nombre": "Mariana",
     "apellido": "Ratliff",
     "correo": "loramiddleton@musanpoly.com",
@@ -340,7 +361,7 @@
     "fechaNacimiento": "2021-07-30",
     "nivelIngles": 5,
     "disponibilidad": "P",
-    "modalidad": "S",
+    
     "experiencias": [
       {
         "institucion": "Uberlux",
