@@ -41,7 +41,6 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Modalidad</th>
             <th scope="col">Disponibilidad</th>
             <th scope="col">Nivel de Ingles</th>
             <th scope="col">Experiencia</th>
@@ -53,7 +52,6 @@
                 <tr>
                     <th scope="row">${staPost.index + 1}</th>
                     <td>${postulante.nombre} ${postulante.apellido}</td>
-                    <td>${postulante.modalidad.getDescripcion()}</td>
                     <td>${postulante.disponibilidad.getDescripcion()}</td>
                     <td>${postulante.nivelIngles}</td>
                     <td>0</td>

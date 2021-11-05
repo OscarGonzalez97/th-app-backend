@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.roshka.modelo.Postulante;
-import com.roshka.modelo.PostulanteTecnologia;
+
 
 public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 

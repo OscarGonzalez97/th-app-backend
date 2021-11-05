@@ -315,6 +315,27 @@ function eliminarEstudio(event) {
 
 
 
-
-
-
+//evento para cambio de ciudad segun departamento
+const depSelect = document.querySelector("#departamentos");
+depSelect.addEventListener("change",evt => listarCiudades(evt.target.value))
+listarCiudades(depSelect.value);
+//variable ciudades esta declarada en el jsp
+/**
+ * Listar todas las ciudades en el select de ciudades
+ * @param {*} depId 
+ */
+function listarCiudades(depId){
+    const ciuAmostrar = ciudades.filter(c=>c.departamentoId==depId);
+    const ciudad = document.querySelector("select[name=ciudadId]");
+    const frag = document.createDocumentFragment();
+    for (const ciu of ciuAmostrar) {
+        const opt = document.createElement("option");    
+        opt.value = ciu.id;
+        opt.innerHTML = ciu.nombre;
+        opt.setAttribute("data-departamentoId",ciu.departamentoId);
+        frag.appendChild(opt)
+    }
+    ciudad.replaceChildren(frag);
+    
+    
+}

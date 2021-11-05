@@ -6,6 +6,15 @@ import java.util.List;
 import javax.validation.ConstraintViolationException;
 
 import com.roshka.modelo.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roshka.modelo.Disponibilidad;
+import com.roshka.modelo.EstadoCivil;
+import com.roshka.modelo.Nacionalidad;
+import com.roshka.modelo.Postulante;
+import com.roshka.modelo.TipoExperiencia;
+import com.roshka.repositorio.CiudadRepository;
+import com.roshka.repositorio.DepartamentoRepository;
 import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.InstitucionRepository;
 import com.roshka.repositorio.PostulanteRepository;
@@ -27,17 +36,24 @@ public class PostulanteController {
     TecnologiaRepository tecRepo;
     ExperienciaRepository expRepo;
     InstitucionRepository institucionRepository;
+    DepartamentoRepository depRepo;
+    CiudadRepository ciuRepo;
 
     @Autowired
-    public PostulanteController(PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo, InstitucionRepository institucionRepository) {
+    public PostulanteController(PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo, InstitucionRepository institucionRepository, DepartamentoRepository depRepo, CiudadRepository ciuRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
         this.institucionRepository = institucionRepository;
+        this.depRepo = depRepo;
+        this.ciuRepo = ciuRepo;
     }
+
 
     @RequestMapping("/")
     public String index() {
+      
+
       return "index";
     }
 
@@ -53,10 +69,20 @@ public class PostulanteController {
     @RequestMapping("/postulante")
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("modalidades", Modalidad.values());
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("tiposDeEstudio", TipoDeEstudio.values());
         model.addAttribute("estadosEstudio", EstadoEstudio.values());
+        model.addAttribute("estadosCiviles", EstadoCivil.values());
+        model.addAttribute("nacionalidades", Nacionalidad.values());
+        model.addAttribute("tiposExperencia", TipoExperiencia.values());
+        try {
+            model.addAttribute("ciudades", new ObjectMapper().writeValueAsString(ciuRepo.findAll()));
+        } catch (JsonProcessingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        model.addAttribute("departamentos", depRepo.findAll());
+
         return "postulante-form";
     }
 
