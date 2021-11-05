@@ -1,7 +1,6 @@
 package com.roshka.controller;
 
 
-import java.util.List;
 
 import javax.validation.ConstraintViolationException;
 
@@ -13,12 +12,7 @@ import com.roshka.modelo.EstadoCivil;
 import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
 import com.roshka.modelo.TipoExperiencia;
-import com.roshka.repositorio.CiudadRepository;
-import com.roshka.repositorio.DepartamentoRepository;
-import com.roshka.repositorio.ExperienciaRepository;
-import com.roshka.repositorio.InstitucionRepository;
-import com.roshka.repositorio.PostulanteRepository;
-import com.roshka.repositorio.TecnologiaRepository;
+import com.roshka.repositorio.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequestMapping("/")
 public class PostulanteController {
     PostulanteRepository post;
     TecnologiaRepository tecRepo;
@@ -40,7 +35,10 @@ public class PostulanteController {
     CiudadRepository ciuRepo;
 
     @Autowired
-    public PostulanteController(PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo, InstitucionRepository institucionRepository, DepartamentoRepository depRepo, CiudadRepository ciuRepo) {
+    public PostulanteController(
+            PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo,
+            InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
+            CiudadRepository ciuRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
@@ -49,8 +47,7 @@ public class PostulanteController {
         this.ciuRepo = ciuRepo;
     }
 
-
-    @RequestMapping("/")
+    @RequestMapping("home")
     public String index() {
       
 

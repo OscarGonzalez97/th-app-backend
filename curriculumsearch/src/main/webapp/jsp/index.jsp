@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +9,13 @@
 </head>
 <body>
     <a href="postulante">Form postulante</a>
+    <div>
+        <form action="/logout" method="get">
+            <p>
+                Welcome
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
 </body>
 </html>
