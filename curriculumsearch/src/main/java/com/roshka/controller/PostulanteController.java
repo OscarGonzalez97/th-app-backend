@@ -89,6 +89,11 @@ public class PostulanteController {
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
         System.out.println("hola");
+        postulante.getTecnologias().stream().filter(
+                    tec -> tec.getTecnologia().getId() != 0 
+            ).forEach(
+                    tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
+                    );
         for(Estudio estudio: postulante.getEstudios()){
             Institucion institucion = institucionRepository.findByNombre(estudio.getInstitucion().getNombre());
             if(institucion==null){
