@@ -1,8 +1,8 @@
 [
   {
-    "resumen": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+      "resumen": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Taylor",
     "apellido": "Obrien",
@@ -19,16 +19,11 @@
         "institucion": "Fanfare",
         "fechaDesde": "2014-09-10",
         "fechaHasta": "2016-01-01",
+        "tipoExperiencia":"Trabajo Normal",
         "cargo": "dba",
         "descripcion": "Enim qui Lorem ut magna.",
         "nombreReferencia": "Marissa",
-        "telefonoReferencia": "(804) 471-2089",
-        "reconocimientos": [
-          {
-            "nombre": "ganador de x",
-            "certificado": "cert"
-          }
-        ]
+        "telefonoReferencia": "(804) 471-2089"
       }
     ],
     "estudios": [
@@ -69,8 +64,8 @@
   },
   {
     "resumen": "Do nostrud aliqua adipisicing in sunt aute id do elit ut dolor ad aliquip.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Hopkins",
     "apellido": "Parks",
@@ -90,13 +85,8 @@
         "cargo": "developer frontend",
         "descripcion": "Consequat fugiat qui sint deserunt ullamco.",
         "nombreReferencia": "Iva",
-        "telefonoReferencia": "(947) 580-2363",
-        "reconocimientos": [
-          {
-            "nombre": "ganador de x",
-            "certificado": "cert"
-          }
-        ]
+        "tipoExperiencia":"Trabajo Normal",
+        "telefonoReferencia": "(947) 580-2363"
       }
     ],
     "estudios": [
@@ -125,8 +115,8 @@
   },
   {
     "resumen": "Occaecat non cupidatat amet reprehenderit consectetur ullamco et.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Alejandra",
     "apellido": "Riggs",
@@ -144,15 +134,10 @@
         "fechaDesde": "2014-08-26",
         "fechaHasta": "2016-01-01",
         "cargo": "dba",
+        "tipoExperiencia":"Trabajo Normal",
         "descripcion": "Aute culpa ea mollit adipisicing dolore dolore amet adipisicing occaecat commodo enim cillum.",
         "nombreReferencia": "Rose",
-        "telefonoReferencia": "(853) 471-2006",
-        "reconocimientos": [
-          {
-            "nombre": "mejor alumno",
-            "certificado": "cert"
-          }
-        ]
+        "telefonoReferencia": "(853) 471-2006"
       }
     ],
     "estudios": [
@@ -181,8 +166,8 @@
   },
   {
     "resumen": "Qui ullamco excepteur velit ad ullamco id id nisi irure dolore cupidatat mollit ullamco veniam.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Angelina",
     "apellido": "Wallace",
@@ -203,12 +188,7 @@
         "descripcion": "Aliquip occaecat minim dolor enim commodo.",
         "nombreReferencia": "Elba",
         "telefonoReferencia": "(881) 568-2597",
-        "reconocimientos": [
-          {
-            "nombre": "ganador de x",
-            "certificado": "cert"
-          }
-        ]
+        "tipoExperiencia":"Trabajo Normal"
       }
     ],
     "estudios": [
@@ -237,8 +217,8 @@
   },
   {
     "resumen": "Deserunt tempor ut et eiusmod et labore Lorem.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Rivas",
     "apellido": "Owens",
@@ -259,12 +239,7 @@
         "descripcion": "Dolore nulla deserunt fugiat est reprehenderit tempor qui excepteur.",
         "nombreReferencia": "Crawford",
         "telefonoReferencia": "(903) 568-2045",
-        "reconocimientos": [
-          {
-            "nombre": "ganador de x",
-            "certificado": "cert"
-          }
-        ]
+        "tipoExperiencia":"Trabajo Normal"
       }
     ],
     "estudios": [
@@ -293,8 +268,8 @@
   },
   {
     "resumen": "Aliqua est adipisicing do exercitation sit laborum aliquip aliqua adipisicing enim aute.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Estelle",
     "apellido": "Gamble",
@@ -315,12 +290,7 @@
         "descripcion": "Do do est ad ea pariatur aliquip sit ipsum in duis laborum velit magna.",
         "nombreReferencia": "Schultz",
         "telefonoReferencia": "(903) 420-3902",
-        "reconocimientos": [
-          {
-            "nombre": "mejor alumno",
-            "certificado": "cert"
-          }
-        ]
+        "tipoExperiencia":"Trabajo Normal"
       }
     ],
     "estudios": [
@@ -349,8 +319,8 @@
   },
   {
     "resumen": "Officia eiusmod ut reprehenderit tempor consequat elit amet ex voluptate aute anim do.",
-    "nacionalidad":"py",
-    "estadoCivil":"SOLTERO",
+    "nacionalidad":"Paraguayo",
+    "estadoCivil":"Soltero",
     "tipoDocumento":"ci",
     "nombre": "Mariana",
     "apellido": "Ratliff",
@@ -371,12 +341,8 @@
         "descripcion": "Anim labore anim veniam deserunt ex aute.",
         "nombreReferencia": "Francesca",
         "telefonoReferencia": "(961) 420-2150",
-        "reconocimientos": [
-          {
-            "nombre": "ganador de x",
-            "certificado": "cert"
-          }
-        ]
+        "tipoExperiencia":"Trabajo Normal"
+       
       }
     ],
     "estudios": [

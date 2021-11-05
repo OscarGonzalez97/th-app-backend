@@ -53,8 +53,38 @@ public class Experiencia {
     @JoinColumn
     private Postulante postulante;
 
-    @ManyToOne
+    @Column(name = "tipo_experiencia")
+    @NotNull
     private TipoExperiencia tipoExperiencia;
+
+    @Column(name = "descripcion")
+    @NotBlank
+    private String descripcion;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+
+    public Date getFechaDesde() {
+        return fechaDesde;
+    }
+    public String getMotivoSalida() {
+        return motivoSalida;
+    }
+    public TipoExperiencia getTipoExperiencia() {
+        return tipoExperiencia;
+    }
+    
+    public void setMotivoSalida(String motivoSalida) {
+        this.motivoSalida = motivoSalida;
+    }
+    public void setTipoExperiencia(TipoExperiencia tipoExperiencia) {
+        this.tipoExperiencia = tipoExperiencia;
+    }
     
 	
     public long getId() {

@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="ciudad")
 public class Ciudad{
@@ -34,6 +36,7 @@ public class Ciudad{
 
     @ManyToOne(targetEntity = Departamento.class,fetch = FetchType.EAGER)
     @JoinColumn(name="departamento_id",insertable = false, updatable = false)
+    @JsonBackReference
     private Departamento departamento;
 
 

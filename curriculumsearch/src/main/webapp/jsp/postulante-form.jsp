@@ -171,7 +171,23 @@
                                       Luce Bien!
                                     </div>
                                   </div>
+
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="nacionalidad" class="form-label"> Nacionalidad</label> 
+                                    <select name="nacionalidad" id="nacionalidad" class="bg-light">
+                                      <c:forEach items="${nacionalidades}" var="nacionalidad">
+                                        <option value="${nacionalidad.getDescripcion()}">${nacionalidad.getDescripcion()}</option>
+                                      </c:forEach>
+                                    
+                                  </select> </div>
                                   
+                                  <div class="inputs  mb-3 col-md-6">
+                                    <label for="tipoDocumento" class="form-label">Tipo de documento</label>
+                                    <input type="text" name="tipoDocumento" class="form-control  " id="tipoDocumento" required>
+                                    <div class="valid-feedback">
+                                      Luce Bien!
+                                    </div>
+                                  </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
                                     <label for="ci" class="form-label">Cedula de identidad</label>
@@ -181,13 +197,23 @@
                                     </div>
                                   </div>
                                   
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label form="ciudad" class="form-label">Ciudad</label>
-                                    <input type="text" name="ciudad" class="form-control " id="ciudad" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="departamentos" class="form-label"> Departamentos</label> 
+                                    <select  id="departamentos" class="bg-light">
+                                      <c:forEach items="${departamentos}" var="departamentos">
+                                        <option value="${departamentos.getId()}">${departamentos.getNombre()}</option>
+                                      </c:forEach>
+                                    
+                                    </select> 
                                   </div>
+
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="ciudad" class="form-label"> Ciudad</label> 
+                                    <select name="ciudadId" id="ciudad" class="bg-light">
+                                      
+                                    
+                                     </select> 
+                                </div>
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="telefono" class="form-label">Telefono</label>
                                     <input type="number" name="telefono" class="form-control  " id="telefono" required>
@@ -225,10 +251,10 @@
                                   </select> </div>
                                 
                                   <div class="inputs mb-3 col-md-6"> 
-                                    <label for="modalidad" class="form-label"> Modalidad</label> 
-                                    <select name="modalidad" id="modalidad" class="bg-light">
-                                      <c:forEach items="${modalidades}" var="modalidad">
-                                        <option value="${modalidad.getCode()}">${modalidad.getDescripcion()}</option>
+                                    <label for="estadoCivil" class="form-label"> Estado Civil</label> 
+                                    <select name="estadoCivil" id="estadoCivil" class="bg-light">
+                                      <c:forEach items="${estadosCiviles}" var="estadoCivil">
+                                        <option value="${estadoCivil.getDescripcion()}">${estadoCivil.getDescripcion()}</option>
                                       </c:forEach>
                                     
                         
@@ -316,35 +342,22 @@
                           <label for="refTel" class="form-label">Telefono de la Referencia</label>
                           <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
                         </div>
+                        
+                        <div class="inputs">
+                          <label for="motivoSalida" class="form-label">Motivo de Salida</label>
+                          <textarea class="form-control  " name="motivoSalida" id="motivoSalida" ></textarea>
+                        </div>
+                        <div class="inputs">
+                          <label for="tipoExperiencia" class="form-label"> Tipo de Experiencia</label> 
+                            <select name="tipoExperiencia" id="tipoExperiencia" class="bg-light">
+                              <c:forEach items="${tiposExperencia}" var="tipoExperiencia">
+                                <option value="${tipoExperiencia.getDescripcion()}">${tipoExperiencia.getDescripcion()}</option>
+                              </c:forEach>
+                            
+                            </select>
+                        </div>
+                        
                           
-                          <div class="inputs">
-                            <label class="form-label">Reconocimientos</label>
-                          </div>
-                          
-                          <div class="row mb-3">
-                            <div class="inputs col">
-                              <input type="text" class="form-control" name="rec-nombre-0" placeholder="Titulo del reconocimiento" aria-label="First name">
-                            </div>
-                            <div class=" inputs col">
-                              <input type="text" class="form-control" name="rec-certificado-0" placeholder="Adjuntar archivo" aria-label="Last name">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <div class="inputs col">
-                              <input type="text" class="form-control" name="rec-nombre-1" placeholder="Titulo del reconocimiento" aria-label="First name">
-                            </div>
-                            <div class="inputs col">
-                              <input type="text" class="form-control" name="rec-certificado-1" placeholder="Adjuntar archivo" aria-label="Last name">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <div class="inputs col">
-                              <input type="text" class="form-control" name="rec-nombre-2" placeholder="Titulo del reconocimiento" aria-label="First name">
-                            </div>
-                            <div class="inputs col">
-                              <input type="text" class="form-control" name="rec-certificado-2" placeholder="Adjuntar archivo" aria-label="Last name">
-                            </div>
-                          </div>
 
                 </form>
             </div>
@@ -460,6 +473,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+      var ciudades = ${ciudades};
+        
+    </script>
     <script src="./main.js"></script>
   </body>
 </html>

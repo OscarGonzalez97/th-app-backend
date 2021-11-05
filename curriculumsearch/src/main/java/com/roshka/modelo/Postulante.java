@@ -68,11 +68,11 @@ public class Postulante {
 
     @Column(name="estado_civil")
     @NotNull
-    private String estadoCivil;
+    private EstadoCivil estadoCivil;
    
     @Column(name="nacionalidad", length = 2)
     @NotNull
-    private String nacionalidad;
+    private Nacionalidad nacionalidad;
 
     @Column(name = "tipo_documento", length = 2)
     @NotBlank(message = "este campo debe estar completo")
@@ -212,23 +212,23 @@ public class Postulante {
     public void setCiudadId(Long ciudadId) {
         this.ciudadId = ciudadId;
     }
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
     public void setTipoDocumento(String tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
-    public String getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
     public String getTipoDocumento() {
         return tipoDocumento;
     }
-    public String getNacionalidad() {
+    public Nacionalidad getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(String nacionalidad) {
+    public void setNacionalidad(Nacionalidad nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 
