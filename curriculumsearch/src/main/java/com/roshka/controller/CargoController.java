@@ -1,10 +1,15 @@
 package com.roshka.controller;
 
+import java.util.Date;
+
 import com.roshka.modelo.Cargo;
 import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.repositorio.CargoRepository;
 import com.roshka.repositorio.ConvocatoriaRepository;
 
+import org.hibernate.jpa.TypedParameterValue;
+import org.hibernate.type.IntegerType;
+import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +32,15 @@ public class CargoController {
     }
 
     @RequestMapping("/cargos")
-    public String menuCargos(Model model,@RequestParam(required = false) Long cargoId) {
+    public String menuCargos(Model model,
+                            @RequestParam(required = false) Long cargoId,
+                            @RequestParam(required = false) Integer isOpen//1: true, 0: false
+                            ) {
 
         model.addAttribute("cargos", cargoRepo.findAll());
-        model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
+        
+        model.addAttribute("convocatorias", convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, cargoId), new Date(), new TypedParameterValue(IntegerType.INSTANCE, isOpen)));
+        //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
         return "cargo";
     }
 

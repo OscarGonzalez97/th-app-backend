@@ -41,11 +41,11 @@ public class ConvocatoriaCargo {
     @Column(name = "cupos")
     private int cupos;
 
-    //para serializar en el form como string
+    //para deserializar desde el form como string
     @Transient
     private String fechaFinS;
     
-    //para serializar en el form como string
+    //para deserializar desde el form como string
     @Transient
     private String fechaInicioS;
 
