@@ -11,5 +11,6 @@
     <a href="postulantes">Lista de postulantes</a>
     <a href="#">Tecnologias</a>
     <a href="convocatorias">Lista de convocatorias</a>
+    <a href="cargos">Lista de cargos</a>
 </body>
 </html>
