@@ -15,7 +15,7 @@
     
     <style type="text/css" media="screen">
           body {
-                  background-color: blue
+                  background-color: #506BEE
               }
 
               .card {
@@ -27,7 +27,7 @@
               }
 
               .image span {
-                  background-color: blue;
+                  background-color: #506BEE;
                   color: #fff;
                   padding: 6px;
                   height: 30px;
@@ -43,7 +43,7 @@
               }
 
               .user-details h4 {
-                  color: blue
+                  color: #506BEE
               }
 
               .ratings {
@@ -75,7 +75,7 @@
 
               .inputs input:focus {
                   box-shadow: none;
-                  border: 2px solid blue
+                  border: 2px solid #506BEE
               }
 
               .about-inputs label {
@@ -119,10 +119,10 @@
               }
 
               .add-experience:hover {
-                  background: blue;
+                  background: #506BEE;
                   color: #fff;
                   cursor: pointer;
-                  border: solid 1px blue
+                  border: solid 1px #506BEE
               }
     </style>
 

@@ -13,7 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+@Data
+@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PACKAGE, force = true)
 @Entity
 @Table(name="ciudad")
 public class Ciudad{
@@ -66,6 +73,6 @@ public class Ciudad{
 
 
 
-   
+
 
 }

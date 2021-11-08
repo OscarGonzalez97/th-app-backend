@@ -84,7 +84,6 @@ public class PostulanteController {
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
-        System.out.println("hola");
         postulante.getTecnologias().stream().filter(
                     tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
@@ -98,7 +97,6 @@ public class PostulanteController {
                 estudio.setInstitucion(institucion);
             }
         }
-        System.out.println("hola");
         post.save(postulante);
         return "redirect:/postulacion-correcta";
     }

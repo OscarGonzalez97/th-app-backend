@@ -21,7 +21,7 @@
 
 
                         <form:form method="post" action="/login">
-                            <h3 class="mb-5">Sign in</h3>
+                            <h3 class="mb-5">Ingresar</h3>
                             <div class="form-outline mb-4">
                                 <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" placeholder="example@example.com"/>
                                 <label class="form-label" for="typeEmailX-2">Email</label>
@@ -33,7 +33,7 @@
                             </div>
 
 
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Ingresar</button>
                         </form:form>
 
                         <hr class="my-4">
