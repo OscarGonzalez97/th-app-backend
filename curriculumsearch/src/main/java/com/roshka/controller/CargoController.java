@@ -31,7 +31,7 @@ public class CargoController {
         this.convoRepo = convoRepo;
     }
 
-    @RequestMapping("/cargos")
+    @RequestMapping("/convocatorias")
     public String menuCargos(Model model,
                             @RequestParam(required = false) Long cargoId,
                             @RequestParam(required = false) Integer isOpen//1: true, 0: false
@@ -41,7 +41,7 @@ public class CargoController {
         
         model.addAttribute("convocatorias", convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, cargoId), new Date(), new TypedParameterValue(IntegerType.INSTANCE, isOpen)));
         //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
-        return "cargo";
+        return "convocatorias";
     }
 
     @RequestMapping("/cargo")
