@@ -22,11 +22,21 @@ public class RRHHUserController {
         this.rrhhUserRepository = rrhhUserRepository;
     }
 
+    @GetMapping("/")
+    public String redirectOnHome(){
+        return "redirect:/home";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new RRHHUser());
 
         return "registration";
+    }
+
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
     }
 
     @PostMapping("/process_register")

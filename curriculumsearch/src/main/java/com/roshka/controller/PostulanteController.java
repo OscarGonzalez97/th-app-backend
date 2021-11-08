@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping("/")
 public class PostulanteController {
     PostulanteRepository post;
     TecnologiaRepository tecRepo;
@@ -101,7 +100,14 @@ public class PostulanteController {
         }
         System.out.println("hola");
         post.save(postulante);
-        return "redirect:/";
+        return "redirect:/postulacion-correcta";
+    }
+
+    @GetMapping("/postulacion-correcta")
+    public String successPostulation(Model model){
+        model.addAttribute("mensaje1", "Tu informacion se ha recibido correctamente!");
+        model.addAttribute("mensaje2", " espera por que nos pongamos en contacto!");
+        return "exitoRegistro";
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

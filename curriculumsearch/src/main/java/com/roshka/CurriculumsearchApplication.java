@@ -6,15 +6,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roshka.modelo.Ciudad;
-import com.roshka.modelo.Departamento;
-import com.roshka.modelo.Postulante;
-import com.roshka.modelo.PostulanteTecnologia;
-import com.roshka.modelo.Tecnologia;
-import com.roshka.repositorio.CiudadRepository;
-import com.roshka.repositorio.DepartamentoRepository;
-import com.roshka.repositorio.PostulanteRepository;
-import com.roshka.repositorio.TecnologiaRepository;
+import com.roshka.modelo.*;
+import com.roshka.repositorio.*;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.roshka.repositorio")
@@ -33,7 +27,8 @@ public class CurriculumsearchApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(PostulanteRepository postRepo,TecnologiaRepository tecRepo,DepartamentoRepository depR, CiudadRepository ciudR) {
+	CommandLineRunner runner(PostulanteRepository postRepo, TecnologiaRepository tecRepo, DepartamentoRepository depR,
+							 CiudadRepository ciudR, RRHHUserRepository rrhhUserRepository) {
 		return args -> {
 			try {
 				// read json and write to db
@@ -53,6 +48,14 @@ public class CurriculumsearchApplication {
 				List<Postulante> postulantes = mapper.readValue(inputStream,typeReference);
 				postRepo.saveAll(postulantes);
 				System.out.println("postulantes Saved!");
+				String password = new BCryptPasswordEncoder().encode("test");
+				RRHHUser testuser = new RRHHUser();
+				testuser.setEmail("test@test.com");
+				testuser.setFirstName("test");
+				testuser.setLastName("test");
+				testuser.setPassword(password);
+				rrhhUserRepository.save(testuser);
+				System.out.println("Usuario Test: \nEmail: test@test.com\nPassword: test");
 				
 			} catch (IOException e){
 				System.out.println("Unable to save tecnologias: " + e.getMessage());

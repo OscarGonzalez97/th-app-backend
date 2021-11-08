@@ -173,6 +173,7 @@ function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
 
+
     // Create an object to hold the name/value pairs
     const pairs = {};
 
@@ -189,20 +190,24 @@ function serializeJSON (form) {
 }
 
 async function postData(url = '', data = {}) {
+    var token = document.querySelector("meta[name='_csrf']").content;
+    var headerxs = document.querySelector("meta[name='_csrf_header']").content;
     // Default options are marked with *
-    const response = await fetch(url, {
+    let senddata = {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: data // body data type must match "Content-Type" header
-    });
+    }
+    senddata["headers"][headerxs] = token;
+    const response = await fetch(url, senddata);
     return response; // parses JSON response into native JavaScript objects
 }
 formValidator()

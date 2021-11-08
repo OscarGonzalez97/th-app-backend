@@ -468,6 +468,8 @@
       </div>
     </div>
   </div>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

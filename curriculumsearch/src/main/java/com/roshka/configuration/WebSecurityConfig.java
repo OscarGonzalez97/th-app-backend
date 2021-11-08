@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -45,17 +46,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+//            .csrf().disable()
+            .authorizeRequests()
                 .antMatchers("/").authenticated()
                 .antMatchers("/home").authenticated()
+                .antMatchers("/postulantes").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
+                    .loginPage("/login")
                     .usernameParameter("email")
                     .defaultSuccessUrl("/home")
                     .permitAll()
                 .and()
-                    .logout().logoutSuccessUrl("/").permitAll();
+                    .logout()
+                        .logoutUrl("/logout")
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                        .clearAuthentication(true)
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID", "remember-me")
+                        .logoutSuccessUrl("/login");
     }
 
 }
