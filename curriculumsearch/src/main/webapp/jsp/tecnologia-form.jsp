@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <form:form action="/tecnologia" method="post" modelAttribute="tecnologia">
+    <form:form action="/tecnologia/${tecnologia.id == null ? '' : tecnologia.id}"  method="post" modelAttribute="tecnologia">
         <form:label path="nombre">name: </form:label> <form:input type="text" path="nombre"/>
         <input type="submit" value="submit"/>
     </form:form>
