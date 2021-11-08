@@ -1,7 +1,7 @@
 package com.roshka.controller;
 
 
-import java.util.List;
+
 
 import javax.validation.ConstraintViolationException;
 
@@ -125,5 +125,11 @@ public class PostulanteController {
     
 
 
-
+   @GetMapping({"/postid"})
+  	public String getPostulanteDetalle(Model model) { 		
+ 		Postulante p = post.findById(1L) .get();	
+  		model.addAttribute("postulante",p);				
+  		return "detallepostulante";
+   
 }
+   }
