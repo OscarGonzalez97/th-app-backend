@@ -13,14 +13,23 @@
 </head>
 <body class="container">
     <div>
-        Cargos:
-        <select class="form-select" name="cargos" id="cargos">
-            <option value="-1">Todos los cargos</option>
-            <c:forEach items="${cargos}" var="cargo">
-                <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""} >${cargo.nombre}</option>
-            </c:forEach>
-        </select>
-        <a href="/cargo">Agregar Nuevo Cargo</a>
+        <form>
+            <label for="cargos">Cargos:</label>
+            <select class="form-select" name="cargoId" id="cargos">
+                <option value="">Todos los cargos</option>
+                <c:forEach items="${cargos}" var="cargo">
+                    <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""} >${cargo.nombre}</option>
+                </c:forEach>
+            </select>
+            Estado:
+            <input type="radio" id="cualquiera" name="isOpen" checked value="">
+            <label for="abierto">Cualquiera</label><br>
+            <input type="radio" id="abierto" name="isOpen" value="1">
+            <label for="abierto">Abierto</label><br>
+            <input type="radio" id="cerrado" name="isOpen" value="0">
+            <label for="cerrado">Cerrado</label><br>
+            <input type="submit" value="Buscar">
+        </form>
     </div>
     <div>
         <a href="/convocatoria">Agregar Nueva Convocatoria</a>
@@ -28,6 +37,7 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Cargo</th>
                 <th scope="col">Fecha Desde</th>
                 <th scope="col">Fecha Hasta</th>
                 <th scope="col">Vacantes</th>
@@ -38,10 +48,12 @@
                 <c:forEach items="${convocatorias}" var="convocatoria" varStatus="sta">
                     <tr>
                         <th scope="row">${sta.index+1}</th>
+                        <td>${convocatoria.getCargo().getNombre()}</td>
                         <td>${convocatoria.getFechaInicio().toString().split(" ")[0]}</td>
                         <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
                         <td>${convocatoria.getCupos()}</td>
                         <td>Ver Postulantes</td>
+                        <td><a href="/convocatoria/${convocatoria.id}">Editar</a></td>
                     </tr>
                 </c:forEach>
                 
@@ -49,13 +61,8 @@
              
             </tbody>
           </table>
+         
     </div>
-    <script>
-        document.querySelector("#cargos").addEventListener("change",evt=>{
-            const cargoId = evt.target.value;
-            if(cargoId == -1) location.assign("/cargos");
-            else location.assign("/cargos?cargoId="+cargoId)
-        })
-    </script>
+    
 </body>
 </html>

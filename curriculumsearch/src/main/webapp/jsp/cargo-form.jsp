@@ -13,7 +13,7 @@
 </head>
 <body>
    <div class="container">
-    <form:form action="/cargo" method="post" modelAttribute="cargo" class="row row-cols-lg-auto g-3 align-items-center">
+    <form:form action="/cargo/${cargo.id == null ? '' : cargo.id}" method="post" modelAttribute="cargo" class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12">
             <form:label class="form-label visually-hidden" path="nombre">Nombre del cargo </form:label> 
             <form:input type="text" path="nombre" class="form-control" placeholder="Nombre del cargo"/>
