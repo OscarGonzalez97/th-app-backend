@@ -30,10 +30,10 @@ public class Postulante {
     @Size(max = 255)
     private String apellido;
 
-    @Column(name = "ci")
+    @Column(name = "nro_document")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
-    private String ci;
+    private String nroDocument;
 
     @Column(name = "correo")
     @NotBlank(message = "Este campo no puede estar vacio")
@@ -74,9 +74,9 @@ public class Postulante {
     @NotNull
     private Nacionalidad nacionalidad;
 
-    @Column(name = "tipo_documento", length = 2)
-    @NotBlank(message = "este campo debe estar completo")
-    private String tipoDocumento;
+    @Column(name = "tipo_documento",length = 3)
+    @NotNull
+    private TipoDocumento tipoDocumento;
 
 
     @Column(name = "disponibilidad", length = 2)
@@ -131,12 +131,12 @@ public class Postulante {
         this.apellido = apellido;
     }
 
-    public String getCi() {
-        return ci;
+    public String getnroDocument() {
+        return nroDocument;
     }
 
-    public void setCi(String ci) {
-        this.ci = ci;
+    public void setnroDocument(String nroDocument) {
+        this.nroDocument = nroDocument;
     }
 
     public String getCorreo() {
@@ -215,13 +215,13 @@ public class Postulante {
     public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
-    public void setTipoDocumento(String tipoDocumento) {
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
     public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
-    public String getTipoDocumento() {
+    public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
     }
     public Nacionalidad getNacionalidad() {
