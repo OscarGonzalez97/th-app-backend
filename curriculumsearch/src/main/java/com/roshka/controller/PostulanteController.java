@@ -1,9 +1,13 @@
 package com.roshka.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import javax.validation.ConstraintViolationException;
 
+import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,7 +17,17 @@ import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
 import com.roshka.modelo.TipoExperiencia;
 import com.roshka.repositorio.*;
+import com.roshka.repositorio.CiudadRepository;
+import com.roshka.repositorio.DepartamentoRepository;
+import com.roshka.repositorio.ExperienciaRepository;
+import com.roshka.repositorio.InstitucionRepository;
+import com.roshka.repositorio.PostulanteRepository;
+import com.roshka.repositorio.TecnologiaRepository;
+import com.roshka.utils.Helper;
 
+
+import org.hibernate.jpa.TypedParameterValue;
+import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,10 +69,32 @@ public class PostulanteController {
 
     @RequestMapping("/postulantes")
     public String postulantes(Model model,
-                            @RequestParam(required = false,name = "tec")Long tecnologidaId) {
+                            @RequestParam(required = false)Long tecId,
+                            @RequestParam(required = false)String nombre,
+                            @RequestParam(required = false)Disponibilidad dispo,
+                            @RequestParam(required = false)Long lvlEng,
+                            @RequestParam(required = false)Long lvlTec,
+                            @RequestParam(required = false)Long instId,
+                            @RequestParam(required = false)Long expInMonths
+                            ) {
         model.addAttribute("tecnologias", tecRepo.findAll());
-        if(tecnologidaId==null) model.addAttribute("postulantes", post.findAll());
-        else model.addAttribute("postulantes", post.buscarPostulantesPorTecnologia(tecnologidaId));
+        model.addAttribute("disponibilidades", Disponibilidad.values());
+        model.addAttribute("institucionesEducativas", institucionRepository.findAll());
+        List<Postulante> postulantes = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"), dispo, lvlEng, lvlTec, tecId, instId);
+        List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
+        
+        for (Postulante postulante : postulantes) {
+            long expTotal = 0;
+            //Sumamos el tiempo de experiencia total en meses de cada postulante
+            //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
+            for (Experiencia experiencia : postulante.getExperiencias()) {
+                expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
+            }
+            if(expInMonths != null && expInMonths > expTotal) continue;
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias()));
+        }
+        
+        model.addAttribute("postulantes", postulantesDTO);
         return "postulantes";
     }
 
@@ -90,7 +126,9 @@ public class PostulanteController {
                     tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
                     );
         for(Estudio estudio: postulante.getEstudios()){
-            Institucion institucion = institucionRepository.findByNombre(estudio.getInstitucion().getNombre());
+            String nombreIns = "";
+            nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
+            Institucion institucion = institucionRepository.findByNombre(nombreIns);
             if(institucion==null){
                 institucionRepository.save(estudio.getInstitucion());
             }else{
