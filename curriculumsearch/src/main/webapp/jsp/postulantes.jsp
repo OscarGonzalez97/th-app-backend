@@ -97,6 +97,19 @@
       <div id="paginator">
 
       </div>
-      
+      <script>
+        function habilitarLvlTec(){
+          //si se selecciono una tecnologia entonces permitir seleccionar un nivel
+          lvlTec.disabled = tecId.value == false
+          if(lvlTec.disabled){
+            lvlTec.firstElementChild.selected=true;
+          }
+          
+        }
+        const tecId = document.querySelector("#tecId");
+        const lvlTec = document.querySelector("#lvlTec");
+        tecId.addEventListener('change',habilitarLvlTec);
+        habilitarLvlTec()
+      </script>
 </body>
 </html>
