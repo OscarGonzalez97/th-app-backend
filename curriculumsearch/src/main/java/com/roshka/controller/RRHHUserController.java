@@ -3,7 +3,6 @@ package com.roshka.controller;
 import com.roshka.modelo.RRHHUser;
 import com.roshka.repositorio.RRHHUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +34,10 @@ public class RRHHUserController {
     }
 
     @GetMapping("/login")
-    public String getLogin() {
+    public String getLogin(Model model, HttpServletRequest request) {
+        if(request.getParameter("error")!=null){
+            model.addAttribute("error", "Credenciales Incorrectas");
+        }
         return "login";
     }
 

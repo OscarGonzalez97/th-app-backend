@@ -30,7 +30,7 @@
                         <form:form action="/process_register" class="px-md-2" method="POST" modelAttribute="user">
                             <div class="form-outline mb-4">
                                 <form:label path="email" class="form-label">Email</form:label>
-                                <form:input path="email" class="form-control" required="required"></form:input>
+                                <form:input path="email" type="email" class="form-control" required="required"></form:input>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4">
