@@ -13,7 +13,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <div class="container">
         <jsp:include page="header.jsp"/>
         <a href="postulante">Form postulante</a>
@@ -26,5 +25,10 @@
             </form>
         </div>
     </div>
+    <a href="postulante">Form postulante</a>
+    <a href="postulantes">Lista de postulantes</a>
+    <a href="#">Tecnologias</a>
+    <a href="convocatorias">Lista de convocatorias</a>
+    <a href="cargos">Lista de cargos</a>
 </body>
 </html>
