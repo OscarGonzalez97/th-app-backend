@@ -33,6 +33,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -83,7 +84,7 @@ public class PostulanteController {
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
         final Integer CANTIDAD_POR_PAGINA = 5;
-        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA);
+        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());

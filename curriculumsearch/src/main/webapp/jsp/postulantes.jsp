@@ -93,12 +93,12 @@
             </c:forEach>
           </tbody>
 
-        </table>
+    </table>
       <div>
         <nav aria-label="Page navigation example">
           <ul class="pagination">
             <c:forEach begin="1" end="${pages}" var="nro">
-              <li class="page-item"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+              <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
             </c:forEach>
           </ul>
         </nav>
