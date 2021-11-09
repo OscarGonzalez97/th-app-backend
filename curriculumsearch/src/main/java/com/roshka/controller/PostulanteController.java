@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+
 import javax.validation.ConstraintViolationException;
 
 import com.roshka.DTO.PostulanteListaDTO;
@@ -164,5 +165,11 @@ public class PostulanteController {
     
 
 
-
-}
+   @GetMapping({"/postulante/{postulanteId}"})
+  	public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
+ 		Postulante p = post.findById(postulanteId).orElse(null);
+  		model.addAttribute("postulante",p);				
+  		return "detallepostulante";
+   
+    }
+   }

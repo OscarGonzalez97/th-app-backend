@@ -88,6 +88,7 @@
                             ${detalle_tecnologia.getTecnologia().getNombre()}${not staTec.last ? "," : ""}
                         </c:forEach>
                     </td>
+                    <td><a href="/postulante/${postulante.id}">Ver</a></td>
                 </tr>
             </c:forEach>
 

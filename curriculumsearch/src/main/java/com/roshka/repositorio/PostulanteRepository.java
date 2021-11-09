@@ -12,7 +12,7 @@ import com.roshka.modelo.Postulante;
 
 public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
-    @Query("select p from Postulante p join p.estudios e on e.institucion LIKE %?1%")
+    @Query("select p from Postulante p join p.estudios e on e.institucion.nombre LIKE %?1%")
 	public List<Postulante> findByInstitucionEstudio(String institucion);
     
     @Query("select p from Postulante p " +
@@ -33,10 +33,12 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
         "having sum(fecha_hasta-fecha_desde)>?1 * INTERVAL '1' month",
         nativeQuery = true )
     public List<Postulante> personasConExperienciaMayor(long meses);      
+    
 	@Query("select pos from Postulante pos join PostulanteTecnologia pt on pt.postulante.id=pos.id "+
 			"join Tecnologia tec on pt.tecnologia.id=tec.id "+
 			 "where tec.nombre=?1 and pt.nivel=?2")
 	public List<Postulante> findByPostulanteTecnologiaM(String tecno,long idt);
+
 
     @Query(value = "select DISTINCT p " +
     "from Postulante p join p.experiencias x " +
@@ -49,4 +51,5 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     "and (pt.tecnologia.id = ?5 or ?5 is null) "+
     " and (e.institucion.id = ?6 or ?6 is null ) ")
     public List<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId);
+
 }
