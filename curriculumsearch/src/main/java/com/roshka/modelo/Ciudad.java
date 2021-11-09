@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+
 @Entity
 @Table(name="ciudad")
 public class Ciudad{
@@ -66,6 +67,6 @@ public class Ciudad{
 
 
 
-   
+
 
 }

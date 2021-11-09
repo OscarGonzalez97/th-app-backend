@@ -15,7 +15,7 @@
     
     <style type="text/css" media="screen">
           body {
-                  background-color: blue
+                  background-color: #506BEE
               }
 
               .card {
@@ -27,7 +27,7 @@
               }
 
               .image span {
-                  background-color: blue;
+                  background-color: #506BEE;
                   color: #fff;
                   padding: 6px;
                   height: 30px;
@@ -43,7 +43,7 @@
               }
 
               .user-details h4 {
-                  color: blue
+                  color: #506BEE
               }
 
               .ratings {
@@ -75,7 +75,7 @@
 
               .inputs input:focus {
                   box-shadow: none;
-                  border: 2px solid blue
+                  border: 2px solid #506BEE
               }
 
               .about-inputs label {
@@ -119,10 +119,10 @@
               }
 
               .add-experience:hover {
-                  background: blue;
+                  background: #506BEE;
                   color: #fff;
                   cursor: pointer;
-                  border: solid 1px blue
+                  border: solid 1px #506BEE
               }
     </style>
 
@@ -180,18 +180,19 @@
                                       </c:forEach>
                                     
                                   </select> </div>
-                                  
-                                  <div class="inputs  mb-3 col-md-6">
-                                    <label for="tipoDocumento" class="form-label">Tipo de documento</label>
-                                    <input type="text" name="tipoDocumento" class="form-control  " id="tipoDocumento" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
+                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
+                                        <option value='CI' selected>C.I</option>
+                                        <option value='PAS'>Pasport</option>
+                                        <option value='Otro'>Otro</option>
+                                    </select> 
                                   </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
-                                    <label for="ci" class="form-label">Cedula de identidad</label>
-                                    <input type="number" name="ci" class="form-control  " id="ci" required>
+                                    <label for="nroDocument" class="form-label">Numero de Documento</label>
+                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
                                     <div class="valid-feedback">
                                       Luce Bien!
                                     </div>
@@ -468,6 +469,8 @@
       </div>
     </div>
   </div>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

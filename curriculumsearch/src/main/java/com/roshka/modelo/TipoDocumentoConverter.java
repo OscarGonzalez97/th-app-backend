@@ -6,10 +6,10 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter(autoApply = true)
-public class DisponibilidadConverter implements AttributeConverter<Disponibilidad, String>, org.springframework.core.convert.converter.Converter<String,Disponibilidad> {
+public class TipoDocumentoConverter implements AttributeConverter<TipoDocumento, String> {
  
     @Override
-    public String convertToDatabaseColumn(Disponibilidad modalidad) {
+    public String convertToDatabaseColumn(TipoDocumento modalidad) {
         if (modalidad == null) {
             return null;
         }
@@ -17,19 +17,15 @@ public class DisponibilidadConverter implements AttributeConverter<Disponibilida
     }
 
     @Override
-    public Disponibilidad convertToEntityAttribute(String code) {
+    public TipoDocumento convertToEntityAttribute(String code) {
         if (code == null) {
             return null;
         }
         
-        return Arrays.stream(Disponibilidad.values())
+        return Arrays.stream(TipoDocumento.values())
           .filter(c -> c.getCode().equals(code))
           .findFirst()
           .orElseThrow(IllegalArgumentException::new);
     }
-
-    @Override
-    public Disponibilidad convert(String arg0) {
-        return convertToEntityAttribute(arg0);
-    }
 }
+
