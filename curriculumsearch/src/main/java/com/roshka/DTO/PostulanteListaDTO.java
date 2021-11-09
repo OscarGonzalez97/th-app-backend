@@ -10,11 +10,11 @@ public class PostulanteListaDTO {
     private String nombre;
     private String apellido;
     private Disponibilidad disponibilidad;
-    private Integer nivelIngles;
+    private Long nivelIngles;
     private Long experienciaMeses;
     private List<PostulanteTecnologia> tecnologias;
     public PostulanteListaDTO(Long id, String nombre, String apellido, Disponibilidad disponibilidad,
-            Integer nivelIngles, Long experienciaMeses, List<PostulanteTecnologia> tecnologias) {
+    Long nivelIngles, Long experienciaMeses, List<PostulanteTecnologia> tecnologias) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -47,10 +47,10 @@ public class PostulanteListaDTO {
     public void setDisponibilidad(Disponibilidad disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
-    public Integer getNivelIngles() {
+    public Long getNivelIngles() {
         return nivelIngles;
     }
-    public void setNivelIngles(Integer nivelIngles) {
+    public void setNivelIngles(Long nivelIngles) {
         this.nivelIngles = nivelIngles;
     }
     public Long getExperienciaMeses() {

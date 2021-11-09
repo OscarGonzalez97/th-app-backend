@@ -30,6 +30,9 @@ import com.roshka.utils.Helper;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -76,12 +79,16 @@ public class PostulanteController {
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
                             @RequestParam(required = false)Long instId,
-                            @RequestParam(required = false)Long expInMonths
+                            @RequestParam(required = false)Long expInMonths,
+                            @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
+        final Integer CANTIDAD_POR_PAGINA = 5;
+        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA);
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
-        List<Postulante> postulantes = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"), dispo, lvlEng, lvlTec, tecId, instId);
+        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"), dispo, lvlEng, lvlTec, tecId, instId,page);
+        List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
         for (Postulante postulante : postulantes) {
@@ -95,6 +102,7 @@ public class PostulanteController {
             postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias()));
         }
         
+        model.addAttribute("pages", postulantesPag.getTotalPages());
         model.addAttribute("postulantes", postulantesDTO);
         return "postulantes";
     }

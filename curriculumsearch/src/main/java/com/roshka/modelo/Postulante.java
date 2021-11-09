@@ -61,7 +61,7 @@ public class Postulante {
     @Column(name = "nivel_ingles")
     @Min(value = 1)
     @Max(value = 5)
-    private Integer nivelIngles;
+    private Long nivelIngles;
 
     @Column(name = "curriculum")
     private String curriculum;
@@ -175,11 +175,11 @@ public class Postulante {
         this.resumen = resumen;
     }
 
-    public Integer getNivelIngles() {
+    public Long getNivelIngles() {
         return nivelIngles;
     }
 
-    public void setNivelIngles(Integer nivelIngles) {
+    public void setNivelIngles(Long nivelIngles) {
         this.nivelIngles = nivelIngles;
     }
 

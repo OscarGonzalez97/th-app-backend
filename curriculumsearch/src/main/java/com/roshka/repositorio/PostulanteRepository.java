@@ -3,6 +3,8 @@ package com.roshka.repositorio;
 import java.util.List;
 
 import org.hibernate.jpa.TypedParameterValue;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -50,6 +52,6 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     "and (pt.nivel >= ?4 or ?4 is null) "+
     "and (pt.tecnologia.id = ?5 or ?5 is null) "+
     " and (e.institucion.id = ?6 or ?6 is null ) ")
-    public List<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId);
+    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId, Pageable pageable);
 
 }
