@@ -41,9 +41,9 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
 
     @Query(value = "select DISTINCT p " +
-    "from Postulante p join p.experiencias x " +
-    "join p.estudios e " +
-    "join p.tecnologias pt " +
+    "from Postulante p left join p.experiencias x " +
+    "left join p.estudios e " +
+    "left join p.tecnologias pt " +
     "where (?1 is null or lower(p.nombre) LIKE lower(?1) or lower(p.apellido) LIKE lower(?1) ) " +
     "and (p.disponibilidad = ?2 or ?2 is null) " +
     "and (p.nivelIngles >= ?3 or ?3 is null) "+

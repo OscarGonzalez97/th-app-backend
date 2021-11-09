@@ -16,7 +16,7 @@
             <label>Nombre: ${postulante.nombre}</label><br>
             <label>Apellido ${postulante.apellido}</label><br>
             <label>Tipo de documento: ${postulante.tipoDocumento}</label><br>
-            <label>Cedula: ${postulante.ci}</label><br>
+            <label>Cedula: ${postulante.nroDocument}</label><br>
             <label>Correo: ${postulante.correo}</label><br>
             <label>Departamento: ${postulante.getCiudad().getDepartamento().getNombre()}</label><br>
             <label>Ciudad: ${postulante.getCiudad().getNombre()}</label><br>
