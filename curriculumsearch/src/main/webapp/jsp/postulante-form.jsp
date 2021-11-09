@@ -180,18 +180,19 @@
                                       </c:forEach>
                                     
                                   </select> </div>
-                                  
-                                  <div class="inputs  mb-3 col-md-6">
-                                    <label for="tipoDocumento" class="form-label">Tipo de documento</label>
-                                    <input type="text" name="tipoDocumento" class="form-control  " id="tipoDocumento" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
+                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
+                                        <option value='CI' selected>C.I</option>
+                                        <option value='PAS'>Pasport</option>
+                                        <option value='Otro'>Otro</option>
+                                    </select> 
                                   </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
-                                    <label for="ci" class="form-label">Cedula de identidad</label>
-                                    <input type="number" name="ci" class="form-control  " id="ci" required>
+                                    <label for="nroDocument" class="form-label">Numero de Documento</label>
+                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
                                     <div class="valid-feedback">
                                       Luce Bien!
                                     </div>

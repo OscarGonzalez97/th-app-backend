@@ -26,7 +26,14 @@ const formValidator = function () {
             }, false)
         })
 }
-
+function carg(elemento) {
+    var element = document.getElementById('descripcion');
+    if(elemento == "otro"){
+    element.style.display='block';
+    }else{
+    element.style.display='none';
+    }
+}
 function agregarFieldExpierncia(event){
     //recoger del form
     const pairs = {};
@@ -79,7 +86,7 @@ function agregarFieldExpierncia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
+            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
         </li>
         
         `
