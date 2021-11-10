@@ -12,6 +12,8 @@ import com.roshka.modelo.Postulante;
 
 public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
+    public Postulante findByNroDocument(String ci);
+
     @Query("select p from Postulante p join p.estudios e on e.institucion.nombre LIKE %?1%")
 	public List<Postulante> findByInstitucionEstudio(String institucion);
     

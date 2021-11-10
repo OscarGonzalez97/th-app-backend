@@ -33,7 +33,7 @@ public class PostulanteTecnologia {
     @JoinColumn
    private Tecnologia tecnologia;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
    @JoinColumn
     @JsonBackReference(value = "postulantetecnologia-postulante")
     private Postulante postulante;

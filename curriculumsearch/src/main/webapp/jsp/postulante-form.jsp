@@ -395,7 +395,7 @@
                   
                   <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
                   <label for="nivel" class="form-label">Nivel</label>
-                  <input type="number" class="form-control" name="nivel" id="nivel" required>
+                  <input type="range" class="form-range" name="nivel" id="nivel" min="1" max="5" required>
               </form>
           </div>
           <div class="modal-footer">

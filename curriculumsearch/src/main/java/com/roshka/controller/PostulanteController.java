@@ -47,18 +47,23 @@ public class PostulanteController {
     InstitucionRepository institucionRepository;
     DepartamentoRepository depRepo;
     CiudadRepository ciuRepo;
+    EstudioRepository estudioRepository;
+    PostulanteTecnologiaRepository postulanteTecnologiaRepository;
 
     @Autowired
     public PostulanteController(
             PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo,
             InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
-            CiudadRepository ciuRepo) {
+            CiudadRepository ciuRepo, EstudioRepository estudioRepository,
+            PostulanteTecnologiaRepository postulanteTecnologiaRepository) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
         this.institucionRepository = institucionRepository;
         this.depRepo = depRepo;
         this.ciuRepo = ciuRepo;
+        this.estudioRepository = estudioRepository;
+        this.postulanteTecnologiaRepository = postulanteTecnologiaRepository;
     }
 
     @RequestMapping("home")
@@ -121,11 +126,19 @@ public class PostulanteController {
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
+        //Codigo encargado de modificar postulacion si se envia mismo CI
+        Postulante postulantex = post.findByNroDocument(postulante.getnroDocument());
+        if(postulantex != null){
+            estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
+            expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
+            postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
+            postulante.setId(postulantex.getId());
+        }
         postulante.getTecnologias().stream().filter(
                     tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
                     tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                    );
+        );
         for(Estudio estudio: postulante.getEstudios()){
             String nombreIns = "";
             nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
