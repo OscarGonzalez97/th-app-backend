@@ -144,13 +144,13 @@ public class PostulanteController {
                     tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
                     tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                    );
+                    ); 
 
         
-        for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
+        /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
             postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
         }
-        
+         */
         for(Estudio estudio: postulante.getEstudios()){
             String nombreIns = "";
             nombreIns = estudio.getInstitucion().getNombre().toLowerCase();

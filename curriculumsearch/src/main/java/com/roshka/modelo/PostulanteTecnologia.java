@@ -21,7 +21,7 @@ uniqueConstraints=@UniqueConstraint(columnNames={"postulante_id", "tecnologia_id
 
 public class PostulanteTecnologia {
    @Id 
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="id")
    private long id ;
 
@@ -29,7 +29,7 @@ public class PostulanteTecnologia {
    @Min(value = 1)
    @Max(value = 5)
    private Long nivel;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},optional = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST},optional = false)
     @JoinColumn
    private Tecnologia tecnologia;
 

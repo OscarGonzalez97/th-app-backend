@@ -19,7 +19,7 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Postulante {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
 
@@ -101,7 +101,7 @@ public class Postulante {
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<ReferenciaPersonal> referencias;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(uniqueConstraints = @UniqueConstraint(columnNames = {"postulante_id","convocatoria_cargo_id"}),
                 joinColumns = @JoinColumn(name="postulante_id", referencedColumnName="id"),
                 inverseJoinColumns= @JoinColumn(name="convocatoria_cargo_id", referencedColumnName="id")

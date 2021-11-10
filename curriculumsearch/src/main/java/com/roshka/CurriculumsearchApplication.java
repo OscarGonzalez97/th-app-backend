@@ -2,6 +2,7 @@ package com.roshka;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -51,23 +52,29 @@ public class CurriculumsearchApplication {
 				cargoR.saveAll(cargos);
 				cargoR.flush();
 				System.out.println("Cargos Saved!");
+				/* TypeReference<List<Tecnologia>> typeReference5 = new TypeReference<List<Tecnologia>>(){};
+				inputStream = TypeReference.class.getResourceAsStream("/json/tecnologia.json");
+				List<Tecnologia> tecnologias= mapper.readValue(inputStream,typeReference5);
+				tecRepo.saveAll(tecnologias);
+				tecRepo.flush();
+				System.out.println("Cargos Saved!"); */
 				TypeReference<List<ConvocatoriaCargo>> typeReference4 = new TypeReference<List<ConvocatoriaCargo>>(){};
 				inputStream = TypeReference.class.getResourceAsStream("/json/convocatoria.json");
 				List<ConvocatoriaCargo> convocatorias= mapper.readValue(inputStream,typeReference4);
-				convR.saveAll(convocatorias);
+				convocatorias = convR.saveAll(convocatorias);
 				convR.flush();
 				System.out.println("convocatorias Saved!");
 				TypeReference<List<Postulante>> typeReference = new TypeReference<List<Postulante>>(){};
 				inputStream = TypeReference.class.getResourceAsStream("/json/postulante.json");
 				List<Postulante> postulantes = mapper.readValue(inputStream,typeReference);
-				/* for (Postulante postulante : postulantes) {
+				/*  for (Postulante postulante : postulantes) {
 					for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
-
+						
 						postulante.getPostulaciones().set(i, convR.getById(postulante.getPostulaciones().get(i).getId()));
-						postulante.getPostulaciones().get(i).getFechaInicio();
+						
 						
 					}
-				} */
+				}  */
 				postRepo.saveAll(postulantes);
 				System.out.println("postulantes Saved!");
 				String password = new BCryptPasswordEncoder().encode("test");

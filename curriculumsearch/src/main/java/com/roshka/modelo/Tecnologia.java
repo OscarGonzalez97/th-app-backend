@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name="tecnologia")
 public class Tecnologia {
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name="id")
 	private long id;

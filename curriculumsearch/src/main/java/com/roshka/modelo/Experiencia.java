@@ -23,7 +23,7 @@ import javax.validation.constraints.Past;
 @Table(name = "experiencia")
 public class Experiencia {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "institucion")
