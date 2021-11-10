@@ -16,7 +16,7 @@
             <label>Nombre: ${postulante.nombre}</label><br>
             <label>Apellido ${postulante.apellido}</label><br>
             <label>Tipo de documento: ${postulante.tipoDocumento}</label><br>
-            <label>Cedula: ${postulante.ci}</label><br>
+            <label>Cedula: ${postulante.nroDocument}</label><br>
             <label>Correo: ${postulante.correo}</label><br>
             <label>Departamento: ${postulante.getCiudad().getDepartamento().getNombre()}</label><br>
             <label>Ciudad: ${postulante.getCiudad().getNombre()}</label><br>
@@ -65,6 +65,12 @@
                 <label>Nombre: ${detalle_referencias.getNombre()}</label>
                 <label>Relacion: ${detalle_referencias.getRelacion()}</label><br>
                 <label>Telefono: ${detalle_referencias.getTelefono()}</label><br>
+            </c:forEach>
+           
+            <br><label>CARGOS AL CUAL POSTULA</label><br>
+
+            <c:forEach items="${postulante.postulaciones}" var="convocatoria">
+                <label>Nombre: ${convocatoria.getCargo().getNombre()}</label><br>
             </c:forEach>
            
 

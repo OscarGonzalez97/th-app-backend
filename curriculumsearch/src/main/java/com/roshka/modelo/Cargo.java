@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table(name = "cargo")
 public class Cargo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
@@ -46,5 +46,8 @@ public class Cargo {
     }
     public void setConvocatorias(List<ConvocatoriaCargo> convocatorias) {
         this.convocatorias = convocatorias;
+    }
+    public static Object values() {
+        return null;
     }
 }
