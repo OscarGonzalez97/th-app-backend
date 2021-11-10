@@ -289,7 +289,7 @@
                         
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-end">
-                                  <button class="px-3 btn btn-sm btn-outline-primary">Cancelar</button> 
+                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/postulante">Cancelar</a>
                                   <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
                                 </div>
                               </div>
