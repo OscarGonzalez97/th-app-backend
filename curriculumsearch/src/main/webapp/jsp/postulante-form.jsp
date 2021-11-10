@@ -119,11 +119,24 @@
               }
 
               .add-experience:hover {
+                
                   background: blue;
                   color: #fff;
                   cursor: pointer;
-                  border: solid 1px blue
+                  border: solid 1px blue;
+                  display:inline-block;
+                  
+                  
               }
+                #outer
+                {
+                    width:100%;
+                    text-align: center;
+                }
+                .inner
+                {
+                    display: inline-block;
+                }
     </style>
 
 
@@ -260,16 +273,19 @@
                         
                                   </select> </div>
                               
-                                  <div class="inputs p-3 py-5">
-                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+                                  <div class=" p-3 py-5">
+                                    <div class="  d-flex justify-content-between align-items-center experience">
+                                      <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm">
+                                        <i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span>
+                                      </div><br>   
                                   </div>
 
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
                                   </div>
                                     
                                
-                                  <div class="inputs p-3 py-5">
-                                   <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
+                                  <div class=" p-3 py-5">
+                                   <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
                                   </div>
                                  
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
@@ -277,16 +293,16 @@
                             
                                
                                
-                                <div class="inputs p-3 py-5">
-                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
+                                <div class=" p-3 py-5">
+                                  <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
                                 </div>
                                 
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
                                 </div>
 
-                                <div class="inputs p-3 py-5">
-                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
+                                <div class=" p-3 py-5">
+                                  <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
                                 </div>
                                 <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia"> 
                                 </div>
