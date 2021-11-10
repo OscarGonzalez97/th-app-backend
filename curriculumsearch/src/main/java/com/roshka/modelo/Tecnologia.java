@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name="tecnologia")
 public class Tecnologia {
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name="id")
 	private long id;
@@ -29,7 +29,7 @@ public class Tecnologia {
 		this.id = id;
 	}
 	public String getNombre() {
-		return nombre.toLowerCase();
+		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

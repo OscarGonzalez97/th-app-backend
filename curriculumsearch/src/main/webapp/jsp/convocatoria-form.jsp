@@ -13,7 +13,7 @@
 </head>
 <body>
    <div class="container">
-    <form:form action="/convocatoria" method="post" modelAttribute="convocatoria">
+    <form:form action="/convocatoria/${convocatoria.id == null ? '' : convocatoria.id}" method="post" modelAttribute="convocatoria">
         <div class="mb-3">
             <form:label path="fechaInicioS" class="form-label">Fecha inicial</form:label>
             <form:input type="date" class="form-control" path="fechaInicioS"/>
@@ -37,9 +37,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form:form>
-    
-        
-    
    </div>
 </body>
 </html>

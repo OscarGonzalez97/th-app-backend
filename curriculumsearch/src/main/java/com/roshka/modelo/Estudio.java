@@ -15,7 +15,7 @@ import com.roshka.utils.Helper;
 @Table(name="estudio")
 public class Estudio {  
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO) 
+    @GeneratedValue(strategy=GenerationType.IDENTITY) 
     @Column(name="id")   
     private long id;
 

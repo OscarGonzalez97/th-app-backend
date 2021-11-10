@@ -1,11 +1,18 @@
 var cont_experiencia = 0;
 let cont_estudios = 0;
 let cont_tecnologia = 0;
-var cont_referencias=0 ;
+
+let cont_cargo = 0;
 const experiencias = [];
 const estudios = [];
 const tecnologias = [];
+let noValidateFlag = false;
+
+const postulaciones = [];
+
+var cont_referencias=0 ;
 const referencias= [];
+
 
 
 const formValidator = function () {
@@ -23,13 +30,21 @@ const formValidator = function () {
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
+                    noValidateFlag = true;
                 }
 
                 form.classList.add('was-validated')
             }, false)
         })
 }
-
+function carg(elemento) {
+    var element = document.getElementById('descripcion');
+    if(elemento == "otro"){
+    element.style.display='block';
+    }else{
+    element.style.display='none';
+    }
+}
 function agregarFieldExpierncia(event){
     //recoger del form
     const pairs = {};
@@ -82,7 +97,7 @@ function agregarFieldExpierncia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
+            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
         </li>
         
         `
@@ -176,6 +191,7 @@ function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
 
+
     // Create an object to hold the name/value pairs
     const pairs = {};
 
@@ -186,27 +202,33 @@ function serializeJSON (form) {
     pairs["experiencias"] = experiencias.filter(exp => exp)//eliminacion de nulos
     pairs["estudios"] = estudios.filter(est => est)//eliminacion de nulos
     pairs["tecnologias"] = tecnologias.filter(tec => tec)//eliminacion de nulos
+    pairs["postulaciones"] = postulaciones.filter(car => car)//eliminacion de nulos
     pairs["referencias"] = referencias.filter(tec => tec)
+
     
     // Return the JSON string
     return JSON.stringify(pairs, null, 2);
 }
 
 async function postData(url = '', data = {}) {
+    var token = document.querySelector("meta[name='_csrf']").content;
+    var headerxs = document.querySelector("meta[name='_csrf_header']").content;
     // Default options are marked with *
-    const response = await fetch(url, {
+    let senddata = {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: data // body data type must match "Content-Type" header
-    });
+    }
+    senddata["headers"][headerxs] = token;
+    const response = await fetch(url, senddata);
     return response; // parses JSON response into native JavaScript objects
 }
 formValidator()
@@ -217,15 +239,18 @@ form.addEventListener("submit",(evt)=>{
     //     evt.stopPropagation()
     // }
     // form.classList.add('was-validated')
-    postData('postulante', serializeJSON(form))
-    .then(response => {
-        if(response.status==200 || response.status==302){
-            location.replace(response.url);
-        }else{
-            console.log(response.text().then(value => console.log(value)))
-        }
-    });
-    evt.preventDefault();
+    if(!noValidateFlag){
+        postData('postulante', serializeJSON(form))
+            .then(response => {
+                if(response.status==200 || response.status==302){
+                    location.replace(response.url);
+                }else{
+                    console.log(response.text().then(value => console.log(value)))
+                }
+            });
+        evt.preventDefault();
+    }
+    noValidateFlag = false
 } );
 
 document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
@@ -320,7 +345,85 @@ function eliminarEstudio(event) {
     //eliminar en html
     event.target.parentElement.remove()
 }
+/*--------------------------------------------------------------------*/
+function agregarFieldCargo(){
+    //recoger del form
+    const pairs = {};
+    const formcar = document.querySelector("[name=cargo-form]");
+    const formData = new FormData(formcar);
 
+    //Validacion
+    let returnFlag = false;
+
+    let requiredValues = ["nombre"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+            && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
+        return;
+    }
+
+    for (const [name, value] of formData){
+        pairs[name] = value
+    }
+    console.log(pairs)
+    for(let i=0;i<cont_cargo;i++){
+        if(postulaciones[i]!==null){
+            if(postulaciones[i]["id"]===pairs["cargo-id"]){
+                alert("Ya has agregado ese cargo!")
+                cont_cargo--;
+                return;
+            }
+        }
+    }
+    postulaciones[cont_cargo]={}
+    postulaciones[cont_cargo]["id"]=pairs["cargo-id"]
+    //postulaciones[cont_cargo]["cargo"]=pairs["cargo-id"]=="-1"?{nombre: pairs["cargo-nombre"]}:{id: pairs["cargo-id"],nombre:document.querySelector('[name=cargo-id] > option[value="'+pairs["cargo-id"]+'"]').innerHTML}
+    console.log(postulaciones)
+    formcar.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#cargos")
+    const div1 = document.createElement('div');
+
+    let content1='<ul>'
+    for (let index = 0; index < postulaciones.length; index++) {
+        const car = postulaciones[index];
+        if(car==null) continue;
+        content1 += `
+        <li id="car-${index}">
+            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}        
+            <button type="button" onclick="eliminarCargoPostulante(event)">Eliminar</button>
+        </li>
+        
+        `
+    }
+    content1 += "</ul>" 
+    div1.innerHTML = content1
+    div.innerHTML = '';
+    div.appendChild(div1);
+    cont_cargo++;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+function eliminarCargoPostulante(event) {
+    //eliminar del array
+    postulaciones[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*--------------------------------------------------------------------*/
 
 
 //evento para cambio de ciudad segun departamento

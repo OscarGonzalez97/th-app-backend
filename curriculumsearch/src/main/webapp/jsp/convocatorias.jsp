@@ -30,7 +30,6 @@
             <label for="cerrado">Cerrado</label><br>
             <input type="submit" value="Buscar">
         </form>
-        <a href="/cargo">Agregar Nuevo Cargo</a>
     </div>
     <div>
         <a href="/convocatoria">Agregar Nueva Convocatoria</a>
@@ -54,6 +53,7 @@
                         <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
                         <td>${convocatoria.getCupos()}</td>
                         <td>Ver Postulantes</td>
+                        <td><a href="/convocatoria/${convocatoria.id}">Editar</a></td>
                     </tr>
                 </c:forEach>
                 
@@ -61,6 +61,7 @@
              
             </tbody>
           </table>
+         
     </div>
     
 </body>

@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table(name = "cargo")
 public class Cargo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotBlank
     @Column(name = "nombre")
@@ -28,13 +28,13 @@ public class Cargo {
     @JsonManagedReference
     private List<ConvocatoriaCargo> convocatorias;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public String getNombre() {
         return nombre;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public void setNombre(String nombre) {
@@ -46,5 +46,8 @@ public class Cargo {
     }
     public void setConvocatorias(List<ConvocatoriaCargo> convocatorias) {
         this.convocatorias = convocatorias;
+    }
+    public static Object values() {
+        return null;
     }
 }

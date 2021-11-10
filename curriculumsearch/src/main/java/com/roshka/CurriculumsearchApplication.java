@@ -2,26 +2,23 @@ package com.roshka;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roshka.modelo.Ciudad;
-import com.roshka.modelo.Departamento;
-import com.roshka.modelo.Postulante;
-import com.roshka.modelo.PostulanteTecnologia;
-import com.roshka.modelo.Tecnologia;
-import com.roshka.repositorio.CiudadRepository;
-import com.roshka.repositorio.DepartamentoRepository;
-import com.roshka.repositorio.PostulanteRepository;
-import com.roshka.repositorio.TecnologiaRepository;
+import com.roshka.modelo.*;
+import com.roshka.repositorio.*;
 
+import org.hibernate.PersistentObjectException;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.roshka.repositorio")
@@ -33,7 +30,8 @@ public class CurriculumsearchApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(PostulanteRepository postRepo,TecnologiaRepository tecRepo,DepartamentoRepository depR, CiudadRepository ciudR) {
+	CommandLineRunner runner(PostulanteRepository postRepo, TecnologiaRepository tecRepo, DepartamentoRepository depR,
+							 CiudadRepository ciudR, RRHHUserRepository rrhhUserRepository, CargoRepository cargoR, ConvocatoriaRepository convR) {
 		return args -> {
 			try {
 				// read json and write to db
@@ -48,20 +46,80 @@ public class CurriculumsearchApplication {
 				List<Ciudad> ciudades= mapper.readValue(inputStream,typeReference2);
 				ciudR.saveAll(ciudades);
 				System.out.println("Cuidad Saved!");
+				TypeReference<List<Cargo>> typeReference3 = new TypeReference<List<Cargo>>(){};
+				inputStream = TypeReference.class.getResourceAsStream("/json/cargo.json");
+				List<Cargo> cargos= mapper.readValue(inputStream,typeReference3);
+				cargoR.saveAll(cargos);
+				cargoR.flush();
+				System.out.println("Cargos Saved!");
+				/* TypeReference<List<Tecnologia>> typeReference5 = new TypeReference<List<Tecnologia>>(){};
+				inputStream = TypeReference.class.getResourceAsStream("/json/tecnologia.json");
+				List<Tecnologia> tecnologias= mapper.readValue(inputStream,typeReference5);
+				tecRepo.saveAll(tecnologias);
+				tecRepo.flush();
+				System.out.println("Cargos Saved!"); */
+				TypeReference<List<ConvocatoriaCargo>> typeReference4 = new TypeReference<List<ConvocatoriaCargo>>(){};
+				inputStream = TypeReference.class.getResourceAsStream("/json/convocatoria.json");
+				List<ConvocatoriaCargo> convocatorias= mapper.readValue(inputStream,typeReference4);
+				convocatorias = convR.saveAll(convocatorias);
+				convR.flush();
+				System.out.println("convocatorias Saved!");
 				TypeReference<List<Postulante>> typeReference = new TypeReference<List<Postulante>>(){};
 				inputStream = TypeReference.class.getResourceAsStream("/json/postulante.json");
 				List<Postulante> postulantes = mapper.readValue(inputStream,typeReference);
+				/*  for (Postulante postulante : postulantes) {
+					for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
+						
+						postulante.getPostulaciones().set(i, convR.getById(postulante.getPostulaciones().get(i).getId()));
+						
+						
+					}
+				}  */
 				postRepo.saveAll(postulantes);
 				System.out.println("postulantes Saved!");
+				String password = new BCryptPasswordEncoder().encode("test");
+				RRHHUser testuser = new RRHHUser();
+				testuser.setEmail("test@test.com");
+				testuser.setFirstName("test");
+				testuser.setLastName("test");
+				testuser.setPassword(password);
+				rrhhUserRepository.save(testuser);
+				System.out.println("Usuario Test: \nEmail: test@test.com\nPassword: test");
 				
 			} catch (IOException e){
-				System.out.println("Unable to save tecnologias: " + e.getMessage());
+				System.out.println("Unable to save: " + e.getMessage());
+			}
+			catch(PersistentObjectException ex){
+				System.out.println("Unable to save: " + ex.getMessage());
+				
+				ex.printStackTrace();
+			}
+			catch(Exception ex){
+				System.out.println("Unable to save: " + ex.getMessage());
+				
+				ex.printStackTrace();
 			}
 
 			
 			
 			
 		};
+	}
+
+	public static <Q,T extends JpaRepository<Q,Long>> void  guardarJson(T repo,String srcJson ) {
+		ObjectMapper mapper = new ObjectMapper();
+		TypeReference<List<Q>> typeReference1 = new TypeReference<List<Q>>(){};
+		InputStream inputStream = TypeReference.class.getResourceAsStream(srcJson);
+		List<Q> listaAguardar;
+		try {
+			listaAguardar = mapper.readValue(inputStream,typeReference1);
+			repo.saveAll(listaAguardar);
+			repo.flush();
+			System.out.println(srcJson+" Saved!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	

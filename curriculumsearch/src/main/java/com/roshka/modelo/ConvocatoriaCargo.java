@@ -15,14 +15,17 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.roshka.utils.Helper;
 
 @Entity
 @Table(name = "convocatoria_cargo")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ConvocatoriaCargo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne()
     @JoinColumn(name = "cargo_id",insertable = false, updatable = false)
@@ -52,7 +55,7 @@ public class ConvocatoriaCargo {
     @ManyToMany(mappedBy = "postulaciones")
     private List<Postulante> postulantes;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public Cargo getCargo() {
@@ -67,7 +70,7 @@ public class ConvocatoriaCargo {
     public Date getFechaInicio() {
         return fechaInicio;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public void setCargo(Cargo cargo) {

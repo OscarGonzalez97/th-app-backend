@@ -15,7 +15,7 @@
     
     <style type="text/css" media="screen">
           body {
-                  background-color: blue
+                  background-color: #506BEE
               }
 
               .card {
@@ -27,7 +27,7 @@
               }
 
               .image span {
-                  background-color: blue;
+                  background-color: #506BEE;
                   color: #fff;
                   padding: 6px;
                   height: 30px;
@@ -43,7 +43,7 @@
               }
 
               .user-details h4 {
-                  color: blue
+                  color: #506BEE
               }
 
               .ratings {
@@ -75,7 +75,7 @@
 
               .inputs input:focus {
                   box-shadow: none;
-                  border: 2px solid blue
+                  border: 2px solid #506BEE
               }
 
               .about-inputs label {
@@ -119,14 +119,12 @@
               }
 
               .add-experience:hover {
-                
-                  background: blue;
+
+                  background: #506BEE;
                   color: #fff;
                   cursor: pointer;
-                  border: solid 1px blue;
-                  display:inline-block;
-                  
-                  
+                  border: solid 1px #506BEE
+
               }
                 #outer
                 {
@@ -193,18 +191,19 @@
                                       </c:forEach>
                                     
                                   </select> </div>
-                                  
-                                  <div class="inputs  mb-3 col-md-6">
-                                    <label for="tipoDocumento" class="form-label">Tipo de documento</label>
-                                    <input type="text" name="tipoDocumento" class="form-control  " id="tipoDocumento" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+
+                                  <div class="inputs mb-3 col-md-6"> 
+                                    <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
+                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
+                                        <option value='CI' selected>C.I</option>
+                                        <option value='PAS'>Pasport</option>
+                                        <option value='Otro'>Otro</option>
+                                    </select> 
                                   </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
-                                    <label for="ci" class="form-label">Cedula de identidad</label>
-                                    <input type="number" name="ci" class="form-control  " id="ci" required>
+                                    <label for="nroDocument" class="form-label">Numero de Documento</label>
+                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
                                     <div class="valid-feedback">
                                       Luce Bien!
                                     </div>
@@ -246,11 +245,11 @@
                         
                                   <div class="inputs col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="bg-light">
-                                    <option value="1" selected>1</option>
-                                    <option value="2" >2</option>
-                                    <option value="3" >3</option>
-                                    <option value="4" >4</option>
-                                    <option value="5" >5</option>
+                                    <option value="1" selected>Ingles muy basico</option>
+                                    <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
+                                    <option value="3" >Puedo leer tranquilamente</option>
+                                    <option value="4" >Puedo escribir documentacion</option>
+                                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
                                     </select> 
                                   </div>
                                 
@@ -272,12 +271,17 @@
                                     
                         
                                   </select> </div>
-                              
-                                  <div class=" p-3 py-5">
-                                    <div class="  d-flex justify-content-between align-items-center experience">
-                                      <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm">
-                                        <i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span>
-                                      </div><br>   
+
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
+                                  </div>
+
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
+                                  </div>
+
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+
                                   </div>
 
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
@@ -310,14 +314,44 @@
                         
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-end">
-                                  <button class="px-3 btn btn-sm btn-outline-primary">Cancelar</button> 
+                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/postulante">Cancelar</a>
                                   <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
                                 </div>
                               </div>
                           </div>
                       </div>
     </form>
-
+    <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
+    <div class="modal fade" id="cargoForm" tabindex="-2" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form name="cargo-form" class="needs-validation" novalidate>
+              <label for="cargo-nombre" class="form-label">Cargo</label>
+              <div class="input-group mb-3">
+                <select class="form-select" name="cargo-id" aria-label="Default select example" required>
+                  <option value="-1" selected>Open this select menu</option>
+                  <c:forEach items="${CargosDisponibles}" var="convocatoria">
+                                <option value="${convocatoria.getId()}">${convocatoria.getCargo().getNombre()}</option>
+                  </c:forEach>>
+                </select>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldCargo()" data-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-------------------------------------------------------------------------------------------------------------------------->
 
       <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
@@ -333,22 +367,22 @@
                 <form name="experiencia-form" class="needs-validation" novalidate>
 
                         <div class="inputs">
-                            <label for="institucion" class="inputs form-label">Institucion</label>
-                            <input type="text" class="inputs form-control  " name="institucion" id="institucion" required>
+                            <label for="institucionExperiencia" class="inputs form-label">Institucion</label>
+                            <input type="text" class="inputs form-control  " name="institucion" id="institucionExperiencia" required>
                         </div>
                         <div class="inputs">
-                            <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                            <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
+                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
+                            <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
                         </div>
                          
                         <div class="inputs">
-                            <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                            <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                            <label for="fechaHastaExperiencia" class="form-label">Fecha Hasta</label>
+                            <input type="date" class="form-control" name="fechaHasta" id="fechaHastaExperiencia" >
                         </div>
                         
                         <div class="inputs">
                             <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control  " name="cargo" id="cargo" required>
+                            <input type="text" class="form-control " name="cargo" id="cargo" required>
                         </div>
 
                         <div class="inputs">
@@ -416,7 +450,7 @@
                   
                   <input type="text" class="form-control d-none" name="tecnologia-nombre" id="tecnologia-nombre" >
                   <label for="nivel" class="form-label">Nivel</label>
-                  <input type="number" class="form-control" name="nivel" id="nivel" required>
+                  <input type="range" class="form-range" name="nivel" id="nivel" min="1" max="5" required>
               </form>
           </div>
           <div class="modal-footer">
@@ -455,8 +489,8 @@
 <%--                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>--%>
 <%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
                 <div class="form-group">
-                    <label for="institucion" class="form-label">Institucion</label>
-                    <input type="text" class="form-control" name="institucion" id="institucion" required>
+                    <label for="institucionEstudio" class="form-label">Institucion</label>
+                    <input type="text" class="form-control" name="institucion" id="institucionEstudio" required>
                 </div>
                 <div class="form-group">
                     <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
@@ -472,12 +506,12 @@
                       </select>
                   </div>
                 <div class="form-group">
-                    <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
+                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde</label>
+                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesdeEstudio" required>
                 </div>
                 <div class="form-group">
-                    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                    <label for="fechaHastaEstudio" class="form-label">Fecha Hasta</label>
+                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHastaEstudio" >
                 </div>
 
 
@@ -490,6 +524,8 @@
       </div>
     </div>
   </div>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <!--Modal de referencias-->
        <div class="modal fade" id="referenciaForm" tabindex="-1" role="dialog" aria-labelledby="referenciaForm" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -530,7 +566,6 @@
       </div>
 
 
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -538,7 +573,38 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
       var ciudades = ${ciudades};
-        
+      (function(){
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth() + 1; //January is 0!
+          var yyyy = today.getFullYear();
+
+          if (dd < 10) {
+              dd = '0' + dd;
+          }
+
+          if (mm < 10) {
+              mm = '0' + mm;
+          }
+
+          today = yyyy + '-' + mm + '-' + dd;
+
+
+          let fechaDesdeEstudio = document.querySelector("#fechaDesdeEstudio");
+          let fechaDesdeExperiencia = document.querySelector("#fechaDesdeExperiencia");
+          let fechaHastaEstudio = document.querySelector("#fechaHastaEstudio");
+          let fechaHastaExperiencia = document.querySelector("#fechaHastaExperiencia");
+
+          fechaDesdeEstudio.setAttribute("max", today);
+          fechaDesdeExperiencia.setAttribute("max", today);
+
+          fechaDesdeExperiencia.addEventListener("change", ()=>{
+              fechaHastaExperiencia.setAttribute("min", fechaDesdeExperiencia.value)
+          })
+          fechaDesdeEstudio.addEventListener("change", ()=>{
+              fechaHastaEstudio.setAttribute("min", fechaDesdeEstudio.value)
+          })
+      })()
     </script>
     <script src="./main.js"></script>
   </body>

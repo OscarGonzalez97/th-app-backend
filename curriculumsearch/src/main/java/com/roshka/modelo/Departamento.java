@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Departamento {
     @Id
     private Long id;
+    
     @Column(name="nombre")
     private String nombre;
     

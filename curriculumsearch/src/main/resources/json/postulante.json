@@ -1,25 +1,26 @@
 [
   {
-      "resumen": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "resumen": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Taylor",
     "apellido": "Obrien",
     "correo": "gladysalexander@dadabase.com",
-    "ci": 5821432,
+    "nroDocument": 5821432,
     "ciudadId": 238,
     "telefono": "(950) 417-3681",
     "fechaNacimiento": "2021-08-16",
     "nivelIngles": 1,
     "disponibilidad": "C",
-    
+
     "experiencias": [
       {
         "institucion": "Fanfare",
         "fechaDesde": "2014-09-10",
         "fechaHasta": "2016-01-01",
-        "tipoExperiencia":"Trabajo Normal",
+        "tipoExperiencia": "Trabajo Normal",
         "cargo": "dba",
         "descripcion": "Enim qui Lorem ut magna.",
         "nombreReferencia": "Marissa",
@@ -29,8 +30,8 @@
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-08-28",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "analista"
@@ -59,13 +60,14 @@
   },
   {
     "resumen": "Do nostrud aliqua adipisicing in sunt aute id do elit ut dolor ad aliquip.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Hopkins",
     "apellido": "Parks",
     "correo": "grahamgriffith@zilidium.com",
-    "ci": 4213361,
+    "nroDocument": 4213361,
     "ciudadId": 96,
     "telefono": "(866) 560-2541",
     "fechaNacimiento": "2021-09-04",
@@ -80,15 +82,15 @@
         "cargo": "developer frontend",
         "descripcion": "Consequat fugiat qui sint deserunt ullamco.",
         "nombreReferencia": "Iva",
-        "tipoExperiencia":"Trabajo Normal",
+        "tipoExperiencia": "Trabajo Normal",
         "telefonoReferencia": "(947) 580-2363"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-07-08",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -105,13 +107,14 @@
   },
   {
     "resumen": "Occaecat non cupidatat amet reprehenderit consectetur ullamco et.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Alejandra",
     "apellido": "Riggs",
     "correo": "ruthrobertson@homelux.com",
-    "ci": 4605787,
+    "nroDocument": 4605787,
     "ciudadId": 30,
     "telefono": "(876) 580-2411",
     "fechaNacimiento": "2021-01-28",
@@ -124,7 +127,7 @@
         "fechaDesde": "2014-08-26",
         "fechaHasta": "2016-01-01",
         "cargo": "dba",
-        "tipoExperiencia":"Trabajo Normal",
+        "tipoExperiencia": "Trabajo Normal",
         "descripcion": "Aute culpa ea mollit adipisicing dolore dolore amet adipisicing occaecat commodo enim cillum.",
         "nombreReferencia": "Rose",
         "telefonoReferencia": "(853) 471-2006"
@@ -133,8 +136,8 @@
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-02-13",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -151,13 +154,14 @@
   },
   {
     "resumen": "Qui ullamco excepteur velit ad ullamco id id nisi irure dolore cupidatat mollit ullamco veniam.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Angelina",
     "apellido": "Wallace",
     "correo": "christiwalls@capscreen.com",
-    "ci": 4591352,
+    "nroDocument": 4591352,
     "ciudadId": 65,
     "telefono": "(931) 499-3122",
     "fechaNacimiento": "2021-06-05",
@@ -173,14 +177,14 @@
         "descripcion": "Aliquip occaecat minim dolor enim commodo.",
         "nombreReferencia": "Elba",
         "telefonoReferencia": "(881) 568-2597",
-        "tipoExperiencia":"Trabajo Normal"
+        "tipoExperiencia": "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-12-22",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"
@@ -197,13 +201,14 @@
   },
   {
     "resumen": "Deserunt tempor ut et eiusmod et labore Lorem.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Rivas",
     "apellido": "Owens",
     "correo": "shirleyguzman@equitox.com",
-    "ci": 3969318,
+    "nroDocument": 3969318,
     "ciudadId": 143,
     "telefono": "(972) 524-2610",
     "fechaNacimiento": "2021-09-09",
@@ -219,14 +224,14 @@
         "descripcion": "Dolore nulla deserunt fugiat est reprehenderit tempor qui excepteur.",
         "nombreReferencia": "Crawford",
         "telefonoReferencia": "(903) 568-2045",
-        "tipoExperiencia":"Trabajo Normal"
+        "tipoExperiencia": "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-08-03",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -243,13 +248,14 @@
   },
   {
     "resumen": "Aliqua est adipisicing do exercitation sit laborum aliquip aliqua adipisicing enim aute.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Estelle",
     "apellido": "Gamble",
     "correo": "mclaughlinpate@enomen.com",
-    "ci": 2329745,
+    "nroDocument": 2329745,
     "ciudadId": 248,
     "telefono": "(933) 501-3525",
     "fechaNacimiento": "2021-03-24",
@@ -265,14 +271,14 @@
         "descripcion": "Do do est ad ea pariatur aliquip sit ipsum in duis laborum velit magna.",
         "nombreReferencia": "Schultz",
         "telefonoReferencia": "(903) 420-3902",
-        "tipoExperiencia":"Trabajo Normal"
+        "tipoExperiencia": "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-07-13",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"
@@ -289,13 +295,14 @@
   },
   {
     "resumen": "Officia eiusmod ut reprehenderit tempor consequat elit amet ex voluptate aute anim do.",
-    "nacionalidad":"Paraguayo",
-    "estadoCivil":"Soltero",
-    "tipoDocumento":"ci",
+    "nacionalidad": "Paraguayo",
+    "postulaciones": [{ "id": 1 }],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
     "nombre": "Mariana",
     "apellido": "Ratliff",
     "correo": "loramiddleton@musanpoly.com",
-    "ci": 4519594,
+    "nroDocument": 4519594,
     "ciudadId": 104,
     "telefono": "(817) 492-2493",
     "fechaNacimiento": "2021-07-30",
@@ -311,15 +318,14 @@
         "descripcion": "Anim labore anim veniam deserunt ex aute.",
         "nombreReferencia": "Francesca",
         "telefonoReferencia": "(961) 420-2150",
-        "tipoExperiencia":"Trabajo Normal"
-
+        "tipoExperiencia": "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-"estado": "SUSPENDIDO",
-        "institucion": {"nombre":"UNA"},
+        "estado": "SUSPENDIDO",
+        "institucion": { "nombre": "UNA" },
         "fechaDesde": "2014-10-03",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"

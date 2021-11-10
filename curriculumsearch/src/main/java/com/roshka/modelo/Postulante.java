@@ -3,8 +3,10 @@ package com.roshka.modelo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.roshka.utils.Helper;
 
 import java.util.ArrayList;
@@ -14,9 +16,10 @@ import java.util.List;
 
 @Entity
 @Table(name="postulante")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Postulante {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
 
@@ -30,10 +33,10 @@ public class Postulante {
     @Size(max = 255)
     private String apellido;
 
-    @Column(name = "ci")
+    @Column(name = "nro_document")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
-    private String ci;
+    private String nroDocument;
 
     @Column(name = "correo")
     @NotBlank(message = "Este campo no puede estar vacio")
@@ -61,7 +64,7 @@ public class Postulante {
     @Column(name = "nivel_ingles")
     @Min(value = 1)
     @Max(value = 5)
-    private long nivelIngles;
+    private Long nivelIngles;
 
     @Column(name = "curriculum")
     private String curriculum;
@@ -74,9 +77,9 @@ public class Postulante {
     @NotNull
     private Nacionalidad nacionalidad;
 
-    @Column(name = "tipo_documento", length = 2)
-    @NotBlank(message = "este campo debe estar completo")
-    private String tipoDocumento;
+    @Column(name = "tipo_documento",length = 3)
+    @NotNull
+    private TipoDocumento tipoDocumento;
 
 
     @Column(name = "disponibilidad", length = 2)
@@ -98,12 +101,11 @@ public class Postulante {
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<ReferenciaPersonal> referencias;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(uniqueConstraints = @UniqueConstraint(columnNames = {"postulante_id","convocatoria_cargo_id"}),
                 joinColumns = @JoinColumn(name="postulante_id", referencedColumnName="id"),
                 inverseJoinColumns= @JoinColumn(name="convocatoria_cargo_id", referencedColumnName="id")
     )
-    @JsonIgnore
     private List<ConvocatoriaCargo> postulaciones;
 
 
@@ -131,12 +133,12 @@ public class Postulante {
         this.apellido = apellido;
     }
 
-    public String getCi() {
-        return ci;
+    public String getnroDocument() {
+        return nroDocument;
     }
 
-    public void setCi(String ci) {
-        this.ci = ci;
+    public void setnroDocument(String nroDocument) {
+        this.nroDocument = nroDocument;
     }
 
     public String getCorreo() {
@@ -175,11 +177,11 @@ public class Postulante {
         this.resumen = resumen;
     }
 
-    public long getNivelIngles() {
+    public Long getNivelIngles() {
         return nivelIngles;
     }
 
-    public void setNivelIngles(long nivelIngles) {
+    public void setNivelIngles(Long nivelIngles) {
         this.nivelIngles = nivelIngles;
     }
 
@@ -215,13 +217,13 @@ public class Postulante {
     public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
-    public void setTipoDocumento(String tipoDocumento) {
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
     public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
-    public String getTipoDocumento() {
+    public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
     }
     public Nacionalidad getNacionalidad() {
