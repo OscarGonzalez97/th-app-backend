@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Table(name = "referencia_personal")
 public class ReferenciaPersonal {   
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank

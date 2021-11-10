@@ -3,6 +3,8 @@ package com.roshka.repositorio;
 import java.util.List;
 
 import org.hibernate.jpa.TypedParameterValue;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -43,15 +45,17 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
 
     @Query(value = "select DISTINCT p " +
-    "from Postulante p join p.experiencias x " +
-    "join p.estudios e " +
-    "join p.tecnologias pt " +
+    "from Postulante p left join p.experiencias x " +
+    "left join p.estudios e " +
+    "left join p.tecnologias pt " +
+    "left join p.postulaciones conv " +
     "where (?1 is null or lower(p.nombre) LIKE lower(?1) or lower(p.apellido) LIKE lower(?1) ) " +
     "and (p.disponibilidad = ?2 or ?2 is null) " +
     "and (p.nivelIngles >= ?3 or ?3 is null) "+
     "and (pt.nivel >= ?4 or ?4 is null) "+
     "and (pt.tecnologia.id = ?5 or ?5 is null) "+
-    " and (e.institucion.id = ?6 or ?6 is null ) ")
-    public List<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId);
+    " and (e.institucion.id = ?6 or ?6 is null ) "+
+    " and (conv.cargoId = ?7 or ?7 is null ) ")
+    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable);
 
 }

@@ -62,6 +62,7 @@
             <option value="36">Mayor a 3 años</option>
             <option value="60">Mayor a 5 años</option>
           </select>
+          
        </form>
     </div>
     <table class="table">
@@ -91,7 +92,17 @@
                     <td><a href="/postulante/${postulante.id}">Ver</a></td>
                 </tr>
             </c:forEach>
+          </tbody>
 
+    </table>
+      <div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <c:forEach begin="1" end="${pages}" var="nro">
+              <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+            </c:forEach>
+          </ul>
+        </nav>
       </div>
       <script>
         function habilitarLvlTec(){
@@ -102,10 +113,21 @@
           }
           
         }
+        function buscarPagina(nro){
+          nro--
+          const aBuscar = 'nroPagina='+nro
+          if(!location.search) location.search = "?"+aBuscar
+          const inicial = location.search.search(aBuscar);
+          if(inicial==-1){//si no se encuentra y hay otros queries
+            location.search = "&"+aBuscar
+          }
+          location.search.replace('nroPagina=',aBuscar)
+        }
         const tecId = document.querySelector("#tecId");
         const lvlTec = document.querySelector("#lvlTec");
         tecId.addEventListener('change',habilitarLvlTec);
         habilitarLvlTec()
       </script>
+    
 </body>
 </html>
