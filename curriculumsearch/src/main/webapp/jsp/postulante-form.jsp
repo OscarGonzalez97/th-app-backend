@@ -288,9 +288,15 @@
                                   <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
                                 </div>
                                 
+                                
                                 <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
                                 </div>
-                              
+
+                                <div class="inputs p-3 py-5">
+                                  <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
+                                </div>
+                                <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia"> 
+                                </div>
                       
                         
                                 
@@ -507,6 +513,44 @@
   </div>
     <meta name="_csrf" content="${_csrf.token}"/>
     <meta name="_csrf_header" content="${_csrf.headerName}"/>
+    <!--Modal de referencias-->
+       <div class="modal fade" id="referenciaForm" tabindex="-1" role="dialog" aria-labelledby="referenciaForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Referencias Personales</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form name="referencia-form" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="relacion" class="form-label">Relacion</label>
+                    <input type="text" class="form-control" name="relacion" id="relacion" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="telefono" class="form-label">Telefono</label>
+                  <input type="number" class="form-control" name="telefono" id="telefono" required>
+              </div>
+                 
+                
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldReferencia()" data-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+      </div>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

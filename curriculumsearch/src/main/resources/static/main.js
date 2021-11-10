@@ -1,6 +1,7 @@
 var cont_experiencia = 0;
 let cont_estudios = 0;
 let cont_tecnologia = 0;
+
 let cont_cargo = 0;
 const experiencias = [];
 const estudios = [];
@@ -8,6 +9,10 @@ const tecnologias = [];
 let noValidateFlag = false;
 
 const postulaciones = [];
+
+var cont_referencias=0 ;
+const referencias= [];
+
 
 
 const formValidator = function () {
@@ -198,6 +203,8 @@ function serializeJSON (form) {
     pairs["estudios"] = estudios.filter(est => est)//eliminacion de nulos
     pairs["tecnologias"] = tecnologias.filter(tec => tec)//eliminacion de nulos
     pairs["postulaciones"] = postulaciones.filter(car => car)//eliminacion de nulos
+    pairs["referencias"] = referencias.filter(tec => tec)
+
     
     // Return the JSON string
     return JSON.stringify(pairs, null, 2);
@@ -328,6 +335,10 @@ function agregarFieldEstudio(){
 
 }
 
+
+
+
+
 function eliminarEstudio(event) {
     //eliminar del array
     estudios[event.target.parentElement.id.split("-")[1]]=null
@@ -439,3 +450,82 @@ function listarCiudades(depId){
     
     
 }
+
+
+
+function agregarFieldReferencia(event){
+    //recoger del form
+    const pairs = {};
+    const formexp = document.querySelector("[name=referencia-form]");
+    const formData = new FormData(formexp);
+    const referenciaPersonal = [{},{},{}];
+    let pos_rec;
+    let returnFlag = false;
+
+    let requiredValues = ["nombre", "relacion", "telefono"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+        && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
+        return;
+    }
+
+    for (const [name, value] of formData){
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            referenciaPersonal[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+
+    }
+    pairs["referenciaPersonal"] = referenciaPersonal.filter(rec => rec.nombre);
+    referencias[cont_referencias] = pairs;
+    formexp.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#referencia")
+    const div1 = document.createElement('div');
+    let content='<ul>'
+    for (let index = 0; index < referencias.length; index++) {
+        const exp = referencias[index];
+        if(exp==null) continue;
+        content += `
+        <li id="exp-${index}">        
+            ${exp.nombre}
+            <button type="button" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
+        </li>
+        
+        `
+    }
+    content += "</ul>" 
+    div1.innerHTML = content
+    div.innerHTML = '';
+    div.appendChild(div1);
+    cont_referencias++;
+}
+
+/*----------------------------------------------------------------- */
+function eliminarReferencia(event) {
+    //eliminar del array
+    referencias[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*----------------------------------------------------------------- */
+
+
+
+
