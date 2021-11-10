@@ -234,11 +234,11 @@
                         
                                   <div class="inputs col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="bg-light">
-                                    <option value="1" selected>1</option>
-                                    <option value="2" >2</option>
-                                    <option value="3" >3</option>
-                                    <option value="4" >4</option>
-                                    <option value="5" >5</option>
+                                    <option value="1" selected>Ingles muy basico</option>
+                                    <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
+                                    <option value="3" >Puedo leer tranquilamente</option>
+                                    <option value="4" >Puedo escribir documentacion</option>
+                                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
                                     </select> 
                                   </div>
                                 
@@ -312,22 +312,22 @@
                 <form name="experiencia-form" class="needs-validation" novalidate>
 
                         <div class="inputs">
-                            <label for="institucion" class="inputs form-label">Institucion</label>
-                            <input type="text" class="inputs form-control  " name="institucion" id="institucion" required>
+                            <label for="institucionExperiencia" class="inputs form-label">Institucion</label>
+                            <input type="text" class="inputs form-control  " name="institucion" id="institucionExperiencia" required>
                         </div>
                         <div class="inputs">
-                            <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                            <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
+                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
+                            <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
                         </div>
                          
                         <div class="inputs">
-                            <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                            <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                            <label for="fechaHastaExperiencia" class="form-label">Fecha Hasta</label>
+                            <input type="date" class="form-control" name="fechaHasta" id="fechaHastaExperiencia" >
                         </div>
                         
                         <div class="inputs">
                             <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control  " name="cargo" id="cargo" required>
+                            <input type="text" class="form-control " name="cargo" id="cargo" required>
                         </div>
 
                         <div class="inputs">
@@ -434,8 +434,8 @@
 <%--                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>--%>
 <%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
                 <div class="form-group">
-                    <label for="institucion" class="form-label">Institucion</label>
-                    <input type="text" class="form-control" name="institucion" id="institucion" required>
+                    <label for="institucionEstudio" class="form-label">Institucion</label>
+                    <input type="text" class="form-control" name="institucion" id="institucionEstudio" required>
                 </div>
                 <div class="form-group">
                     <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
@@ -451,12 +451,12 @@
                       </select>
                   </div>
                 <div class="form-group">
-                    <label for="fechaDesde" class="form-label">Fecha Desde</label>
-                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesde" required>
+                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde</label>
+                    <input type="date" class="form-control  " name="fechaDesde" id="fechaDesdeEstudio" required>
                 </div>
                 <div class="form-group">
-                    <label for="fechaHasta" class="form-label">Fecha Hasta</label>
-                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHasta" >
+                    <label for="fechaHastaEstudio" class="form-label">Fecha Hasta</label>
+                    <input type="date" class="form-control  " name="fechaHasta" id="fechaHastaEstudio" >
                 </div>
 
 
@@ -480,7 +480,38 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
       var ciudades = ${ciudades};
-        
+      (function(){
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth() + 1; //January is 0!
+          var yyyy = today.getFullYear();
+
+          if (dd < 10) {
+              dd = '0' + dd;
+          }
+
+          if (mm < 10) {
+              mm = '0' + mm;
+          }
+
+          today = yyyy + '-' + mm + '-' + dd;
+
+
+          let fechaDesdeEstudio = document.querySelector("#fechaDesdeEstudio");
+          let fechaDesdeExperiencia = document.querySelector("#fechaDesdeExperiencia");
+          let fechaHastaEstudio = document.querySelector("#fechaHastaEstudio");
+          let fechaHastaExperiencia = document.querySelector("#fechaHastaExperiencia");
+
+          fechaDesdeEstudio.setAttribute("max", today);
+          fechaDesdeExperiencia.setAttribute("max", today);
+
+          fechaDesdeExperiencia.addEventListener("change", ()=>{
+              fechaHastaExperiencia.setAttribute("min", fechaDesdeExperiencia.value)
+          })
+          fechaDesdeEstudio.addEventListener("change", ()=>{
+              fechaHastaEstudio.setAttribute("min", fechaDesdeEstudio.value)
+          })
+      })()
     </script>
     <script src="./main.js"></script>
   </body>

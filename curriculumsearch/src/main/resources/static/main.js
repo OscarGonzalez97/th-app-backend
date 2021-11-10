@@ -4,6 +4,7 @@ let cont_tecnologia = 0;
 const experiencias = [];
 const estudios = [];
 const tecnologias = [];
+let noValidateFlag = false;
 
 const formValidator = function () {
     'use strict'
@@ -20,6 +21,7 @@ const formValidator = function () {
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
+                    noValidateFlag = true;
                 }
 
                 form.classList.add('was-validated')
@@ -225,15 +227,18 @@ form.addEventListener("submit",(evt)=>{
     //     evt.stopPropagation()
     // }
     // form.classList.add('was-validated')
-    postData('postulante', serializeJSON(form))
-    .then(response => {
-        if(response.status==200 || response.status==302){
-            location.replace(response.url);
-        }else{
-            console.log(response.text().then(value => console.log(value)))
-        }
-    });
-    evt.preventDefault();
+    if(!noValidateFlag){
+        postData('postulante', serializeJSON(form))
+            .then(response => {
+                if(response.status==200 || response.status==302){
+                    location.replace(response.url);
+                }else{
+                    console.log(response.text().then(value => console.log(value)))
+                }
+            });
+        evt.preventDefault();
+    }
+    noValidateFlag = false
 } );
 
 document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
