@@ -3,8 +3,10 @@ package com.roshka.modelo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.roshka.utils.Helper;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name="postulante")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Postulante {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -103,7 +106,6 @@ public class Postulante {
                 joinColumns = @JoinColumn(name="postulante_id", referencedColumnName="id"),
                 inverseJoinColumns= @JoinColumn(name="convocatoria_cargo_id", referencedColumnName="id")
     )
-    @JsonIgnore
     private List<ConvocatoriaCargo> postulaciones;
 
 

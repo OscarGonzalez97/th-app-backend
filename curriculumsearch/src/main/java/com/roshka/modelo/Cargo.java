@@ -47,4 +47,7 @@ public class Cargo {
     public void setConvocatorias(List<ConvocatoriaCargo> convocatorias) {
         this.convocatorias = convocatorias;
     }
+    public static Object values() {
+        return null;
+    }
 }

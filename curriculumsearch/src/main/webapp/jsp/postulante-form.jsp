@@ -260,7 +260,13 @@
                                     
                         
                                   </select> </div>
-                              
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
+                                  </div>
+
+                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
+                                  </div>
+
                                   <div class="inputs p-3 py-5">
                                     <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
                                   </div>
@@ -296,7 +302,37 @@
                           </div>
                       </div>
     </form>
-
+    <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
+    <div class="modal fade" id="cargoForm" tabindex="-2" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form name="cargo-form" class="needs-validation" novalidate>
+              <label for="cargo-nombre" class="form-label">Cargo</label>
+              <div class="input-group mb-3">
+                <select class="form-select" name="cargo-id" aria-label="Default select example" required>
+                  <option value="-1" selected>Open this select menu</option>
+                  <c:forEach items="${CargosDisponibles}" var="convocatoria">
+                                <option value="${convocatoria.getId()}">${convocatoria.getCargo().getNombre()}</option>
+                  </c:forEach>>
+                </select>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldCargo()" data-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-------------------------------------------------------------------------------------------------------------------------->
 
       <!--Modal de Experiencia-->
       <div class="modal fade" id="experienciaForm" tabindex="-1" role="dialog" aria-labelledby="experienciaForm" aria-hidden="true">
