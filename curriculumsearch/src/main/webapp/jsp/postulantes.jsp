@@ -62,6 +62,7 @@
             <option value="36">Mayor a 3 años</option>
             <option value="60">Mayor a 5 años</option>
           </select>
+          
        </form>
     </div>
     <table class="table">

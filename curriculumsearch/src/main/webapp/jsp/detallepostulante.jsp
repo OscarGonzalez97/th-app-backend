@@ -67,6 +67,12 @@
                 <label>Telefono: ${detalle_referencias.getTelefono()}</label><br>
             </c:forEach>
            
+            <br><label>CARGOS AL CUAL POSTULA</label><br>
+
+            <c:forEach items="${postulante.postulaciones}" var="convocatoria">
+                <label>Nombre: ${convocatoria.getCargo().getNombre()}</label><br>
+            </c:forEach>
+           
 
     </div>     
 
