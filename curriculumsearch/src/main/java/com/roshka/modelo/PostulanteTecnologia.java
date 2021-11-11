@@ -33,6 +33,7 @@ public class PostulanteTecnologia {
     @JoinColumn
    private Tecnologia tecnologia;
 
+
     @ManyToOne()
     @JoinColumn
     @JsonBackReference(value = "postulantetecnologia-postulante")

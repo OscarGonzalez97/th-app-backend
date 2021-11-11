@@ -55,6 +55,8 @@ public class PostulanteController {
     InstitucionRepository institucionRepository;
     DepartamentoRepository depRepo;
     CiudadRepository ciuRepo;
+    EstudioRepository estudioRepository;
+    PostulanteTecnologiaRepository postulanteTecnologiaRepository;
     ConvocatoriaRepository cargoRepo;
     CargoRepository carRepo;
 
@@ -62,13 +64,17 @@ public class PostulanteController {
     public PostulanteController(
             PostulanteRepository post, TecnologiaRepository tecRepo, ExperienciaRepository expRepo,
             InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
-            CiudadRepository ciuRepo, ConvocatoriaRepository cargoRepo, CargoRepository carRepo) {
+            CiudadRepository ciuRepo, EstudioRepository estudioRepository,
+            PostulanteTecnologiaRepository postulanteTecnologiaRepository,
+            ConvocatoriaRepository cargoRepo, CargoRepository carRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
         this.institucionRepository = institucionRepository;
         this.depRepo = depRepo;
         this.ciuRepo = ciuRepo;
+        this.estudioRepository = estudioRepository;
+        this.postulanteTecnologiaRepository = postulanteTecnologiaRepository;
         this.cargoRepo =cargoRepo;
         this.carRepo=carRepo;
     }
@@ -140,17 +146,24 @@ public class PostulanteController {
 
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
+        //Codigo encargado de modificar postulacion si se envia mismo CI
+        Postulante postulantex = post.findByNroDocument(postulante.getnroDocument());
+        if(postulantex != null){
+            estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
+            expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
+            postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
+            postulante.setId(postulantex.getId());
+        }
         postulante.getTecnologias().stream().filter(
                     tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
                     tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                    ); 
-
-        
+        );
         /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
             postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
         }
          */
+
         for(Estudio estudio: postulante.getEstudios()){
             String nombreIns = "";
             nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
