@@ -5,8 +5,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.roshka.modelo.*;
 import com.roshka.repositorio.*;
 
@@ -35,48 +38,12 @@ public class CurriculumsearchApplication {
 		return args -> {
 			try {
 				// read json and write to db
-				ObjectMapper mapper = new ObjectMapper();
-				TypeReference<List<Departamento>> typeReference1 = new TypeReference<List<Departamento>>(){};
-				InputStream inputStream = TypeReference.class.getResourceAsStream("/json/Departamento.json");
-				List<Departamento> departamento= mapper.readValue(inputStream,typeReference1);
-				depR.saveAll(departamento);
-				System.out.println("Departamentos Saved!");
-				TypeReference<List<Ciudad>> typeReference2 = new TypeReference<List<Ciudad>>(){};
-				inputStream = TypeReference.class.getResourceAsStream("/json/Ciudad.json");
-				List<Ciudad> ciudades= mapper.readValue(inputStream,typeReference2);
-				ciudR.saveAll(ciudades);
-				System.out.println("Cuidad Saved!");
-				TypeReference<List<Cargo>> typeReference3 = new TypeReference<List<Cargo>>(){};
-				inputStream = TypeReference.class.getResourceAsStream("/json/cargo.json");
-				List<Cargo> cargos= mapper.readValue(inputStream,typeReference3);
-				cargoR.saveAll(cargos);
-				cargoR.flush();
-				System.out.println("Cargos Saved!");
-				/* TypeReference<List<Tecnologia>> typeReference5 = new TypeReference<List<Tecnologia>>(){};
-				inputStream = TypeReference.class.getResourceAsStream("/json/tecnologia.json");
-				List<Tecnologia> tecnologias= mapper.readValue(inputStream,typeReference5);
-				tecRepo.saveAll(tecnologias);
-				tecRepo.flush();
-				System.out.println("Cargos Saved!"); */
-				TypeReference<List<ConvocatoriaCargo>> typeReference4 = new TypeReference<List<ConvocatoriaCargo>>(){};
-				inputStream = TypeReference.class.getResourceAsStream("/json/convocatoria.json");
-				List<ConvocatoriaCargo> convocatorias= mapper.readValue(inputStream,typeReference4);
-				convocatorias = convR.saveAll(convocatorias);
-				convR.flush();
-				System.out.println("convocatorias Saved!");
-				TypeReference<List<Postulante>> typeReference = new TypeReference<List<Postulante>>(){};
-				inputStream = TypeReference.class.getResourceAsStream("/json/postulante.json");
-				List<Postulante> postulantes = mapper.readValue(inputStream,typeReference);
-				/*  for (Postulante postulante : postulantes) {
-					for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
-						
-						postulante.getPostulaciones().set(i, convR.getById(postulante.getPostulaciones().get(i).getId()));
-						
-						
-					}
-				}  */
-				postRepo.saveAll(postulantes);
-				System.out.println("postulantes Saved!");
+				guardarJson(cargoR,"/json/cargo.json",Cargo.class);
+				guardarJson(convR,"/json/convocatoria.json",ConvocatoriaCargo.class);
+				guardarJson(depR,"/json/Departamento.json",Departamento.class);
+				guardarJson(ciudR,"/json/Ciudad.json",Ciudad.class);
+				guardarJson(postRepo,"/json/postulante.json",Postulante.class);
+				
 				String password = new BCryptPasswordEncoder().encode("test");
 				RRHHUser testuser = new RRHHUser();
 				testuser.setEmail("test@test.com");
@@ -106,20 +73,17 @@ public class CurriculumsearchApplication {
 		};
 	}
 
-	public static <Q,T extends JpaRepository<Q,Long>> void  guardarJson(T repo,String srcJson ) {
+	public static <Q,T extends JpaRepository<Q,Long>> void  guardarJson(T repo,String srcJson, Class<Q> clazz ) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		TypeReference<List<Q>> typeReference1 = new TypeReference<List<Q>>(){};
+		TypeFactory t = TypeFactory.defaultInstance();
+		//TypeReference<List<Q>> typeReference1 = new TypeReference<List<Q>>(){};
 		InputStream inputStream = TypeReference.class.getResourceAsStream(srcJson);
 		List<Q> listaAguardar;
-		try {
-			listaAguardar = mapper.readValue(inputStream,typeReference1);
-			repo.saveAll(listaAguardar);
-			repo.flush();
-			System.out.println(srcJson+" Saved!");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		listaAguardar = mapper.readValue(inputStream,t.constructCollectionType(ArrayList.class,clazz));
+		repo.saveAll(listaAguardar);
+		repo.flush();
+		System.out.println(srcJson+" Saved!");
+		
 	}
 
 	
