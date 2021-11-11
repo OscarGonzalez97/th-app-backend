@@ -377,7 +377,7 @@ function agregarFieldCargo(){
         if(car==null) continue;
         content1 += `
         <li id="car-${index}">
-            ${document.querySelector('[name=cargo-id] > option[value="'+pairs["cargo-id"]+'"]').innerHTML}        
+            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}        
             <button type="button" onclick="eliminarCargoPostulante(event)">Eliminar</button>
         </li>
         

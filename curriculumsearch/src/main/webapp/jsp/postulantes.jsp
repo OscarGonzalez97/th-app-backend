@@ -11,7 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Lista de postulantes</title>
 </head>
-<body class="container">
+<body>
+  <jsp:include page="header.jsp"/>
+  <jsp:include page="alerts.jsp"/>
+  <div class="container-xxl my-md-4 bd-layout">
+    <h2>Lista de Postulantes</h2>
     <div id="buscador">
        <form name="buscador">
          <label for="nombre">Nombre</label>
@@ -95,39 +99,40 @@
           </tbody>
 
     </table>
-      <div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <c:forEach begin="1" end="${pages}" var="nro">
-              <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-            </c:forEach>
-          </ul>
-        </nav>
-      </div>
-      <script>
-        function habilitarLvlTec(){
-          //si se selecciono una tecnologia entonces permitir seleccionar un nivel
-          lvlTec.disabled = tecId.value == false
-          if(lvlTec.disabled){
-            lvlTec.firstElementChild.selected=true;
-          }
-          
-        }
-        function buscarPagina(nro){
-          nro--
-          const aBuscar = 'nroPagina='+nro
-          if(!location.search) location.search = "?"+aBuscar
-          const inicial = location.search.search(aBuscar);
-          if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search = "&"+aBuscar
-          }
-          location.search.replace('nroPagina=',aBuscar)
-        }
-        const tecId = document.querySelector("#tecId");
-        const lvlTec = document.querySelector("#lvlTec");
-        tecId.addEventListener('change',habilitarLvlTec);
-        habilitarLvlTec()
-      </script>
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <c:forEach begin="1" end="${pages}" var="nro">
+            <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+          </c:forEach>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <script>
+    function habilitarLvlTec(){
+      //si se selecciono una tecnologia entonces permitir seleccionar un nivel
+      lvlTec.disabled = tecId.value == false
+      if(lvlTec.disabled){
+        lvlTec.firstElementChild.selected=true;
+      }
+      
+    }
+    function buscarPagina(nro){
+      nro--
+      const aBuscar = 'nroPagina='+nro
+      if(!location.search) location.search = "?"+aBuscar
+      const inicial = location.search.search(aBuscar);
+      if(inicial==-1){//si no se encuentra y hay otros queries
+        location.search = "&"+aBuscar
+      }
+      location.search.replace('nroPagina=',aBuscar)
+    }
+    const tecId = document.querySelector("#tecId");
+    const lvlTec = document.querySelector("#lvlTec");
+    tecId.addEventListener('change',habilitarLvlTec);
+    habilitarLvlTec()
+  </script>
     
 </body>
 </html>
