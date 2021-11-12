@@ -73,6 +73,13 @@
             <option value="36">Mayor a 3 años</option>
             <option value="60">Mayor a 5 años</option>
           </select>
+         <label for="convId">convocatoria</label>
+          <select name="convId" id="convId">
+            <option value="">Seleccione una opcion</option>
+            <c:forEach items="${convocatoriaC}" var="convo">
+              <option value="${convo.id}" ${param.convId == convo.id ? "selected" : ""}>${convo.getCargo().getNombre()}</option>
+            </c:forEach>
+          </select>
           
        </form>
     </div>

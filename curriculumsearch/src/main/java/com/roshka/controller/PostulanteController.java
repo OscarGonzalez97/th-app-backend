@@ -99,6 +99,7 @@ public class PostulanteController {
                             @RequestParam(required = false)Long instId,
                             @RequestParam(required = false)Long expInMonths,
                             @RequestParam(required = false)Long cargoId,
+                            @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
         final Integer CANTIDAD_POR_PAGINA = 5;
@@ -107,7 +108,8 @@ public class PostulanteController {
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
         model.addAttribute("estadoP", EstadoPostulante.values());
-        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado);
+        model.addAttribute("convocatoriaC", cargoRepo.findAll());
+        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
@@ -119,7 +121,7 @@ public class PostulanteController {
                 expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
             }
             if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
         }
         
         model.addAttribute("pages", postulantesPag.getTotalPages());
