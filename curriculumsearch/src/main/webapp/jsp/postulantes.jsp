@@ -22,6 +22,13 @@
         <input type="text" name="nombre" id="nombre" value="${param.nombre}">
         <button>Buscar</button>
         <br>
+          <label for="estado">Estado</label>
+          <select name="estado" id="estado">
+            <option value="">Seleccione una opcion</option>
+            <c:forEach items="${estadoP}" var="estados">
+              <option value="${estados}" ${param.estado == estados ? "selected" : ""}>${estados.getEstado()}</option>
+            </c:forEach>
+          </select>
           <label for="dispo">Disponbilidad</label>
           <select name="dispo" id="dispo">
             <option value="">Seleccione una opcion</option>
@@ -78,6 +85,7 @@
             <th scope="col">Nivel de Ingles</th>
             <th scope="col">Experiencia</th>
             <th scope="col">Tecnologias</th>
+            <th scope="col">Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -87,12 +95,13 @@
                     <td>${postulante.nombre} ${postulante.apellido}</td>
                     <td>${postulante.disponibilidad.getDescripcion()}</td>
                     <td>${postulante.nivelIngles}</td>
-                    <td>${postulante.experienciaMeses}</td>
+                    <td>${postulante.experienciaMeses}<op></td>
                     <td>
                         <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia" varStatus="staTec">
                             ${detalle_tecnologia.getTecnologia().getNombre()}${not staTec.last ? "," : ""}
                         </c:forEach>
                     </td>
+                    <td>${postulante.estado.getEstado()}</td>
                     <td><a href="/postulante/${postulante.id}">Ver</a></td>
                 </tr>
             </c:forEach>
