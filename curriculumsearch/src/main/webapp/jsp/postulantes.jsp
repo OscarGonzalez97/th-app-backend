@@ -11,13 +11,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Lista de postulantes</title>
 </head>
-<body class="container">
+<body>
+  <jsp:include page="header.jsp"/>
+  <jsp:include page="alerts.jsp"/>
+  <div class="container-xxl my-md-4 bd-layout">
+    <h2>Lista de Postulantes</h2>
     <div id="buscador">
        <form name="buscador">
          <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre" value="${param.nombre}">
         <button>Buscar</button>
         <br>
+          <label for="estado">Estado</label>
+          <select name="estado" id="estado">
+            <option value="">Seleccione una opcion</option>
+            <c:forEach items="${estadoP}" var="estados">
+              <option value="${estados}" ${param.estado == estados ? "selected" : ""}>${estados.getEstado()}</option>
+            </c:forEach>
+          </select>
           <label for="dispo">Disponbilidad</label>
           <select name="dispo" id="dispo">
             <option value="">Seleccione una opcion</option>
@@ -62,6 +73,13 @@
             <option value="36">Mayor a 3 años</option>
             <option value="60">Mayor a 5 años</option>
           </select>
+         <label for="convId">convocatoria</label>
+          <select name="convId" id="convId">
+            <option value="">Seleccione una opcion</option>
+            <c:forEach items="${convocatoriaC}" var="convo">
+              <option value="${convo.id}" ${param.convId == convo.id ? "selected" : ""}>${convo.getCargo().getNombre()}</option>
+            </c:forEach>
+          </select>
           
        </form>
     </div>
@@ -74,6 +92,7 @@
             <th scope="col">Nivel de Ingles</th>
             <th scope="col">Experiencia</th>
             <th scope="col">Tecnologias</th>
+            <th scope="col">Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -83,51 +102,53 @@
                     <td>${postulante.nombre} ${postulante.apellido}</td>
                     <td>${postulante.disponibilidad.getDescripcion()}</td>
                     <td>${postulante.nivelIngles}</td>
-                    <td>${postulante.experienciaMeses}</td>
+                    <td>${postulante.experienciaMeses}<op></td>
                     <td>
                         <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia" varStatus="staTec">
                             ${detalle_tecnologia.getTecnologia().getNombre()}${not staTec.last ? "," : ""}
                         </c:forEach>
                     </td>
+                    <td>${postulante.estado.getEstado()}</td>
                     <td><a href="/postulante/${postulante.id}">Ver</a></td>
                 </tr>
             </c:forEach>
           </tbody>
 
     </table>
-      <div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <c:forEach begin="1" end="${pages}" var="nro">
-              <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-            </c:forEach>
-          </ul>
-        </nav>
-      </div>
-      <script>
-        function habilitarLvlTec(){
-          //si se selecciono una tecnologia entonces permitir seleccionar un nivel
-          lvlTec.disabled = tecId.value == false
-          if(lvlTec.disabled){
-            lvlTec.firstElementChild.selected=true;
-          }
-          
-        }
-        function buscarPagina(nro){
-          nro--
-          const aBuscar = 'nroPagina='+nro
-          if(!location.search) location.search = "?"+aBuscar
-          const inicial = location.search.search(aBuscar);
-          if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search = "&"+aBuscar
-          }
-          location.search.replace('nroPagina=',aBuscar)
-        }
-        const tecId = document.querySelector("#tecId");
-        const lvlTec = document.querySelector("#lvlTec");
-        tecId.addEventListener('change',habilitarLvlTec);
-        habilitarLvlTec()
-      </script>
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <c:forEach begin="1" end="${pages}" var="nro">
+            <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+          </c:forEach>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <script>
+    function habilitarLvlTec(){
+      //si se selecciono una tecnologia entonces permitir seleccionar un nivel
+      lvlTec.disabled = tecId.value == false
+      if(lvlTec.disabled){
+        lvlTec.firstElementChild.selected=true;
+      }
+      
+    }
+    function buscarPagina(nro){
+      nro--
+      const aBuscar = 'nroPagina='+nro
+      if(!location.search) location.search = "?"+aBuscar
+      const inicial = location.search.search(aBuscar);
+      if(inicial==-1){//si no se encuentra y hay otros queries
+        location.search = "&"+aBuscar
+      }
+      location.search.replace('nroPagina=',aBuscar)
+    }
+    const tecId = document.querySelector("#tecId");
+    const lvlTec = document.querySelector("#lvlTec");
+    tecId.addEventListener('change',habilitarLvlTec);
+    habilitarLvlTec()
+  </script>
     
 </body>
 </html>
