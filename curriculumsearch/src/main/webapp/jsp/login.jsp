@@ -38,7 +38,9 @@
                         </form:form>
 
                         <hr class="my-4">
-
+                        <div class="row">
+                            <a href="/forgot-password">Olvidaste tu contrasena?</a>
+                        </div>
                     </div>
                 </div>
             </div>
