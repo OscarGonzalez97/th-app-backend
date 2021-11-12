@@ -5,7 +5,9 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Entity
+import lombok.Data;
+
+@Entity @Data
 @Table(name = "referencia_personal")
 public class ReferenciaPersonal {   
     @Id
@@ -29,42 +31,9 @@ public class ReferenciaPersonal {
     @JsonBackReference
     private Postulante postulante;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getRelacion() {
-        return relacion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
     public Postulante getPostulante() {
         return postulante;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setRelacion(String relacion) {
-        this.relacion = relacion;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public void setPostulante(Postulante postulante) {
         this.postulante = postulante;
     }

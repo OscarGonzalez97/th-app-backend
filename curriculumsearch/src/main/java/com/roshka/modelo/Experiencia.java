@@ -14,12 +14,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.roshka.utils.Helper;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-@Entity
+@Entity @Data
 @Table(name = "experiencia")
 public class Experiencia {
     @Id
@@ -61,44 +63,16 @@ public class Experiencia {
     @NotBlank
     private String descripcion;
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-
-
     public Date getFechaDesde() {
         return fechaDesde;
-    }
-    public String getMotivoSalida() {
-        return motivoSalida;
     }
     public TipoExperiencia getTipoExperiencia() {
         return tipoExperiencia;
     }
     
-    public void setMotivoSalida(String motivoSalida) {
-        this.motivoSalida = motivoSalida;
-    }
+
     public void setTipoExperiencia(TipoExperiencia tipoExperiencia) {
         this.tipoExperiencia = tipoExperiencia;
-    }
-    
-	
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public String getInstitucion() {
-        return institucion;
-    }
-    public void setInstitucion(String institucion) {
-        this.institucion = institucion;
     }
     public void setFechaDesde(String fechaDesde) {
         this.fechaDesde = Helper.convertirFecha(fechaDesde);
@@ -111,24 +85,6 @@ public class Experiencia {
     }
     public void setFechaHasta(String fechaHasta) {
         this.fechaHasta = Helper.convertirFecha(fechaHasta);
-    }
-    public String getNombreReferencia() {
-        return nombreReferencia;
-    }
-    public String getTelefonoReferencia() {
-        return telefonoReferencia;
-    }
-    public void setNombreReferencia(String nombreReferencia) {
-        this.nombreReferencia = nombreReferencia;
-    }
-    public void setTelefonoReferencia(String telefonoReferencia) {
-        this.telefonoReferencia = telefonoReferencia;
-    }
-    public String getCargo() {
-        return cargo;
-    }
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
     public void setPostulante(Postulante postulante) {
         this.postulante = postulante;
