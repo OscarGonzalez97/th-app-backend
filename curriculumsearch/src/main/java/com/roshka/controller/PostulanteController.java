@@ -14,6 +14,7 @@ import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.modelo.Disponibilidad;
+import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.EstadoCivil;
 import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
@@ -42,6 +43,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
@@ -90,12 +92,14 @@ public class PostulanteController {
     public String postulantes(Model model,
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
+                            @RequestParam(required = false)EstadoPostulante estado,
                             @RequestParam(required = false)Disponibilidad dispo,
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
                             @RequestParam(required = false)Long instId,
                             @RequestParam(required = false)Long expInMonths,
                             @RequestParam(required = false)Long cargoId,
+                            @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
         final Integer CANTIDAD_POR_PAGINA = 5;
@@ -103,7 +107,9 @@ public class PostulanteController {
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
-        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"), dispo, lvlEng, lvlTec, tecId, instId,cargoId,page);
+        model.addAttribute("estadoP", EstadoPostulante.values());
+        model.addAttribute("convocatoriaC", cargoRepo.findAll());
+        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
@@ -115,14 +121,14 @@ public class PostulanteController {
                 expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
             }
             if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
         }
         
         model.addAttribute("pages", postulantesPag.getTotalPages());
         model.addAttribute("postulantes", postulantesDTO);
         return "postulantes";
     }
-
+    
     @RequestMapping("/postulante")
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
@@ -140,10 +146,10 @@ public class PostulanteController {
             er.printStackTrace();
         }
         model.addAttribute("departamentos", depRepo.findAll());
-
+        
         return "postulante-form";
     }
-
+    
     @PostMapping(value = "/postulante",consumes = "application/json")
     public String guardarPostulante(@RequestBody Postulante postulante){
         //Codigo encargado de modificar postulacion si se envia mismo CI
@@ -155,31 +161,31 @@ public class PostulanteController {
             postulante.setId(postulantex.getId());
         }
         postulante.getTecnologias().stream().filter(
-                    tec -> tec.getTecnologia().getId() != 0 
+            tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
-                    tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-        );
-        /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
-            postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
-        }
-         */
-
-        for(Estudio estudio: postulante.getEstudios()){
-            String nombreIns = "";
-            nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
-            Institucion institucion = institucionRepository.findByNombre(nombreIns);
-            if(institucion==null){
-                institucionRepository.save(estudio.getInstitucion());
-            }else{
-                estudio.setInstitucion(institucion);
+                tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
+                );
+                /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
+                    postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
+                }
+                */
+                
+                for(Estudio estudio: postulante.getEstudios()){
+                    String nombreIns = "";
+                    nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
+                    Institucion institucion = institucionRepository.findByNombre(nombreIns);
+                    if(institucion==null){
+                        institucionRepository.save(estudio.getInstitucion());
+                    }else{
+                        estudio.setInstitucion(institucion);
+                    }
+                }
+                post.save(postulante);
+                return "redirect:/postulacion-correcta";
             }
-        }
-        post.save(postulante);
-        return "redirect:/postulacion-correcta";
-    }
 
-    @GetMapping("/postulacion-correcta")
-    public String successPostulation(Model model){
+            @GetMapping("/postulacion-correcta")
+            public String successPostulation(Model model){
         model.addAttribute("mensaje1", "Tu informacion se ha recibido correctamente!");
         model.addAttribute("mensaje2", " espera por que nos pongamos en contacto!");
         return "exitoRegistro";
@@ -188,26 +194,38 @@ public class PostulanteController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<String> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
+        MethodArgumentNotValidException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({ConstraintViolationException.class})
-    public ResponseEntity<String> handleValidationExceptions2(
-            ConstraintViolationException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(ex.getMessage());
-    }
-    
-
-
-   @GetMapping({"/postulante/{postulanteId}"})
-  	public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
- 		Postulante p = post.findById(postulanteId).orElse(null);
-  		model.addAttribute("postulante",p);				
-  		return "detallepostulante";
-   
-    }
-   }
+            }
+            
+            @ResponseStatus(HttpStatus.BAD_REQUEST)
+            @ExceptionHandler({ConstraintViolationException.class})
+            public ResponseEntity<String> handleValidationExceptions2(
+                ConstraintViolationException ex) {
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ex.getMessage());
+                }
+                
+                
+                
+                @GetMapping({"/postulante/{postulanteId}"})
+                public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
+                    Postulante p = post.findById(postulanteId).orElse(null);
+                    model.addAttribute("postulante",p);
+                    model.addAttribute("estadoP", EstadoPostulante.values());				
+                    return "detallepostulante";
+                    
+                }
+                @PostMapping({"/postulante/{postulanteId}"})
+                public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
+                    //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
+                    Postulante postulanteVd = post.getById(postulanteId);
+                    postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
+                    postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
+                    post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId); 
+                    //post.save(postulanteVd);
+                    return "redirect:/postulante/"+postulanteId;
+                }
+            }
+            

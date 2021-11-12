@@ -2,13 +2,18 @@ package com.roshka.repositorio;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.jpa.TypedParameterValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.modelo.Disponibilidad;
+import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
 
 
@@ -55,7 +60,24 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     "and (pt.nivel >= ?4 or ?4 is null) "+
     "and (pt.tecnologia.id = ?5 or ?5 is null) "+
     " and (e.institucion.id = ?6 or ?6 is null ) "+
-    " and (conv.cargoId = ?7 or ?7 is null ) ")
-    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable);
+    " and (conv.cargoId = ?7 or ?7 is null ) "+
+    "and (p.estadoPostulante = ?8 or ?8 is null) "+
+    " and (conv.id=?9 or ?9 is null ) ")
+    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable, EstadoPostulante estado, Long convo);
+    
+    @Transactional      
+    @Modifying
+    @Query("UPDATE Postulante p SET p.estadoPostulante = ?1 , p.comentarioRRHH = ?2 WHERE p.id = ?3")
+    void setPostulanteEstadoAndComentario(EstadoPostulante eP, String comentario, Long Id);
+    
+    /*@Transactional      
+    @Modifying
+    @Query("UPDATE Postulante p SET p.estadoPostulante = ?1  WHERE p.id = ?2")
+    void setPostulanteEstadoPostulante(EstadoPostulante eP, Long Id);
+    
+    @Transactional      
+    @Modifying
+    @Query("UPDATE Postulante p SET p.comentarioRRHH = ?1 WHERE p.id = ?2")
+    void setPostulanteEstadoComentario( String comentario, Long Id);*/
 
 }

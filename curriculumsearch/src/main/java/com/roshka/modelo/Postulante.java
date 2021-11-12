@@ -72,6 +72,13 @@ public class Postulante {
     @Column(name="estado_civil")
     @NotNull
     private EstadoCivil estadoCivil;
+
+    @Column(name="estado_postulante")
+    @NotNull
+    private EstadoPostulante estadoPostulante=EstadoPostulante.NUEVO;
+    @Column(name="comentario_rrhh")
+    private String comentarioRRHH;    
+
    
     @Column(name="nacionalidad", length = 2)
     @NotNull
@@ -270,5 +277,18 @@ public class Postulante {
 
     public List<ReferenciaPersonal> getReferencias() {
         return referencias;
+    }
+    public EstadoPostulante getEstadoPostulante() {
+        return this.estadoPostulante;
+    }
+
+    public void setEstadoPostulante(EstadoPostulante estadoPostulante) {
+        this.estadoPostulante = estadoPostulante;
+    }
+    public String getComentarioRRHH(){
+        return comentarioRRHH;
+    }
+    public void setComentarioRRHH(String comentarioRRHH){
+        this.comentarioRRHH=comentarioRRHH;
     }
 }

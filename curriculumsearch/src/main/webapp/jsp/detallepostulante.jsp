@@ -2,14 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
-
 <body>
-     <h2 style="text-align: center;">DETALLE POSTULANTE</h2>
-    <div style="padding: 10px;margin: 3px;border: 1px solid black;">
+    <jsp:include page="header.jsp"/>
+    <jsp:include page="alerts.jsp"/>
+    <div class="container-xxl my-md-4 bd-layout">
+        <h2 style="text-align: center;">DETALLE POSTULANTE</h2>
+        <div style="padding: 10px;margin: 3px;border: 1px solid black;">
        
             <br><label>INFORMACION GENERAL</label><br>     
             <label>Id: ${postulante.id}</label><br>
@@ -27,8 +35,9 @@
             <label>Curriculum: ${postulante.curriculum}</label><br>
             <label>Estado civil: ${postulante.estadoCivil}</label><br>
             <label>Nacionalidad: ${postulante.nacionalidad}</label><br>
-            <label>Disponibilidad: ${postulante.disponibilidad}</label><br>  
-
+            <label>Disponibilidad: ${postulante.disponibilidad}</label><br>
+            <label>Estado del Postulante: ${postulante.estadoPostulante.getEstado()}</label><br>
+            <label>Comentario RRHH: ${postulante.getComentarioRRHH()}</label><br>   
             <br><label>TECNOLOGIAS</label><br>
             <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
                 <label>Tecnologias: ${detalle_tecnologia.getTecnologia().getNombre()} -</label>
@@ -74,8 +83,37 @@
             </c:forEach>
            
 
-    </div>     
+        </div>     
+        <div style="padding:10px ;margin: 5px;border: 3px solid black;">
+            <h2>Cambiar Estado del Postulante y Comentario de RRHH</h2>
+            <form:form class="needs-validation" method="post" modelAttribute="postulante">
+                <form:label path="estadoPostulante" class="form-label">Estado</form:label>
+                <div class="inputs">
+                <form:select class="form-select" path="estadoPostulante" aria-label="Default select example">
+                    <c:forEach items="${estadoP}" var="estadoPostulante">
+                                <c:choose>
+                                    <c:when test="${estadoPostulante.getEstado()=='Nuevo' }">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form:option value="${estadoPostulante}">${estadoPostulante.getEstado()}</form:option>
+                                    </c:otherwise>
+                                </c:choose>    
+                    </c:forEach>
+                </form:select>
+                </div>
+                <div class="inputs">
+                    <form:label path="comentarioRRHH" class="form-label">ComentarioRRHH</form:label>
+                    <form:textarea  class="form-control" path="comentarioRRHH" id="comentarioRRHH"></form:textarea>
+                </div>
+                <input type="submit" value="submit"/>
+            </form:form>
 
+
+            
+            
+        </div>     
+    </div>     
+        
 </body>
 
 </html>
