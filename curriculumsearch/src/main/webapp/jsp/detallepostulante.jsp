@@ -27,8 +27,9 @@
             <label>Curriculum: ${postulante.curriculum}</label><br>
             <label>Estado civil: ${postulante.estadoCivil}</label><br>
             <label>Nacionalidad: ${postulante.nacionalidad}</label><br>
-            <label>Disponibilidad: ${postulante.disponibilidad}</label><br>  
-
+            <label>Disponibilidad: ${postulante.disponibilidad}</label><br>
+            <label>Estado del Postulante: ${postulante.estadoPostulante.getEstado()}</label><br>
+            <label>Comentario RRHH: ${postulante.getComentarioRRHH()}</label><br>   
             <br><label>TECNOLOGIAS</label><br>
             <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
                 <label>Tecnologias: ${detalle_tecnologia.getTecnologia().getNombre()} -</label>
@@ -75,7 +76,35 @@
            
 
     </div>     
+    <div style="padding:10px ;margin: 5px;border: 3px solid black;">
+        <h2>Cambiar Estado del Postulante y Comentario de RRHH</h2>
+        <form:form class="needs-validation" method="post" modelAttribute="postulante">
+            <form:label path="estadoPostulante" class="form-label">Estado</form:label>
+            <div class="inputs">
+            <form:select class="form-select" path="estadoPostulante" aria-label="Default select example">
+                <c:forEach items="${estadoP}" var="estadoPostulante">
+                            <c:choose>
+                                <c:when test="${estadoPostulante.getEstado()=='Nuevo' }">
+                                </c:when>
+                                <c:otherwise>
+                                    <form:option value="${estadoPostulante}">${estadoPostulante.getEstado()}</form:option>
+                                </c:otherwise>
+                            </c:choose>    
+                </c:forEach>
+            </form:select>
+            </div>
+            <div class="inputs">
+                <form:label path="comentarioRRHH" class="form-label">ComentarioRRHH</form:label>
+                <form:textarea  class="form-control" path="comentarioRRHH" id="comentarioRRHH"></form:textarea>
+            </div>
+            <input type="submit" value="submit"/>
+        </form:form>
 
+
+           
+        
+    </div>       
+        
 </body>
 
 </html>
