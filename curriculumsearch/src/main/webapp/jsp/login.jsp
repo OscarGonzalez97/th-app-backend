@@ -41,6 +41,9 @@
                         <div class="row">
                             <a href="/forgot-password">Olvidaste tu contrasena?</a>
                         </div>
+                        <div class="row">
+                            <a href="/register">Registrate</a>
+                        </div>
                     </div>
                 </div>
             </div>

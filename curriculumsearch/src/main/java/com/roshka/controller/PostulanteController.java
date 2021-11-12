@@ -197,35 +197,35 @@ public class PostulanteController {
         MethodArgumentNotValidException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
-            }
+    }
             
-            @ResponseStatus(HttpStatus.BAD_REQUEST)
-            @ExceptionHandler({ConstraintViolationException.class})
-            public ResponseEntity<String> handleValidationExceptions2(
-                ConstraintViolationException ex) {
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(ex.getMessage());
-                }
-                
-                
-                
-                @GetMapping({"/postulante/{postulanteId}"})
-                public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
-                    Postulante p = post.findById(postulanteId).orElse(null);
-                    model.addAttribute("postulante",p);
-                    model.addAttribute("estadoP", EstadoPostulante.values());				
-                    return "detallepostulante";
-                    
-                }
-                @PostMapping({"/postulante/{postulanteId}"})
-                public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
-                    //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
-                    Postulante postulanteVd = post.getById(postulanteId);
-                    postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
-                    postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
-                    post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId); 
-                    //post.save(postulanteVd);
-                    return "redirect:/postulante/"+postulanteId;
-                }
-            }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<String> handleValidationExceptions2(
+        ConstraintViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            .body(ex.getMessage());
+        }
+
+
+
+    @GetMapping({"/postulante/{postulanteId}"})
+    public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
+        Postulante p = post.findById(postulanteId).orElse(null);
+        model.addAttribute("postulante",p);
+        model.addAttribute("estadoP", EstadoPostulante.values());
+        return "detallepostulante";
+
+    }
+    @PostMapping({"/postulante/{postulanteId}"})
+    public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
+        //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
+        Postulante postulanteVd = post.getById(postulanteId);
+        postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
+        postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
+        post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId);
+        //post.save(postulanteVd);
+        return "redirect:/postulante/"+postulanteId;
+    }
+}
             
