@@ -24,15 +24,15 @@ contentType="text/html;charset=UTF-8" language="java" %>
     <jsp:include page="header.jsp" />
     <jsp:include page="alerts.jsp" />
     <div class="container-xxl my-md-4 bd-layout">
-        <h2>Agregar Cargo</h2>
-        <div class="p-3 mb-2 bg-light text-dark border border-light">
+      <div class="card d-flex flex-column justify-content-center align-items-center mx-auto mt-2 p-3" style="width: 20rem;">
+          <h5 class="card-title">${cargo.id == null ? "Agregar" : "Modificar"} Cargo</h5>
             <form:form
             action="/cargo/${cargo.id == null ? '' : cargo.id}"
             method="post"
             modelAttribute="cargo"
-            class="row row-cols-lg-auto g-3 align-items-center"
+            class="card-body d-flex flex-column"
             >
-            <div class="col-12">
+            <div class="">
                 <form:label class="form-label visually-hidden" path="nombre"
                 >Nombre del cargo
                 </form:label>
@@ -44,7 +44,7 @@ contentType="text/html;charset=UTF-8" language="java" %>
                 
                 />
             </div>
-            <div class="col-12">
+            <div class="mt-2 align-self-end">
                 <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
             </form:form>
