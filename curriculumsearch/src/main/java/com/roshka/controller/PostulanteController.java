@@ -155,10 +155,16 @@ public class PostulanteController {
         //Codigo encargado de modificar postulacion si se envia mismo CI
         Postulante postulantex = post.findByNroDocument(postulante.getnroDocument());
         if(postulantex != null){
+            postulante.setEstadoPostulante(postulantex.getEstadoPostulante());
+           postulante.setComentarioRRHH(postulantex.getComentarioRRHH()); 
             estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
             expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
             postulante.setId(postulantex.getId());
+        } else{
+            postulante.setEstadoPostulante(EstadoPostulante.NUEVO);
+            postulante.setComentarioRRHH(null); 
+
         }
         postulante.getTecnologias().stream().filter(
             tec -> tec.getTecnologia().getId() != 0 
