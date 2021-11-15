@@ -53,6 +53,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+                            <a href="/home" class="btn btn-danger btn-lg mr-3 ml-3 mb-1">Volver</a>
                         </form:form>
 
                     </div>

@@ -67,7 +67,8 @@ public class Postulante {
     private Long nivelIngles;
 
     @Column(name = "curriculum")
-    private String curriculum;
+    @Lob
+    private byte[] curriculum;
 
     @Column(name="estado_civil")
     @NotNull
@@ -192,11 +193,11 @@ public class Postulante {
         this.nivelIngles = nivelIngles;
     }
 
-    public String getCurriculum() {
+    public byte[] getCurriculum() {
         return curriculum;
     }
 
-    public void setCurriculum(String curriculum) {
+    public void setCurriculum(byte[] curriculum) {
         this.curriculum = curriculum;
     }
 
