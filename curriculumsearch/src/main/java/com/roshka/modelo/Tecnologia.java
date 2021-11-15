@@ -15,17 +15,17 @@ public class Tecnologia {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name="id")
-	private long id;
+	private Long id;
 	
 	@Column(name="nombre")
 	@NotBlank(message = "Este campo no puede estar vacio")
     private String nombre;
     
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

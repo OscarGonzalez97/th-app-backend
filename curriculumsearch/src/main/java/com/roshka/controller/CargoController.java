@@ -1,6 +1,8 @@
 package com.roshka.controller;
 
 
+import javax.validation.Valid;
+
 import com.roshka.modelo.Cargo;
 import com.roshka.repositorio.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +44,11 @@ public class CargoController {
     }
 
     @PostMapping(path = {"/cargo","/cargo/{id}"})
-    public String guardarCargo(@ModelAttribute Cargo cargo, BindingResult result, @PathVariable(required = false) Long id) {
-        if(result.hasErrors()); 
+    public String guardarCargo(@Valid @ModelAttribute Cargo cargo, BindingResult result, @PathVariable(required = false) Long id, Model model) {
+        if(result.hasErrors() || (id==null && cargoRepo.existsByNombreIgnoreCase(cargo.getNombre())  )){
+            model.addAttribute("mismoNombre", true);
+            return "cargo-form";
+        }; 
         if(id != null ) cargo.setId(id);
         cargoRepo.save(cargo);
         System.out.println(cargo.getNombre());
