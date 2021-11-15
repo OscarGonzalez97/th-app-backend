@@ -3,10 +3,13 @@ package com.roshka.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.roshka.modelo.Cargo;
 import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.repositorio.CargoRepository;
 import com.roshka.repositorio.ConvocatoriaRepository;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import org.dom4j.Branch;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LongType;
@@ -49,13 +52,18 @@ public class ConvocatoriaController {
     @RequestMapping(path = {"/convocatoria","/convocatoria/{id}"})
     public String formConvocatoria(Model model,@PathVariable(required = false) Long id) {
         model.addAttribute("cargos", cargoRepo.findAll());
-        if(id == null) model.addAttribute("convocatoria", new ConvocatoriaCargo());
+        if(id == null){
+             model.addAttribute("convocatoria", new ConvocatoriaCargo());
+             model.addAttribute("listaConvocatoria", convoRepo.findAll());
+            
+        }
         else {
             ConvocatoriaCargo cc = convoRepo.getById(id);
             cc.setFechaFinS(new SimpleDateFormat("yyyy-MM-dd").format((cc.getFechaFin())));
             cc.setFechaInicioS(new SimpleDateFormat("yyyy-MM-dd").format((cc.getFechaInicio())));
             
             model.addAttribute("convocatoria", cc);
+            model.addAttribute("listaConvocatoria", convoRepo.findAll());
         }
         
         return "convocatoria-form";
@@ -65,8 +73,25 @@ public class ConvocatoriaController {
     public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id) {
         if(result.hasErrors()); 
         if(id != null) convocatoria.setId(id);
-        convoRepo.save(convocatoria);
-        System.out.println(convocatoria.getFechaInicio());
+        //System.out.println(convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId()));
+        for(ConvocatoriaCargo c: convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId())){
+            
+           
+            if(c.getCargoId()==convocatoria.getCargoId() &&   c.getFechaFin().after(convocatoria.getFechaInicio()) )
+            {                
+                
+                return "redirect:/convocatoria";  
+                             
+            }
+            else{
+                convoRepo.save(convocatoria);
+                System.out.println("si anda");
+                break;
+
+            }
+        }
+
+        
         return "redirect:/convocatorias";
     }
 }
