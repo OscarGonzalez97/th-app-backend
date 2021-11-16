@@ -70,17 +70,19 @@ public class ConvocatoriaController {
     }
 
     @PostMapping(path = {"/convocatoria","/convocatoria/{id}"})
-    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id) {
+    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id,Model model) {
         if(result.hasErrors()); 
         if(id != null) convocatoria.setId(id);
         //System.out.println(convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId()));
         for(ConvocatoriaCargo c: convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId())){
             
            
-            if(c.getCargoId()==convocatoria.getCargoId() &&   c.getFechaFin().after(convocatoria.getFechaInicio()) )
-            {                
+            if(result.hasErrors() || c.getCargoId()==convocatoria.getCargoId() &&   c.getFechaFin().after(convocatoria.getFechaInicio()) )
+            {           
                 
-                return "redirect:/convocatoria";  
+                model.addAttribute("existeFecha", true);
+                System.out.println("no debe");
+                return "convocatoria-form";
                              
             }
             else{
