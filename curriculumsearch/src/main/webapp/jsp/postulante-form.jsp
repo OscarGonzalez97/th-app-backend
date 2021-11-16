@@ -146,7 +146,7 @@
                         
                                   </select> </div>
                                   <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
+                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
                                   </div>
 
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
@@ -316,7 +316,6 @@
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>
                     </c:forEach>
                   </select>
-                  <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
                 </div>
                   
                   

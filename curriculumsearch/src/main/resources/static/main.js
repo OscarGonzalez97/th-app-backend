@@ -97,7 +97,7 @@ function agregarFieldExpierncia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
         </li>
         
         `
@@ -159,7 +159,7 @@ function agregarFieldTecnologia(){
         content1 += `
         <li id="tecn-${index}">        
             ${tecn.tecnologia.nombre}         
-            <button type="button" onclick="eliminarTecnologia(event)">Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarTecnologia(event)">Eliminar</button>
             <br>
         </li>
         
@@ -254,7 +254,6 @@ form.addEventListener("submit",(evt)=>{
     noValidateFlag = false
 } );
 
-document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
 
 
 //Metodos para Estudios
@@ -323,7 +322,7 @@ function agregarFieldEstudio(){
         content += `
         <li id="est-${index}">        
             ${est.institucion.nombre}
-            <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
         </li>
         
         `
@@ -384,7 +383,7 @@ function agregarFieldCargo(){
         if(postulaciones[i]!==null){
             if(postulaciones[i]["id"]===pairs["cargo-id"]){
                 alert("Ya has agregado ese cargo!")
-                cont_cargo--;
+                //cont_cargo--;
                 return;
             }
         }
@@ -404,8 +403,8 @@ function agregarFieldCargo(){
         if(car==null) continue;
         content1 += `
         <li id="car-${index}">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}        
-            <button type="button" onclick="eliminarCargoPostulante(event)">Eliminar</button>
+            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<br>        
+            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button>
         </li>
         
         `
@@ -506,7 +505,7 @@ function agregarFieldReferencia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.nombre}
-            <button type="button" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
         </li>
         
         `
