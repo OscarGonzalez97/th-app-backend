@@ -1,88 +1,304 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
+<layout:extends name="layouts/base.jsp">
+    <layout:put block="contents" type="REPLACE">
+        <h2 style="text-align: center;">
+            DETALLE POSTULANTE        
+        </h2>
+        <div class="row gy-3">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nombre</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.nombre} ${postulante.apellido}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.correo}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Vive en</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.getCiudad().getNombre()}, ${postulante.getCiudad().getDepartamento().getNombre()}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nro de Documento</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.tipoDocumento}: ${postulante.nroDocument}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Telefono</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.telefono}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Fecha de nacimiento</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.fechaNacimiento}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Resumen</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.resumen}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nivel de Ingles</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.nivelIngles}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Estado Civil</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.estadoCivil.getDescripcion()}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nacionalidad</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.nacionalidad.getDescripcion()}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Disponbilidad</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        ${postulante.disponibilidad.getDescripcion()}
+                      </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="row">
+                      <div class="col">
+                        <a class="btn btn-link " href="#">Editar</a>
+                      </div>
+                      <div class="col">
+                        <a class="btn btn-link " href="#">Descargar CV</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnologia</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</head>
-<body>
-    <jsp:include page="header.jsp"/>
-    <jsp:include page="alerts.jsp"/>
-    <div class="container-xxl my-md-4 bd-layout">
-        <h2 style="text-align: center;">DETALLE POSTULANTE</h2>
-        <div style="padding: 10px;margin: 3px;border: 1px solid black;">
-       
-            <br><b><i><label>INFORMACION GENERAL</label></i></b><br>     
-            <label>Id: ${postulante.id}</label><br>
-            <label>Nombre: ${postulante.nombre}</label><br>
-            <label>Apellido ${postulante.apellido}</label><br>
-            <label>${postulante.tipoDocumento}: ${postulante.nroDocument} </label><br>
-            <label>Correo: ${postulante.correo}</label><br>
-            <label>Departamento: ${postulante.getCiudad().getDepartamento().getNombre()}</label><br>
-            <label>Ciudad: ${postulante.getCiudad().getNombre()}</label><br>
-            <label>Telefono: ${postulante.telefono}</label><br><label>
-            <label>Fecha de nacimiento: ${postulante.fechaNacimiento}</label><br>
-            <label>Resumen: ${postulante.resumen}</label><br>
-            <label>Nivel de ingles: ${postulante.nivelIngles}</label><br>
-            <label>Curriculum: ${postulante.curriculum}</label><br>
-            <label>Estado civil: ${postulante.estadoCivil}</label><br>
-            <label>Nacionalidad: ${postulante.nacionalidad}</label><br>
-            <label>Disponibilidad: ${postulante.disponibilidad}</label><br>
-            <label>Estado del Postulante: ${postulante.estadoPostulante.getEstado()}</label><br>
-            <label>Comentario RRHH: ${postulante.getComentarioRRHH()}</label><br>   
-            <br><b><i><label>TECNOLOGIAS</label></b></i><br>
-            <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
-                <label>Tecnologias: ${detalle_tecnologia.getTecnologia().getNombre()} -</label>
-                <label>Nivel de Tecnologia: ${detalle_tecnologia.getNivel()}</label><br>
-            </c:forEach>
+              </div>
+              <div class="col-md-6">
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body">
+                              <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Tecnologias</i></h6>
+                                <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
+                                    <small>${detalle_tecnologia.getTecnologia().getNombre()}</small>
+                                    <div class="progress mb-3" style="height: 5px">
+                                      <div class="progress-bar bg-primary" role="progressbar" style="width: ${(detalle_tecnologia.getNivel() / 5) * 100}%" aria-valuenow="${detalle_tecnologia.getNivel()}" aria-valuemin="1" aria-valuemax="5"></div>
+                                    </div>
+                                </c:forEach>
+                                <hr>
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Cargos al que postula</i></h6>
+                            <ul class="list-group list-group-flush">
+                                <c:forEach items="${postulante.postulaciones}" var="convocatoria">
 
-            <br><b><i><label>EXPERIENCIAS</label></b></i><br>
-           
-            <c:forEach items="${postulante.experiencias}" var="detalle_experiencia">
-                <label>Institucion: ${detalle_experiencia.getInstitucion()}</label><br>
-                <label>Fecha Inicio: ${detalle_experiencia.getFechaDesde()}</label><br>
-                <label>Fecha Fin: ${detalle_experiencia.getFechaHasta()}</label><br>
-                <label>Referencia: ${detalle_experiencia.getNombreReferencia()}</label><br>
-                <label>Telefono de la referencia: ${detalle_experiencia.getTelefonoReferencia()}</label><br>
-                <label>Cargo: ${detalle_experiencia.getCargo()}</label><br>
-                <label>Motivo de salida: ${detalle_experiencia.getMotivoSalida()}</label><br>
-            </c:forEach>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                      <h6 class="mb-0">${convocatoria.getCargo().getNombre()}</h6>
+                                      <span class="text-secondary"></span>
+                                    </li>
+                                </c:forEach>
+                              
+                            </ul>
+                             
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                          <div class="card">
+                              <div class="card-body">
+                            <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                            
+                            <div class="carousel-inner">
+                                
+                                
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Experiencias</i></h6>
+                                <c:forEach items="${postulante.experiencias}" var="detalle_experiencia" varStatus="status">
+                                    <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
-            <br><b><i><label>ESTUDIOS</label></b></i><br>
+                                        <ul class="list-group list-group-flush ">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Institucion</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getInstitucion()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Fecha Inicio</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getFechaDesde()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Fecha Fin</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getFechaHasta()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Referencia</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getNombreReferencia()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Telefono de la referencia</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getTelefonoReferencia()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Cargo</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getCargo()}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Motivo de salida</h6>
+                                                <span class="text-secondary">${detalle_experiencia.getMotivoSalida()}</span>
+                                            </li>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </c:forEach>
+                                        
+                                    
+                              
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                           </div>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                          
+                          <div class="carousel-inner">
+                              
+                              
+                              <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Estudios</i></h6>
+                              <c:forEach items="${postulante.estudios}" var="detalle_estudios" varStatus="status">
+                                  <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
-            <c:forEach items="${postulante.estudios}" var="detalle_estudios">
-                <label>Institucion: ${detalle_estudios.getInstitucion().getNombre()}</label><br>
-                <label>SubNombre: ${detalle_estudios.getInstitucion().getSubNombre()}</label><br>
-                <label>Tipo de estudio: ${detalle_estudios.getTipoDeEstudio()}</label><br>  
-                <label>Tema de estudio: ${detalle_estudios.getTemaDeEstudio()}</label><br>     
-                <label>Fecha Inicio: ${detalle_estudios.getFechaDesde()}</label><br>
-                <label>Fecha Fin: ${detalle_estudios.getFechaHasta()}</label><br>
-                <label>Estado: ${detalle_estudios.getEstado()}</label><br>
-            </c:forEach>
+                                      <ul class="list-group list-group-flush ">
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Institucion</h6>
+                                              <span class="text-secondary">${detalle_estudios.getInstitucion().getNombre()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Fecha Inicio</h6>
+                                              <span class="text-secondary">${detalle_estudios.getFechaDesde()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Fecha Fin</h6>
+                                              <span class="text-secondary">${detalle_estudios.getFechaHasta()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Tipo de Estudio</h6>
+                                              <span class="text-secondary">${detalle_estudios.getTipoDeEstudio()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Tema de estudio</h6>
+                                              <span class="text-secondary">${detalle_estudios.getTemaDeEstudio()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">Estado</h6>
+                                              <span class="text-secondary">${detalle_estudios.getEstado()}</span>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                              <h6 class="mb-0">SubNombre</h6>
+                                              <span class="text-secondary">${detalle_estudios.getInstitucion().getSubNombre()}</span>
+                                          </li>
+                                          
+                                          
+                                      </ul>
+                                  </div>
+                              </c:forEach>
+                                      
+                                  
+                            
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                        </div>
+                         </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Referencias Personales</i></h6>
+                            <ul class="list-group list-group-flush">
+                                <c:forEach items="${postulante.referencias}" var="referencia">
 
-            <br><b><i><label>REFERENCIA PERSONAL</label></b></i><br>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                      <h6 class="mb-0">${referencia.nombre}, ${referencia.relacion}, ${referencia.telefono}</h6>
+                                      <span class="text-secondary"></span>
+                                    </li>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+            
+            
+          </div>
 
-            <c:forEach items="${postulante.referencias}" var="detalle_referencias">
-                <label>Nombre: ${detalle_referencias.getNombre()}</label>
-                <label>Relacion: ${detalle_referencias.getRelacion()}</label><br>
-                <label>Telefono: ${detalle_referencias.getTelefono()}</label><br>
-            </c:forEach>
-           
-            <br><b><i><label>CARGOS AL CUAL POSTULA</label></b></i><br>
-
-            <c:forEach items="${postulante.postulaciones}" var="convocatoria">
-                <label>Nombre: ${convocatoria.getCargo().getNombre()}</label><br>
-            </c:forEach>
-           
-
-        </div>     
+        
+    
         <div style="padding:10px ;margin: 5px;border: 3px solid black;">
             <b><i><h2>Cambiar Estado del Postulante y Comentario de RRHH</h2></b></i>
             <form:form class="needs-validation" method="post" modelAttribute="postulante">
@@ -106,13 +322,7 @@
                 </div>
                 <input type="submit" value="submit"/>
             </form:form>
+        </div>  
+    </layout:put>
+</layout:extends>
 
-
-            
-            
-        </div>     
-    </div>     
-        
-</body>
-
-</html>

@@ -9,4 +9,6 @@ import com.roshka.modelo.Tecnologia;
 public interface TecnologiaRepository extends JpaRepository<Tecnologia,Long> {
 
 	public List<Tecnologia> findByNombreContainingIgnoreCase(String nombre);
+
+	public boolean existsByNombreIgnoreCase(String nombre);
 }

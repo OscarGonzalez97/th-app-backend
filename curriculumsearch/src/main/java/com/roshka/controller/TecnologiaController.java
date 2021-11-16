@@ -1,5 +1,7 @@
 package com.roshka.controller;
 
+import javax.validation.Valid;
+
 import com.roshka.modelo.Tecnologia;
 import com.roshka.repositorio.TecnologiaRepository;
 
@@ -45,8 +47,11 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
     }
 
 @PostMapping(path = {"/tecnologia","/tecnologia/{id}"})
-    public String addtecnologia(@ModelAttribute Tecnologia tecnologia, BindingResult result, @PathVariable(required = false) Long id) {
-        if(result.hasErrors()); 
+    public String addtecnologia(@Valid @ModelAttribute Tecnologia tecnologia, BindingResult result, @PathVariable(required = false) Long id, Model model) {
+        if(result.hasErrors() || (id==null && tecRepo.existsByNombreIgnoreCase(tecnologia.getNombre()))){
+            model.addAttribute("mismoNombre", true);
+            return "tecnologia-form";
+        } 
         if(id != null ) tecnologia.setId(id);
         tecRepo.save(tecnologia);
         System.out.println(tecnologia.getNombre());
