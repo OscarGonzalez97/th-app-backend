@@ -214,7 +214,7 @@ public class PostulanteController {
         Postulante p = post.findById(postulanteId).orElse(null);
         model.addAttribute("postulante",p);
         model.addAttribute("estadoP", EstadoPostulante.values());
-        return "detallepostulante";
+        return "detallepostulante2";
 
     }
     @PostMapping({"/postulante/{postulanteId}"})

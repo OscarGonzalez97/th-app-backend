@@ -19,12 +19,11 @@
         <h2 style="text-align: center;">DETALLE POSTULANTE</h2>
         <div style="padding: 10px;margin: 3px;border: 1px solid black;">
        
-            <br><label>INFORMACION GENERAL</label><br>     
+            <br><b><i><label>INFORMACION GENERAL</label></i></b><br>     
             <label>Id: ${postulante.id}</label><br>
             <label>Nombre: ${postulante.nombre}</label><br>
             <label>Apellido ${postulante.apellido}</label><br>
-            <label>Tipo de documento: ${postulante.tipoDocumento}</label><br>
-            <label>Cedula: ${postulante.nroDocument}</label><br>
+            <label>${postulante.tipoDocumento}: ${postulante.nroDocument} </label><br>
             <label>Correo: ${postulante.correo}</label><br>
             <label>Departamento: ${postulante.getCiudad().getDepartamento().getNombre()}</label><br>
             <label>Ciudad: ${postulante.getCiudad().getNombre()}</label><br>
@@ -38,13 +37,13 @@
             <label>Disponibilidad: ${postulante.disponibilidad}</label><br>
             <label>Estado del Postulante: ${postulante.estadoPostulante.getEstado()}</label><br>
             <label>Comentario RRHH: ${postulante.getComentarioRRHH()}</label><br>   
-            <br><label>TECNOLOGIAS</label><br>
+            <br><b><i><label>TECNOLOGIAS</label></b></i><br>
             <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
                 <label>Tecnologias: ${detalle_tecnologia.getTecnologia().getNombre()} -</label>
                 <label>Nivel de Tecnologia: ${detalle_tecnologia.getNivel()}</label><br>
             </c:forEach>
 
-            <br><label>EXPERIENCIAS</label><br>
+            <br><b><i><label>EXPERIENCIAS</label></b></i><br>
            
             <c:forEach items="${postulante.experiencias}" var="detalle_experiencia">
                 <label>Institucion: ${detalle_experiencia.getInstitucion()}</label><br>
@@ -56,7 +55,7 @@
                 <label>Motivo de salida: ${detalle_experiencia.getMotivoSalida()}</label><br>
             </c:forEach>
 
-            <br><label>ESTUDIOS</label><br>
+            <br><b><i><label>ESTUDIOS</label></b></i><br>
 
             <c:forEach items="${postulante.estudios}" var="detalle_estudios">
                 <label>Institucion: ${detalle_estudios.getInstitucion().getNombre()}</label><br>
@@ -68,7 +67,7 @@
                 <label>Estado: ${detalle_estudios.getEstado()}</label><br>
             </c:forEach>
 
-            <br><label>REFERENCIA PERSONAL</label><br>
+            <br><b><i><label>REFERENCIA PERSONAL</label></b></i><br>
 
             <c:forEach items="${postulante.referencias}" var="detalle_referencias">
                 <label>Nombre: ${detalle_referencias.getNombre()}</label>
@@ -76,7 +75,7 @@
                 <label>Telefono: ${detalle_referencias.getTelefono()}</label><br>
             </c:forEach>
            
-            <br><label>CARGOS AL CUAL POSTULA</label><br>
+            <br><b><i><label>CARGOS AL CUAL POSTULA</label></b></i><br>
 
             <c:forEach items="${postulante.postulaciones}" var="convocatoria">
                 <label>Nombre: ${convocatoria.getCargo().getNombre()}</label><br>
@@ -85,7 +84,7 @@
 
         </div>     
         <div style="padding:10px ;margin: 5px;border: 3px solid black;">
-            <h2>Cambiar Estado del Postulante y Comentario de RRHH</h2>
+            <b><i><h2>Cambiar Estado del Postulante y Comentario de RRHH</h2></b></i>
             <form:form class="needs-validation" method="post" modelAttribute="postulante">
                 <form:label path="estadoPostulante" class="form-label">Estado</form:label>
                 <div class="inputs">
