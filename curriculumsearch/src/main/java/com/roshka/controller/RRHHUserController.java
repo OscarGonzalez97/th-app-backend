@@ -11,6 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -74,6 +78,35 @@ public class RRHHUserController {
         rrhhUserRepository.save(user);
 
         return "register_success";
+    }
+
+    @GetMapping("/edit-user-data")
+    public String editUserData(HttpServletRequest request, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getPrincipal().toString());
+        System.out.println(rrhhUserRepository.findByEmail(auth.getPrincipal().toString()));
+        model.addAttribute("user", rrhhUserRepository.findByEmail(auth.getPrincipal().toString()));
+        return "edit-user-data";
+    }
+
+    @PostMapping("/edit-user-data")
+    public RedirectView processEditUser(HttpServletRequest request, RRHHUser user,
+                                        RedirectAttributes redirectAttributes){
+        RRHHUser editUser = rrhhUserRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal().toString());
+        if(user.getEmail()!=null){
+            editUser.setEmail(user.getEmail());
+        }
+        if(user.getFirstName()!=null){
+            editUser.setFirstName(user.getFirstName());
+        }
+        if(user.getLastName()!=null){
+            editUser.setLastName(user.getLastName());
+        }
+        rrhhUserRepository.save(editUser);
+        RedirectView redirectView = new RedirectView("/home",true);
+        redirectAttributes.addFlashAttribute("success", "Datos actualizados");
+        return redirectView;
     }
 
     @Autowired
@@ -155,15 +188,6 @@ public class RRHHUserController {
         return "redirect:/";
     }
 
-    @ResponseStatus(HttpStatus.PERMANENT_REDIRECT)
-    @ExceptionHandler({UsernameNotFoundException.class})
-    public RedirectView handleValidationExceptions(
-            RedirectAttributes redir, UsernameNotFoundException ex) {
-        RedirectView redirectView = new RedirectView("/forgot-password", true);
-        redir.addAttribute("error", "Error al enviar el mail. Checkee sus credenciales" +
-                " y intentelo de nuevo");
-        return redirectView;
-    }
 }
 
 class Utility {

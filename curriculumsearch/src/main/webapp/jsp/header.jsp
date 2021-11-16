@@ -46,8 +46,12 @@
                 </ul>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="/edit-user-data">Editar mis datos</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="/logout">Salir</a>
               </li>
+
             </ul>
           </div>
         </div>
