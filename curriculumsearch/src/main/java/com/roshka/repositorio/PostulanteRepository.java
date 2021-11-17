@@ -80,4 +80,8 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     @Query("UPDATE Postulante p SET p.comentarioRRHH = ?1 WHERE p.id = ?2")
     void setPostulanteEstadoComentario( String comentario, Long Id);*/
 
+    @Query("SELECT p FROM Postulante p JOIN Estudio e ON p.id=e.postulante.id "+
+    "where e.temaDeEstudio=?1")
+    public List<Postulante> obtenerPostulantesPorCarrera(String carrera);
+
 }

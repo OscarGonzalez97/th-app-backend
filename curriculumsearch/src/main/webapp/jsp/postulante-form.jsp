@@ -10,8 +10,139 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<<<<<<< HEAD
     <title>Curriculum</title>
     <link href="../css/formPostulanteStyle.css" rel="stylesheet" type="text/css"/>
+=======
+    <title>Hello, world!</title>
+
+    
+    <style type="text/css" media="screen">
+          body {
+                  background-color: #506BEE
+              }
+
+              .card {
+                  border: none
+              }
+
+              .image {
+                  position: relative
+              }
+
+              .image span {
+                  background-color: #506BEE;
+                  color: #fff;
+                  padding: 6px;
+                  height: 30px;
+                  width: 30px;
+                  border-radius: 50%;
+                  font-size: 13px;
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  top: -0px;
+                  right: 0px
+              }
+
+              .user-details h4 {
+                  color: #506BEE
+              }
+
+              .ratings {
+                  font-size: 30px;
+                  font-weight: 600;
+                  display: flex;
+                  justify-content: left;
+                  align-items: center;
+                  color: #f9b43a
+              }
+
+              .user-details span {
+                  text-align: left
+              }
+
+              .inputs label {
+                  display: flex;
+                  margin-left: 3px;
+                  font-weight: 500;
+                  font-size: 13px;
+                  margin-bottom: 4px
+              }
+
+              .inputs input {
+                  font-size: 14px;
+                  height: 40px;
+                  border: 2px solid #ced4da
+              }
+
+              .inputs input:focus {
+                  box-shadow: none;
+                  border: 2px solid #506BEE
+              }
+
+              .about-inputs label {
+                  display: flex;
+                  margin-left: 3px;
+                  font-weight: 500;
+                  font-size: 13px;
+                  margin-bottom: 4px
+              }
+
+              .about-inputs textarea {
+                  font-size: 14px;
+                  height: 100px;
+                  border: 2px solid #ced4da;
+                  resize: none
+              }
+
+              .about-inputs textarea:focus {
+                  box-shadow: none
+              }
+
+              .btn {
+                  font-weight: 600
+              }
+
+              .btn:focus {
+                  box-shadow: none
+              }
+
+              select {
+                  display: block;
+                  width: 100%;
+                  border: 1px solid #ddd;
+                  border-radius: 10px;
+                  height: 40px;
+                  padding: 5px 10px
+              }
+
+              select:focus {
+                  outline: none
+              }
+
+              .add-experience:hover {
+
+                  background: #506BEE;
+                  color: #fff;
+                  cursor: pointer;
+                  border: solid 1px #506BEE
+
+              }
+                #outer
+                {
+                    width:100%;
+                    text-align: center;
+                }
+                .inner
+                {
+                    display: inline-block;
+                }
+    </style>
+
+
+>>>>>>> c5960f1813048de41cb9806ad2accf77e4d8aece
   </head>
 
   <body class="container">
@@ -145,23 +276,29 @@
                                     
                         
                                   </select> </div>
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
+
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
+
                                   </div>
 
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
                                   </div>
 
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+
+                                  <div class="inputs p-3 py-5">
+                                    <div class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
+
+
                                   </div>
 
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
                                   </div>
                                     
-                               
-                                  <div >
-                                   <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
+
+                                  <div class=" p-3 py-5">
+                                   <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
+
                                   </div>
                                  
                                   <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
@@ -169,16 +306,19 @@
                             
                                
                                
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
+
+                                <div class=" p-3 py-5">
+                                  <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
+
                                 </div>
                                 
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
                                 </div>
 
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
+
+                                <div class=" p-3 py-5">
+                                  <div class="  d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>
                                 </div>
                                 <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia"> 
                                 </div>
