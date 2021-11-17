@@ -192,7 +192,6 @@ function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
 
-
     // Create an object to hold the name/value pairs
     const pairs = {};
 
@@ -205,7 +204,23 @@ function serializeJSON (form) {
     pairs["tecnologias"] = tecnologias.filter(tec => tec)//eliminacion de nulos
     pairs["postulaciones"] = postulaciones.filter(car => car)//eliminacion de nulos
     pairs["referencias"] = referencias.filter(tec => tec)
-
+    if(pairs["postulaciones"].length<1){
+        document.querySelector("#no-valid-cargo").style.display = "block";
+        noValidateFlag = true;
+    }else{
+        document.querySelector("#no-valid-cargo").style.display = "none";
+    }
+    console.log(pairs["tecnologias"])
+    if(pairs["tecnologias"].length<1){
+        document.querySelector("#no-valid-tecno").style.display = "block";
+        noValidateFlag = true;
+    }else{
+        document.querySelector("#no-valid-tecno").style.display = "none";
+    }
+    if(noValidateFlag){
+        return;
+    }
+    noValidateFlag = false
     
     // Return the JSON string
     return JSON.stringify(pairs, null, 2);
@@ -229,7 +244,11 @@ async function postData(url = '', data = {}) {
         body: data // body data type must match "Content-Type" header
     }
     senddata["headers"][headerxs] = token;
-    const response = await fetch(url, senddata);
+    let response = null
+    console.log(noValidateFlag)
+    if(!noValidateFlag){
+        response = await fetch(url, senddata);
+    }
     return response; // parses JSON response into native JavaScript objects
 }
 formValidator()
@@ -529,57 +548,57 @@ function eliminarReferencia(event) {
 
 
 /*--------------------------------------------------------------------------------------------------------- */
-$(function(){
-    $("#wizard").steps({
-    headerTag: "h4",
-    bodyTag: "section",
-    transitionEffect: "fade",
-    enableAllSteps: true,
-    transitionEffectSpeed: 500,
-    onStepChanging: function (event, currentIndex, newIndex) {
-    if ( newIndex === 1 ) {
-    $('.steps ul').addClass('step-2');
-    } else {
-    $('.steps ul').removeClass('step-2');
-    }
-    if ( newIndex === 2 ) {
-    $('.steps ul').addClass('step-3');
-    } else {
-    $('.steps ul').removeClass('step-3');
-    }
-    
-    if ( newIndex === 3 ) {
-    $('.steps ul').addClass('step-4');
-    $('.actions ul').addClass('step-last');
-    } else {
-    $('.steps ul').removeClass('step-4');
-    $('.actions ul').removeClass('step-last');
-    }
-    return true;
-    },
-    labels: {
-    finish: "Order again",
-    next: "Next",
-    previous: "Previous"
-    }
-    });
-    // Custom Steps Jquery Steps
-    $('.wizard > .steps li a').click(function(){
-    $(this).parent().addClass('checked');
-    $(this).parent().prevAll().addClass('checked');
-    $(this).parent().nextAll().removeClass('checked');
-    });
-    // Custom Button Jquery Steps
-    $('.forward').click(function(){
-    $("#wizard").steps('next');
-    })
-    $('.backward').click(function(){
-    $("#wizard").steps('previous');
-    })
-    // Checkbox
-    $('.checkbox-circle label').click(function(){
-    $('.checkbox-circle label').removeClass('active');
-    $(this).addClass('active');
-    })
-    })
+// $(function(){
+//     $("#wizard").steps({
+//     headerTag: "h4",
+//     bodyTag: "section",
+//     transitionEffect: "fade",
+//     enableAllSteps: true,
+//     transitionEffectSpeed: 500,
+//     onStepChanging: function (event, currentIndex, newIndex) {
+//     if ( newIndex === 1 ) {
+//     $('.steps ul').addClass('step-2');
+//     } else {
+//     $('.steps ul').removeClass('step-2');
+//     }
+//     if ( newIndex === 2 ) {
+//     $('.steps ul').addClass('step-3');
+//     } else {
+//     $('.steps ul').removeClass('step-3');
+//     }
+//
+//     if ( newIndex === 3 ) {
+//     $('.steps ul').addClass('step-4');
+//     $('.actions ul').addClass('step-last');
+//     } else {
+//     $('.steps ul').removeClass('step-4');
+//     $('.actions ul').removeClass('step-last');
+//     }
+//     return true;
+//     },
+//     labels: {
+//     finish: "Order again",
+//     next: "Next",
+//     previous: "Previous"
+//     }
+//     });
+//     // Custom Steps Jquery Steps
+//     $('.wizard > .steps li a').click(function(){
+//     $(this).parent().addClass('checked');
+//     $(this).parent().prevAll().addClass('checked');
+//     $(this).parent().nextAll().removeClass('checked');
+//     });
+//     // Custom Button Jquery Steps
+//     $('.forward').click(function(){
+//     $("#wizard").steps('next');
+//     })
+//     $('.backward').click(function(){
+//     $("#wizard").steps('previous');
+//     })
+//     // Checkbox
+//     $('.checkbox-circle label').click(function(){
+//     $('.checkbox-circle label').removeClass('active');
+//     $(this).addClass('active');
+//     })
+//     })
 /*--------------------------------------------------------------------------------------------------------- */
