@@ -46,7 +46,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
@@ -144,8 +145,9 @@ public class PostulanteController {
     }
     
     @PostMapping(value = "/postulante",consumes = "application/json")
-    public String guardarPostulante(@RequestBody Postulante postulante){
+    public RedirectView guardarPostulante(@RequestBody Postulante postulante, RedirectAttributes redirectAttributes){
         //Codigo encargado de modificar postulacion si se envia mismo CI
+        RedirectView redirectView = new RedirectView("/postulacion-correcta",true);
         Postulante postulantex = post.findByNroDocument(postulante.getnroDocument());
         if(postulantex != null){
             estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
@@ -153,29 +155,31 @@ public class PostulanteController {
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
             postulante.setId(postulantex.getId());
         }
-        postulante.getTecnologias().stream().filter(
-            tec -> tec.getTecnologia().getId() != 0 
-            ).forEach(
-                tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                );
+        postulante.getTecnologias().stream().filter(tec -> tec.getTecnologia().getId() != 0)
+                .forEach(tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId())));
                 /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
                     postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
                 }
                 */
                 
-                for(Estudio estudio: postulante.getEstudios()){
-                    String nombreIns = "";
-                    nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
-                    Institucion institucion = institucionRepository.findByNombre(nombreIns);
-                    if(institucion==null){
-                        institucionRepository.save(estudio.getInstitucion());
-                    }else{
-                        estudio.setInstitucion(institucion);
-                    }
-                }
-                post.save(postulante);
-                return "redirect:/postulacion-correcta";
+        for(Estudio estudio: postulante.getEstudios()){
+            String nombreIns = "";
+            nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
+            Institucion institucion = institucionRepository.findByNombre(nombreIns);
+            if(institucion==null){
+                institucionRepository.save(estudio.getInstitucion());
+            }else{
+                estudio.setInstitucion(institucion);
             }
+        }
+        if(postulante.getPostulaciones().isEmpty() || postulante.getTecnologias().isEmpty()){
+            redirectView.setUrl("/postulante");
+            redirectAttributes.addFlashAttribute("error", "Datos invalidos");
+            return redirectView;
+        }
+        post.save(postulante);
+        return redirectView;
+    }
 
     @GetMapping("/postulacion-correcta")
     public String successPostulation(Model model){

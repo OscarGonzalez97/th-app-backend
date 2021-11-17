@@ -245,7 +245,6 @@ async function postData(url = '', data = {}) {
     }
     senddata["headers"][headerxs] = token;
     let response = null
-    console.log(noValidateFlag)
     if(!noValidateFlag){
         response = await fetch(url, senddata);
     }
