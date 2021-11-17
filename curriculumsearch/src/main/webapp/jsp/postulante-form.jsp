@@ -245,12 +245,16 @@
                         <div class="inputs">
                             <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
                             <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
+                            <div class="invalid-feedback errorFechaDesde">
+                              
+                            </div>
                         </div>
                          
                         <div class="inputs">
                             <label for="fechaHastaExperiencia" class="form-label">Fecha Hasta</label>
                             <input type="date" class="form-control" name="fechaHasta" id="fechaHastaExperiencia" >
-                        </div>
+                            <div class="invalid-feedback errorfechaHasta"></div>
+                          </div>
                         
                         <div class="inputs">
                             <label for="cargo" class="form-label">Cargo</label>

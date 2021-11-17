@@ -49,7 +49,25 @@ function agregarFieldExpierncia(event){
     //recoger del form
     const pairs = {};
     const formexp = document.querySelector("[name=experiencia-form]");
+    formexp.classList.add('was-validated')
     const formData = new FormData(formexp);
+    let error=validarfecha(formData.get("fechaDesde"), formData.get("fechaHasta"))
+    let appendTo = "Hasta";
+   if (error) {
+
+        if(error.includes("desde")) appendTo = "Desde";
+        formexp.querySelector(".errorfecha"+appendTo)
+        
+        formexp['fecha'+appendTo].setCustomValidity(error)
+        document.querySelector(".errorfecha"+appendTo).innerHTML = error;
+        console.log(error);
+        
+   }
+   else{
+    formexp.fechaDesde.setCustomValidity('')
+    formexp.fechaHasta.setCustomValidity('')
+   }
+    
     const reconocimientos = [{},{},{}];
     let pos_rec;
     let returnFlag = false;
@@ -87,6 +105,7 @@ function agregarFieldExpierncia(event){
     pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
     experiencias[cont_experiencia] = pairs;
     formexp.reset();
+    formexp.classList.remove('was-validated')
     //imprimir lista actualizada
     const div = document.querySelector("#experiencias")
     const div1 = document.createElement('div');
@@ -107,6 +126,22 @@ function agregarFieldExpierncia(event){
     div.innerHTML = '';
     div.appendChild(div1);
     cont_experiencia++;
+}
+function validarfecha(fechaDesde, fechaHasta){
+    let fechadehoy= new Date().toISOString().slice(0,10);
+
+    if(fechaDesde>fechadehoy ){
+       return "la fecha desde no puede ser mayor a la fecha actual" ;   
+    }
+    if(fechaHasta =! null && fechaHasta>fechadehoy){
+        return "la fecha hasta no puede ser mayor a la fecha actual" ;  
+    } 
+    if(fechaHasta =! null && fechaDesde>fechaHasta){
+        return "la fecha desde no puede ser mayor a la fecha hasta";
+    
+    }
+        return false
+  
 }
 /*--------------------------------------------------------------------*/
 function agregarFieldTecnologia(){
