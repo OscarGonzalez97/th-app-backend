@@ -130,11 +130,18 @@
                     <hr>
                     <div class="row">
                       <div class="col">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estadoModalLong">actualizar</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estadoModalLong">Actualizar</button>
                       </div>
-                      <div class="col">
-                        <a class="btn btn-link " href="#">Descargar CV</a>
-                      </div>
+                      <c:choose>
+         
+                        <c:when test = "${cvId != null}">
+                          <div class="col">
+                            <a class="btn btn-link" target="__blank" href="/postulantes/cvFile/${cvId}">Descargar CV</a>
+                          </div>
+                        </c:when>
+                        
+                     </c:choose>
+                      
                     </div>
                   </div>
                 </div>

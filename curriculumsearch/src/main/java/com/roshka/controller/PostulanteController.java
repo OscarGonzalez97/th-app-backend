@@ -1,20 +1,16 @@
 package com.roshka.controller;
 
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 
 import javax.validation.ConstraintViolationException;
 
-import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.modelo.Disponibilidad;
-import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.EstadoCivil;
 import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
@@ -27,27 +23,20 @@ import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.InstitucionRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
-import com.roshka.utils.Helper;
 
 
 import org.hibernate.jpa.TypedParameterValue;
-import org.hibernate.type.StringType;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
-
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class PostulanteController {
@@ -59,7 +48,7 @@ public class PostulanteController {
     CiudadRepository ciuRepo;
     EstudioRepository estudioRepository;
     PostulanteTecnologiaRepository postulanteTecnologiaRepository;
-    ConvocatoriaRepository cargoRepo;
+    ConvocatoriaRepository convoRepo;
     CargoRepository carRepo;
 
     @Autowired
@@ -68,7 +57,7 @@ public class PostulanteController {
             InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
             CiudadRepository ciuRepo, EstudioRepository estudioRepository,
             PostulanteTecnologiaRepository postulanteTecnologiaRepository,
-            ConvocatoriaRepository cargoRepo, CargoRepository carRepo) {
+            ConvocatoriaRepository convoRepo, CargoRepository carRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
@@ -77,52 +66,12 @@ public class PostulanteController {
         this.ciuRepo = ciuRepo;
         this.estudioRepository = estudioRepository;
         this.postulanteTecnologiaRepository = postulanteTecnologiaRepository;
-        this.cargoRepo =cargoRepo;
+        this.convoRepo =convoRepo;
         this.carRepo=carRepo;
     }
 
-    @RequestMapping("/postulantes")
-    public String postulantes(Model model,
-                            @RequestParam(required = false)Long tecId,
-                            @RequestParam(required = false)String nombre,
-                            @RequestParam(required = false)EstadoPostulante estado,
-                            @RequestParam(required = false)Disponibilidad dispo,
-                            @RequestParam(required = false)Long lvlEng,
-                            @RequestParam(required = false)Long lvlTec,
-                            @RequestParam(required = false)Long instId,
-                            @RequestParam(required = false)Long expInMonths,
-                            @RequestParam(required = false)Long cargoId,
-                            @RequestParam(required = false)Long convId, 
-                            @RequestParam(defaultValue = "0")Integer nroPagina
-                            ) {
-        final Integer CANTIDAD_POR_PAGINA = 5;
-        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
-        model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("disponibilidades", Disponibilidad.values());
-        model.addAttribute("institucionesEducativas", institucionRepository.findAll());
-        model.addAttribute("estadoP", EstadoPostulante.values());
-        model.addAttribute("convocatoriaC", cargoRepo.findAll());
-        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
-        List<Postulante> postulantes = postulantesPag.getContent();
-        List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
-        
-        for (Postulante postulante : postulantes) {
-            long expTotal = 0;
-            //Sumamos el tiempo de experiencia total en meses de cada postulante
-            //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
-            for (Experiencia experiencia : postulante.getExperiencias()) {
-                expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
-            }
-            if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
-        }
-        
-        model.addAttribute("pages", postulantesPag.getTotalPages());
-        model.addAttribute("postulantes", postulantesDTO);
-        return "postulantes";
-    }
     
-    @RequestMapping("/postulante")
+    @RequestMapping(value = "/work-with-us",method = RequestMethod.GET)
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("disponibilidades", Disponibilidad.values());
@@ -131,7 +80,7 @@ public class PostulanteController {
         model.addAttribute("estadosCiviles", EstadoCivil.values());
         model.addAttribute("nacionalidades", Nacionalidad.values());
         model.addAttribute("tiposExperencia", TipoExperiencia.values());
-        model.addAttribute("CargosDisponibles", cargoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, null), new Date(), new TypedParameterValue(IntegerType.INSTANCE, 1)));
+        model.addAttribute("CargosDisponibles", convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, null), new Date(), new TypedParameterValue(IntegerType.INSTANCE, 1)));
         try {
             model.addAttribute("ciudades", new ObjectMapper().writeValueAsString(ciuRepo.findAll()));
         } catch (JsonProcessingException er) {
@@ -142,42 +91,76 @@ public class PostulanteController {
         
         return "postulante-form";
     }
-    
-    @PostMapping(value = "/postulante",consumes = "application/json")
-    public String guardarPostulante(@RequestBody Postulante postulante){
+
+ /*    @PostMapping("/uploadCVPostulante")
+    public String uploadFile(@RequestParam("file") MultipartFile file) {
+        dbFileRepository.save(storeFile(file));
+        DBFile dbFile = dbFileRepository.save(storeFile(file));
+        return "{\"id\": "+dbFile.getId()+"}";
+    } */
+
+    private DBFile createFile(MultipartFile file) {
+        // Normalize file name
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        try {
+            // Check if the file's name contains invalid characters
+            if(fileName.contains("..")) {
+                throw new Exception("Sorry! Filename contains invalid path sequence " + fileName);
+            }
+            if(file.getSize()==0)  throw new Exception("Sorry! File cant be void");;
+
+            DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getBytes());
+
+            return dbFile;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PostMapping(value = "/work-with-us",consumes = "multipart/form-data")
+    public String guardarPostulante(@RequestPart(name = "file",required = false) MultipartFile file,@RequestPart("postulante") Postulante postulante){
         //Codigo encargado de modificar postulacion si se envia mismo CI
-        Postulante postulantex = post.findByNroDocument(postulante.getnroDocument());
+        Postulante postulantex = post.findByNroDocument(postulante.getNroDocument());
         if(postulantex != null){
             estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
             expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
             postulante.setId(postulantex.getId());
         }
+        if(file!=null){
+            DBFile cv = createFile(file);
+            if(cv!=null) cv.setPostulante(postulante);
+            postulante.setCvFile(cv);
+        }
         postulante.getTecnologias().stream().filter(
             tec -> tec.getTecnologia().getId() != 0 
             ).forEach(
                 tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
                 );
-                /* for (int i = 0; i < postulante.getPostulaciones().size(); i++) {
-                    postulante.getPostulaciones().set(i, cargoRepo.getById(postulante.getPostulaciones().get(i).getId()));
-                }
-                */
                 
-                for(Estudio estudio: postulante.getEstudios()){
-                    String nombreIns = "";
-                    nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
-                    Institucion institucion = institucionRepository.findByNombre(nombreIns);
-                    if(institucion==null){
-                        institucionRepository.save(estudio.getInstitucion());
-                    }else{
-                        estudio.setInstitucion(institucion);
-                    }
-                }
-                post.save(postulante);
-                return "redirect:/postulacion-correcta";
+        for(Estudio estudio: postulante.getEstudios()){
+            String nombreIns = "";
+            nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
+            Institucion institucion = institucionRepository.findByNombre(nombreIns);
+            if(institucion==null){
+                institucionRepository.save(estudio.getInstitucion());
+            }else{
+                estudio.setInstitucion(institucion);
             }
+        }
+        post.save(postulante);
+        return "redirect:/work-with-us/postulacion-correcta";
+    }
 
-    @GetMapping("/postulacion-correcta")
+    
+    
+    @GetMapping("/work-with-us/postulacion-correcta")
     public String successPostulation(Model model){
         model.addAttribute("mensaje1", "Tu informacion se ha recibido correctamente!");
         model.addAttribute("mensaje2", " espera por que nos pongamos en contacto!");
@@ -202,23 +185,6 @@ public class PostulanteController {
 
 
 
-    @GetMapping({"/postulante/{postulanteId}"})
-    public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
-        Postulante p = post.findById(postulanteId).orElse(null);
-        model.addAttribute("postulante",p);
-        model.addAttribute("estadoP", EstadoPostulante.values());				
-        return "detallepostulante";
-        
-    }
-    @PostMapping({"/postulante/{postulanteId}"})
-    public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
-        //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
-        Postulante postulanteVd = post.getById(postulanteId);
-        postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
-        postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
-        post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId);
-        //post.save(postulanteVd);
-        return "redirect:/postulante/"+postulanteId;
-    }
+    
 }
             

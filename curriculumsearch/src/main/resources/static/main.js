@@ -211,6 +211,12 @@ function serializeJSON (form) {
     return JSON.stringify(pairs, null, 2);
 }
 
+function obtenerCV(){
+    let input = document.querySelector('#cvFile')
+    return input.files[0];
+  
+}
+
 async function postData(url = '', data = {}) {
     var token = document.querySelector("meta[name='_csrf']").content;
     var headerxs = document.querySelector("meta[name='_csrf_header']").content;
@@ -221,7 +227,7 @@ async function postData(url = '', data = {}) {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json',
+            //'Content-Type': undefined//'application/json',
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
@@ -232,6 +238,16 @@ async function postData(url = '', data = {}) {
     const response = await fetch(url, senddata);
     return response; // parses JSON response into native JavaScript objects
 }
+
+function formatearJsonWithFile(json, file){
+    formData = new FormData();
+
+    formData.append("file", file);
+    formData.append('postulante', new Blob([json], {
+                type: "application/json"
+            }));
+    return formData
+}
 formValidator()
 form = document.querySelector("form");
 form.addEventListener("submit",(evt)=>{
@@ -241,7 +257,7 @@ form.addEventListener("submit",(evt)=>{
     // }
     // form.classList.add('was-validated')
     if(!noValidateFlag){
-        postData('postulante', serializeJSON(form))
+        postData('work-with-us', formatearJsonWithFile(serializeJSON(form),obtenerCV()))
             .then(response => {
                 if(response.status==200 || response.status==302){
                     location.replace(response.url);

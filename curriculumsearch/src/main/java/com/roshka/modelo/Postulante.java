@@ -66,8 +66,6 @@ public class Postulante {
     @Max(value = 5)
     private Long nivelIngles;
 
-    @Column(name = "curriculum")
-    private String curriculum;
 
     @Column(name="estado_civil")
     @NotNull
@@ -115,6 +113,11 @@ public class Postulante {
     )
     private List<ConvocatoriaCargo> postulaciones;
 
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "cvfile_id",referencedColumnName = "id")
+    @JsonIgnore
+    private DBFile cvFile;
+
 
     public long getId() {
         return id;
@@ -140,9 +143,6 @@ public class Postulante {
         this.apellido = apellido;
     }
 
-    public String getnroDocument() {
-        return nroDocument;
-    }
 
     public void setnroDocument(String nroDocument) {
         this.nroDocument = nroDocument;
@@ -191,16 +191,6 @@ public class Postulante {
     public void setNivelIngles(Long nivelIngles) {
         this.nivelIngles = nivelIngles;
     }
-
-    public String getCurriculum() {
-        return curriculum;
-    }
-
-    public void setCurriculum(String curriculum) {
-        this.curriculum = curriculum;
-    }
-
-    
 
     public Disponibilidad getDisponibilidad() {
         return disponibilidad;
@@ -290,5 +280,14 @@ public class Postulante {
     }
     public void setComentarioRRHH(String comentarioRRHH){
         this.comentarioRRHH=comentarioRRHH;
+    }
+    public DBFile getCvFile() {
+        return cvFile;
+    }
+    public String getNroDocument() {
+        return nroDocument;
+    }
+    public void setCvFile(DBFile cvFile) {
+        this.cvFile = cvFile;
     }
 }

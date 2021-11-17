@@ -145,6 +145,11 @@
                                     
                         
                                   </select> </div>
+                                  <div class="inputs mb-3 col-md-4">
+                                    <label for="formFile" class="form-label">Cargar cv</label>
+                                    <input class="form-control" type="file" id="cvFile">
+                                  </div>
+
                                   <div >
                                     <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
                                   </div>

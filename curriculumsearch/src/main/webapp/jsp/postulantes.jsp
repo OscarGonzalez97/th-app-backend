@@ -99,7 +99,7 @@
                           </c:forEach>
                       </td>
                       <td>${postulante.estado.getEstado()}</td>
-                      <td><a href="/postulante/${postulante.id}">Ver</a></td>
+                      <td><a href="/postulantes/${postulante.id}">Ver</a></td>
                   </tr>
               </c:forEach>
             </tbody>
