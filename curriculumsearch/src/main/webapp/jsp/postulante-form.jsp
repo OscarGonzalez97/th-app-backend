@@ -16,187 +16,212 @@
 
   <body class="container">
     <form name="postulante" method="post" class="needs-validation" novalidate>
-                      <div class="container mt-3">
-                          <div class="card p-3 text-center">
-                              <div class="d-flex flex-row justify-content-center mb-3">
-                                
-                              </div>
-                              <h4>Curriculum</h4>
-                              <div class="row">
-                                  <div class="about-inputs  mb-3 col-md-12 center">
-                                    <label for="resumen" class="form-label">Resumen</label>
-                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                    
-                                  </div>
+      <div class="container mt-3">
+          <div class="card p-3 text-center">
+              <div class="d-flex flex-row justify-content-center mb-3">
 
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label for="apellido" class="form-label">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
-          
+              </div>
+              <h4>Curriculum</h4>
+              <div class="row">
+                  <div class="about-inputs  mb-3 col-md-12 center">
+                    <label for="resumen" class="form-label">Resumen</label>
+                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
 
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label for="correo" class="form-label">Email address</label>
-                                    <input type="email" name="correo" class="form-control  " id="correo" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
+                  </div>
 
-                                  <div class="inputs mb-3 col-md-6"> 
-                                    <label for="nacionalidad" class="form-label"> Nacionalidad</label> 
-                                    <select name="nacionalidad" id="nacionalidad" class="bg-light">
-                                      <c:forEach items="${nacionalidades}" var="nacionalidad">
-                                        <option value="${nacionalidad.getDescripcion()}">${nacionalidad.getDescripcion()}</option>
-                                      </c:forEach>
-                                    
-                                  </select> </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
 
-                                  <div class="inputs mb-3 col-md-6"> 
-                                    <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
-                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
-                                        <option value='CI' selected>C.I</option>
-                                        <option value='PAS'>Pasport</option>
-                                        <option value='Otro'>Otro</option>
-                                    </select> 
-                                  </div>
-                              
-                                  <div class="inputs  mb-3 col-md-6">
-                                    <label for="nroDocument" class="form-label">Numero de Documento</label>
-                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="inputs mb-3 col-md-6"> 
-                                    <label for="departamentos" class="form-label"> Departamentos</label> 
-                                    <select  id="departamentos" class="bg-light">
-                                      <c:forEach items="${departamentos}" var="departamentos">
-                                        <option value="${departamentos.getId()}">${departamentos.getNombre()}</option>
-                                      </c:forEach>
-                                    
-                                    </select> 
-                                  </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
 
-                                  <div class="inputs mb-3 col-md-6"> 
-                                    <label for="ciudad" class="form-label"> Ciudad</label> 
-                                    <select name="ciudadId" id="ciudad" class="bg-light">
-                                      
-                                    
-                                     </select> 
-                                </div>
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
 
-                                  <div class="inputs mb-3 col-md-6">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                                    <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                  </div>
-                              
-                        
-                                  <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
-                                    <select name="nivelIngles" id="nivelIngles" class="content-select">
-                                    <option value="1" selected>Ingles muy basico</option>
-                                    <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
-                                    <option value="3" >Puedo leer tranquilamente</option>
-                                    <option value="4" >Puedo escribir documentacion</option>
-                                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
-                                    </select> 
-                                  </div>
-                                
-                                  <div class="inputs mb-3 col-md-4"> 
-                                    <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
-                                    <select name="disponibilidad" id="disponibilidad" class="content-select">
-                                      <c:forEach items="${disponibilidades}" var="disponibilidad">
-                                        <option value="${disponibilidad.getCode()}">${disponibilidad.getDescripcion()}</option>
-                                      </c:forEach>
-                                    
-                                  </select> </div>
-                                
-                                  <div class="inputs mb-3 col-md-4"> 
-                                    <label for="estadoCivil" class="form-label"> Estado Civil</label> 
-                                    <select name="estadoCivil" id="estadoCivil" class="content-select">
-                                      <c:forEach items="${estadosCiviles}" var="estadoCivil">
-                                        <option value="${estadoCivil.getDescripcion()}">${estadoCivil.getDescripcion()}</option>
-                                      </c:forEach>
-                                    
-                        
-                                  </select> </div>
-                                  <div class="inputs mb-3 col-md-4">
-                                    <label for="formFile" class="form-label">Cargar cv</label>
-                                    <input class="form-control" type="file" id="cvFile">
-                                  </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="correo" class="form-label">Email address</label>
+                    <input type="email" name="correo" class="form-control  " id="correo" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
 
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
-                                  </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="nacionalidad" class="form-label"> Nacionalidad</label>
+                    <select name="nacionalidad" id="nacionalidad" class="bg-light">
+                      <c:forEach items="${nacionalidades}" var="nacionalidad">
+                        <option value="${nacionalidad.getDescripcion()}">${nacionalidad.getDescripcion()}</option>
+                      </c:forEach>
 
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
-                                  </div>
+                  </select> </div>
 
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
-                                  </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="tipoDocumento" class="form-label"> Tipo de documento</label>
+                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
+                        <option value='CI' selected>C.I</option>
+                        <option value='PAS'>Pasport</option>
+                        <option value='Otro'>Otro</option>
+                    </select>
+                  </div>
 
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
-                                  </div>
-                                    
-                               
-                                  <div >
-                                   <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
-                                  </div>
-                                 
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
-                                  </div>
-                            
-                               
-                               
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
-                                </div>
-                                
-                                
-                                <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
-                                </div>
+                  <div class="inputs  mb-3 col-md-6">
+                    <label for="nroDocument" class="form-label">Numero de Documento</label>
+                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
 
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
-                                </div>
-                                <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia"> 
-                                </div>
-                      
-                        
-                                
-                                <div class="mt-3 gap-2 d-flex justify-content-end">
-                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/postulante">Cancelar</a>
-                                  <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="departamentos" class="form-label"> Departamentos</label>
+                    <select  id="departamentos" class="bg-light">
+                      <c:forEach items="${departamentos}" var="departamentos">
+                        <option value="${departamentos.getId()}">${departamentos.getNombre()}</option>
+                      </c:forEach>
+
+                    </select>
+                  </div>
+
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="ciudad" class="form-label"> Ciudad</label>
+                    <select name="ciudadId" id="ciudad" class="bg-light">
+
+
+                     </select>
+                </div>
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
+
+                  <div class="inputs mb-3 col-md-6">
+                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
+                    <div class="valid-feedback">
+                      Luce Bien!
+                    </div>
+                  </div>
+
+
+                  <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label>
+                    <select name="nivelIngles" id="nivelIngles" class="content-select">
+                    <option value="1" selected>Ingles muy basico</option>
+                    <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
+                    <option value="3" >Puedo leer tranquilamente</option>
+                    <option value="4" >Puedo escribir documentacion</option>
+                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
+                    </select>
+                  </div>
+
+                  <div class="inputs mb-3 col-md-4">
+                    <label for="disponibilidad" class="form-label"> Disponibilidad</label>
+                    <select name="disponibilidad" id="disponibilidad" class="content-select">
+                      <c:forEach items="${disponibilidades}" var="disponibilidad">
+                        <option value="${disponibilidad.getCode()}">${disponibilidad.getDescripcion()}</option>
+                      </c:forEach>
+
+                  </select> </div>
+
+                  <div class="inputs mb-3 col-md-4">
+                    <label for="estadoCivil" class="form-label"> Estado Civil</label>
+                    <select name="estadoCivil" id="estadoCivil" class="content-select">
+                      <c:forEach items="${estadosCiviles}" var="estadoCivil">
+                        <option value="${estadoCivil.getDescripcion()}">${estadoCivil.getDescripcion()}</option>
+                      </c:forEach>
+
+
+                  </select> </div>
+                  <div class="inputs mb-3 col-md-4">
+                    <label for="formFile" class="form-label">Cargar cv</label>
+                    <input class="form-control" type="file" id="cvFile">
+                  </div>
+
+                  <div class="inputs p-3 py-5">
+                    <div class="inputs d-flex justify-content-between align-items-center experience">
+                        <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm">
+                            <i class="fa fa-plus"></i>&nbsp;Cargo al que postulas
+                        </span>
+                    </div><br>
+                  </div>
+                  <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                      *Agrega por lo menos un cargo</p>
+
+                  <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
+                  </div>
+
+
+                  <div class="inputs p-3 py-5">
+                    <div class=" inputs d-flex justify-content-between align-items-center experience">
+                        <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm">
+                            <i class="fa fa-plus"></i>&nbsp;Agregar Experiencia
+                        </span>
+                    </div><br>
+                  </div>
+
+                  <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
+                  </div>
+
+
+                  <div class=" p-3 py-5">
+                   <div class="  d-flex justify-content-between align-items-center experience">
+                       <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm">
+                           <i class="fa fa-plus"></i>&nbsp;Agregar Estudio
+                       </span>
+                   </div><br>
+                  </div>
+
+                  <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
+                  </div>
+
+
+                <div class=" p-3 py-5">
+                  <div class="  d-flex justify-content-between align-items-center experience">
+                      <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm">
+                          <i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia
+                      </span>
+                  </div><br>
+                </div>
+                  <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                      *Agrega por lo menos una tecnologia</p>
+
+
+                <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias">
+                </div>
+
+
+                <div class=" p-3 py-5">
+                  <div class="  d-flex justify-content-between align-items-center experience">
+                      <span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm">
+                          <i class="fa fa-plus"></i>&nbsp;Referencias Personales
+                      </span>
+                  </div><br>
+                </div>
+                <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia">
+                </div>
+
+
+
+                <div class="mt-3 gap-2 d-flex justify-content-end">
+                  <a class="px-3 btn btn-sm btn-outline-primary" href="/postulante">Cancelar</a>
+                  <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
+                </div>
+              </div>
+          </div>
+      </div>
     </form>
     <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
     <div class="modal fade" id="cargoForm" tabindex="-2" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
@@ -321,7 +346,6 @@
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>
                     </c:forEach>
                   </select>
-                  <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
                 </div>
                   
                   

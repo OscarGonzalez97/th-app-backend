@@ -67,17 +67,21 @@ public class RRHHUserController {
     }
 
     @PostMapping("/process_register")
-    public String processRegister(HttpServletRequest request, RRHHUser user) {
+    public RedirectView processRegister(HttpServletRequest request, RRHHUser user, RedirectAttributes redirectAttributes) {
+        RedirectView redirectView = new RedirectView("/register",true);
+        redirectAttributes.addFlashAttribute("success", "Datos actualizados");
         if(Long.parseLong(request.getParameter("registrationCode")) != REGISTER_CODE){
-            return "redirect:/register";
+            redirectAttributes.addFlashAttribute("error", "Codigo Incorrecto");
+            return redirectView;
         }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
         rrhhUserRepository.save(user);
-
-        return "register_success";
+        redirectView.setUrl("/login");
+        redirectAttributes.addFlashAttribute("success", "Registro Correcto");
+        return redirectView;
     }
 
     @GetMapping("/edit-user-data")

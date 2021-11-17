@@ -37,6 +37,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
 
 @Controller
 public class PostulanteController {
@@ -124,8 +127,10 @@ public class PostulanteController {
     }
 
     @PostMapping(value = "/work-with-us",consumes = "multipart/form-data")
-    public String guardarPostulante(@RequestPart(name = "file",required = false) MultipartFile file,@RequestPart("postulante") Postulante postulante){
+    public RedirectView guardarPostulante(@RequestPart(name = "file",required = false) MultipartFile file,@RequestPart("postulante") Postulante postulante, RedirectAttributes redirectAttributes){
         //Codigo encargado de modificar postulacion si se envia mismo CI
+        //Codigo encargado de modificar postulacion si se envia mismo CI
+        RedirectView redirectView = new RedirectView("/work-with-us/postulacion-correcta",true);
         Postulante postulantex = post.findByNroDocument(postulante.getNroDocument());
         if(postulantex != null){
             estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
@@ -138,11 +143,8 @@ public class PostulanteController {
             if(cv!=null) cv.setPostulante(postulante);
             postulante.setCvFile(cv);
         }
-        postulante.getTecnologias().stream().filter(
-            tec -> tec.getTecnologia().getId() != 0 
-            ).forEach(
-                tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId()))
-                );
+        postulante.getTecnologias().stream().filter(tec -> tec.getTecnologia().getId() != 0)
+        .forEach(tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId())));
                 
         for(Estudio estudio: postulante.getEstudios()){
             String nombreIns = "";
@@ -154,8 +156,13 @@ public class PostulanteController {
                 estudio.setInstitucion(institucion);
             }
         }
+        if(postulante.getPostulaciones().isEmpty() || postulante.getTecnologias().isEmpty()){
+            redirectView.setUrl("/postulante");
+            redirectAttributes.addFlashAttribute("error", "Datos invalidos");
+            return redirectView;
+        }
         post.save(postulante);
-        return "redirect:/work-with-us/postulacion-correcta";
+        return redirectView;
     }
 
     

@@ -15,4 +15,7 @@ public interface ConvocatoriaRepository extends JpaRepository<ConvocatoriaCargo,
     //public List<ConvocatoriaCargo> findConvocatoriaCargoByCargo(Date fechaFinal);
     @Query("select c from ConvocatoriaCargo c where ( ?1 is null and ?3 is null) or ( ( ( (c.fechaFin > ?2 and ?3 = 1) or (c.fechaFin < ?2 and ?3 = 0)) or ?3 is null )  and (c.cargoId = ?1 or ?1 is null) )")
     public List<ConvocatoriaCargo> f1ndByCargoAndEstado(TypedParameterValue cargoId, Date fecha, TypedParameterValue isOpen);
+    @Query("SELECT c FROM ConvocatoriaCargo c WHERE (cargoId=?1)")
+    public List<ConvocatoriaCargo> filtrarConvocatoriasPorCargo(Long cargoId);
+
 }

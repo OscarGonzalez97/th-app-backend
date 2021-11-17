@@ -9,13 +9,19 @@
         <div class="p-3 mb-2 bg-light text-dark border border-light ">
             <form:form action="/convocatoria/${convocatoria.id == null ? '' : convocatoria.id}" method="post" modelAttribute="convocatoria">
                 <div class="mb-3 col-3">
-                    <form:label path="fechaInicioS" class="form-label">Fecha inicial</form:label>
-                    <form:input type="date" class="form-control" path="fechaInicioS" required="true"/>
+                    <form:label path="fechaInicioS" class="form-label ">Fecha inicial</form:label>
+                    <form:input type="date" path="fechaInicioS" required="true" class="form-control ${ existeFecha ?  'is-invalid' : ''}" placeholder="Fecha requerida" requiered="true" />
+                    <div id="validationServerUsernameFeedback1" class="invalid-feedback">
+                        Esta fecha ya existe
+                    </div>
                 
                 </div>
                 <div class="mb-3 col-3">
                     <form:label path="fechaFinS" class="form-label">Fecha Fin</form:label>
-                    <form:input type="date" class="form-control" path="fechaFinS" required="true"/>
+                    <form:input type="date" path="fechaFinS" required="true" class="form-control ${existeFecha ?  'is-invalid': '' }" placeholder="Fecha requerida" requiered="true" />
+                    <div id="validationServerUsernameFeedback2" class="invalid-feedback">
+                        Esta fecha ya existe
+                    </div>
                 </div>
                 <div class="mb-3 col-3">
                     <form:label path="cupos" class="form-label">Cupos:</form:label>
@@ -23,7 +29,7 @@
                 </div>
                 <div class="mb-3 col-3">
                     <form:label path="cargoId" class="form-label">Cargo</form:label>
-                    <form:select class="form-select" path="cargoId" required="true">
+                    <form:select class="form-select" path="cargoId">
                         <c:forEach items="${cargos}" var="cargo">
                             <form:option value="${cargo.id}">${cargo.nombre} </form:option>
                         </c:forEach>
