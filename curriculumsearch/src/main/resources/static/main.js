@@ -97,7 +97,7 @@ function agregarFieldExpierncia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
         </li>
         
         `
@@ -158,8 +158,9 @@ function agregarFieldTecnologia(){
         if(tecn==null) continue;
         content1 += `
         <li id="tecn-${index}">        
-            ${tecn.tecnologia.nombre} 
-            <button type="button" onclick="eliminarTecnologia(event)">Eliminar</button>
+            ${tecn.tecnologia.nombre}         
+            <button type="button" class="btn btn-primary" onclick="eliminarTecnologia(event)">Eliminar</button>
+            <br>
         </li>
         
         `
@@ -253,7 +254,6 @@ form.addEventListener("submit",(evt)=>{
     noValidateFlag = false
 } );
 
-document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
 
 
 //Metodos para Estudios
@@ -322,7 +322,7 @@ function agregarFieldEstudio(){
         content += `
         <li id="est-${index}">        
             ${est.institucion.nombre}
-            <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
         </li>
         
         `
@@ -383,7 +383,7 @@ function agregarFieldCargo(){
         if(postulaciones[i]!==null){
             if(postulaciones[i]["id"]===pairs["cargo-id"]){
                 alert("Ya has agregado ese cargo!")
-                cont_cargo--;
+                //cont_cargo--;
                 return;
             }
         }
@@ -403,8 +403,8 @@ function agregarFieldCargo(){
         if(car==null) continue;
         content1 += `
         <li id="car-${index}">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}        
-            <button type="button" onclick="eliminarCargoPostulante(event)">Eliminar</button>
+            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<br>        
+            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button>
         </li>
         
         `
@@ -505,7 +505,7 @@ function agregarFieldReferencia(event){
         content += `
         <li id="exp-${index}">        
             ${exp.nombre}
-            <button type="button" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
         </li>
         
         `
@@ -528,4 +528,58 @@ function eliminarReferencia(event) {
 
 
 
-
+/*--------------------------------------------------------------------------------------------------------- */
+$(function(){
+    $("#wizard").steps({
+    headerTag: "h4",
+    bodyTag: "section",
+    transitionEffect: "fade",
+    enableAllSteps: true,
+    transitionEffectSpeed: 500,
+    onStepChanging: function (event, currentIndex, newIndex) {
+    if ( newIndex === 1 ) {
+    $('.steps ul').addClass('step-2');
+    } else {
+    $('.steps ul').removeClass('step-2');
+    }
+    if ( newIndex === 2 ) {
+    $('.steps ul').addClass('step-3');
+    } else {
+    $('.steps ul').removeClass('step-3');
+    }
+    
+    if ( newIndex === 3 ) {
+    $('.steps ul').addClass('step-4');
+    $('.actions ul').addClass('step-last');
+    } else {
+    $('.steps ul').removeClass('step-4');
+    $('.actions ul').removeClass('step-last');
+    }
+    return true;
+    },
+    labels: {
+    finish: "Order again",
+    next: "Next",
+    previous: "Previous"
+    }
+    });
+    // Custom Steps Jquery Steps
+    $('.wizard > .steps li a').click(function(){
+    $(this).parent().addClass('checked');
+    $(this).parent().prevAll().addClass('checked');
+    $(this).parent().nextAll().removeClass('checked');
+    });
+    // Custom Button Jquery Steps
+    $('.forward').click(function(){
+    $("#wizard").steps('next');
+    })
+    $('.backward').click(function(){
+    $("#wizard").steps('previous');
+    })
+    // Checkbox
+    $('.checkbox-circle label').click(function(){
+    $('.checkbox-circle label').removeClass('active');
+    $(this).addClass('active');
+    })
+    })
+/*--------------------------------------------------------------------------------------------------------- */
