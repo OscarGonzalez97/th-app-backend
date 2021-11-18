@@ -17,7 +17,7 @@ public class Tecnologia {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name="id")
-	private long id;
+	private Long id;
 	
 	@Column(name="nombre")
 	@NotBlank(message = "Este campo no puede estar vacio")

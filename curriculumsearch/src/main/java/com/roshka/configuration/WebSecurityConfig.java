@@ -55,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/convocatoria*").authenticated()
                 .antMatchers("/tecnologia*").authenticated()
                 .antMatchers("/postulantes").authenticated()
+                .antMatchers("/edit-user-data").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
