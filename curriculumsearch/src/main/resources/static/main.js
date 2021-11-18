@@ -261,13 +261,13 @@ function agregarFieldExpierncia(event){
         content += `
         <div class="col border border-3" id="exp-${index}">
                     <center><h4>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h4></center>
-                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
-                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
-                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
-                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
-                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
-                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
-                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
+                    <label><b>Institucion:</b>&nbsp  ${exp.institucion}</label><br>  
+                    <label><b>Fecha Inicio: </b>&nbsp ${exp.fechaDesde}</label><br>
+                    <label><b>Fecha Fin: </b>&nbsp ${exp.fechaHasta}</label><br>
+                    <label><b>Referencia: </b>&nbsp ${exp.nombreReferencia}</label><br>
+                    <label><b>Telefono de la referencia: </b>&nbsp ${exp.telefonoReferencia}</label><br>
+                    <label><b>Cargo: </b>&nbsp ${exp.cargo}</label><br>
+                    <label><b>Motivo de salida: </b>&nbsp ${exp.motivoSalida}</label><br>
                     
             
         </div>
@@ -368,12 +368,12 @@ function agregarFieldEstudio(){
         content += `
         <div class="col border border-3" id="est-${index}">
         <center><h4>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h4></center>
-            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
-            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
-            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
-            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
-            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
-            <label><b>Estado:</b> ${est.estado}</label><br>
+            <label><b>Institucion: </b>&nbsp ${est.institucion.nombre}</label><br>
+            <label><b>Tipo de estudio: </b>&nbsp ${est.tipoDeEstudio}</label><br>  
+            <label><b>Carrera: </b>&nbsp ${est.temaDeEstudio}</label><br>     
+            <label><b>Fecha Inicio: </b>&nbsp ${est.fechaDesde}</label><br>
+            <label><b>Fecha Fin: </b>&nbsp ${est.fechaHasta}</label><br>
+            <label><b>Estado: </b>&nbsp ${est.estado}</label><br>
             
         </div>
         
@@ -452,7 +452,7 @@ function agregarFieldCargo(){
         if(car==null) continue;
         content1 += `
         <div class="col-auto" id="car-${index}" style="text-transform: uppercase;">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<i class="bi bi-trash-fill" onclick="eliminarCargoPostulante(event)"></i>     
+            ${document.querySelector('[name=cargo-id] >  option[value="'+car.id+'"]').innerHTML} &nbsp;<i class="bi bi-trash-fill" onclick="eliminarCargoPostulante(event)"></i>     
             
         </div>
 
@@ -528,9 +528,9 @@ function agregarFieldReferencia(event){
         <div class="col border border-3" id="ref-${index}">
         <center><h4>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h4></center> 
             
-            <label><b>Nombre:</b> ${exp.nombre}</label><br>
-            <label><b>Telefono:</b> ${exp.telefono}</label><br>
-            <label><b>Relacion:</b> ${exp.relacion}</label><br>
+            <label><b>Nombre: </b>&nbsp ${exp.nombre}</label><br>
+            <label><b>Telefono: </b>&nbsp ${exp.telefono}</label><br>
+            <label><b>Relacion: </b>&nbsp ${exp.relacion}</label><br>
             
         </div>
         

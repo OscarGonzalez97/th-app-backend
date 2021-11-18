@@ -13,6 +13,7 @@
     <title>Curriculum</title>
     <link href="../css/formPostulanteStyle.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="icon" href="../img/LogoRoshka.ico">
   </head>
 
   <body class="container">
@@ -167,25 +168,6 @@
                                     </div>
                                   </div>
                                   
-                                  
-                                  
-
-                                  <!-- Button Agregar Experiencia -->
-                                  <div class="inputs mb-3 col-md-12">
-
-                                    <div class="row w-100 p-3 gy-2 border mx-auto">
-                                      <div class="col-12">
-                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
-                                      </div>
-                                      <div class="col-12">
-                                        <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
-                                          
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  
-                                    
                                   <!-- Button Agregar Estudio -->
                                   <div class="inputs mb-3 col-md-12">
 
@@ -201,8 +183,7 @@
                                     </div>
                                   </div>
                                   
-                            
-                               
+
                                   <!-- Button Agregar Tecnologia -->
                                   <div class="inputs mb-3 col-md-12">
 
@@ -226,6 +207,28 @@
                                     
                                     </div>
                                   </div>
+
+                                  <!-- Button Agregar Experiencia -->
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                    
+                                  
+                                  
+                            
+                               
+                                  
                                   
                                   
                                   
@@ -263,7 +266,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -295,7 +298,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -370,7 +373,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -408,7 +411,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -477,7 +480,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Referencias Personales</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

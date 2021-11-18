@@ -5,6 +5,7 @@
 <layout:extends name="layouts/base.jsp">
     <layout:put block="cssDeclaracion" type="REPLACE">
         <link href="../css/indexStyle.css" rel="stylesheet" type="text/css"/>
+        <link rel="icon" href="../img/LogoRoshka.ico">
     </layout:put>
     
 </layout:extends>
