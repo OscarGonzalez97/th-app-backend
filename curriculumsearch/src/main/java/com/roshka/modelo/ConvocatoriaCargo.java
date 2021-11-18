@@ -19,8 +19,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.roshka.utils.Helper;
 
+import lombok.Data;
+
 @Entity
-@Table(name = "convocatoria_cargo")
+@Table(name = "convocatoria_cargo") @Data
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ConvocatoriaCargo {
     @Id
@@ -55,30 +57,14 @@ public class ConvocatoriaCargo {
     @ManyToMany(mappedBy = "postulaciones")
     private List<Postulante> postulantes;
 
-    public Long getId() {
-        return id;
-    }
-    public Cargo getCargo() {
-        return cargo;
-    }
-    public int getCupos() {
-        return cupos;
-    }
+    
     public Date getFechaFin() {
         return fechaFin;
     }
     public Date getFechaInicio() {
         return fechaInicio;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-    public void setCupos(int cupos) {
-        this.cupos = cupos;
-    }
+   
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }

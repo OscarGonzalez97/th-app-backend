@@ -11,7 +11,9 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+import lombok.Data;
+
+@Entity @Data
 @Table(name="departamento")
 public class Departamento {
     @Id
@@ -25,22 +27,6 @@ public class Departamento {
     private List<Ciudad> ciudad;
 
 
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public List<Ciudad> getCiudad() {
         return this.ciudad;

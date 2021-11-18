@@ -13,7 +13,9 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+import lombok.Data;
+
+@Entity @Data
 @Table(name = "cargo")
 public class Cargo {
     @Id
@@ -27,19 +29,6 @@ public class Cargo {
     @OneToMany(mappedBy = "cargo")
     @JsonManagedReference
     private List<ConvocatoriaCargo> convocatorias;
-
-    public Long getId() {
-        return id;
-    }
-    public String getNombre() {
-        return nombre;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public List<ConvocatoriaCargo> getConvocatorias() {
         return convocatorias;

@@ -15,7 +15,9 @@ import javax.validation.constraints.Min;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-@Entity 
+
+import lombok.Data;
+@Entity @Data
 @Table(name="postulante_tecnologia",
 uniqueConstraints=@UniqueConstraint(columnNames={"postulante_id", "tecnologia_id"}))
 
@@ -39,18 +41,6 @@ public class PostulanteTecnologia {
     @JsonBackReference(value = "postulantetecnologia-postulante")
     private Postulante postulante;
     
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public Long getNivel() {
-        return nivel;
-    }
-    public void setNivel(Long nivel) {
-        this.nivel = nivel;
-    }
     public Tecnologia getTecnologia() {
         return tecnologia;
     }
