@@ -90,22 +90,31 @@ function agregarFieldExpierncia(event){
     //imprimir lista actualizada
     const div = document.querySelector("#experiencias")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    
+    let content='';
     for (let index = 0; index < experiencias.length; index++) {
         const exp = experiencias[index];
         if(exp==null) continue;
         content += `
-        <li id="exp-${index}">        
-            ${exp.institucion}
-            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
-        </li>
+        <div class="col border border-3" id="exp-${index}">
+                    <h4><center>Experiencia</center></h4>      
+                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
+                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
+                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
+                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
+                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
+                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
+                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
+            
+            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_experiencia++;
 }
 /*--------------------------------------------------------------------*/
@@ -152,24 +161,26 @@ function agregarFieldTecnologia(){
     const div1 = document.createElement('div');
     console.log(tecnologias[0])
 
-    let content1='<ul>'
+    let content1=''
     for (let index = 0; index < tecnologias.length; index++) {
         const tecn = tecnologias[index];
         if(tecn==null) continue;
         content1 += `
-        <li id="tecn-${index}">        
-            ${tecn.tecnologia.nombre}         
+        <div class="col border border-3" id="tecn-${index}">        
+            <label>${tecn.tecnologia.nombre}</label><br>
+            <label><progress value="${tecn.nivel}" max="5"></progress></label> <br>        
             <button type="button" class="btn btn-primary" onclick="eliminarTecnologia(event)">Eliminar</button>
             <br>
-        </li>
+        </div>
         
         `
     }
-    content1 += "</ul>" 
-    div1.innerHTML = content1
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content1 += "</ul>" 
+    div.innerHTML = content1
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_tecnologia++;
+    document.querySelector("#no-valid-tecno").style.display = "none";
 }
 
 
@@ -191,6 +202,16 @@ function eliminarTecnologia(event) {
 function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
+
+    if(formData.get('fechaNacimiento')>=new Date().toISOString().slice(0,10)){
+        form['fechaNacimiento'].setCustomValidity('Fecha de nacimiento debe ser menor que actual')
+        noValidateFlag = true;
+        return;
+    }
+    else{
+        form['fechaNacimiento'].setCustomValidity('')   
+    }
+
 
     // Create an object to hold the name/value pairs
     const pairs = {};
@@ -274,8 +295,11 @@ form.addEventListener("submit",(evt)=>{
     //     evt.stopPropagation()
     // }
     // form.classList.add('was-validated')
+    evt.preventDefault();
+    let formSerialized = serializeJSON(form);
+    let fileCV = obtenerCV();
     if(!noValidateFlag){
-        postData('work-with-us', formatearJsonWithFile(serializeJSON(form),obtenerCV()))
+        postData('work-with-us', formatearJsonWithFile(formSerialized,fileCV))
             .then(response => {
                 if(response.status==200 || response.status==302){
                     location.replace(response.url);
@@ -283,8 +307,7 @@ form.addEventListener("submit",(evt)=>{
                     console.log(response.text().then(value => console.log(value)))
                 }
             });
-        evt.preventDefault();
-    }
+        }
     noValidateFlag = false
 } );
 
@@ -348,23 +371,29 @@ function agregarFieldEstudio(){
     //imprimir lista actualizada
     const div = document.querySelector("#estudios")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    let content='';
     
     for (let index = 0; index < estudios.length; index++) {
         const est = estudios[index];
         if(est==null) continue;
         content += `
-        <li id="est-${index}">        
-            ${est.institucion.nombre}
+        <div class="col border border-3" id="est-${index}">
+            <h4><center>Estudio</center></h4>
+            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
+            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
+            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
+            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
+            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
+            <label><b>Estado:</b> ${est.estado}</label><br>
             <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
-        </li>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+ 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_estudios++;
 
 }
@@ -431,23 +460,24 @@ function agregarFieldCargo(){
     const div = document.querySelector("#cargos")
     const div1 = document.createElement('div');
 
-    let content1='<ul>'
+    let content1=''
     for (let index = 0; index < postulaciones.length; index++) {
         const car = postulaciones[index];
         if(car==null) continue;
         content1 += `
-        <li id="car-${index}">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<br>        
-            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button>
-        </li>
-        
+        <div class="col border border-3" id="car-${index}" style="text-transform: uppercase;">
+            <label>${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}</label><br>        
+            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button><br>
+        </div>
+
         `
     }
-    content1 += "</ul>" 
-    div1.innerHTML = content1
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content1 += "</ul>" 
+    div.innerHTML = content1
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_cargo++;
+    document.querySelector("#no-valid-cargo").style.display = "none";
 }
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -532,22 +562,25 @@ function agregarFieldReferencia(event){
     //imprimir lista actualizada
     const div = document.querySelector("#referencia")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    let content=''
     for (let index = 0; index < referencias.length; index++) {
         const exp = referencias[index];
         if(exp==null) continue;
         content += `
-        <li id="exp-${index}">        
-            ${exp.nombre}
-            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
-        </li>
+        <div class="col border border-3" id="exp-${index}"> 
+            <h4><center>Referencia Personal</center></h4>       
+            <label><b>Nombre:</b> ${exp.nombre}</label><br>
+            <label><b>Telefono:</b> ${exp.telefono}</label><br>
+            <label><b>Relacion:</b> ${exp.relacion}</label><br>
+            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_referencias++;
 }
 
