@@ -13,7 +13,18 @@ const postulaciones = [];
 var cont_referencias=0 ;
 const referencias= [];
 
+form = document.querySelector("form");
+const depSelect = document.querySelector("#departamentos");
 
+console.log("saddsa", bootstrap)
+const modalCargo = bootstrap.Modal.getOrCreateInstance(document.getElementById('cargoForm'))
+const modalExperiencia = bootstrap.Modal.getOrCreateInstance(document.getElementById('experienciaForm'))
+const modalTecnologia = bootstrap.Modal.getOrCreateInstance(document.getElementById('tecnologiaForm'))
+const modalEstudio = bootstrap.Modal.getOrCreateInstance(document.getElementById('estudioForm'))
+const modalReferencia = bootstrap.Modal.getOrCreateInstance(document.getElementById('referenciaForm'))
+//variable ciudades esta declarada en el jsp
+
+/*-----------------Definicion de funciones de poblacion de elementos y validaciones----------------------------------------*/
 
 const formValidator = function () {
     'use strict'
@@ -37,114 +48,66 @@ const formValidator = function () {
             }, false)
         })
 }
-function carg(elemento) {
-    var element = document.getElementById('descripcion');
-    if(elemento == "otro"){
-    element.style.display='block';
-    }else{
-    element.style.display='none';
+function fechasMaxMin(){
+    var today = new Date();
+    var dd = today.getDate()-1;
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
     }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+
+    let fechaDesdeEstudio = document.querySelector("#fechaDesdeEstudio");
+    let fechaDesdeExperiencia = document.querySelector("#fechaDesdeExperiencia");
+    let fechaHastaEstudio = document.querySelector("#fechaHastaEstudio");
+    let fechaHastaExperiencia = document.querySelector("#fechaHastaExperiencia");
+    let fechaNacimiento = document.querySelector("#fechaNacimiento");
+    let fechas = [fechaDesdeEstudio,fechaDesdeExperiencia,fechaHastaEstudio,fechaHastaExperiencia,fechaNacimiento]
+    fechas.forEach(fch => fch.addEventListener('keydown',()=>false))//no dejar cargar manualmente fechas
+
+    fechaDesdeEstudio.setAttribute("max", today);
+    fechaDesdeExperiencia.setAttribute("max", today);
+    fechaNacimiento.setAttribute("max", today);
+
+    fechaDesdeExperiencia.addEventListener("change", ()=>{
+        fechaHastaExperiencia.setAttribute("min", fechaDesdeExperiencia.value)
+    })
+    fechaDesdeEstudio.addEventListener("change", ()=>{
+        fechaHastaEstudio.setAttribute("min", fechaDesdeEstudio.value)
+    })
 }
-function agregarFieldExpierncia(event){
-    //recoger del form
-    const pairs = {};
-    const formexp = document.querySelector("[name=experiencia-form]");
-    formexp.classList.add('was-validated')
-    const formData = new FormData(formexp);
-    let error=validarfecha(formData.get("fechaDesde"), formData.get("fechaHasta"))
-    let appendTo = "Hasta";
-   if (error) {
 
-        if(error.includes("desde")) appendTo = "Desde";
-        formexp.querySelector(".errorfecha"+appendTo)
-        
-        formexp['fecha'+appendTo].setCustomValidity(error)
-        document.querySelector(".errorfecha"+appendTo).innerHTML = error;
-        console.log(error);
-        
-   }
-   else{
-    formexp.fechaDesde.setCustomValidity('')
-    formexp.fechaHasta.setCustomValidity('')
-   }
+ function listarCiudades(depId){
+    const ciuAmostrar = ciudades.filter(c=>c.departamentoId==depId);
+    const ciudad = document.querySelector("select[name=ciudadId]");
+    const frag = document.createDocumentFragment();
+    for (const ciu of ciuAmostrar) {
+        const opt = document.createElement("option");    
+        opt.value = ciu.id;
+        opt.innerHTML = ciu.nombre;
+        opt.setAttribute("data-departamentoId",ciu.departamentoId);
+        frag.appendChild(opt)
+    }
+    ciudad.replaceChildren(frag);
     
-    const reconocimientos = [{},{},{}];
-    let pos_rec;
-    let returnFlag = false;
-
-    let requiredValues = ["institucion", "cargo", "fechaDesde"]
-
-    formData.forEach((value, key)=>{
-        if(requiredValues.includes(key)
-        && value==="" && returnFlag == false){
-            console.log(key, value)
-            returnFlag = true;
-        }
-    });
-
-    if(returnFlag===true){
-        let message = "Rellene "
-        for(let i=0;i<requiredValues.length;i++){
-            message+=", "+requiredValues[i];
-        }
-        message += " como minimo."
-        alert(message);
-        return;
-    }
-
-    for (const [name, value] of formData){
-        pos_rec = name.split("-");//rec-nombre-index
-        if (pos_rec.length > 1) {
-            reconocimientos[pos_rec[2]][pos_rec[1]] = value
-        }
-        else{
-            pairs[name] = value
-        }
-
-    }
-    pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
-    experiencias[cont_experiencia] = pairs;
-    formexp.reset();
-    formexp.classList.remove('was-validated')
-    //imprimir lista actualizada
-    const div = document.querySelector("#experiencias")
-    const div1 = document.createElement('div');
     
-    let content='';
-    for (let index = 0; index < experiencias.length; index++) {
-        const exp = experiencias[index];
-        if(exp==null) continue;
-        content += `
-        <div class="col border border-3" id="exp-${index}">
-                    <h4><center>Experiencia</center></h4>      
-                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
-                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
-                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
-                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
-                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
-                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
-                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
-            
-            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
-        </div>
-        
-        `
-    }
-    //content += "</ul>" 
-    div.innerHTML = content
-    //div.innerHTML = '';
-    //div.appendChild(div1);
-    cont_experiencia++;
 }
+
 function validarfecha(fechaDesde, fechaHasta){
     let fechadehoy= new Date().toISOString().slice(0,10);
 
     if(fechaDesde>fechadehoy ){
        return "la fecha desde no puede ser mayor a la fecha actual" ;   
     }
-    if(fechaHasta =! null && fechaHasta>fechadehoy){
-        return "la fecha hasta no puede ser mayor a la fecha actual" ;  
-    } 
+    
     if(fechaHasta =! null && fechaDesde>fechaHasta){
         return "la fecha desde no puede ser mayor a la fecha hasta";
     
@@ -152,7 +115,7 @@ function validarfecha(fechaDesde, fechaHasta){
         return false
   
 }
-/*--------------------------------------------------------------------*/
+/*-----------------Tecnologia----------------------------------------*/
 function agregarFieldTecnologia(){
     //recoger del form
     const pairs = {};
@@ -217,23 +180,374 @@ function agregarFieldTecnologia(){
     cont_tecnologia++;
     document.querySelector("#no-valid-tecno").style.display = "none";
 }
-
-
-/*--------------------------------------------------------------------*/
-function eliminarExperiencia(event) {
-    //eliminar del array
-    experiencias[event.target.parentElement.id.split("-")[1]]=null
-    //eliminar en html
-    event.target.parentElement.remove()
-}
-/*----------------------------------------------------------------- */
 function eliminarTecnologia(event) {
     //eliminar del array
     tecnologias[event.target.parentElement.id.split("-")[1]]=null
     //eliminar en html
     event.target.parentElement.remove()
 }
-/*----------------------------------------------------------------- */
+
+/*----------------Experiencia-----------------------------------------*/
+function agregarFieldExpierncia(event){
+    //recoger del form
+    const pairs = {};
+    const formexp = document.querySelector("[name=experiencia-form]");
+    formexp.classList.add('was-validated')
+    const formData = new FormData(formexp);
+    let error=validarfecha(formData.get("fechaDesde"), formData.get("fechaHasta"))
+    let appendTo = "Hasta";
+    if (error) {
+
+            if(error.includes("desde")) appendTo = "Desde";
+            
+            
+            formexp['fecha'+appendTo].setCustomValidity(error)
+            formexp.querySelector(".errorFecha"+appendTo).innerHTML = error;
+            console.log(error);
+            
+    }
+    else{
+        formexp.fechaDesde.setCustomValidity('')
+        formexp.fechaHasta.setCustomValidity('')
+    }
+    
+    const reconocimientos = [{},{},{}];
+    let pos_rec;
+    let returnFlag = false;
+
+    let requiredValues = ["institucion", "cargo", "fechaDesde"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+        && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        //alert(message);
+        return;
+    }
+
+    for (const [name, value] of formData){
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            reconocimientos[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+
+    }
+    pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
+    experiencias[cont_experiencia] = pairs;
+    formexp.reset();
+    formexp.classList.remove('was-validated')
+    //imprimir lista actualizada
+    const div = document.querySelector("#experiencias")
+    const div1 = document.createElement('div');
+    
+    let content='';
+    for (let index = 0; index < experiencias.length; index++) {
+        const exp = experiencias[index];
+        if(exp==null) continue;
+        content += `
+        <div class="col border border-3" id="exp-${index}">
+                    <h4><center>Experiencia</center></h4>      
+                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
+                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
+                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
+                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
+                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
+                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
+                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
+            
+            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
+        
+        `
+    }
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
+    cont_experiencia++;
+    modalExperiencia.hide()
+}
+function eliminarExperiencia(event) {
+    //eliminar del array
+    experiencias[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*---------------Estudios---------------------------*/
+
+function agregarFieldEstudio(){
+    //recoger del form
+    let pairs = {};
+    const formest = document.querySelector("[name=estudio-form]");
+    const formData = new FormData(formest);
+    formest.classList.add('was-validated')
+    let error=validarfecha(formData.get("fechaDesde"), formData.get("fechaHasta"))
+    let appendTo = "Hasta";
+    if (error) {
+
+            if(error.includes("desde")) appendTo = "Desde";
+            
+            formest['fecha'+appendTo].setCustomValidity(error)
+            formest.querySelector(".errorFecha"+appendTo).innerHTML = error;
+            console.log(error);
+            
+    }
+    else{
+        formest.fechaDesde.setCustomValidity('')
+        formest.fechaHasta.setCustomValidity('')
+    }
+
+    //Validacion
+    let returnFlag = false;
+
+    let requiredValues = ["tipoDeEstudio", "institucion", "estado", "fechaDesde", "temaDeEstudio"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+            && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        //alert(message);
+        return;
+    }
+
+
+    const estudioReconocimiento = [{},{},{}];
+    let pos_rec;
+    for (const [name, value] of formData){
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            estudioReconocimiento[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+        
+    }
+    let nombre = pairs["institucion"]
+    delete pairs["institucion"]
+    console.log(pairs)
+    pairs["institucion"] = {  }
+    pairs["institucion"].nombre = nombre
+    pairs["institucion"].subNombre = ""
+    pairs["estudioReconocimiento"] = estudioReconocimiento.filter(rec => rec.nombre);
+    estudios[cont_estudios] = pairs;
+    formest.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#estudios")
+    const div1 = document.createElement('div');
+    let content='';
+    
+    for (let index = 0; index < estudios.length; index++) {
+        const est = estudios[index];
+        if(est==null) continue;
+        content += `
+        <div class="col border border-3" id="est-${index}">
+            <h4><center>Estudio</center></h4>
+            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
+            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
+            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
+            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
+            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
+            <label><b>Estado:</b> ${est.estado}</label><br>
+            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
+        </div>
+        
+        `
+    }
+ 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
+    cont_estudios++;
+    formest.classList.remove('was-validated')
+    modalEstudio.hide()
+}
+
+function eliminarEstudio(event) {
+    //eliminar del array
+    estudios[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*------------Cargos----------------------------------------*/
+function agregarFieldCargo(){
+    //recoger del form
+    const pairs = {};
+    const formcar = document.querySelector("[name=cargo-form]");
+    const formData = new FormData(formcar);
+
+    //Validacion
+    let returnFlag = false;
+
+    let requiredValues = ["nombre"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+            && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        alert(message);
+        return;
+    }
+
+    for (const [name, value] of formData){
+        pairs[name] = value
+    }
+    console.log(pairs)
+    for(let i=0;i<cont_cargo;i++){
+        if(postulaciones[i]!==null){
+            if(postulaciones[i]["id"]===pairs["cargo-id"]){
+                alert("Ya has agregado ese cargo!")
+                //cont_cargo--;
+                return;
+            }
+        }
+    }
+    postulaciones[cont_cargo]={}
+    postulaciones[cont_cargo]["id"]=pairs["cargo-id"]
+    //postulaciones[cont_cargo]["cargo"]=pairs["cargo-id"]=="-1"?{nombre: pairs["cargo-nombre"]}:{id: pairs["cargo-id"],nombre:document.querySelector('[name=cargo-id] > option[value="'+pairs["cargo-id"]+'"]').innerHTML}
+    console.log(postulaciones)
+    formcar.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#cargos")
+    const div1 = document.createElement('div');
+
+    let content1=''
+    for (let index = 0; index < postulaciones.length; index++) {
+        const car = postulaciones[index];
+        if(car==null) continue;
+        content1 += `
+        <div class="col border border-3" id="car-${index}" style="text-transform: uppercase;">
+            <label>${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}</label><br>        
+            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button><br>
+        </div>
+
+        `
+    }
+    //content1 += "</ul>" 
+    div.innerHTML = content1
+    //div.innerHTML = '';
+    //div.appendChild(div1);
+    cont_cargo++;
+    document.querySelector("#no-valid-cargo").style.display = "none";
+    modalCargo.hide()
+}
+function eliminarCargoPostulante(event) {
+    //eliminar del array
+    postulaciones[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+
+/*--------------Referencias----------------------------- */
+function agregarFieldReferencia(event){
+    //recoger del form
+    const pairs = {};
+    const formexp = document.querySelector("[name=referencia-form]");
+    formexp.classList.add('was-validated')
+    const formData = new FormData(formexp);
+    const referenciaPersonal = [{},{},{}];
+    let pos_rec;
+    let returnFlag = false;
+
+    let requiredValues = ["nombre", "relacion", "telefono"]
+
+    formData.forEach((value, key)=>{
+        if(requiredValues.includes(key)
+        && value==="" && returnFlag == false){
+            console.log(key, value)
+            returnFlag = true;
+        }
+    });
+
+    if(returnFlag===true){
+        let message = "Rellene "
+        for(let i=0;i<requiredValues.length;i++){
+            message+=", "+requiredValues[i];
+        }
+        message += " como minimo."
+        //alert(message);
+        return;
+    }
+
+    for (const [name, value] of formData){
+        pos_rec = name.split("-");//rec-nombre-index
+        if (pos_rec.length > 1) {
+            referenciaPersonal[pos_rec[2]][pos_rec[1]] = value
+        }
+        else{
+            pairs[name] = value
+        }
+
+    }
+    pairs["referenciaPersonal"] = referenciaPersonal.filter(rec => rec.nombre);
+    referencias[cont_referencias] = pairs;
+    formexp.reset();
+    //imprimir lista actualizada
+    const div = document.querySelector("#referencia")
+    const div1 = document.createElement('div');
+    let content=''
+    for (let index = 0; index < referencias.length; index++) {
+        const exp = referencias[index];
+        if(exp==null) continue;
+        content += `
+        <div class="col border border-3" id="exp-${index}"> 
+            <h4><center>Referencia Personal</center></h4>       
+            <label><b>Nombre:</b> ${exp.nombre}</label><br>
+            <label><b>Telefono:</b> ${exp.telefono}</label><br>
+            <label><b>Relacion:</b> ${exp.relacion}</label><br>
+            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
+        
+        `
+    }
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
+    cont_referencias++;
+    formexp.classList.remove('was-validated')
+    modalExperiencia.hide()
+}
+function eliminarReferencia(event) {
+    //eliminar del array
+    referencias[event.target.parentElement.id.split("-")[1]]=null
+    //eliminar en html
+    event.target.parentElement.remove()
+}
+/*--------------Form submit----------------------------- */
 function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
@@ -322,8 +636,12 @@ function formatearJsonWithFile(json, file){
             }));
     return formData
 }
-formValidator()
-form = document.querySelector("form");
+
+/*--------------Llamar funciones y agregar listeners----------------------------- */
+formValidator();
+fechasMaxMin();
+listarCiudades(depSelect.value);
+
 form.addEventListener("submit",(evt)=>{
     // if (!form.checkValidity()) {
     //     evt.preventDefault()
@@ -339,349 +657,28 @@ form.addEventListener("submit",(evt)=>{
                 if(response.status==200 || response.status==302){
                     location.replace(response.url);
                 }else{
-                    console.log(response.text().then(value => console.log(value)))
+                    
+                    errorDispatcher(response.text().then(value => console.log(value)));
+                    
                 }
+            },(reason)=>{
+                errorDispatcher(reason);
             });
         }
     noValidateFlag = false
 } );
 
-
-
-//Metodos para Estudios
-
-
-
-function agregarFieldEstudio(){
-    //recoger del form
-    let pairs = {};
-    const formest = document.querySelector("[name=estudio-form]");
-    const formData = new FormData(formest);
-
-    //Validacion
-    let returnFlag = false;
-
-    let requiredValues = ["tipoDeEstudio", "institucion", "estado", "fechaDesde", "temaDeEstudio"]
-
-    formData.forEach((value, key)=>{
-        if(requiredValues.includes(key)
-            && value==="" && returnFlag == false){
-            console.log(key, value)
-            returnFlag = true;
-        }
-    });
-
-    if(returnFlag===true){
-        let message = "Rellene "
-        for(let i=0;i<requiredValues.length;i++){
-            message+=", "+requiredValues[i];
-        }
-        message += " como minimo."
-        alert(message);
-        return;
-    }
-
-
-    const estudioReconocimiento = [{},{},{}];
-    let pos_rec;
-    for (const [name, value] of formData){
-        pos_rec = name.split("-");//rec-nombre-index
-        if (pos_rec.length > 1) {
-            estudioReconocimiento[pos_rec[2]][pos_rec[1]] = value
-        }
-        else{
-            pairs[name] = value
-        }
-        
-    }
-    let nombre = pairs["institucion"]
-    delete pairs["institucion"]
-    console.log(pairs)
-    pairs["institucion"] = {  }
-    pairs["institucion"].nombre = nombre
-    pairs["institucion"].subNombre = ""
-    pairs["estudioReconocimiento"] = estudioReconocimiento.filter(rec => rec.nombre);
-    estudios[cont_estudios] = pairs;
-    formest.reset();
-    //imprimir lista actualizada
-    const div = document.querySelector("#estudios")
-    const div1 = document.createElement('div');
-    let content='';
-    
-    for (let index = 0; index < estudios.length; index++) {
-        const est = estudios[index];
-        if(est==null) continue;
-        content += `
-        <div class="col border border-3" id="est-${index}">
-            <h4><center>Estudio</center></h4>
-            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
-            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
-            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
-            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
-            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
-            <label><b>Estado:</b> ${est.estado}</label><br>
-            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
-        </div>
-        
-        `
-    }
- 
-    div.innerHTML = content
-    //div.innerHTML = '';
-    //div.appendChild(div1);
-    cont_estudios++;
-
+function errorDispatcher(reason){
+    const errorSection = document.querySelector("#errorSection")
+    errorSection.innerHTML = `
+    <div  class="alert alert-warning alert-dismissible fade show " role="alert">
+        <strong>Ha ocurrido un error</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    console.log(reason)
+    errorSection.focus()
 }
-
-
-
-
-
-function eliminarEstudio(event) {
-    //eliminar del array
-    estudios[event.target.parentElement.id.split("-")[1]]=null
-    //eliminar en html
-    event.target.parentElement.remove()
-}
-/*--------------------------------------------------------------------*/
-function agregarFieldCargo(){
-    //recoger del form
-    const pairs = {};
-    const formcar = document.querySelector("[name=cargo-form]");
-    const formData = new FormData(formcar);
-
-    //Validacion
-    let returnFlag = false;
-
-    let requiredValues = ["nombre"]
-
-    formData.forEach((value, key)=>{
-        if(requiredValues.includes(key)
-            && value==="" && returnFlag == false){
-            console.log(key, value)
-            returnFlag = true;
-        }
-    });
-
-    if(returnFlag===true){
-        let message = "Rellene "
-        for(let i=0;i<requiredValues.length;i++){
-            message+=", "+requiredValues[i];
-        }
-        message += " como minimo."
-        alert(message);
-        return;
-    }
-
-    for (const [name, value] of formData){
-        pairs[name] = value
-    }
-    console.log(pairs)
-    for(let i=0;i<cont_cargo;i++){
-        if(postulaciones[i]!==null){
-            if(postulaciones[i]["id"]===pairs["cargo-id"]){
-                alert("Ya has agregado ese cargo!")
-                //cont_cargo--;
-                return;
-            }
-        }
-    }
-    postulaciones[cont_cargo]={}
-    postulaciones[cont_cargo]["id"]=pairs["cargo-id"]
-    //postulaciones[cont_cargo]["cargo"]=pairs["cargo-id"]=="-1"?{nombre: pairs["cargo-nombre"]}:{id: pairs["cargo-id"],nombre:document.querySelector('[name=cargo-id] > option[value="'+pairs["cargo-id"]+'"]').innerHTML}
-    console.log(postulaciones)
-    formcar.reset();
-    //imprimir lista actualizada
-    const div = document.querySelector("#cargos")
-    const div1 = document.createElement('div');
-
-    let content1=''
-    for (let index = 0; index < postulaciones.length; index++) {
-        const car = postulaciones[index];
-        if(car==null) continue;
-        content1 += `
-        <div class="col border border-3" id="car-${index}" style="text-transform: uppercase;">
-            <label>${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}</label><br>        
-            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button><br>
-        </div>
-
-        `
-    }
-    //content1 += "</ul>" 
-    div.innerHTML = content1
-    //div.innerHTML = '';
-    //div.appendChild(div1);
-    cont_cargo++;
-    document.querySelector("#no-valid-cargo").style.display = "none";
-}
-
-/*---------------------------------------------------------------------------------------------------*/
-function eliminarCargoPostulante(event) {
-    //eliminar del array
-    postulaciones[event.target.parentElement.id.split("-")[1]]=null
-    //eliminar en html
-    event.target.parentElement.remove()
-}
-/*--------------------------------------------------------------------*/
-
 
 //evento para cambio de ciudad segun departamento
-const depSelect = document.querySelector("#departamentos");
 depSelect.addEventListener("change",evt => listarCiudades(evt.target.value))
-listarCiudades(depSelect.value);
-//variable ciudades esta declarada en el jsp
-/**
- * Listar todas las ciudades en el select de ciudades
- * @param {*} depId 
- */
-function listarCiudades(depId){
-    const ciuAmostrar = ciudades.filter(c=>c.departamentoId==depId);
-    const ciudad = document.querySelector("select[name=ciudadId]");
-    const frag = document.createDocumentFragment();
-    for (const ciu of ciuAmostrar) {
-        const opt = document.createElement("option");    
-        opt.value = ciu.id;
-        opt.innerHTML = ciu.nombre;
-        opt.setAttribute("data-departamentoId",ciu.departamentoId);
-        frag.appendChild(opt)
-    }
-    ciudad.replaceChildren(frag);
-    
-    
-}
 
-
-
-function agregarFieldReferencia(event){
-    //recoger del form
-    const pairs = {};
-    const formexp = document.querySelector("[name=referencia-form]");
-    const formData = new FormData(formexp);
-    const referenciaPersonal = [{},{},{}];
-    let pos_rec;
-    let returnFlag = false;
-
-    let requiredValues = ["nombre", "relacion", "telefono"]
-
-    formData.forEach((value, key)=>{
-        if(requiredValues.includes(key)
-        && value==="" && returnFlag == false){
-            console.log(key, value)
-            returnFlag = true;
-        }
-    });
-
-    if(returnFlag===true){
-        let message = "Rellene "
-        for(let i=0;i<requiredValues.length;i++){
-            message+=", "+requiredValues[i];
-        }
-        message += " como minimo."
-        alert(message);
-        return;
-    }
-
-    for (const [name, value] of formData){
-        pos_rec = name.split("-");//rec-nombre-index
-        if (pos_rec.length > 1) {
-            referenciaPersonal[pos_rec[2]][pos_rec[1]] = value
-        }
-        else{
-            pairs[name] = value
-        }
-
-    }
-    pairs["referenciaPersonal"] = referenciaPersonal.filter(rec => rec.nombre);
-    referencias[cont_referencias] = pairs;
-    formexp.reset();
-    //imprimir lista actualizada
-    const div = document.querySelector("#referencia")
-    const div1 = document.createElement('div');
-    let content=''
-    for (let index = 0; index < referencias.length; index++) {
-        const exp = referencias[index];
-        if(exp==null) continue;
-        content += `
-        <div class="col border border-3" id="exp-${index}"> 
-            <h4><center>Referencia Personal</center></h4>       
-            <label><b>Nombre:</b> ${exp.nombre}</label><br>
-            <label><b>Telefono:</b> ${exp.telefono}</label><br>
-            <label><b>Relacion:</b> ${exp.relacion}</label><br>
-            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
-        </div>
-        
-        `
-    }
-    //content += "</ul>" 
-    div.innerHTML = content
-    //div.innerHTML = '';
-    //div.appendChild(div1);
-    cont_referencias++;
-}
-
-/*----------------------------------------------------------------- */
-function eliminarReferencia(event) {
-    //eliminar del array
-    referencias[event.target.parentElement.id.split("-")[1]]=null
-    //eliminar en html
-    event.target.parentElement.remove()
-}
-/*----------------------------------------------------------------- */
-
-
-
-/*--------------------------------------------------------------------------------------------------------- */
-// $(function(){
-//     $("#wizard").steps({
-//     headerTag: "h4",
-//     bodyTag: "section",
-//     transitionEffect: "fade",
-//     enableAllSteps: true,
-//     transitionEffectSpeed: 500,
-//     onStepChanging: function (event, currentIndex, newIndex) {
-//     if ( newIndex === 1 ) {
-//     $('.steps ul').addClass('step-2');
-//     } else {
-//     $('.steps ul').removeClass('step-2');
-//     }
-//     if ( newIndex === 2 ) {
-//     $('.steps ul').addClass('step-3');
-//     } else {
-//     $('.steps ul').removeClass('step-3');
-//     }
-//
-//     if ( newIndex === 3 ) {
-//     $('.steps ul').addClass('step-4');
-//     $('.actions ul').addClass('step-last');
-//     } else {
-//     $('.steps ul').removeClass('step-4');
-//     $('.actions ul').removeClass('step-last');
-//     }
-//     return true;
-//     },
-//     labels: {
-//     finish: "Order again",
-//     next: "Next",
-//     previous: "Previous"
-//     }
-//     });
-//     // Custom Steps Jquery Steps
-//     $('.wizard > .steps li a').click(function(){
-//     $(this).parent().addClass('checked');
-//     $(this).parent().prevAll().addClass('checked');
-//     $(this).parent().nextAll().removeClass('checked');
-//     });
-//     // Custom Button Jquery Steps
-//     $('.forward').click(function(){
-//     $("#wizard").steps('next');
-//     })
-//     $('.backward').click(function(){
-//     $("#wizard").steps('previous');
-//     })
-//     // Checkbox
-//     $('.checkbox-circle label').click(function(){
-//     $('.checkbox-circle label').removeClass('active');
-//     $(this).addClass('active');
-//     })
-//     })
-/*--------------------------------------------------------------------------------------------------------- */

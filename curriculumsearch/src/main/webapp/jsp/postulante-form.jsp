@@ -15,6 +15,11 @@
   </head>
 
   <body class="container">
+    <div class="row">
+      <div id="errorSection" class="col" tabindex="-1">
+
+      </div>
+    </div>
     <form name="postulante" method="post" class="needs-validation" novalidate>
                       <div class="container mt-3">
                           <div class="card p-3 text-center">
@@ -23,38 +28,25 @@
                               </div>
                               <h4>Curriculum</h4>
                               <div class="row">
-                                  <div class="about-inputs  mb-3 col-md-12 center">
-                                    <label for="resumen" class="form-label">Resumen</label>
-                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
-                                    
-                                  </div>
+                                  
 
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="nombre" class="form-label">Nombre</label>
                                     <input type="text" name="nombre" class="form-control  " id="nombre" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="apellido" class="form-label">Apellido</label>
                                     <input type="text" name="apellido" class="form-control  " id="apellido" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
                                   </div>
           
 
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="correo" class="form-label">Email address</label>
                                     <input type="email" name="correo" class="form-control  " id="correo" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
                                   </div>
 
                                   <div class="inputs mb-3 col-md-6"> 
@@ -68,7 +60,7 @@
 
                                   <div class="inputs mb-3 col-md-6"> 
                                     <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
-                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required onchange='carg(this.value);'>
+                                    <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required>
                                         <option value='CI' selected>C.I</option>
                                         <option value='PAS'>Pasport</option>
                                         <option value='Otro'>Otro</option>
@@ -78,9 +70,7 @@
                                   <div class="inputs  mb-3 col-md-6">
                                     <label for="nroDocument" class="form-label">Numero de Documento</label>
                                     <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6"> 
@@ -103,21 +93,24 @@
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="telefono" class="form-label">Telefono</label>
                                     <input type="number" name="telefono" class="form-control  " id="telefono" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
                                   </div>
 
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
                                     <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
-                                    <div class="valid-feedback">
-                                      Luce Bien!
-                                    </div>
+                                    
+                                  </div>
+
+                                  <div class="about-inputs  mb-3 col-md-12 center">
+                                    <label for="resumen" class="form-label">Resumen</label>
+                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
+                                    
+                                    
                                   </div>
                               
                         
-                                  <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
+                                  <div class="inputs mb-3 col-md-3"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
                                     <option value="1" selected>Ingles muy basico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
@@ -127,7 +120,7 @@
                                     </select> 
                                   </div>
                                 
-                                  <div class="inputs mb-3 col-md-4"> 
+                                  <div class="inputs mb-3 col-md-3"> 
                                     <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
                                     <select name="disponibilidad" id="disponibilidad" class="content-select">
                                       <c:forEach items="${disponibilidades}" var="disponibilidad">
@@ -136,7 +129,7 @@
                                     
                                   </select> </div>
                                 
-                                  <div class="inputs mb-3 col-md-4"> 
+                                  <div class="inputs mb-3 col-md-3"> 
                                     <label for="estadoCivil" class="form-label"> Estado Civil</label> 
                                     <select name="estadoCivil" id="estadoCivil" class="content-select">
                                       <c:forEach items="${estadosCiviles}" var="estadoCivil">
@@ -144,28 +137,28 @@
                                       </c:forEach>
                                     </select> 
                                   </div>
-                                  <div class="inputs mb-3 col-md-4">
+                                  <div class="inputs mb-3 col-md-3">
                                     <label for="formFile" class="form-label">Cargar cv</label>
                                     <input class="form-control" type="file" id="cvFile">
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
+                                  <button type="button" class="btn btn-primary"><span class="add-experience" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
                                   <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
                                     *Agrega por lo menos un cargo
                                   </p>   
                                   <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos"></div>
 
                                   <!-- Button Agregar Experiencia -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></button><br>   
+                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></button><br>   
                                   <div class="mt-3 gap-2 row row-cols-4" id="experiencias"></div>
                                     
                                   <!-- Button Agregar Estudio -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></button><br>   
+                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></button><br>   
                                   <div class="mt-3 gap-2 row row-cols-4" id="estudios"></div>
                             
                                
                                   <!-- Button Agregar Tecnologia -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></button><br>
+                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></button><br>
                                   
                                   <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
                                     *Agrega por lo menos una tecnologia
@@ -174,13 +167,13 @@
                                   </div>
 
                                   <!-- Button Agregar Refencia personal -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Referencia Personal</span></button><br>   
+                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Referencia Personal</span></button><br>   
                                   <div class="mt-3 gap-2 row row-cols-4" id="referencia"></div>
                       
                         
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-end">
-                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/postulante">Cancelar</a>
+                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/work-with-us">Cancelar</a>
                                   <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
                                 </div>
                               </div>
@@ -188,12 +181,12 @@
                       </div>
     </form>
     <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
-    <div class="modal fade" id="cargoForm" tabindex="-2" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
+    <div class="modal fade" id="cargoForm" tabindex="-1" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -202,7 +195,7 @@
               <label for="cargo-nombre" class="form-label">Cargo</label>
               <div class="input-group mb-3">
                 <select class="form-select" name="cargo-id" aria-label="Default select example" required>
-                  <option value="-1" selected>Open this select menu</option>
+                  
                   <c:forEach items="${CargosDisponibles}" var="convocatoria">
                                 <option value="${convocatoria.getId()}">${convocatoria.getCargo().getNombre()}</option>
                   </c:forEach>>
@@ -211,8 +204,8 @@
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="agregarFieldCargo()" data-dismiss="modal">Agregar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldCargo()">Agregar</button>
         </div>
       </div>
     </div>
@@ -225,7 +218,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -288,19 +281,19 @@
                 </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="agregar-exp" type="button" class="btn btn-primary" onclick="agregarFieldExpierncia()" data-dismiss="modal">Agregar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button id="agregar-exp" type="button" class="btn btn-primary" onclick="agregarFieldExpierncia()">Agregar</button>
             </div>
           </div>
         </div>
       </div>
     <!--------------------------------------------------------------------------------------->
-      <div class="modal fade" id="tecnologiaForm" tabindex="-2" role="dialog" aria-labelledby="tecnologiaForm" aria-hidden="true">
+      <div class="modal fade" id="tecnologiaForm" tabindex="-1" role="dialog" aria-labelledby="tecnologiaForm" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -309,7 +302,7 @@
                 <label for="tecnologia-nombre" class="form-label">Tecnologia</label>
                 <div class="input-group mb-3">
                   <select class="form-select" name="tecnologia-id" aria-label="Default select example" required>
-                    <option value="-1" selected>Open this select menu</option>
+                    
                     <c:forEach items="${tecnologias}" var="tecnologia">
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>
                     </c:forEach>
@@ -323,8 +316,8 @@
               </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="agregarFieldTecnologia()" data-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="agregarFieldTecnologia()">Agregar</button>
           </div>
         </div>
       </div>
@@ -338,7 +331,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -349,7 +342,7 @@
                 <div class="form-group">
                     <label for="tipoDeEstudio">Tipo de Estudio</label>
                     <select name="tipoDeEstudio" id="tipoDeEstudio" required>
-                        <option value="-1" selected disabled hidden>Seleccionar</option>
+                        
                         <c:forEach items="${tiposDeEstudio}" var="tipo">
                             <option value="${tipo}">${tipo.name}</option>
                         </c:forEach>
@@ -368,7 +361,7 @@
                   <div class="form-group">
                       <label for="estado">Estado</label>
                       <select name="estado" id="estado" required>
-                          <option value="-1" selected disabled hidden>Seleccionar</option>
+                          
                           <c:forEach items="${estadosEstudio}" var="estado">
                               <option value="${estado}">${estado.name}</option>
                           </c:forEach>
@@ -377,18 +370,24 @@
                 <div class="form-group">
                     <label for="fechaDesdeEstudio" class="form-label">Fecha Desde</label>
                     <input type="date" class="form-control  " name="fechaDesde" id="fechaDesdeEstudio" required>
+                    <div class="invalid-feedback errorFechaDesde">
+                              
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="fechaHastaEstudio" class="form-label">Fecha Hasta</label>
                     <input type="date" class="form-control  " name="fechaHasta" id="fechaHastaEstudio" >
+                    <div class="invalid-feedback errorFechaHasta">
+                              
+                    </div>
                 </div>
 
 
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="agregarFieldEstudio()" data-dismiss="modal">Agregar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldEstudio()">Agregar</button>
         </div>
       </div>
     </div>
@@ -401,7 +400,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Referencias Personales</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -427,8 +426,8 @@
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="agregarFieldReferencia()" data-dismiss="modal">Agregar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="agregarFieldReferencia()">Agregar</button>
         </div>
       </div>
     </div>
@@ -436,49 +435,11 @@
 
 
     <!-- Optional JavaScript; choose one of the two! -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script>
       var ciudades = ${ciudades};
-      (function(){
-          var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth() + 1; //January is 0!
-          var yyyy = today.getFullYear();
-
-          if (dd < 10) {
-              dd = '0' + dd;
-          }
-
-          if (mm < 10) {
-              mm = '0' + mm;
-          }
-
-          today = yyyy + '-' + mm + '-' + dd;
-
-
-          let fechaDesdeEstudio = document.querySelector("#fechaDesdeEstudio");
-          let fechaDesdeExperiencia = document.querySelector("#fechaDesdeExperiencia");
-          let fechaHastaEstudio = document.querySelector("#fechaHastaEstudio");
-          let fechaHastaExperiencia = document.querySelector("#fechaHastaExperiencia");
-          let fechaNacimiento = document.querySelector("#fechaNacimiento");
-          let fechas = [fechaDesdeEstudio,fechaDesdeExperiencia,fechaHastaEstudio,fechaHastaExperiencia,fechaNacimiento]
-          fechas.forEach(fch => fch.addEventListener('keydown',()=>false))//no dejar cargar manualmente fechas
-
-          fechaDesdeEstudio.setAttribute("max", today);
-          fechaDesdeExperiencia.setAttribute("max", today);
-          fechaNacimiento.setAttribute("max", today);
-
-          fechaDesdeExperiencia.addEventListener("change", ()=>{
-              fechaHastaExperiencia.setAttribute("min", fechaDesdeExperiencia.value)
-          })
-          fechaDesdeEstudio.addEventListener("change", ()=>{
-              fechaHastaEstudio.setAttribute("min", fechaDesdeEstudio.value)
-          })
-      })()
-    </script>
+          </script>
     <script src="./main.js"></script>
   </body>
 </html>
