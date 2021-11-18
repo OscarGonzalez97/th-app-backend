@@ -72,8 +72,6 @@ public class Postulante {
     @Max(value = 5)
     private Long nivelIngles;
 
-    @Column(name = "curriculum")
-    private String curriculum;
 
     @Column(name="estado_civil")
     @NotNull
@@ -121,110 +119,19 @@ public class Postulante {
     )
     private List<ConvocatoriaCargo> postulaciones;
 
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "cvfile_id",referencedColumnName = "id")
+    @JsonIgnore
+    private DBFile cvFile;
+
 
   
-    public String getnroDocument() {
-        return nroDocument;
-    }
+ 
 
-    public void setnroDocument(String nroDocument) {
-        this.nroDocument = nroDocument;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
+   
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
     }
-    public Disponibilidad getDisponibilidad() {
-        return disponibilidad;
-    } 
-    public void setDisponibilidad(Disponibilidad disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-    public Ciudad getCiudad() {
-        return this.ciudad;
-    }
-
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public Long getCiudadId() {
-        return this.ciudadId;
-    }
-    public void setCiudadId(Long ciudadId) {
-        this.ciudadId = ciudadId;
-    }
   
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-    public void setEstadoCivil(EstadoCivil estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-    public EstadoCivil getEstadoCivil() {
-        return estadoCivil;
-    }
-    public Nacionalidad getNacionalidad() {
-        return nacionalidad;
-    }
-    public void setNacionalidad(Nacionalidad nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-    public List<PostulanteTecnologia> getTecnologias() {
-        return tecnologias;
-    }
-    public void setTecnologias(List<PostulanteTecnologia> tecnologias) {
-        this.tecnologias = tecnologias;
-    }
-
-    public List<Estudio> getEstudios() {
-        return estudios;
-    }
-    public void setEstudios(List<Estudio> estudios) {
-        this.estudios = estudios;
-    }
-    public List<Experiencia> getExperiencias() {
-        return experiencias;
-    }
-    public void setExperiencias(List<Experiencia> experiencias) {
-        this.experiencias = experiencias;
-    }
-    public List<ConvocatoriaCargo> getPostulaciones() {
-        return postulaciones;
-    }
-    public void setPostulaciones(List<ConvocatoriaCargo> postulaciones) {
-        this.postulaciones = postulaciones;
-    }
-
-    public void setReferencias(List<ReferenciaPersonal> referencias) {
-        this.referencias = referencias;
-    }
-
-    public List<ReferenciaPersonal> getReferencias() {
-        return referencias;
-    }
-    public EstadoPostulante getEstadoPostulante() {
-        return this.estadoPostulante;
-    }
-
-    public void setEstadoPostulante(EstadoPostulante estadoPostulante) {
-        this.estadoPostulante = estadoPostulante;
-    }
-    public String getComentarioRRHH(){
-        return comentarioRRHH;
-    }
-    public void setComentarioRRHH(String comentarioRRHH){
-        this.comentarioRRHH=comentarioRRHH;
-    }
+   
 }

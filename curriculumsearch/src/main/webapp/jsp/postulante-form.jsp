@@ -98,8 +98,8 @@
                                     <select name="ciudadId" id="ciudad" class="bg-light">
                                       
                                     
-                                     </select> 
-                                </div>
+                                    </select> 
+                                  </div>
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="telefono" class="form-label">Telefono</label>
                                     <input type="number" name="telefono" class="form-control  " id="telefono" required>
@@ -142,46 +142,40 @@
                                       <c:forEach items="${estadosCiviles}" var="estadoCivil">
                                         <option value="${estadoCivil.getDescripcion()}">${estadoCivil.getDescripcion()}</option>
                                       </c:forEach>
+                                    </select> 
+                                  </div>
+                                  <div class="inputs mb-3 col-md-4">
+                                    <label for="formFile" class="form-label">Cargar cv</label>
+                                    <input class="form-control" type="file" id="cvFile">
+                                  </div>
+                                  <!-- Button Agregar Cargo al que postulas -->
+                                  <button type="button" class="btn btn-primary"><span class="add-experience" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
+                                  <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                    *Agrega por lo menos un cargo
+                                  </p>   
+                                  <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos"></div>
+
+                                  <!-- Button Agregar Experiencia -->
+                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></button><br>   
+                                  <div class="mt-3 gap-2 row row-cols-4" id="experiencias"></div>
                                     
-                        
-                                  </select> </div>
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Cargo al que postulas</span></div><br>   
-                                  </div>
-
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="cargos">
-                                  </div>
-
-                                  <div >
-                                    <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></div><br>   
-                                  </div>
-
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="experiencias">
-                                  </div>
-                                    
-                               
-                                  <div >
-                                   <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></div><br>   
-                                  </div>
-                                 
-                                  <div class="mt-3 gap-2 d-flex justify-content-between" id="estudios">
-                                  </div>
+                                  <!-- Button Agregar Estudio -->
+                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></button><br>   
+                                  <div class="mt-3 gap-2 row row-cols-4" id="estudios"></div>
                             
                                
-                               
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></div><br>   
-                                </div>
-                                
-                                
-                                <div class="mt-3 gap-2 d-flex justify-content-between" id="tecnologias"> 
-                                </div>
+                                  <!-- Button Agregar Tecnologia -->
+                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></button><br>
+                                  
+                                  <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                    *Agrega por lo menos una tecnologia
+                                  </p>   
+                                  <div class="mt-3 gap-2 row row-cols-5" style="display: flex;" id="tecnologias">
+                                  </div>
 
-                                <div >
-                                  <div style="color:blue" class=" inputs d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Referencias Personales</span></div><br>   
-                                </div>
-                                <div class="mt-3 gap-2 d-flex justify-content-between" id="referencia"> 
-                                </div>
+                                  <!-- Button Agregar Refencia personal -->
+                                  <button type="button" class="btn btn-primary"><span class="add-experience"  data-toggle="modal" data-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Referencia Personal</span></button><br>   
+                                  <div class="mt-3 gap-2 row row-cols-4" id="referencia"></div>
                       
                         
                                 
@@ -245,12 +239,16 @@
                         <div class="inputs">
                             <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
                             <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
+                            <div class="invalid-feedback errorFechaDesde">
+                              
+                            </div>
                         </div>
                          
                         <div class="inputs">
                             <label for="fechaHastaExperiencia" class="form-label">Fecha Hasta</label>
                             <input type="date" class="form-control" name="fechaHasta" id="fechaHastaExperiencia" >
-                        </div>
+                            <div class="invalid-feedback errorfechaHasta"></div>
+                          </div>
                         
                         <div class="inputs">
                             <label for="cargo" class="form-label">Cargo</label>
@@ -316,7 +314,6 @@
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>
                     </c:forEach>
                   </select>
-                  <button class="btn btn-outline-secondary" type="button" id="btn-new-tech">Agregar nuevo</button>
                 </div>
                   
                   
@@ -466,9 +463,13 @@
           let fechaDesdeExperiencia = document.querySelector("#fechaDesdeExperiencia");
           let fechaHastaEstudio = document.querySelector("#fechaHastaEstudio");
           let fechaHastaExperiencia = document.querySelector("#fechaHastaExperiencia");
+          let fechaNacimiento = document.querySelector("#fechaNacimiento");
+          let fechas = [fechaDesdeEstudio,fechaDesdeExperiencia,fechaHastaEstudio,fechaHastaExperiencia,fechaNacimiento]
+          fechas.forEach(fch => fch.addEventListener('keydown',()=>false))//no dejar cargar manualmente fechas
 
           fechaDesdeEstudio.setAttribute("max", today);
           fechaDesdeExperiencia.setAttribute("max", today);
+          fechaNacimiento.setAttribute("max", today);
 
           fechaDesdeExperiencia.addEventListener("change", ()=>{
               fechaHastaExperiencia.setAttribute("min", fechaDesdeExperiencia.value)

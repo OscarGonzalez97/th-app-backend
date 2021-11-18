@@ -49,7 +49,25 @@ function agregarFieldExpierncia(event){
     //recoger del form
     const pairs = {};
     const formexp = document.querySelector("[name=experiencia-form]");
+    formexp.classList.add('was-validated')
     const formData = new FormData(formexp);
+    let error=validarfecha(formData.get("fechaDesde"), formData.get("fechaHasta"))
+    let appendTo = "Hasta";
+   if (error) {
+
+        if(error.includes("desde")) appendTo = "Desde";
+        formexp.querySelector(".errorfecha"+appendTo)
+        
+        formexp['fecha'+appendTo].setCustomValidity(error)
+        document.querySelector(".errorfecha"+appendTo).innerHTML = error;
+        console.log(error);
+        
+   }
+   else{
+    formexp.fechaDesde.setCustomValidity('')
+    formexp.fechaHasta.setCustomValidity('')
+   }
+    
     const reconocimientos = [{},{},{}];
     let pos_rec;
     let returnFlag = false;
@@ -87,26 +105,52 @@ function agregarFieldExpierncia(event){
     pairs["reconocimientos"] = reconocimientos.filter(rec => rec.nombre);
     experiencias[cont_experiencia] = pairs;
     formexp.reset();
+    formexp.classList.remove('was-validated')
     //imprimir lista actualizada
     const div = document.querySelector("#experiencias")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    
+    let content='';
     for (let index = 0; index < experiencias.length; index++) {
         const exp = experiencias[index];
         if(exp==null) continue;
         content += `
-        <li id="exp-${index}">        
-            ${exp.institucion}
-            <button type="button" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span> Eliminar</button>
-        </li>
+        <div class="col border border-3" id="exp-${index}">
+                    <h4><center>Experiencia</center></h4>      
+                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
+                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
+                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
+                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
+                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
+                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
+                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
+            
+            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_experiencia++;
+}
+function validarfecha(fechaDesde, fechaHasta){
+    let fechadehoy= new Date().toISOString().slice(0,10);
+
+    if(fechaDesde>fechadehoy ){
+       return "la fecha desde no puede ser mayor a la fecha actual" ;   
+    }
+    if(fechaHasta =! null && fechaHasta>fechadehoy){
+        return "la fecha hasta no puede ser mayor a la fecha actual" ;  
+    } 
+    if(fechaHasta =! null && fechaDesde>fechaHasta){
+        return "la fecha desde no puede ser mayor a la fecha hasta";
+    
+    }
+        return false
+  
 }
 /*--------------------------------------------------------------------*/
 function agregarFieldTecnologia(){
@@ -152,24 +196,26 @@ function agregarFieldTecnologia(){
     const div1 = document.createElement('div');
     console.log(tecnologias[0])
 
-    let content1='<ul>'
+    let content1=''
     for (let index = 0; index < tecnologias.length; index++) {
         const tecn = tecnologias[index];
         if(tecn==null) continue;
         content1 += `
-        <li id="tecn-${index}">        
-            ${tecn.tecnologia.nombre}         
-            <button type="button" onclick="eliminarTecnologia(event)">Eliminar</button>
+        <div class="col border border-3" id="tecn-${index}">        
+            <label>${tecn.tecnologia.nombre}</label><br>
+            <label><progress value="${tecn.nivel}" max="5"></progress></label> <br>        
+            <button type="button" class="btn btn-primary" onclick="eliminarTecnologia(event)">Eliminar</button>
             <br>
-        </li>
+        </div>
         
         `
     }
-    content1 += "</ul>" 
-    div1.innerHTML = content1
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content1 += "</ul>" 
+    div.innerHTML = content1
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_tecnologia++;
+    document.querySelector("#no-valid-tecno").style.display = "none";
 }
 
 
@@ -192,6 +238,15 @@ function serializeJSON (form) {
     // Create a new FormData object
     const formData = new FormData(form);
 
+    if(formData.get('fechaNacimiento')>=new Date().toISOString().slice(0,10)){
+        form['fechaNacimiento'].setCustomValidity('Fecha de nacimiento debe ser menor que actual')
+        noValidateFlag = true;
+        return;
+    }
+    else{
+        form['fechaNacimiento'].setCustomValidity('')   
+    }
+
 
     // Create an object to hold the name/value pairs
     const pairs = {};
@@ -205,10 +260,32 @@ function serializeJSON (form) {
     pairs["tecnologias"] = tecnologias.filter(tec => tec)//eliminacion de nulos
     pairs["postulaciones"] = postulaciones.filter(car => car)//eliminacion de nulos
     pairs["referencias"] = referencias.filter(tec => tec)
-
+    if(pairs["postulaciones"].length<1){
+        document.querySelector("#no-valid-cargo").style.display = "block";
+        noValidateFlag = true;
+    }else{
+        document.querySelector("#no-valid-cargo").style.display = "none";
+    }
+    console.log(pairs["tecnologias"])
+    if(pairs["tecnologias"].length<1){
+        document.querySelector("#no-valid-tecno").style.display = "block";
+        noValidateFlag = true;
+    }else{
+        document.querySelector("#no-valid-tecno").style.display = "none";
+    }
+    if(noValidateFlag){
+        return;
+    }
+    noValidateFlag = false
     
     // Return the JSON string
     return JSON.stringify(pairs, null, 2);
+}
+
+function obtenerCV(){
+    let input = document.querySelector('#cvFile')
+    return input.files[0];
+  
 }
 
 async function postData(url = '', data = {}) {
@@ -221,7 +298,7 @@ async function postData(url = '', data = {}) {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json',
+            //'Content-Type': undefined//'application/json',
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
@@ -229,8 +306,21 @@ async function postData(url = '', data = {}) {
         body: data // body data type must match "Content-Type" header
     }
     senddata["headers"][headerxs] = token;
-    const response = await fetch(url, senddata);
+    let response = null
+    if(!noValidateFlag){
+        response = await fetch(url, senddata);
+    }
     return response; // parses JSON response into native JavaScript objects
+}
+
+function formatearJsonWithFile(json, file){
+    formData = new FormData();
+
+    formData.append("file", file);
+    formData.append('postulante', new Blob([json], {
+                type: "application/json"
+            }));
+    return formData
 }
 formValidator()
 form = document.querySelector("form");
@@ -240,8 +330,11 @@ form.addEventListener("submit",(evt)=>{
     //     evt.stopPropagation()
     // }
     // form.classList.add('was-validated')
+    evt.preventDefault();
+    let formSerialized = serializeJSON(form);
+    let fileCV = obtenerCV();
     if(!noValidateFlag){
-        postData('postulante', serializeJSON(form))
+        postData('work-with-us', formatearJsonWithFile(formSerialized,fileCV))
             .then(response => {
                 if(response.status==200 || response.status==302){
                     location.replace(response.url);
@@ -249,12 +342,10 @@ form.addEventListener("submit",(evt)=>{
                     console.log(response.text().then(value => console.log(value)))
                 }
             });
-        evt.preventDefault();
-    }
+        }
     noValidateFlag = false
 } );
 
-document.querySelector("#btn-new-tech").addEventListener('click',()=>{document.querySelector("#tecnologia-nombre").classList.remove('d-none')})
 
 
 //Metodos para Estudios
@@ -315,23 +406,29 @@ function agregarFieldEstudio(){
     //imprimir lista actualizada
     const div = document.querySelector("#estudios")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    let content='';
     
     for (let index = 0; index < estudios.length; index++) {
         const est = estudios[index];
         if(est==null) continue;
         content += `
-        <li id="est-${index}">        
-            ${est.institucion.nombre}
-            <button type="button" onclick="eliminarEstudio(event)">Eliminar</button>
-        </li>
+        <div class="col border border-3" id="est-${index}">
+            <h4><center>Estudio</center></h4>
+            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
+            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
+            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
+            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
+            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
+            <label><b>Estado:</b> ${est.estado}</label><br>
+            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+ 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_estudios++;
 
 }
@@ -384,7 +481,7 @@ function agregarFieldCargo(){
         if(postulaciones[i]!==null){
             if(postulaciones[i]["id"]===pairs["cargo-id"]){
                 alert("Ya has agregado ese cargo!")
-                cont_cargo--;
+                //cont_cargo--;
                 return;
             }
         }
@@ -398,23 +495,24 @@ function agregarFieldCargo(){
     const div = document.querySelector("#cargos")
     const div1 = document.createElement('div');
 
-    let content1='<ul>'
+    let content1=''
     for (let index = 0; index < postulaciones.length; index++) {
         const car = postulaciones[index];
         if(car==null) continue;
         content1 += `
-        <li id="car-${index}">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}        
-            <button type="button" onclick="eliminarCargoPostulante(event)">Eliminar</button>
-        </li>
-        
+        <div class="col border border-3" id="car-${index}" style="text-transform: uppercase;">
+            <label>${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}</label><br>        
+            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button><br>
+        </div>
+
         `
     }
-    content1 += "</ul>" 
-    div1.innerHTML = content1
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content1 += "</ul>" 
+    div.innerHTML = content1
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_cargo++;
+    document.querySelector("#no-valid-cargo").style.display = "none";
 }
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -499,22 +597,25 @@ function agregarFieldReferencia(event){
     //imprimir lista actualizada
     const div = document.querySelector("#referencia")
     const div1 = document.createElement('div');
-    let content='<ul>'
+    let content=''
     for (let index = 0; index < referencias.length; index++) {
         const exp = referencias[index];
         if(exp==null) continue;
         content += `
-        <li id="exp-${index}">        
-            ${exp.nombre}
-            <button type="button" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span> Tras</button>
-        </li>
+        <div class="col border border-3" id="exp-${index}"> 
+            <h4><center>Referencia Personal</center></h4>       
+            <label><b>Nombre:</b> ${exp.nombre}</label><br>
+            <label><b>Telefono:</b> ${exp.telefono}</label><br>
+            <label><b>Relacion:</b> ${exp.relacion}</label><br>
+            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </div>
         
         `
     }
-    content += "</ul>" 
-    div1.innerHTML = content
-    div.innerHTML = '';
-    div.appendChild(div1);
+    //content += "</ul>" 
+    div.innerHTML = content
+    //div.innerHTML = '';
+    //div.appendChild(div1);
     cont_referencias++;
 }
 
@@ -530,60 +631,57 @@ function eliminarReferencia(event) {
 
 
 /*--------------------------------------------------------------------------------------------------------- */
-$(function(){
-    $("#wizard").steps({
-    headerTag: "h4",
-    bodyTag: "section",
-    transitionEffect: "fade",
-    enableAllSteps: true,
-    transitionEffectSpeed: 500,
-    onStepChanging: function (event, currentIndex, newIndex) {
-    if ( newIndex === 1 ) {
-    $('.steps ul').addClass('step-2');
-    } else {
-    $('.steps ul').removeClass('step-2');
-    }
-    if ( newIndex === 2 ) {
-    $('.steps ul').addClass('step-3');
-    } else {
-    $('.steps ul').removeClass('step-3');
-    }
-    
-    if ( newIndex === 3 ) {
-    $('.steps ul').addClass('step-4');
-    $('.actions ul').addClass('step-last');
-    } else {
-    $('.steps ul').removeClass('step-4');
-    $('.actions ul').removeClass('step-last');
-    }
-    return true;
-    },
-    labels: {
-    finish: "Order again",
-    next: "Next",
-    previous: "Previous"
-    }
-    });
-    // Custom Steps Jquery Steps
-    $('.wizard > .steps li a').click(function(){
-    $(this).parent().addClass('checked');
-    $(this).parent().prevAll().addClass('checked');
-    $(this).parent().nextAll().removeClass('checked');
-    });
-    // Custom Button Jquery Steps
-    $('.forward').click(function(){
-    $("#wizard").steps('next');
-    })
-    $('.backward').click(function(){
-    $("#wizard").steps('previous');
-    })
-    // Checkbox
-    $('.checkbox-circle label').click(function(){
-    $('.checkbox-circle label').removeClass('active');
-    $(this).addClass('active');
-    })
-    })
-
-
-
+// $(function(){
+//     $("#wizard").steps({
+//     headerTag: "h4",
+//     bodyTag: "section",
+//     transitionEffect: "fade",
+//     enableAllSteps: true,
+//     transitionEffectSpeed: 500,
+//     onStepChanging: function (event, currentIndex, newIndex) {
+//     if ( newIndex === 1 ) {
+//     $('.steps ul').addClass('step-2');
+//     } else {
+//     $('.steps ul').removeClass('step-2');
+//     }
+//     if ( newIndex === 2 ) {
+//     $('.steps ul').addClass('step-3');
+//     } else {
+//     $('.steps ul').removeClass('step-3');
+//     }
+//
+//     if ( newIndex === 3 ) {
+//     $('.steps ul').addClass('step-4');
+//     $('.actions ul').addClass('step-last');
+//     } else {
+//     $('.steps ul').removeClass('step-4');
+//     $('.actions ul').removeClass('step-last');
+//     }
+//     return true;
+//     },
+//     labels: {
+//     finish: "Order again",
+//     next: "Next",
+//     previous: "Previous"
+//     }
+//     });
+//     // Custom Steps Jquery Steps
+//     $('.wizard > .steps li a').click(function(){
+//     $(this).parent().addClass('checked');
+//     $(this).parent().prevAll().addClass('checked');
+//     $(this).parent().nextAll().removeClass('checked');
+//     });
+//     // Custom Button Jquery Steps
+//     $('.forward').click(function(){
+//     $("#wizard").steps('next');
+//     })
+//     $('.backward').click(function(){
+//     $("#wizard").steps('previous');
+//     })
+//     // Checkbox
+//     $('.checkbox-circle label').click(function(){
+//     $('.checkbox-circle label').removeClass('active');
+//     $(this).addClass('active');
+//     })
+//     })
 /*--------------------------------------------------------------------------------------------------------- */
