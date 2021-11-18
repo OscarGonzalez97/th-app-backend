@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <layout:extends name="layouts/base.jsp">
     <layout:put block="contents" type="REPLACE">
         <h2 style="text-align: center;">
@@ -58,11 +60,10 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Fecha de nacimiento</h6>
+                        <h6 class="mb-0">Edad</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
-                        ${postulante.fechaNacimiento}
-                      </div>
+                      <div id="edad" class="col-sm-9 text-secondary"></div>
+                      <input style="display: none;" id="dob" value="${postulante.fechaNacimiento}">
                     </div>
                     <hr>
                     <div class="row">
@@ -194,11 +195,16 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                                 <h6 class="mb-0">Fecha Inicio</h6>
-                                                <span class="text-secondary">${detalle_experiencia.getFechaDesde()}</span>
+                                                <span class="text-secondary"><fmt:formatDate value="${detalle_experiencia.getFechaDesde()}" pattern="dd-MM-yyyy" /></span>
+                                           <!--    <input style="display:none;" id="fechaInicioExp" value="${detalle_experiencia.getFechaDesde()}">
+
+                                                <span style="display: none;" class="text-secondary" id="fechaInicioExp2">${detalle_experiencia.getFechaDesde()}</span>--> 
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                                 <h6 class="mb-0">Fecha Fin</h6>
-                                                <span class="text-secondary">${detalle_experiencia.getFechaHasta()}</span>
+                                                <span class="text-secondary"><fmt:formatDate value="${detalle_experiencia.getFechaHasta()}" pattern="dd-MM-yyyy" /></span>
+                                             <!--    <input style="display:none;" id="fechaFinExp" value="${detalle_experiencia.getFechaHasta()}">
+                                                <span style="display: none;" class="text-secondary" id="fechaFinExp2">${detalle_experiencia.getFechaHasta()}</span>--> 
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                                 <h6 class="mb-0">Referencia</h6>
@@ -256,11 +262,16 @@
                                           </li>
                                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                               <h6 class="mb-0">Fecha Inicio</h6>
-                                              <span class="text-secondary">${detalle_estudios.getFechaDesde()}</span>
+                                              <span class="text-secondary"><fmt:formatDate value="${detalle_estudios.getFechaDesde()}" pattern="dd-MM-yyyy" /></span>
+
+                                           <!-- <input style="display:none;" id="fechaInicioEst" value="${detalle_estudios.getFechaDesde()}">-->  
+                                              
                                           </li>
                                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                               <h6 class="mb-0">Fecha Fin</h6>
-                                              <span class="text-secondary">${detalle_estudios.getFechaHasta()}</span>
+                                              <span class="text-secondary"><fmt:formatDate value="${detalle_estudios.getFechaHasta()}" pattern="dd-MM-yyyy" /></span>
+
+                                            <!--  <input style="display:none;" id="fechaFinEst" value="${detalle_estudios.getFechaHasta()}">-->
                                           </li>
                                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                               <h6 class="mb-0">Tipo de Estudio</h6>
@@ -364,6 +375,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../valEdad.js"></script>
+
   </layout:put>
 
             

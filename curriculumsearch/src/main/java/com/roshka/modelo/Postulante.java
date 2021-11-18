@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.roshka.utils.Helper;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,10 +19,11 @@ import java.util.List;
 @Entity
 @Table(name="postulante")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
+@Data
 public class Postulante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="id") 
     private long id;
 
     @Column(name="nombre")
@@ -31,16 +34,19 @@ public class Postulante {
     @Column(name = "apellido")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 255)
+
     private String apellido;
 
     @Column(name = "nro_document")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Size(max = 120)
+
     private String nroDocument;
 
     @Column(name = "correo")
     @NotBlank(message = "Este campo no puede estar vacio")
     @Email(message = "Formato incorrecto de correo")
+
     private String correo;
 
     @ManyToOne(targetEntity = Ciudad.class,fetch = FetchType.EAGER)
@@ -119,175 +125,13 @@ public class Postulante {
     private DBFile cvFile;
 
 
-    public long getId() {
-        return id;
-    }
+  
+ 
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-
-    public void setnroDocument(String nroDocument) {
-        this.nroDocument = nroDocument;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
+   
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
     }
-
-    public String getResumen() {
-        return resumen;
-    }
-
-    public void setResumen(String resumen) {
-        this.resumen = resumen;
-    }
-
-    public Long getNivelIngles() {
-        return nivelIngles;
-    }
-
-    public void setNivelIngles(Long nivelIngles) {
-        this.nivelIngles = nivelIngles;
-    }
-
-    public Disponibilidad getDisponibilidad() {
-        return disponibilidad;
-    }
-
-    public Ciudad getCiudad() {
-        return this.ciudad;
-    }
-
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public Long getCiudadId() {
-        return this.ciudadId;
-    }
-
-    public void setCiudadId(Long ciudadId) {
-        this.ciudadId = ciudadId;
-    }
-    public void setEstadoCivil(EstadoCivil estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-    public EstadoCivil getEstadoCivil() {
-        return estadoCivil;
-    }
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-    public Nacionalidad getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(Nacionalidad nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public void setDisponibilidad(Disponibilidad disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    public List<PostulanteTecnologia> getTecnologias() {
-        return tecnologias;
-    }
-    public void setTecnologias(List<PostulanteTecnologia> tecnologias) {
-        this.tecnologias = tecnologias;
-    }
-
-    public List<Estudio> getEstudios() {
-        return estudios;
-    }
-    public List<Experiencia> getExperiencias() {
-        return experiencias;
-    }
-    public void setEstudios(List<Estudio> estudios) {
-        this.estudios = estudios;
-    }
-    public void setExperiencias(List<Experiencia> experiencias) {
-        this.experiencias = experiencias;
-    }
-    public List<ConvocatoriaCargo> getPostulaciones() {
-        return postulaciones;
-    }
-    public void setPostulaciones(List<ConvocatoriaCargo> postulaciones) {
-        this.postulaciones = postulaciones;
-    }
-
-    public void setReferencias(List<ReferenciaPersonal> referencias) {
-        this.referencias = referencias;
-    }
-
-    public List<ReferenciaPersonal> getReferencias() {
-        return referencias;
-    }
-    public EstadoPostulante getEstadoPostulante() {
-        return this.estadoPostulante;
-    }
-
-    public void setEstadoPostulante(EstadoPostulante estadoPostulante) {
-        this.estadoPostulante = estadoPostulante;
-    }
-    public String getComentarioRRHH(){
-        return comentarioRRHH;
-    }
-    public void setComentarioRRHH(String comentarioRRHH){
-        this.comentarioRRHH=comentarioRRHH;
-    }
-    public DBFile getCvFile() {
-        return cvFile;
-    }
-    public String getNroDocument() {
-        return nroDocument;
-    }
-    public void setCvFile(DBFile cvFile) {
-        this.cvFile = cvFile;
-    }
+  
+   
 }

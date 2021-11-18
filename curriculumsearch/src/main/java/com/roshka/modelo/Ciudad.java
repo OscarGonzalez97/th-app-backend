@@ -14,8 +14,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import lombok.Data;
 
-@Entity
+
+@Entity @Data
 @Table(name="ciudad")
 public class Ciudad{
     @Id
@@ -40,7 +42,7 @@ public class Ciudad{
     @JsonBackReference
     private Departamento departamento;
 
-
+/*
     public Long getId() {
         return this.id;
     }
@@ -56,7 +58,7 @@ public class Ciudad{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+*/
     public Departamento getDepartamento() {
         return this.departamento;
     }

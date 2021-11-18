@@ -2,11 +2,13 @@ package com.roshka.modelo;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
+@Entity @Data
 @Table(name = "institucion")
 public class Institucion {
     @Id
@@ -25,30 +27,6 @@ public class Institucion {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "institucion", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Estudio> estudioList;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getSubNombre() {
-        return subNombre;
-    }
-
-    public void setSubNombre(String subNombre) {
-        this.subNombre = subNombre;
-    }
 
     public List<Estudio> getEstudioList() {
         return estudioList;

@@ -95,13 +95,6 @@ public class PostulanteController {
         return "postulante-form";
     }
 
- /*    @PostMapping("/uploadCVPostulante")
-    public String uploadFile(@RequestParam("file") MultipartFile file) {
-        dbFileRepository.save(storeFile(file));
-        DBFile dbFile = dbFileRepository.save(storeFile(file));
-        return "{\"id\": "+dbFile.getId()+"}";
-    } */
-
     private DBFile createFile(MultipartFile file) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());

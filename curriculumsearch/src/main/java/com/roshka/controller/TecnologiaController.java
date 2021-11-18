@@ -45,7 +45,7 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
 
 @RequestMapping("/tecnologias")
     public String menuTecnologias(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
-        final Integer CANTIDAD_POR_PAGINA = 5;
+        final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         Page<Tecnologia> tecnologiaPag=tecRepo.findAllTecnologia(page);
         List<Tecnologia> tecnologia = tecnologiaPag.getContent();
