@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Curriculum</title>
     <link href="../css/formPostulanteStyle.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   </head>
 
   <body class="container">
@@ -26,7 +27,7 @@
                               <div class="d-flex flex-row justify-content-center mb-3">
                                 
                               </div>
-                              <h4>Curriculum</h4>
+                              <h4>Datos Personales</h4>
                               <div class="row">
                                   
 
@@ -44,7 +45,7 @@
           
 
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="correo" class="form-label">Email address</label>
+                                    <label for="correo" class="form-label">Email</label>
                                     <input type="email" name="correo" class="form-control  " id="correo" required>
                                     
                                   </div>
@@ -142,33 +143,109 @@
                                     <input class="form-control" type="file" id="cvFile">
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
-                                  <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
-                                    *Agrega por lo menos un cargo
-                                  </p>   
-                                  <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos"></div>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        
+                                        <h3>Cargos <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h3>	
+                                        
+
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos">
+                                          
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                          *Agrega por lo menos un cargo
+                                        </p>
+                                      </div>
+                                      
+                                    
+                                    </div>
+                                  </div>
+                                  
+                                  
+                                  
 
                                   <!-- Button Agregar Experiencia -->
-                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#experienciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Experiencia</span></button><br>   
-                                  <div class="mt-3 gap-2 row row-cols-4" id="experiencias"></div>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
                                     
                                   <!-- Button Agregar Estudio -->
-                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#estudioForm"><i class="fa fa-plus"></i>&nbsp;Agregar Estudio</span></button><br>   
-                                  <div class="mt-3 gap-2 row row-cols-4" id="estudios"></div>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        <h3>Estudios <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" id="estudios">
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
                             
                                
                                   <!-- Button Agregar Tecnologia -->
-                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#tecnologiaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Tecnologia</span></button><br>
-                                  
-                                  <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
-                                    *Agrega por lo menos una tecnologia
-                                  </p>   
-                                  <div class="mt-3 gap-2 row row-cols-5" style="display: flex;" id="tecnologias">
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        
+                                        <h3>Tecnologias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        
+                                          <div class="mt-3 gap-2 row row-cols-5" style="display: flex;" id="tecnologias">
+                                          </div>
+                                        
+                                      </div>
+                                      <div class="col-12">
+                                        <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                          *Agrega por lo menos una tecnologia
+                                        </p>   
+                                      </div>
+                                      
+                                    
+                                    </div>
                                   </div>
+                                  
+                                  
+                                  
+                                  
 
                                   <!-- Button Agregar Refencia personal -->
-                                  <button type="button" class="btn btn-primary mt-2"><span class="add-experience"  data-bs-toggle="modal" data-bs-target="#referenciaForm"><i class="fa fa-plus"></i>&nbsp;Agregar Referencia Personal</span></button><br>   
-                                  <div class="mt-3 gap-2 row row-cols-4" id="referencia"></div>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row  w-100 p-3 gy-2 border mx-auto">
+                                      <div class="col-12">
+                                        <h3>Referencia Personal <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" id="referencia">
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
                       
                         
                                 

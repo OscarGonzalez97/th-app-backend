@@ -3,7 +3,7 @@ package com.roshka.modelo;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Nacionalidad {
-    PY("Paraguayo"),EX("Extranjero");
+    PY("Paraguaya"),EX("Extranjera");
 
     private String descripcion;
 

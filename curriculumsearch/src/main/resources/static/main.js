@@ -164,11 +164,11 @@ function agregarFieldTecnologia(){
         const tecn = tecnologias[index];
         if(tecn==null) continue;
         content1 += `
-        <div class="col border border-3" id="tecn-${index}">        
-            <label>${tecn.tecnologia.nombre}</label><br>
-            <label><progress value="${tecn.nivel}" max="5"></progress></label> <br>        
-            <button type="button" class="btn btn-primary" onclick="eliminarTecnologia(event)">Eliminar</button>
-            <br>
+        <div class="col-auto" id="tecn-${index}">
+        ${tecn.tecnologia.nombre} ( ${tecn.nivel} <i class="bi bi-star-fill"></i> ) &nbsp; <i class="bi bi-trash-fill" onclick="eliminarTecnologia(event)"></i>       
+            
+            
+            
         </div>
         
         `
@@ -179,6 +179,7 @@ function agregarFieldTecnologia(){
     //div.appendChild(div1);
     cont_tecnologia++;
     document.querySelector("#no-valid-tecno").style.display = "none";
+    modalTecnologia.hide()
 }
 function eliminarTecnologia(event) {
     //eliminar del array
@@ -259,7 +260,7 @@ function agregarFieldExpierncia(event){
         if(exp==null) continue;
         content += `
         <div class="col border border-3" id="exp-${index}">
-                    <h4><center>Experiencia</center></h4>      
+                    <center><h4>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h4></center>
                     <label><b>Institucion:</b> ${exp.institucion}</label><br>  
                     <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
                     <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
@@ -267,8 +268,8 @@ function agregarFieldExpierncia(event){
                     <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
                     <label><b>Cargo:</b> ${exp.cargo}</label><br>
                     <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
+                    
             
-            <button type="button" class="btn btn-primary" onclick="eliminarExperiencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
         </div>
         
         `
@@ -280,11 +281,12 @@ function agregarFieldExpierncia(event){
     cont_experiencia++;
     modalExperiencia.hide()
 }
-function eliminarExperiencia(event) {
+function eliminarExperiencia(index) {
     //eliminar del array
-    experiencias[event.target.parentElement.id.split("-")[1]]=null
+    experiencias[index]=null
     //eliminar en html
-    event.target.parentElement.remove()
+    document.getElementById("exp-"+index).remove()
+    //event.target.parentElement.remove()
 }
 /*---------------Estudios---------------------------*/
 
@@ -365,14 +367,14 @@ function agregarFieldEstudio(){
         if(est==null) continue;
         content += `
         <div class="col border border-3" id="est-${index}">
-            <h4><center>Estudio</center></h4>
+        <center><h4>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h4></center>
             <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
             <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
             <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
             <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
             <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
             <label><b>Estado:</b> ${est.estado}</label><br>
-            <button type="button" class="btn btn-primary" onclick="eliminarEstudio(event)">Eliminar</button>
+            
         </div>
         
         `
@@ -386,11 +388,11 @@ function agregarFieldEstudio(){
     modalEstudio.hide()
 }
 
-function eliminarEstudio(event) {
+function eliminarEstudio(index) {
     //eliminar del array
-    estudios[event.target.parentElement.id.split("-")[1]]=null
+    estudios[index]=null
     //eliminar en html
-    event.target.parentElement.remove()
+    document.getElementById("est-"+index).remove()
 }
 /*------------Cargos----------------------------------------*/
 function agregarFieldCargo(){
@@ -449,9 +451,9 @@ function agregarFieldCargo(){
         const car = postulaciones[index];
         if(car==null) continue;
         content1 += `
-        <div class="col border border-3" id="car-${index}" style="text-transform: uppercase;">
-            <label>${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}</label><br>        
-            <button  type="button" class="btn btn-primary" onclick="eliminarCargoPostulante(event)">Eliminar</button><br>
+        <div class="col-auto" id="car-${index}" style="text-transform: uppercase;">
+            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<i class="bi bi-trash-fill" onclick="eliminarCargoPostulante(event)"></i>     
+            
         </div>
 
         `
@@ -523,12 +525,13 @@ function agregarFieldReferencia(event){
         const exp = referencias[index];
         if(exp==null) continue;
         content += `
-        <div class="col border border-3" id="exp-${index}"> 
-            <h4><center>Referencia Personal</center></h4>       
+        <div class="col border border-3" id="ref-${index}">
+        <center><h4>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h4></center> 
+            
             <label><b>Nombre:</b> ${exp.nombre}</label><br>
             <label><b>Telefono:</b> ${exp.telefono}</label><br>
             <label><b>Relacion:</b> ${exp.relacion}</label><br>
-            <button type="button" class="btn btn-primary" onclick="eliminarReferencia(event)"> <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+            
         </div>
         
         `
@@ -539,13 +542,13 @@ function agregarFieldReferencia(event){
     //div.appendChild(div1);
     cont_referencias++;
     formexp.classList.remove('was-validated')
-    modalExperiencia.hide()
+    modalReferencia.hide()
 }
-function eliminarReferencia(event) {
+function eliminarReferencia(index) {
     //eliminar del array
-    referencias[event.target.parentElement.id.split("-")[1]]=null
+    referencias[index]=null
     //eliminar en html
-    event.target.parentElement.remove()
+    document.getElementById("ref-"+index).remove()
 }
 /*--------------Form submit----------------------------- */
 function serializeJSON (form) {
