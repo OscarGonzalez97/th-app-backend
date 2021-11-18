@@ -145,6 +145,16 @@ function agregarFieldTecnologia(){
         return;
     }
 
+    for(let i=0;i<cont_tecnologia;i++){
+        if(tecnologias[i]!==null){
+            if(tecnologias[i]["tecnologia"]["id"]==formData.get("tecnologia-id")){
+                alert("Ya has agregado esa tecnologia!")
+                //cont_cargo--;
+                return;
+            }
+        }
+    }
+
     for (const [name, value] of formData){
         pairs[name] = value
     }
@@ -165,10 +175,7 @@ function agregarFieldTecnologia(){
         if(tecn==null) continue;
         content1 += `
         <div class="col-auto" id="tecn-${index}">
-        ${tecn.tecnologia.nombre} ( ${tecn.nivel} <i class="bi bi-star-fill"></i> ) &nbsp; <i class="bi bi-trash-fill" onclick="eliminarTecnologia(event)"></i>       
-            
-            
-            
+        ${tecn.tecnologia.nombre} ( ${tecn.nivel} <i class="bi bi-star-fill"></i> ) &nbsp; <i class="bi bi-trash-fill" onclick="eliminarTecnologia(event)"></i>             
         </div>
         
         `
@@ -261,17 +268,23 @@ function agregarFieldExpierncia(event){
         content += `
         <div class="col border border-3" id="exp-${index}">
                     <center><h4>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h4></center>
-                    <label><b>Institucion:</b> ${exp.institucion}</label><br>  
-                    <label><b>Fecha Inicio:</b> ${exp.fechaDesde}</label><br>
-                    <label><b>Fecha Fin:</b> ${exp.fechaHasta}</label><br>
-                    <label><b>Referencia:</b> ${exp.nombreReferencia}</label><br>
-                    <label><b>Telefono de la referencia:</b> ${exp.telefonoReferencia}</label><br>
-                    <label><b>Cargo:</b> ${exp.cargo}</label><br>
-                    <label><b>Motivo de salida:</b> ${exp.motivoSalida}</label><br>
-                    
-            
+                    <dl class="row row-cols-md-2 gx-0 gy-2">
+                        <dt class="col-sm-auto text-start">Institucion</dt>
+                        <dd class="col-sm-6 text-start">${exp.institucion}</dd>
+                        <dt class="col-sm-auto text-start">Cargo</dt>
+                        <dd class="col-sm-6 text-start">${exp.cargo}</dd>
+                        <dt class="col-sm-auto text-start">Referencia</dt>
+                        <dd class="col-sm-6 text-start">${exp.nombreReferencia}</dd>
+                        <dt class="col-sm-auto text-start">Telf. Referencia</dt>
+                        <dd class="col-sm-6 text-start">${exp.telefonoReferencia}</dd>
+                        <dt class="col-sm-auto text-start">Fecha Inicio</dt>
+                        <dd class="col-sm-6 text-start">${exp.fechaDesde}</dd>
+                        <dt class="col-sm-auto text-start">Fecha Fin</dt>
+                        <dd class="col-sm-6 text-start">${exp.fechaHasta}</dd>
+                        <dt class="col-sm-auto text-start">Motivo de salida</dt>
+                        <dd class="col-sm-6 text-start">${exp.motivoSalida}</dd>
+                    </dl>
         </div>
-        
         `
     }
     //content += "</ul>" 
@@ -368,12 +381,20 @@ function agregarFieldEstudio(){
         content += `
         <div class="col border border-3" id="est-${index}">
         <center><h4>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h4></center>
-            <label><b>Institucion:</b> ${est.institucion.nombre}</label><br>
-            <label><b>Tipo de estudio:</b> ${est.tipoDeEstudio}</label><br>  
-            <label><b>Carrera:</b> ${est.temaDeEstudio}</label><br>     
-            <label><b>Fecha Inicio:</b> ${est.fechaDesde}</label><br>
-            <label><b>Fecha Fin:</b> ${est.fechaHasta}</label><br>
-            <label><b>Estado:</b> ${est.estado}</label><br>
+        <dl class="row row-cols-md-2 gx-0 gy-2">
+            <dt class="col-sm-auto text-start">Institucion</dt>
+            <dd class="col-sm-6 text-start">${est.institucion.nombre}</dd>
+            <dt class="col-sm-auto text-start">Tipo de estudio</dt>
+            <dd class="col-sm-6 text-start">${est.tipoDeEstudio}</dd>
+            <dt class="col-sm-auto text-start">Carrera</dt>
+            <dd class="col-sm-6 text-start">${est.temaDeEstudio}</dd>
+            <dt class="col-sm-auto text-start">Fecha Inicio</dt>
+            <dd class="col-sm-6 text-start">${est.fechaDesde}</dd>
+            <dt class="col-sm-auto text-start">Fecha Fin</dt>
+            <dd class="col-sm-6 text-start">${est.fechaHasta}</dd>
+            <dt class="col-sm-auto text-start">Estado</dt>
+            <dd class="col-sm-6 text-start">${est.estado}</dd>
+        </dl>
             
         </div>
         
@@ -527,11 +548,14 @@ function agregarFieldReferencia(event){
         content += `
         <div class="col border border-3" id="ref-${index}">
         <center><h4>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h4></center> 
-            
-            <label><b>Nombre:</b> ${exp.nombre}</label><br>
-            <label><b>Telefono:</b> ${exp.telefono}</label><br>
-            <label><b>Relacion:</b> ${exp.relacion}</label><br>
-            
+            <dl class="row row-cols-sm-2">
+                <dt class="col-sm-auto text-start">Nombre</dt>
+                <dd class="col-sm text-start">${exp.nombre}</dd>
+                <dt class="col-sm-auto text-start">Telefono</dt>
+                <dd class="col-sm text-start">${exp.telefono}</dd>
+                <dt class="col-sm-auto text-start">Relacion</dt>
+                <dd class="col-sm text-start">${exp.relacion}</dd>
+            </dl>
         </div>
         
         `
