@@ -149,7 +149,7 @@
                                     <input class="form-control" type="file" id="cvFile">
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
-                                  <button type="button" class="btn btn-primary"><span class="add-experience" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cargoForm"><span class="add-experience"><i  class="fa fa-plus"></i>&nbsp;Agregar Cargo al que postulas</span></button><br>
                                   <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
                                     *Agrega por lo menos un cargo
                                   </p>   

@@ -1,11 +1,17 @@
 package com.roshka.controller;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.roshka.modelo.Cargo;
 import com.roshka.repositorio.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,10 +33,13 @@ public class CargoController {
     }
 
     @RequestMapping("/cargos")
-    public String menuCargos(Model model,
-                            @RequestParam(required = false) String nombre
-                            ) {
-        if(nombre == null || nombre.trim().isEmpty()) model.addAttribute("cargos", cargoRepo.findAll());
+    public String menuCargos(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
+        final Integer CANTIDAD_POR_PAGINA = 1;
+        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
+        Page<Cargo> CargoPag=cargoRepo.findAllCargo(page);
+        List<Cargo> cargo = CargoPag.getContent();
+        model.addAttribute("pages", CargoPag.getTotalPages()); 
+        if(nombre == null || nombre.trim().isEmpty()) model.addAttribute("cargos", cargo);
         else model.addAttribute("cargos", cargoRepo.findByNombreContainingIgnoreCase(nombre));
         return "cargos";
     }
