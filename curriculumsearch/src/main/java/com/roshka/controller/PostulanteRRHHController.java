@@ -137,7 +137,7 @@ public class PostulanteRRHHController {
         postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
         post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId);
         //post.save(postulanteVd);
-        return "redirect:/postulante/"+postulanteId;
+        return "redirect:/postulantes/"+postulanteId;
     }
 
     @GetMapping("/postulantes/cvFile/{fileId}")
