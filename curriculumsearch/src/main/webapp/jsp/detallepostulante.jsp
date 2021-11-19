@@ -132,7 +132,7 @@
                     <hr>
                     <div class="row">
                       <div class="col">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#estadoModalLong">Actualizar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Actualizar</button>
                       </div>
                       <c:choose>
          
@@ -338,7 +338,7 @@
       <div class="modal-content">
           <div class="modal-header">
           <h5 class="modal-title" id="estadorrhhModal">Estado</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
           </div>
@@ -366,7 +366,7 @@
               </form:form> 
           </div>
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           </div>
       </div>
       </div>
