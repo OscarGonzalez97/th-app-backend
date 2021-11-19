@@ -306,10 +306,7 @@
                                               <h6 class="mb-0">Estado</h6>
                                               <span class="text-secondary">${detalle_estudios.getEstado()}</span>
                                           </li>
-                                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                              <h6 class="mb-0">SubNombre</h6>
-                                              <span class="text-secondary">${detalle_estudios.getInstitucion().getSubNombre()}</span>
-                                          </li>
+                                          
                                           
                                           
                                       </ul>

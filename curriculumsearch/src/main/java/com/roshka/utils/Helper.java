@@ -32,6 +32,7 @@ public class Helper {
     }
 
     public static final long getMonthsDifference(Date date1, Date date2) {
+        if(date2==null) date2 = new Date();
         YearMonth m1 = YearMonth.from(date1.toInstant().atZone(ZoneOffset.UTC));
         YearMonth m2 = YearMonth.from(date2.toInstant().atZone(ZoneOffset.UTC));
     
