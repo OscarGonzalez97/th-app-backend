@@ -13,6 +13,7 @@
     <title>Curriculum</title>
     <link href="../css/formPostulanteStyle.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="icon" href="../img/LogoRoshka.ico">
   </head>
 
   <body class="container">
@@ -143,53 +144,30 @@
                                     <input class="form-control" type="file" id="cvFile">
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
+                                  <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                    <div class="row w-100 p-3 gy-2 mx-auto">
                                       <div class="col-12">
-                                        
                                         <h3>Cargos <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h3>	
-                                        
-
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos">
-                                          
                                         </div>
                                       </div>
                                       <div class="col-12">
-                                        <p id="no-valid-cargo" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                        <p id="no-valid-cargo" style="display: none; color: red;" class="text-center">
                                           *Agrega por lo menos un cargo
                                         </p>
                                       </div>
-                                      
-                                    
                                     </div>
                                   </div>
                                   
-                                  
-                                  
-
-                                  <!-- Button Agregar Experiencia -->
-                                  <div class="inputs mb-3 col-md-12">
-
-                                    <div class="row w-100 p-3 gy-2 border mx-auto">
-                                      <div class="col-12">
-                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
-                                      </div>
-                                      <div class="col-12">
-                                        <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
-                                          
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  
-                                    
                                   <!-- Button Agregar Estudio -->
+                                  <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                    <div class="row w-100 p-3 gy-2 mx-auto">
                                       <div class="col-12">
                                         <h3>Estudios <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h3>	
                                       </div>
@@ -201,12 +179,12 @@
                                     </div>
                                   </div>
                                   
-                            
-                               
+
                                   <!-- Button Agregar Tecnologia -->
+                                  <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 border mx-auto">
+                                    <div class="row w-100 p-3 gy-2 mx-auto">
                                       <div class="col-12">
                                         
                                         <h3>Tecnologias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h3>	
@@ -218,7 +196,7 @@
                                         
                                       </div>
                                       <div class="col-12">
-                                        <p id="no-valid-tecno" style="display: none; color: darkred; border: solid 1px darkred; border-radius: 25px; width: 75%" class="m-3">
+                                        <p id="no-valid-tecno" style="display: none; color: red;" class="text-center">
                                           *Agrega por lo menos una tecnologia
                                         </p>   
                                       </div>
@@ -226,15 +204,26 @@
                                     
                                     </div>
                                   </div>
-                                  
-                                  
-                                  
-                                  
 
-                                  <!-- Button Agregar Refencia personal -->
+                                  <!-- Button Agregar Experiencia -->
+                                  <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row  w-100 p-3 gy-2 border mx-auto">
+                                    <div class="row w-100 p-3 gy-2 mx-auto">
+                                      <div class="col-12">
+                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Button Agregar Refencia personal -->
+                                  <hr>
+                                  <div class="inputs mb-3 col-md-12">
+                                    <div class="row  w-100 p-3 gy-2 mx-auto">
                                       <div class="col-12">
                                         <h3>Referencia Personal <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h3>	
                                       </div>
@@ -263,7 +252,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -295,7 +284,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -370,7 +359,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -408,7 +397,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Estudios</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -477,7 +466,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Referencias Personales</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

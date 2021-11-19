@@ -266,7 +266,7 @@ function agregarFieldExpierncia(event){
         const exp = experiencias[index];
         if(exp==null) continue;
         content += `
-        <div class="col border border-3" id="exp-${index}">
+        <div class="col border border-3 rounded" id="exp-${index}">
                     <center><h4>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h4></center>
                     <dl class="row row-cols-md-2 gx-0 gy-2">
                         <dt class="col-sm-auto text-start">Institucion</dt>
@@ -379,7 +379,7 @@ function agregarFieldEstudio(){
         const est = estudios[index];
         if(est==null) continue;
         content += `
-        <div class="col border border-3" id="est-${index}">
+        <div class="col border border-3 rounded" id="est-${index}">
         <center><h4>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h4></center>
         <dl class="row row-cols-md-2 gx-0 gy-2">
             <dt class="col-sm-auto text-start">Institucion</dt>
@@ -473,7 +473,7 @@ function agregarFieldCargo(){
         if(car==null) continue;
         content1 += `
         <div class="col-auto" id="car-${index}" style="text-transform: uppercase;">
-            ${document.querySelector('[name=cargo-id] > option[value="'+car.id+'"]').innerHTML}<i class="bi bi-trash-fill" onclick="eliminarCargoPostulante(event)"></i>     
+            ${document.querySelector('[name=cargo-id] >  option[value="'+car.id+'"]').innerHTML} &nbsp;<i class="bi bi-trash-fill" onclick="eliminarCargoPostulante(event)"></i>     
             
         </div>
 
@@ -546,7 +546,7 @@ function agregarFieldReferencia(event){
         const exp = referencias[index];
         if(exp==null) continue;
         content += `
-        <div class="col border border-3" id="ref-${index}">
+        <div class="col border border-3 rounded" id="ref-${index}">
         <center><h4>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h4></center> 
             <dl class="row row-cols-sm-2">
                 <dt class="col-sm-auto text-start">Nombre</dt>

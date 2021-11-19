@@ -40,6 +40,6 @@
         </div>
     </layout:put>
     <layout:put block="scripts" type="APPEND">
-
+       
     </layout:put>
 </layout:extends>

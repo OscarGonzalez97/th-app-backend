@@ -1,11 +1,17 @@
 package com.roshka.utils;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.YearMonth;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+
+import com.roshka.modelo.DBFile;
+
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 public class Helper {
     /**
@@ -31,4 +37,29 @@ public class Helper {
     
         return m1.until(m2, ChronoUnit.MONTHS) + 1;
     }
+
+    public static DBFile createFile(MultipartFile file) {
+        // Normalize file name
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        try {
+            // Check if the file's name contains invalid characters
+            if(fileName.contains("..")) {
+                throw new Exception("Sorry! Filename contains invalid path sequence " + fileName);
+            }
+            if(file.getSize()==0)  throw new Exception("Sorry! File cant be void");;
+
+            DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getBytes());
+
+            return dbFile;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
 }
