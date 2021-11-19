@@ -21,9 +21,9 @@
                     <div class="card-body p-5 text-center">
 
                         <form:form method="post" action="/login">
-                            <h3 class="mb-5">Ingresar</h3>
+                            <h3>Ingresar</h3>
                             <div align="center">
-                                <img src="../img/LogoRoshka.jpg" class="rounded img-fluid" id="image" style="width:auto;height:auto;" alt=""/>
+                                <img src="../img/LogoRoshka.ico" class="rounded img-fluid" id="image" style="width:auto;height:auto;" alt=""/>
                             </div>
                             <div class="form-outline mb-4">
                                 <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" placeholder="example@example.com"/>
