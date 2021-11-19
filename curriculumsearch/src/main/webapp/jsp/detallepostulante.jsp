@@ -154,7 +154,7 @@
                     <div class="col-md-6">
                         <div class="card h-100">
                             <div class="card-body">
-                              <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Tecnologias</i></h6>
+                              <h6 class="text-start fw-bold">Tecnologias</h6>
                                 <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
                                     <small>${detalle_tecnologia.getTecnologia().getNombre()}</small>
                                     <div class="progress mb-3" style="height: 5px">
@@ -162,7 +162,7 @@
                                     </div>
                                 </c:forEach>
                                 <hr>
-                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Cargos al que postula</i></h6>
+                                <h6 class="text-start fw-bold">Cargos al que postula</h6>
                             <ul class="list-group list-group-flush">
                                 <c:forEach items="${postulante.postulaciones}" var="convocatoria">
 
@@ -185,7 +185,21 @@
                             <div class="carousel-inner">
                                 
                                 
-                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Experiencias</i></h6>
+                              <h6 class="d-flex justify-content-between fw-bold px-1">
+                                <c:choose>
+                                  <c:when test="${postulante.experiencias.size() > 1}">
+                                    <i class="bi bi-arrow-left-circle-fill" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"></i>
+                                    Experiencias
+                                    <i class="bi bi-arrow-right-circle-fill" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></i>
+                                  </c:when>
+                                  <c:otherwise>
+                                    Experiencias
+                                  </c:otherwise>
+
+                                </c:choose>
+                                
+
+                              </h6>
                                 <c:forEach items="${postulante.experiencias}" var="detalle_experiencia" varStatus="status">
                                     <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
@@ -232,14 +246,8 @@
                                     
                               
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
+                            
+
                           </div>
                            </div>
                           </div>
@@ -251,8 +259,20 @@
                           
                           <div class="carousel-inner">
                               
-                              
-                              <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Estudios</i></h6>
+                            <h6 class="d-flex justify-content-between fw-bold px-1">
+
+                              <c:choose>
+                                    <c:when test="${postulante.experiencias.size() > 1}">
+                                      <i class="bi bi-arrow-left-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev"></i>
+                                      Estudios
+                                      <i class="bi bi-arrow-right-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                      Estudios
+                                    </c:otherwise>
+  
+                                  </c:choose>
+                            </h6>
                               <c:forEach items="${postulante.estudios}" var="detalle_estudios" varStatus="status">
                                   <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
@@ -299,14 +319,7 @@
                                   
                             
                           </div>
-                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                          </button>
+                          
                         </div>
                          </div>
                         </div>
@@ -314,7 +327,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Referencias Personales</i></h6>
+                              <h6 class="text-start fw-bold">Referencias Personales</h6>
                             <ul class="list-group list-group-flush">
                                 <c:forEach items="${postulante.referencias}" var="referencia">
 
