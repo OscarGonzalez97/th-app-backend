@@ -132,7 +132,7 @@
                     <hr>
                     <div class="row">
                       <div class="col">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Actualizar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Agregar observacion</button>
                       </div>
                       <c:choose>
          
@@ -240,8 +240,8 @@
                                             
                                             
                                         </ul>
-                                    </div>
-                                </c:forEach>
+                                      </div>
+                                      </c:forEach>
                                         
                                     
                               
@@ -349,6 +349,7 @@
     <div class="modal fade" id="estadoModalLong" tabindex="-1" role="dialog" aria-labelledby="estadorrhhModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
       <div class="modal-content">
+        <form:form class="needs-validation" method="post" modelAttribute="postulante">
           <div class="modal-header">
           <h5 class="modal-title" id="estadorrhhModal">Estado</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -356,7 +357,6 @@
           </button>
           </div>
           <div class="modal-body">
-              <form:form class="needs-validation" method="post" modelAttribute="postulante">
                   <form:label path="estadoPostulante" class="form-label">Estado</form:label>
                   <div class="inputs">
                       <form:select class="form-select" path="estadoPostulante" aria-label="Default select example">
@@ -374,13 +374,14 @@
                   <div class="inputs">
                       <form:label path="comentarioRRHH" class="form-label">ComentarioRRHH</form:label>
                       <form:textarea  class="form-control" path="comentarioRRHH" id="comentarioRRHH"></form:textarea>
-                  </div>
-                  <input type="submit" value="Guardar"/>
+                  </div><br>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                </div>
               </form:form> 
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          </div>
       </div>
       </div>
   </div>  

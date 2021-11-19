@@ -5,12 +5,15 @@
 body{
     background-image:url(/img/FondoRoshka.jpg);
     background-size:cover;
+    background-position: center;
     background-repeat:no-repeat;
-    overflow: hidden;
+    background-attachment: fixed;
+    /* overflow: hidden; */
     height:100%;width:100%; 
     align-items:"middle";
     position: absolute;
 }
+
 #form{max-width:333px;
     width:90%;position:relative;
     left:50%;

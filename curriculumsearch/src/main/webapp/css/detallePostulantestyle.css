@@ -35,7 +35,7 @@ header{
 }
 section{
     background-image:url(/img/fondoBlanco.jpg);
-    
+    background-attachment: fixed;
     display: flex;
     
 }
