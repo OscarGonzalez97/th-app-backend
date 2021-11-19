@@ -1,6 +1,9 @@
 package com.roshka.repositorio;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -11,4 +14,8 @@ public interface TecnologiaRepository extends JpaRepository<Tecnologia,Long> {
 	public List<Tecnologia> findByNombreContainingIgnoreCase(String nombre);
 
 	public boolean existsByNombreIgnoreCase(String nombre);
+	
+
+	@Query(value = "SELECT * FROM tecnologia",nativeQuery = true)
+	public Page<Tecnologia> findAllTecnologia(Pageable pageable );
 }

@@ -91,7 +91,7 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
-        final Integer CANTIDAD_POR_PAGINA = 5;
+        final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("disponibilidades", Disponibilidad.values());

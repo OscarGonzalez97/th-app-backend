@@ -1,5 +1,7 @@
 package com.roshka.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.roshka.modelo.Tecnologia;
@@ -15,6 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 @Controller
 public class TecnologiaController {
@@ -38,10 +44,13 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
 }
 
 @RequestMapping("/tecnologias")
-    public String menuTecnologias(Model model,
-                            @RequestParam(required = false) String nombre
-                            ) {
-        if(nombre == null || nombre.trim().isEmpty()) model.addAttribute("tecnologias", tecRepo.findAll());
+    public String menuTecnologias(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
+        final Integer CANTIDAD_POR_PAGINA = 10;
+        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
+        Page<Tecnologia> tecnologiaPag=tecRepo.findAllTecnologia(page);
+        List<Tecnologia> tecnologia = tecnologiaPag.getContent();
+        model.addAttribute("pages", tecnologiaPag.getTotalPages());
+        if(nombre == null || nombre.trim().isEmpty()) model.addAttribute("tecnologias", tecnologia);
         else model.addAttribute("tecnologias", tecRepo.findByNombreContainingIgnoreCase(nombre));
         return "tecnologias";
     }
