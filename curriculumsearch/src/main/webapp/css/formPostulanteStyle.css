@@ -197,3 +197,10 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 .content-select:hover i{
 	margin-top: 3px;
 }
+
+h4{
+    color: #5e5b5b;
+    text-transform: capitalize;
+    
+    font-size: large;
+}

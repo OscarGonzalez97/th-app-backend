@@ -28,7 +28,7 @@
                               <div class="d-flex flex-row justify-content-center mb-3">
                                 
                               </div>
-                              <h4>Datos Personales</h4>
+                              <h4 class="text-start">Datos Personales</h4>
                               <div class="row">
                                   
 
@@ -147,9 +147,9 @@
                                   <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 mx-auto">
-                                      <div class="col-12">
-                                        <h3>Cargos <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h3>	
+                                    <div class="row w-100 gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        <h4 class="text-start">Cargos <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos">
@@ -167,9 +167,9 @@
                                   <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 mx-auto">
-                                      <div class="col-12">
-                                        <h3>Estudios <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h3>	
+                                    <div class="row w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        <h4 class="text-start">Estudios <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="estudios">
@@ -184,10 +184,10 @@
                                   <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 mx-auto">
-                                      <div class="col-12">
+                                    <div class="row w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
                                         
-                                        <h3>Tecnologias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h3>	
+                                        <h4 class="text-start">Tecnologias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         
@@ -209,9 +209,9 @@
                                   <hr>
                                   <div class="inputs mb-3 col-md-12">
 
-                                    <div class="row w-100 p-3 gy-2 mx-auto">
-                                      <div class="col-12">
-                                        <h3>Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h3>	
+                                    <div class="row w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        <h4 class="text-start">Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
@@ -223,9 +223,9 @@
                                   <!-- Button Agregar Refencia personal -->
                                   <hr>
                                   <div class="inputs mb-3 col-md-12">
-                                    <div class="row  w-100 p-3 gy-2 mx-auto">
-                                      <div class="col-12">
-                                        <h3>Referencia Personal <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h3>	
+                                    <div class="row  w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="referencia">

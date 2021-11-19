@@ -267,7 +267,7 @@ function agregarFieldExpierncia(event){
         if(exp==null) continue;
         content += `
         <div class="col border border-3 rounded" id="exp-${index}">
-                    <center><h4>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h4></center>
+                    <center><h5>Experiencia <i class="bi bi-trash-fill" onclick="eliminarExperiencia(${index})"></i></h5></center>
                     <dl class="row row-cols-md-2 gx-0 gy-2">
                         <dt class="col-sm-auto text-start">Institucion</dt>
                         <dd class="col-sm-6 text-start">${exp.institucion}</dd>
@@ -380,7 +380,7 @@ function agregarFieldEstudio(){
         if(est==null) continue;
         content += `
         <div class="col border border-3 rounded" id="est-${index}">
-        <center><h4>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h4></center>
+        <center><h5>Estudio <i class="bi bi-trash-fill" onclick="eliminarEstudio(${index})"></i></h5></center>
         <dl class="row row-cols-md-2 gx-0 gy-2">
             <dt class="col-sm-auto text-start">Institucion</dt>
             <dd class="col-sm-6 text-start">${est.institucion.nombre}</dd>
@@ -547,7 +547,7 @@ function agregarFieldReferencia(event){
         if(exp==null) continue;
         content += `
         <div class="col border border-3 rounded" id="ref-${index}">
-        <center><h4>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h4></center> 
+        <center><h5>Referencia Personal <i class="bi bi-trash-fill" onclick="eliminarReferencia(${index})"></i></h5></center> 
             <dl class="row row-cols-sm-2">
                 <dt class="col-sm-auto text-start">Nombre</dt>
                 <dd class="col-sm text-start">${exp.nombre}</dd>
