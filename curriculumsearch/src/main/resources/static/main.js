@@ -223,11 +223,11 @@ function agregarFieldExpierncia(event){
     let pos_rec;
     let returnFlag = false;
 
-    let requiredValues = ["institucion", "cargo", "fechaDesde"]
+    let requiredValues = ["institucion", "cargo", "fechaDesde", "descripcion"]
 
     formData.forEach((value, key)=>{
         if(requiredValues.includes(key)
-        && value==="" && returnFlag == false){
+        && value.trim()==="" && returnFlag == false){
             console.log(key, value)
             returnFlag = true;
         }

@@ -316,7 +316,7 @@
 
                         <div class="inputs">
                           <label for="descripcion" class="form-label">Descripcion</label>
-                          <textarea  class="form-control  " name="descripcion" id="descripcion"> </textarea>
+                          <textarea  class="form-control" name="descripcion" id="descripcion" required></textarea>
 
                         </div>
                         <div class="inputs">
