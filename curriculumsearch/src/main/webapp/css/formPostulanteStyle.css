@@ -5,6 +5,7 @@ body {
     background-repeat:repeat;
     height:100vh;width:100vw;  
     align-items:"middle";
+    background-attachment: fixed;
     
 }
 #head{text-align:center}
