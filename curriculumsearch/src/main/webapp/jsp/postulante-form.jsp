@@ -152,7 +152,7 @@
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>	
+                                        <h4 class="text-start">Cargos <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos">
@@ -172,7 +172,7 @@
 
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Estudios <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h4>	
+                                        <h4 class="text-start">Estudios <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="estudios">
@@ -190,7 +190,7 @@
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
                                         
-                                        <h4 class="text-start">Tecnologias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
+                                        <h4 class="text-start">Tecnologias <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         
@@ -214,7 +214,7 @@
 
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Experiencias <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h4>	
+                                        <h4 class="text-start">Experiencias <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
@@ -228,7 +228,7 @@
                                   <div class="inputs mb-3 col-md-12">
                                     <div class="row  w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
+                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="referencia">
@@ -242,8 +242,8 @@
                         
                                 
                                 <div class="mt-3 gap-2 d-flex justify-content-end">
-                                  <a class="px-3 btn btn-sm btn-outline-primary" href="/work-with-us">Cancelar</a>
-                                  <button class="px-3 btn btn-sm btn-primary" type="submit">Guardar</button>
+                                  <a class="px-3 btn btn-sm btn-light" href="/work-with-us">Cancelar</a>
+                                  <button class="px-3 btn btn-sm btn-light" type="submit">Guardar</button>
                                 </div>
                               </div>
                           </div>
