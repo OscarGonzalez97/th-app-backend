@@ -23,7 +23,7 @@ import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.InstitucionRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
-
+import com.roshka.utils.Helper;
 
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.IntegerType;
@@ -95,30 +95,7 @@ public class PostulanteController {
         return "postulante-form";
     }
 
-    private DBFile createFile(MultipartFile file) {
-        // Normalize file name
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-        try {
-            // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
-                throw new Exception("Sorry! Filename contains invalid path sequence " + fileName);
-            }
-            if(file.getSize()==0)  throw new Exception("Sorry! File cant be void");;
-
-            DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getBytes());
-
-            return dbFile;
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
+    
     @PostMapping(value = "/work-with-us",consumes = "multipart/form-data")
     public RedirectView guardarPostulante(@RequestPart(name = "file",required = false) MultipartFile file,@RequestPart("postulante") Postulante postulante, RedirectAttributes redirectAttributes){
         //Codigo encargado de modificar postulacion si se envia mismo CI
@@ -138,7 +115,7 @@ public class PostulanteController {
 
         }
         if(file!=null){
-            DBFile cv = createFile(file);
+            DBFile cv = Helper.createFile(file);
             if(cv!=null) cv.setPostulante(postulante);
             postulante.setCvFile(cv);
         }

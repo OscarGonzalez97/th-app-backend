@@ -197,7 +197,7 @@
                               </c:forEach>
                           </td>
                           <td>${postulante.estado.getEstado()}</td>
-                          <td><a href="/postulantes/${postulante.id}">Ver</a></td>
+                          <td><a href="/postulantes/${postulante.id}"><i class="bi bi-eye-fill"></i></a></td>
                       </tr>
                   </c:forEach>
                 </tbody>
