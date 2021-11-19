@@ -50,7 +50,7 @@
                     Disponibilidad: ${postulante.disponibilidad}
                 </li>
                 <li>
-                    Resumen: ${postulante.resumen}
+                    Direccion: ${postulante.direccion}
                 </li>
             </ul>
             <br>

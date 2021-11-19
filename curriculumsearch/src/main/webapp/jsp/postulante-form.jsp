@@ -14,6 +14,7 @@
     <link href="../css/formPostulanteStyle.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="icon" href="../img/LogoRoshka.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shippori+Antique+B1">
   </head>
 
   <body class="container">
@@ -22,9 +23,9 @@
 
       </div>
     </div>
-    <form name="postulante" method="post" class="needs-validation" novalidate>
-                      <div class="container mt-3">
-                          <div class="card p-3 text-center">
+    <form name="postulante" method="post" class="needs-validation" novalidate >
+                      <div class="container mt-3" style="background-color:#ffff; background: #5791EE40;">
+                          <div class="card p-3 text-center" style="background-color:#ffff; background: #5791EE40;">
                               <div class="d-flex flex-row justify-content-center mb-3">
                                 
                               </div>
@@ -81,7 +82,7 @@
                                       <c:forEach items="${departamentos}" var="departamentos">
                                         <option value="${departamentos.getId()}">${departamentos.getNombre()}</option>
                                       </c:forEach>
-                                    
+                                      
                                     </select> 
                                   </div>
 
@@ -89,30 +90,36 @@
                                     <label for="ciudad" class="form-label"> Ciudad</label> 
                                     <select name="ciudadId" id="ciudad" class="bg-light">
                                       
-                                    
+                                      
                                     </select> 
                                   </div>
+                                  
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="direccion" class="form-label">direccion</label>
+                                    <input type="text" name="direccion" class="form-control  " id="direccion" required> </textarea>
+                                  </div>
+                                  
+                                  
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="telefono" class="form-label">Telefono</label>
                                     <input type="number" name="telefono" class="form-control  " id="telefono" required>
                                     
                                   </div>
-
+                                  
                                   <div class="inputs mb-3 col-md-6">
                                     <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
                                     <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
                                     
                                   </div>
-
-                                  <div class="about-inputs  mb-3 col-md-12 center">
-                                    <label for="resumen" class="form-label">Resumen</label>
-                                    <textarea  class="form-control center  " name="resumen" id="resumen" required > </textarea>
-                                    
-                                    
+                                  
+                                  <div class="inputs mb-3 col-md-6">
+                                    <label for="formFile" class="form-label">Cargar cv</label>
+                                    <input class="form-control" type="file" id="cvFile">
                                   </div>
-                              
+                                  
+                                  <br>
                         
-                                  <div class="inputs mb-3 col-md-3"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
+                                  <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
                                     <option value="1" selected>Ingles muy basico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
@@ -122,7 +129,7 @@
                                     </select> 
                                   </div>
                                 
-                                  <div class="inputs mb-3 col-md-3"> 
+                                  <div class="inputs mb-3 col-md-4"> 
                                     <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
                                     <select name="disponibilidad" id="disponibilidad" class="content-select">
                                       <c:forEach items="${disponibilidades}" var="disponibilidad">
@@ -131,17 +138,13 @@
                                     
                                   </select> </div>
                                 
-                                  <div class="inputs mb-3 col-md-3"> 
+                                  <div class="inputs mb-3 col-md-4"> 
                                     <label for="estadoCivil" class="form-label"> Estado Civil</label> 
                                     <select name="estadoCivil" id="estadoCivil" class="content-select">
                                       <c:forEach items="${estadosCiviles}" var="estadoCivil">
                                         <option value="${estadoCivil.getDescripcion()}">${estadoCivil.getDescripcion()}</option>
                                       </c:forEach>
                                     </select> 
-                                  </div>
-                                  <div class="inputs mb-3 col-md-3">
-                                    <label for="formFile" class="form-label">Cargar cv</label>
-                                    <input class="form-control" type="file" id="cvFile">
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
                                   <hr>
@@ -247,7 +250,7 @@
                       </div>
     </form>
     <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
-    <div class="modal fade" id="cargoForm" tabindex="-1" role="dialog" aria-labelledby="cargoForm" aria-hidden="true">
+    <div class="modal fade" id="cargoForm" tabindex="-1" role="dialog" aria-labelledby="cargoForm" aria-hidden="true" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">

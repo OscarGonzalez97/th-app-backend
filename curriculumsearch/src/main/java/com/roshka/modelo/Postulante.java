@@ -64,8 +64,8 @@ public class Postulante {
     @Past(message = "Este campo no puede estar en el futuro")
     private Date fechaNacimiento;
 
-    @Column(name = "resumen")
-    private String resumen;
+    @Column(name = "direccion")
+    private String direccion;
 
     @Column(name = "nivel_ingles")
     @Min(value = 1)
