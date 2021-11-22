@@ -2,7 +2,7 @@ package com.roshka.controller;
 
 
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
 
@@ -134,6 +134,10 @@ public class PostulanteRRHHController {
         //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
         Postulante postulanteVd = post.getById(postulanteId);
         postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
+        //si se le contrata, actualizar la fecha actual
+        if(postulanteVd.getEstadoPostulante() == EstadoPostulante.CONTRATADO){
+            postulanteVd.setFechaContratado(new Date());
+        }
         postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
         post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId);
         //post.save(postulanteVd);

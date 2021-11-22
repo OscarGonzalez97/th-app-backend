@@ -124,11 +124,14 @@ public class Postulante {
     @JsonIgnore
     private DBFile cvFile;
    
-    @Column(name = "created_at")
-    private Date createdAt;
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    @Column(name = "fecha_actualizacion")
+    private Date fechaActualizacion;
+
+    @Column(name = "fecha_contratado")
+    private Date fechaContratado;
     
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
@@ -136,14 +139,14 @@ public class Postulante {
 
     @PrePersist
     public void precargarFechas(){
-        this.createdAt = new Date();
-        this.updatedAt = this.createdAt;
+        this.fechaCreacion = new Date();
+        this.fechaActualizacion = this.fechaCreacion;
         this.estadoPostulante = EstadoPostulante.NUEVO;
         this.comentarioRRHH = null;
     }
     @PreUpdate
     public void actualizarFecha(){
-        this.updatedAt = new Date();
+        this.fechaActualizacion= new Date();
     }
   
    

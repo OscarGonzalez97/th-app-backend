@@ -152,7 +152,7 @@
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>	
+                                        <h4 class="text-start">Cargos</h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row" id="cargos">
