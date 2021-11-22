@@ -8,8 +8,8 @@
 <layout:extends name="layouts/base.jsp">
     <layout:put block="contents" type="REPLACE">
        <div id="element-to-print">
-           <h2 style="text-align: center;">
-               DETALLE POSTULANTE
+           <h2 class="mb-3" style="text-align: center;">
+               Detalle Postulante ${postulante.nombre} ${postulante.apellido}
            </h2>
            <div class="row gy-3">
                <div class="col-md-6">
@@ -154,32 +154,6 @@
                <div class="col-md-6">
                    <div class="row gy-3">
                        <div class="col-md-6">
-                           <div class="card h-100">
-                               <div class="card-body">
-                                   <h6 class="text-start fw-bold">Tecnologias</h6>
-                                   <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
-                                       <small>${detalle_tecnologia.getTecnologia().getNombre()}</small>
-                                       <div class="progress mb-3" style="height: 5px">
-                                           <div class="progress-bar bg-primary" role="progressbar" style="width: ${(detalle_tecnologia.getNivel() / 5) * 100}%" aria-valuenow="${detalle_tecnologia.getNivel()}" aria-valuemin="1" aria-valuemax="5"></div>
-                                       </div>
-                                   </c:forEach>
-                                   <hr>
-                                   <h6 class="text-start fw-bold">Cargos al que postula</h6>
-                                   <ul class="list-group list-group-flush">
-                                       <c:forEach items="${postulante.postulaciones}" var="convocatoria">
-
-                                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                               <h6 class="mb-0">${convocatoria.getCargo().getNombre()}</h6>
-                                               <span class="text-secondary"></span>
-                                           </li>
-                                       </c:forEach>
-
-                                   </ul>
-
-                               </div>
-                           </div>
-                       </div>
-                       <div class="col-md-6">
                            <div class="card">
                                <div class="card-body">
                                    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -203,7 +177,7 @@
 
                                            </h6>
                                            <c:forEach items="${postulante.experiencias}" var="detalle_experiencia" varStatus="status">
-                                               <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
+                                               <div class="pdf-carousel carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
                                                    <ul class="list-group list-group-flush ">
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -240,7 +214,7 @@
                                                            <span class="text-secondary">${detalle_experiencia.getMotivoSalida()}</span>
                                                        </li>
 
-
+                                                       <hr class="lineas-pdf" style="display: none"/>
                                                    </ul>
                                                </div>
                                            </c:forEach>
@@ -264,9 +238,9 @@
                                            <h6 class="d-flex justify-content-between fw-bold px-1">
 
                                                <c:choose>
-                                                   <c:when test="${postulante.experiencias.size() > 1}">
+                                                   <c:when test="${postulante.estudios.size() > 1}">
                                                        <i class="bi bi-arrow-left-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev"></i>
-                                                       Estudios
+                                                       Estudio
                                                        <i class="bi bi-arrow-right-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next"></i>
                                                    </c:when>
                                                    <c:otherwise>
@@ -276,7 +250,7 @@
                                                </c:choose>
                                            </h6>
                                            <c:forEach items="${postulante.estudios}" var="detalle_estudios" varStatus="status">
-                                               <div class="carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
+                                               <div class="pdf-carousel carousel-item  ${status.first ? 'active' : ''}" data-bs-interval="false">
 
                                                    <ul class="list-group list-group-flush ">
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -310,7 +284,7 @@
                                                        </li>
 
 
-
+                                                       <hr class="lineas-pdf" style="display: none"/>
                                                    </ul>
                                                </div>
                                            </c:forEach>
@@ -320,6 +294,32 @@
                                        </div>
 
                                    </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100">
+                               <div class="card-body">
+                                   <h6 class="text-start fw-bold">Tecnologias</h6>
+                                   <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
+                                       <small>${detalle_tecnologia.getTecnologia().getNombre()}</small>
+                                       <div class="progress mb-3" style="height: 5px">
+                                           <div class="progress-bar bg-primary" role="progressbar" style="width: ${(detalle_tecnologia.getNivel() / 5) * 100}%" aria-valuenow="${detalle_tecnologia.getNivel()}" aria-valuemin="1" aria-valuemax="5"></div>
+                                       </div>
+                                   </c:forEach>
+                                   <hr>
+                                   <h6 class="text-start fw-bold">Cargos al que postula</h6>
+                                   <ul class="list-group list-group-flush">
+                                       <c:forEach items="${postulante.postulaciones}" var="convocatoria">
+
+                                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                               <h6 class="mb-0">${convocatoria.getCargo().getNombre()}</h6>
+                                               <span class="text-secondary"></span>
+                                           </li>
+                                       </c:forEach>
+
+                                   </ul>
+
                                </div>
                            </div>
                        </div>
@@ -394,17 +394,31 @@
           document.querySelector('#pdf').addEventListener("click", async ()=>{
               var buttonsRow = document.querySelector('#buttonRow');
               var element = document.getElementById('element-to-print');
+              var carousels = document.querySelectorAll(".pdf-carousel");
+              var hrs = document.querySelectorAll(".lineas-pdf");
               var opt = {
                   margin:       1,
                   filename:     'myfile.pdf',
                   image:        { type: 'jpeg', quality: 0.98 },
                   html2canvas:  { scale: 2 },
-                  jsPDF:        { unit: 'in', format: 'a1', orientation: 'portrait' }
+                  jsPDF:        { unit: 'in', format: 'a2', orientation: 'portrait' }
               };
               buttonsRow.style.display = "none";
+              carousels.forEach((element)=>{
+                 element.classList.remove('carousel-item')
+              });
+              hrs.forEach((element)=>{
+                 element.style.display = "block"
+              });
               await html2pdf().set(opt).from(element).toPdf().save();
               console.log('xd');
               buttonsRow.style.display = "block";
+              carousels.forEach((element)=>{
+                  element.classList.add('carousel-item')
+              });
+              hrs.forEach((element)=>{
+                  element.style.display = "none"
+              });
           })
 
           <%--location.replace("/postulantes/${postulante.id}/")--%>
