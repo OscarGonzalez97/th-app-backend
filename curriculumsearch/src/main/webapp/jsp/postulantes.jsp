@@ -234,12 +234,13 @@
         function buscarPagina(nro){
           nro--
           const aBuscar = 'nroPagina='+nro
-          if(!location.search) location.search = "?"+aBuscar
+          if(!location.search) location.search = aBuscar
           const inicial = location.search.search(aBuscar);
           if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search = "&"+aBuscar
+            location.search += "&"+aBuscar;
           }
           location.search.replace('nroPagina=',aBuscar)
+            console.log(location.search)
         }
         const tecId = document.querySelector("#tecId");
         const lvlTec = document.querySelector("#lvlTec");
