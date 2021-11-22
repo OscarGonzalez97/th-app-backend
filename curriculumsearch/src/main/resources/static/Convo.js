@@ -4,6 +4,10 @@ function listarConvocatorias(id){
     const ConvocatoriaAmostrar = convocatorias.filter(c=>c.cargoId==id);
     const convocatoria = document.querySelector("select[name=convId]");
     const frag = document.createDocumentFragment();
+    let optionDefault = document.createElement("option");
+    optionDefault.value = "";
+    optionDefault.innerHTML = "Seleccione una opcion";
+    frag.appendChild(optionDefault);
     for (const conv of ConvocatoriaAmostrar) {
         const opt = document.createElement("option");    
         opt.value = conv.id;
