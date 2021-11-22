@@ -214,3 +214,60 @@ h4{
 form[name="postulante"]{
     color: #ffffff;
 }
+label:hover {
+    color: #bfbfbf;
+}
+
+.size-placeholder::placeholder{
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    
+ 
+}
+/*Nombre*/
+.name-placeholder::placeholder{
+    background-image: url(../img/placeholder/name_ph.png);
+}
+/*Apellido*/
+.lastname-placeholder::placeholder{
+    background-image: url(../img/placeholder/lastname_ph.png);
+}
+/*Email*/
+.email-placeholder::placeholder{
+    background-image: url(../img/placeholder/email_ph.png);
+}
+/*Numero de documento*/
+#nroDocument::-webkit-outer-spin-button,
+#nroDocument::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#nroDocument[type=number] {
+    -moz-appearance: textfield;
+}
+.nroDocument-ph::placeholder{
+    background-image: url(../img/placeholder/nroDocumento_ph.png);
+    margin-left: 5px;
+}
+/*Direccion*/
+.direccion-ph::placeholder{
+    background-image: url(../img/placeholder/adress_ph.png);
+    background-size: 14px 14px;
+}
+/*Telefono*/
+#telefono::-webkit-outer-spin-button,
+#telefono::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#telefono[type=number] {
+    -moz-appearance: textfield;
+}
+.telefono-ph::placeholder{
+    background-image: url(../img/placeholder/telephone_ph.png);
+    
+    
+} 

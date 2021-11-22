@@ -30,25 +30,26 @@
                                 
                               </div>
                               <h4 class="text-start">Datos Personales</h4>
+                              <h6 class="text-start">Todos los campos con (*) deben estar rellenados</h6>
                               <div class="row">
                                   
 
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
+                                    <label for="nombre" class="form-label">Nombre *</label>
+                                    <input placeholder="Ingrese su nombre" type="text" name="nombre" class="form-control name-placeholder size-placeholder" id="nombre" required>
                                     
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="apellido" class="form-label">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
+                                    <label for="apellido" class="form-label ">Apellido *</label>
+                                    <input placeholder="Ingrese su apellido" type="text" name="apellido" class="form-control lastname-placeholder size-placeholder " id="apellido" required>
                                     
                                   </div>
           
 
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="correo" class="form-label">Email</label>
-                                    <input type="email" name="correo" class="form-control  " id="correo" required>
+                                    <label for="correo" class="form-label">Email *</label>
+                                    <input type="email" placeholder="Ingrese su Email" name="correo" class="form-control email-placeholder size-placeholder  " id="correo" required>
                                     
                                   </div>
 
@@ -65,14 +66,14 @@
                                     <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
                                     <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required>
                                         <option value='CI' selected>C.I</option>
-                                        <option value='PAS'>Pasport</option>
+                                        <option value='PAS'>Passport</option>
                                         <option value='Otro'>Otro</option>
                                     </select> 
                                   </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
                                     <label for="nroDocument" class="form-label">Numero de Documento</label>
-                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
+                                    <input placeholder="Ingrese su numero de documento" type="number" name="nroDocument" class="form-control  nroDocument-ph size-placeholder" id="nroDocument" required>
                                     
                                   </div>
                                   
@@ -95,19 +96,19 @@
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="direccion" class="form-label">direccion</label>
-                                    <input type="text" name="direccion" class="form-control  " id="direccion" required> </textarea>
+                                    <label for="direccion" class="form-label">Direccion *</label>
+                                    <input placeholder="Ingrese su direccion" type="text" name="direccion" class="form-control direccion-ph size-placeholder " id="direccion" required> </textarea>
                                   </div>
                                   
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
+                                    <label for="telefono" class="form-label">Telefono *</label>
+                                    <input placeholder="Ingrese su numero de telefono" type="number" name="telefono" class="form-control telefono-ph size-placeholder" id="telefono" required>
                                     
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento *</label>
                                     <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
                                     
                                   </div>
@@ -121,11 +122,11 @@
                         
                                   <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
-                                    <option value="1" selected>Ingles muy basico</option>
+                                    <option value="1" selected>Conocimiento de ingles muy basico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
-                                    <option value="3" >Puedo leer tranquilamente</option>
-                                    <option value="4" >Puedo escribir documentacion</option>
-                                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
+                                    <option value="3" >Puedo entender todo lo que leo</option>
+                                    <option value="4" >Puedo escribir documentacion en ingles</option>
+                                    <option value="5" >Puedo escribir y hablar fluidamente</option>
                                     </select> 
                                   </div>
                                 
@@ -295,11 +296,11 @@
                 <form name="experiencia-form" class="needs-validation" novalidate>
 
                         <div class="inputs">
-                            <label for="institucionExperiencia" class="inputs form-label">Institucion</label>
-                            <input type="text" class="inputs form-control  " name="institucion" id="institucionExperiencia" required>
+                            <label for="institucionExperiencia" class="inputs form-label">Institucion *</label>
+                            <input placeholder="Ingrese su institucion" type="text" class="inputs form-control  " name="institucion" id="institucionExperiencia" required>
                         </div>
                         <div class="inputs">
-                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
+                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde *</label>
                             <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
                             <div class="invalid-feedback errorFechaDesde">
                               
@@ -313,27 +314,27 @@
                           </div>
                         
                         <div class="inputs">
-                            <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control " name="cargo" id="cargo" required>
+                            <label for="cargo" class="form-label">Cargo *</label>
+                            <input placeholder="Ingrese su cargo" type="text" class="form-control " name="cargo" id="cargo" required>
                         </div>
 
                         <div class="inputs">
-                          <label for="descripcion" class="form-label">Descripcion</label>
-                          <textarea  class="form-control" name="descripcion" id="descripcion" required></textarea>
+                          <label for="descripcion" class="form-label">Descripcion *</label>
+                          <textarea placeholder="Ingrese una descripcion de su trabajo"  class="form-control" name="descripcion" id="descripcion" required></textarea>
 
                         </div>
                         <div class="inputs">
                           <label for="refNombre" class="form-label">Nombre de la Referencia</label>
-                          <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
+                          <input placeholder="Ingrese el nombre de su referencia" type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
                         </div>
                         <div class="inputs">
                           <label for="refTel" class="form-label">Telefono de la Referencia</label>
-                          <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
+                          <input placeholder="Ingrese el telefono de su referencia" type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
                         </div>
                         
                         <div class="inputs">
                           <label for="motivoSalida" class="form-label">Motivo de Salida</label>
-                          <textarea class="form-control  " name="motivoSalida" id="motivoSalida" ></textarea>
+                          <textarea placeholder="Ingrese el motivo de su salida" class="form-control  " name="motivoSalida" id="motivoSalida" ></textarea>
                         </div>
                         <div class="inputs">
                           <label for="tipoExperiencia" class="form-label"> Tipo de Experiencia</label> 
@@ -420,12 +421,12 @@
 <%--                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>--%>
 <%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
                 <div class="form-group">
-                    <label for="institucionEstudio" class="form-label">Institucion</label>
-                    <input type="text" class="form-control" name="institucion" id="institucionEstudio" required>
+                    <label for="institucionEstudio" class="form-label">Institucion *</label>
+                    <input placeholder="Ingrese su institucion" type="text" class="form-control" name="institucion" id="institucionEstudio" required>
                 </div>
                 <div class="form-group">
-                    <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
-                    <input type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" required>
+                    <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso *</label>
+                    <input placeholder="Ingrese su carrera/bachiller/tema de curso " type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" required>
                 </div>
                   <div class="form-group">
                       <label for="estado">Estado</label>
@@ -437,7 +438,7 @@
                       </select>
                   </div>
                 <div class="form-group">
-                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde</label>
+                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde *</label>
                     <input type="date" class="form-control  " name="fechaDesde" id="fechaDesdeEstudio" required>
                     <div class="invalid-feedback errorFechaDesde">
                               
@@ -476,17 +477,17 @@
             <div class="modal-body">
               <form name="referencia-form" class="needs-validation" novalidate>
                 <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                    <label for="nombre" class="form-label">Nombre *</label>
+                    <input placeholder="Ingrese el nombre de su referencia" type="text" class="form-control" name="nombre" id="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="relacion" class="form-label">Relacion</label>
-                    <input type="text" class="form-control" name="relacion" id="relacion" required>
+                    <label for="relacion" class="form-label">Relacion *</label>
+                    <input placeholder="Ingrese la relacion con su referencia" type="text" class="form-control" name="relacion" id="relacion" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="telefono" class="form-label">Telefono</label>
-                  <input type="number" class="form-control" name="telefono" id="telefono" required>
+                  <label for="telefono" class="form-label">Telefono *</label>
+                  <input placeholder="Ingrese el numero de su referncia" type="number" class="form-control" name="telefono" id="telefono" required>
               </div>
                  
                 
