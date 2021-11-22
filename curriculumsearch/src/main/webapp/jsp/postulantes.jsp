@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
@@ -190,7 +191,20 @@
                           <td>${postulante.nombre} ${postulante.apellido}</td>
                           <td>${postulante.disponibilidad.getDescripcion()}</td>
                           <td>${postulante.nivelIngles}</td>
-                          <td>${postulante.experienciaMeses}<op></td>
+                          <td><c:choose>
+         
+                            <c:when test = "${postulante.experienciaMeses < 12}">
+                               ${postulante.experienciaMeses} mes<c:if test="${postulante.experienciaMeses > 1}">es</c:if>
+                            </c:when>
+                            
+                            <c:when test = "${postulante.experienciaMeses > 12}">
+                              <fmt:parseNumber var="j" integerOnly="true" type="number" value="${postulante.experienciaMeses / 12}" />  
+                              <fmt:parseNumber var="k" integerOnly="true" type="number" value="${postulante.experienciaMeses % 12}" />  
+                               ${j} año<c:if test="${postulante.experienciaMeses >= 24}">s</c:if> <c:if test="${k > 0}"> y ${k} mes<c:if test="${k > 1}">es</c:if></c:if> 
+                            </c:when>
+
+                         </c:choose>
+                         </td>
                           <td>
                               <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia" varStatus="staTec">
                                   ${detalle_tecnologia.getTecnologia().getNombre()}${not staTec.last ? "," : ""}
