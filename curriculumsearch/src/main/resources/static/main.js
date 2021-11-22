@@ -575,7 +575,7 @@ function eliminarReferencia(index) {
     document.getElementById("ref-"+index).remove()
 }
 /*--------------Form submit----------------------------- */
-function serializeJSON (form) {
+function serializeJSON (form,excluded_input=['cargo-id']) {
     // Create a new FormData object
     const formData = new FormData(form);
 
@@ -594,7 +594,18 @@ function serializeJSON (form) {
 
     // Add each name/value pair to the object
     for (const [name, value] of formData) {
+        if(excluded_input.includes(name)) continue;
         pairs[name] = value
+    }
+    let cargos = document.getElementsByName("cargo-id");
+    cont_cargo = 0;
+    const postulaciones=[];
+    for (let i = 0; i < cargos.length; i++) {
+        if(cargos[i].checked){
+            postulaciones[cont_cargo] = {}
+            postulaciones[cont_cargo]["id"] = cargos[i].value;
+            cont_cargo++;
+        }
     }
     pairs["experiencias"] = experiencias.filter(exp => exp)//eliminacion de nulos
     pairs["estudios"] = estudios.filter(est => est)//eliminacion de nulos
