@@ -6,7 +6,7 @@
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
         <h2>${convocatoria.id == null ? "Agregar" : "Modificar"} Convocatoria</h2>
-        <div class="p-3 mb-2 bg-light text-dark border border-light ">
+        <div class="p-3 mb-2 bg-light text-dark  bg-transparent ">
             <form:form action="/convocatoria/${convocatoria.id == null ? '' : convocatoria.id}" method="post" modelAttribute="convocatoria">
                 <div class="mb-3 col-3">
                     <form:label path="fechaInicioS" class="form-label ">Fecha inicial</form:label>
