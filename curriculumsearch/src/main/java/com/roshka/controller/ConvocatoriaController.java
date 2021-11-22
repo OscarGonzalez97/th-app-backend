@@ -5,6 +5,8 @@ import java.util.Date;
 
 import com.roshka.modelo.Cargo;
 import com.roshka.modelo.ConvocatoriaCargo;
+import com.roshka.modelo.EstadoConvocatoria;
+import com.roshka.modelo.EstadoConvocatoriaConverter;
 import com.roshka.repositorio.CargoRepository;
 import com.roshka.repositorio.ConvocatoriaRepository;
 
@@ -47,15 +49,30 @@ public class ConvocatoriaController {
         //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
         return "convocatorias";
     }
+    @RequestMapping("/convocatoria")
+    public String formConvocatoria(Model model) {
+        model.addAttribute("cargos", cargoRepo.findAll());
+        model.addAttribute("convocatoria", new ConvocatoriaCargo());
+        return "convocatoria-form";
+    }
+
+    @PostMapping("/convocatoria")
+    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result) {
+        if(result.hasErrors()); 
+        convocatoria.setFechaInicio(new Date());
+        convocatoria.setEstado(EstadoConvocatoria.abierto);
+        convoRepo.save(convocatoria);
+        System.out.println(convocatoria.getFechaInicio());
+        return "redirect:/convocatorias";
+    }
 
 
-    @RequestMapping(path = {"/convocatoria","/convocatoria/{id}"})
+   /* @RequestMapping("/convocatoria/{id}")
     public String formConvocatoria(Model model,@PathVariable(required = false) Long id) {
         model.addAttribute("cargos", cargoRepo.findAll());
         if(id == null){
              model.addAttribute("convocatoria", new ConvocatoriaCargo());
              model.addAttribute("listaConvocatoria", convoRepo.findAll());
-            
         }
         else {
             ConvocatoriaCargo cc = convoRepo.getById(id);
@@ -67,12 +84,17 @@ public class ConvocatoriaController {
         }
         
         return "convocatoria-form";
-    }
+    }*/
 
-    @PostMapping(path = {"/convocatoria","/convocatoria/{id}"})
+    @RequestMapping("/convocatoria/{id}")
     public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id,Model model) {
         if(result.hasErrors()); 
         if(id != null) convocatoria.setId(id);
+        convocatoria=convoRepo.findByIdConvocatoriaCargo(id);
+        convocatoria.setEstado(EstadoConvocatoria.cerrado);
+        convocatoria.setFechaFin(new Date());
+        convoRepo.save(convocatoria);
+        /*if(id != null) convocatoria.setId(id);
         //System.out.println(convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId()));
         for(ConvocatoriaCargo c: convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId())){
             
@@ -91,7 +113,7 @@ public class ConvocatoriaController {
                 break;
 
             }
-        }
+        }*/
 
         
         return "redirect:/convocatorias";

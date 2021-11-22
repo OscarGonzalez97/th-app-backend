@@ -152,20 +152,33 @@
           <div class="col">
             <div class="row">
               <div class="col-auto col-md-4">
-                <label class="form-label" for="convId">Convocatoria</label>
+                <label class="form-label" for="cargoId">Cargo</label>
               </div>
               <div class="col-auto col-md-8">
-                <select class="form-select form-select-sm " name="convId" id="convId">
+                <select class="form-select form-select-sm " name="cargoId" id="cargoId">
                   <option value="">Seleccione una opcion</option>
-                  <c:forEach items="${convocatoriaC}" var="convo">
-                    <option value="${convo.id}" ${param.convId == convo.id ? "selected" : ""}>${convo.getCargo().getNombre()}</option>
+                  <c:forEach items="${cargos}" var="cargo">
+                    <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""}>${cargo.getNombre()}</option>
                   </c:forEach>
                 </select>
               </div>
             </div>           
           </div>
-         </div>
-        </form>
+          
+        <div class="col">
+          <div class="row">
+            <div class="col-auto col-md-4">
+              <label class="form-label" for="convId">Convocatoria</label>
+            </div>
+            <div class="col-auto col-md-8">
+              <select class="form-select form-select-sm " name="convId" id="convId">
+                <option value="">Seleccione una opcion</option>
+              </select>
+            </div>
+          </div>           
+        </div>
+       </div>
+      </form>
       </div>
       <div class="card text-dark bg-light mt-3">
         
@@ -233,9 +246,14 @@
         </div>
       </div>
      
+    
       
     </layout:put>
     <layout:put block="scripts" type="APPEND">
+      <script>
+        var convocatorias = ${convocatoriaC};
+      </script>
+      <script src="./Convo.js"></script>
       <script>
         function habilitarLvlTec(){
           //si se selecciono una tecnologia entonces permitir seleccionar un nivel
@@ -245,6 +263,7 @@
           }
           
         }
+
         function buscarPagina(nro){
           nro--
           const aBuscar = 'nroPagina='+nro
@@ -259,6 +278,8 @@
         const lvlTec = document.querySelector("#lvlTec");
         tecId.addEventListener('change',habilitarLvlTec);
         habilitarLvlTec()
+
+
       </script>
     </layout:put>
 </layout:extends>

@@ -5,7 +5,7 @@
 <layout:extends name="layouts/base.jsp">
   <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
-      <div class="card d-flex flex-column justify-content-center align-items-center mx-auto mt-2 p-3" style="width: 20rem;">
+      <div class=" justify-content-center align-items-center mx-auto mt-2 p-3 bg-transparent " style="width: 20rem;">
         <h5 class="card-title">${cargo.id == null ? "Agregar" : "Modificar"} Cargo</h5>
           <form:form
           action="/cargo/${cargo.id == null ? '' : cargo.id}"

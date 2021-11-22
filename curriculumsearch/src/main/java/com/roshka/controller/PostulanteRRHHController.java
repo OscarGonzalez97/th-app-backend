@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
 import com.roshka.modelo.Disponibilidad;
@@ -97,7 +96,15 @@ public class PostulanteRRHHController {
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
         model.addAttribute("estadoP", EstadoPostulante.values());
-        model.addAttribute("convocatoriaC", cargoRepo.findAll());
+        model.addAttribute("cargos", carRepo.findAll());
+        model.addAttribute("cargoRepo", cargoRepo);
+        //model.addAttribute("convocatoriaC", cargoRepo.findAll());
+        try {
+            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(cargoRepo.findAll()));
+        } catch (JsonProcessingException er) {
+            // TODO Auto-generated catch block
+            er.printStackTrace();
+        }
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(nombre == null || nombre.trim().isEmpty() ? new TypedParameterValue(StringType.INSTANCE,null) : new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();

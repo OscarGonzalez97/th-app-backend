@@ -32,9 +32,9 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Cargo</th>
-                    <th scope="col">Fecha Desde</th>
-                    <th scope="col">Fecha Hasta</th>
-                    <th scope="col">Vacantes</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha Abierta</th>
+                    <th scope="col">Fecha Cerrada</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -43,11 +43,11 @@
                         <tr>
                             <th scope="row">${sta.index+1}</th>
                             <td>${convocatoria.getCargo().getNombre()}</td>
+                            <td>${convocatoria.getEstado().getDescripcion()}</td>
                             <td>${convocatoria.getFechaInicio().toString().split(" ")[0]}</td>
                             <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
-                            <td>${convocatoria.getCupos()}</td>
                             <td>Ver Postulantes</td>
-                            <td><a href="/convocatoria/${convocatoria.id}">Editar</a></td>
+                            <td><button onclick=window.location.href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</button></td>
                         </tr>
                     </c:forEach>
                     
@@ -59,6 +59,11 @@
         </div>
     </layout:put>
     <layout:put block="scripts" type="APPEND">
-
+        <script language="JavaScript">
+                let mostrar=document.querySelector(convocatoria.getFechaFin())
+                if(mostrar!=null){
+                    
+                }
+            </script>
     </layout:put>
 </layout:extends>
