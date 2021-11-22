@@ -103,6 +103,7 @@ public class PostulanteRRHHController {
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
                             dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+        model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
@@ -134,15 +135,6 @@ public class PostulanteRRHHController {
         
     }
 
-//    @GetMapping({"/pdfPostulante/{postulanteId}"})
-//    public String getPostulantePdf(Model model, @PathVariable("postulanteId") Long postulanteId) {
-//        Postulante p = post.findById(postulanteId).orElse(null);
-//        model.addAttribute("postulante",p);
-//        model.addAttribute("cvId", fileRepo.getIdByPostulante(p));
-//        model.addAttribute("estadoP", EstadoPostulante.values());
-//        return "detallepostulante2";
-//
-//    }
 
     @PostMapping({"/postulantes/{postulanteId}"})
     public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
