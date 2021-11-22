@@ -244,7 +244,7 @@
           if(!location.search) location.search = aBuscar
           const inicial = location.search.search(aBuscar);
           if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search += "&"+aBuscar;
+            location.search = "&"+aBuscar;
           }
           location.search.replace('nroPagina=',aBuscar)
             console.log(location.search)

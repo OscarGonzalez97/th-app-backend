@@ -11,7 +11,7 @@
            <h2 class="mb-3" style="text-align: center;">
                Detalle Postulante ${postulante.nombre} ${postulante.apellido}
            </h2>
-           <div class="row gy-3">
+           <div class="row gy-3 container">
                <div class="col-md-6">
                    <div class="card mb-3">
                        <div class="card-body">
