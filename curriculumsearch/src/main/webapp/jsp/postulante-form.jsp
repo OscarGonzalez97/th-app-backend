@@ -217,6 +217,27 @@
                                     
                                     </div>
                                   </div>
+                                  <!-- Button Otras tecnologias -->
+                                  <hr>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        
+                                        <h4 class="text-start">Otras Tecnologias </h4>	
+                                      </div>
+                                      <div class="col-6">
+                                        
+                                        <div class="mb-3">
+                                          <textarea class="form-control" id="exampleFormControlTextarea1" name="tecnologiaOtros" placeholder="Si tienes alguna tecnologia que no figura en la seccion anterior. Escribelos aqui."></textarea>
+                                        </div>
+                                        
+                                      </div>
+                                      
+                                      
+                                    
+                                    </div>
+                                  </div>
 
                                   <!-- Button Agregar Experiencia -->
                                   <hr>
@@ -238,7 +259,7 @@
                                   <div class="inputs mb-3 col-md-12">
                                     <div class="row  w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
+                                        <h4 class="text-start">Referencias Personales <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="referencia">
@@ -371,7 +392,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
+              <h5 class="modal-title" id="exampleModalLabel" >Tecnologia</h5>
               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>

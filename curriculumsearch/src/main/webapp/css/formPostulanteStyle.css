@@ -214,3 +214,8 @@ h4{
 form[name="postulante"]{
     color: #ffffff;
 }
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #0d6efd;
+}

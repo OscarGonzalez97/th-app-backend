@@ -96,6 +96,9 @@ public class Postulante {
     @Column(name = "disponibilidad", length = 2)
     private Disponibilidad disponibilidad;
 
+    @Column(name = "tecnologia_otros")
+    private String tecnologiaOtros;
+
     @JsonManagedReference(value = "postulantetecnologia-postulante")
     @OneToMany(mappedBy = "postulante",cascade = CascadeType.ALL)
     private List<PostulanteTecnologia> tecnologias;
