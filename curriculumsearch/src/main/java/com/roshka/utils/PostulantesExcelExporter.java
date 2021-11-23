@@ -59,33 +59,15 @@ public class PostulantesExcelExporter {
         createCell(row, 5, "Institucion", style);
         createCell(row, 6, "Estado", style);
         createCell(row, 7, "Convocatoria", style);
+        createCell(row, 8, "Fecha Inicio Convocatoria", style);
 
 
         row = sheet.createRow(6);
-        style = workbook.createCellStyle();
-        font = workbook.createFont();
-        font.setBold(true);
-        font.setFontHeight(14);
-        style.setFont(font);
-
         createCell(row, 0, "Nombre", style);
         createCell(row, 1, "Nivel de Ingles", style);
         createCell(row, 2, "Experiencia", style);
         createCell(row, 3, "Tecnologias", style);
         createCell(row, 4, "Estado", style);
-
-        row = sheet.createRow(4);
-        font.setBold(false);
-        font.setFontHeight(12);
-        style.setFont(font);
-        createCell(row, 0, filtros.get("nombre"), style);
-        createCell(row, 1, filtros.get("nivelIngles"), style);
-        createCell(row, 2, filtros.get("experienciaEnMeses"), style);
-        createCell(row, 3, filtros.get("tecnologia"), style);
-        createCell(row, 4, filtros.get("nivelTecnologia"), style);
-        createCell(row, 5, filtros.get("institucion"), style);
-        createCell(row, 6, filtros.get("estado"), style);
-        createCell(row, 7, filtros.get("convocatoria"), style);
 
     }
 
@@ -126,6 +108,17 @@ public class PostulantesExcelExporter {
             createCell(row, columnCount++, user.getEstado().getEstado(), style);
             tecno.delete(0, tecno.length()-1);
         }
+
+        Row row = sheet.createRow(4);
+        createCell(row, 0, filtros.get("nombre"), style);
+        createCell(row, 1, filtros.get("nivelIngles"), style);
+        createCell(row, 2, filtros.get("experienciaEnMeses"), style);
+        createCell(row, 3, filtros.get("tecnologia"), style);
+        createCell(row, 4, filtros.get("nivelTecnologia"), style);
+        createCell(row, 5, filtros.get("institucion"), style);
+        createCell(row, 6, filtros.get("estado"), style);
+        createCell(row, 7, filtros.get("convocatoria"), style);
+        createCell(row, 8, filtros.get("convocatoriaFecha"), style);
     }
 
     public void export(HttpServletResponse response) throws IOException {

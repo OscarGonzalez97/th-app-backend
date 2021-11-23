@@ -56,6 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/tecnologia*").authenticated()
                 .mvcMatchers("/postulantes","/postulantes/**").authenticated()
                 .mvcMatchers("/edit-user-data").authenticated()
+                .mvcMatchers("/postulantesExcel*").authenticated()
                 .anyRequest().permitAll()
                 .and()
             .formLogin()
