@@ -47,16 +47,17 @@ public class ConvocatoriaController {
     @RequestMapping("/convocatorias")
     public String menuConvocatorias(Model model,RedirectAttributes redirectAttrs,
                             @RequestParam(required = false) Long cargoId,
-                            @RequestParam(required = false) Integer isOpen,//1: true, 0: false
+                            @RequestParam(required = false) EstadoConvocatoria estado,//1: true, 0: false
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
 
-        final Integer CANTIDAD_POR_PAGINA = 1;
+        final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("cargos", cargoRepo.findAll());
-        Page<ConvocatoriaCargo> convoPag=convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, cargoId), new Date(), new TypedParameterValue(IntegerType.INSTANCE, isOpen),page);
+        Page<ConvocatoriaCargo> convoPag=convoRepo.findByCargoAndEstado(cargoId,estado,page);
         model.addAttribute("convocatorias", convoPag.getContent());
         model.addAttribute("pages", convoPag.getTotalPages());
+        model.addAttribute("estados", EstadoConvocatoria.values());
         
         //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
         return "convocatorias";

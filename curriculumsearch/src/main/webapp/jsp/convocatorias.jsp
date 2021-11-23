@@ -40,19 +40,18 @@
                         <label for="form-check-label">Estado: </label>
                         <div class="form-check form-check-inline">
         
-                            <input class="form-check-input" type="radio" id="cualquiera" name="isOpen" checked value="">
+                            <input class="form-check-input" type="radio" id="cualquiera" name="estado" checked value="">
                             <label class="form-check-label" for="cualquiera">Cualquiera</label><br>
                         </div>
-                        <div class="form-check form-check-inline">
-                            
-                            <input class="form-check-input" type="radio" id="abierto" name="isOpen" value="1">
-                            <label class="form-check-label" for="abierto">Abierto</label><br>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            
-                            <input class="form-check-input" type="radio" id="cerrado" name="isOpen" value="0">
-                            <label class="form-check-label" for="cerrado">Cerrado</label><br>
-                        </div>
+                        <c:forEach var="estado" items="${estados}">
+
+                            <div class="form-check form-check-inline">
+                                
+                                <input class="form-check-input" type="radio" id="${estado}" name="estado" value="${estado}">
+                                <label class="form-check-label" for="abierto">${estado}</label><br>
+                            </div>
+                        </c:forEach>
+                        
                     </div>
                     <div class="col-auto">
                         
@@ -91,7 +90,11 @@
                             <td><fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd-MM-yyyy" /></td>
                             <td><fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd-MM-yyyy" /></td>
                             <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
-                            <td><a class="btn btn-secondary" href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</a></td>
+                            <td>
+                                <c:if test="${convocatoria.getEstado() != 'cerrado'}">
+                                    <a class="btn btn-secondary" href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</a>
+                                </c:if>
+                            </td>
                         </tr>
                     </c:forEach>
                     

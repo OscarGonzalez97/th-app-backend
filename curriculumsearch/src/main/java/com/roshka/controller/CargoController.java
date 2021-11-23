@@ -34,7 +34,7 @@ public class CargoController {
 
     @RequestMapping("/cargos")
     public String menuCargos(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
-        final Integer CANTIDAD_POR_PAGINA = 1;
+        final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         if(nombre == null || nombre.trim().isEmpty()) {
             Page<Cargo> CargoPag=cargoRepo.findAll(page);
