@@ -1,8 +1,13 @@
 package com.roshka.controller;
 
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -24,6 +29,7 @@ import com.roshka.repositorio.TecnologiaRepository;
 import com.roshka.utils.Helper;
 
 
+import com.roshka.utils.PostulantesExcelExporter;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,7 +86,7 @@ public class PostulanteRRHHController {
     }
 
     @RequestMapping("/postulantes")
-    public String postulantes(Model model,
+    public String postulantes(HttpServletRequest request, Model model,
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
                             @RequestParam(required = false)EstadoPostulante estado,
@@ -92,7 +98,7 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long cargoId,
                             @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
-                            ) {
+                            ) throws IOException {
         final Integer CANTIDAD_POR_PAGINA = 5;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
@@ -119,12 +125,73 @@ public class PostulanteRRHHController {
             if(expInMonths != null && expInMonths > expTotal) continue;
             postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
         }
-        
+
         model.addAttribute("pages", postulantesPag.getTotalPages());
         model.addAttribute("postulantes", postulantesDTO);
+
+        String query = request.getQueryString();
+        model.addAttribute("query", query);
+
         return "postulantes";
     }
-    
+
+
+    @RequestMapping("/postulantesExcel")
+    public void exportPostulantesExcel(HttpServletResponse response, Model model,
+                                       @RequestParam(required = false)Long tecId,
+                                       @RequestParam(required = false)String nombre,
+                                       @RequestParam(required = false)EstadoPostulante estado,
+                                       @RequestParam(required = false)Disponibilidad dispo,
+                                       @RequestParam(required = false)Long lvlEng,
+                                       @RequestParam(required = false)Long lvlTec,
+                                       @RequestParam(required = false)Long instId,
+                                       @RequestParam(required = false)Long expInMonths,
+                                       @RequestParam(required = false)Long cargoId,
+                                       @RequestParam(required = false)Long convId,
+                                       @RequestParam(defaultValue = "0")Integer nroPagina
+    ) throws IOException {
+        Pageable page = PageRequest.of(0,Integer.MAX_VALUE,Sort.by("id"));
+        Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
+                nombre == null || nombre.trim().isEmpty() ?
+                        new TypedParameterValue(StringType.INSTANCE,null) :
+                        new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
+                dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+        List<Postulante> postulantes = postulantesPag.getContent();
+        List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
+
+        for (Postulante postulante : postulantes) {
+            long expTotal = 0;
+            //Sumamos el tiempo de experiencia total en meses de cada postulante
+            //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
+            for (Experiencia experiencia : postulante.getExperiencias()) {
+                expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
+            }
+            if(expInMonths != null && expInMonths > expTotal) continue;
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
+        }
+
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=postulantes_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        HashMap<String, String> filtros = new HashMap<String, String>();
+        filtros.put("nombre", nombre.equals("") ? "-":nombre);
+        filtros.put("nivelIngles", lvlEng == null ? "-" : lvlEng.toString());
+        filtros.put("tecnologia", tecId == null ? "-" : tecRepo.findById(tecId).get().getNombre());
+        filtros.put("nivelTecnologia", lvlTec == null ? "-" : lvlTec.toString());
+        filtros.put("institucion", instId == null ? "-" : institucionRepository.findById(instId).get().getNombre());
+        filtros.put("estado", estado == null ? "-" : estado.getEstado());
+        filtros.put("experienciaEnMeses", expInMonths == null ? "-" : expInMonths.toString());
+        filtros.put("convocatoria", convId == null ? "-" : cargoRepo.findById(convId).get().getCargo().getNombre());
+
+        PostulantesExcelExporter excelExporter = new PostulantesExcelExporter(postulantesDTO, filtros);
+
+        excelExporter.export(response);
+    }
  
 
     @GetMapping({"/postulantes/{postulanteId}"})
