@@ -27,9 +27,12 @@
                 <input type="submit" value="Buscar">
             </form>
         </div>
-        <div>
-            <a href="/convocatoria">Agregar Nueva Convocatoria</a>
-            <table class="table">
+        <a href="/convocatoria">Agregar Nueva Convocatoria</a>
+        <div class="card text-dark bg-light mt-3">
+        
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -56,8 +59,9 @@
                   
                  
                 </tbody>
-              </table>
-             
+                </table>
+             </div>
+            </div>
         </div>
     </layout:put>
     <layout:put block="scripts" type="APPEND">

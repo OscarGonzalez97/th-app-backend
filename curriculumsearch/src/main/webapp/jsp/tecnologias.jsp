@@ -15,41 +15,47 @@
             </form>
             <a href="/tecnologia">Agregar Nueva Tecnologia</a>
         </div>
-        <div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tecnologia</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                    <c:forEach items="${tecnologias}" var="tecnologia" varStatus="sta">
-                        <tr>
-                            <th scope="row">${sta.index+1}</th>
-                            <td>${tecnologia.getNombre()}</td>
-                           
-                            <td><a href="/tecnologia/${tecnologia.id}">Editar tecnologia</a></td>
-                        </tr>
-                    </c:forEach>
+        <div class="card text-dark bg-light mt-3">
+        
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Tecnologia</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                      <c:forEach items="${tecnologias}" var="tecnologia" varStatus="sta">
+                          <tr>
+                              <th scope="row">${sta.index+1}</th>
+                              <td>${tecnologia.getNombre()}</td>
+                            
+                              <td><a href="/tecnologia/${tecnologia.id}"><i class="bi bi-pencil-fill"></i></a></td>
+                          </tr>
+                      </c:forEach>
+                      
                     
                   
-                 
-                </tbody>
+                  </tbody>
               </table>
-        </div>
-        <div class="card-footer">
-            <div>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <c:forEach begin="1" end="${pages}" var="nro">
-                    <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-                  </c:forEach>
-                </ul>
-              </nav>
             </div>
           </div>
+          <div class="card-footer">
+              <div>
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <c:forEach begin="1" end="${pages}" var="nro">
+                      <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+                    </c:forEach>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+        </div>
         </div>
        
         
