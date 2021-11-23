@@ -78,6 +78,29 @@
     </div>
 
     <layout:block name="scripts">
+      <script>
+        function buscarPagina(nro){
+          nro--
+          const queries = location.search.split("&");
+          let existe = false;
+          if(location.search.length == 0 ) location.search = "?nroPagina="+nro; 
+          let fullquery = "";
+          
+          for (const query of queries) {
+            let [key, value] = query.split("=");
+            if(key.includes('nroPagina')){
+              fullquery += key + "=" + nro + "&";
+              existe = true;
+            }
+            else{
+              fullquery += key + "=" + value + "&";
+            }
+          }
+          if(!existe) fullquery += "nroPagina" + "=" + nro + "&";
+          
+          location.search = fullquery.substring(0,fullquery.length-1); 
+        }
+      </script>
         
     </layout:block>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

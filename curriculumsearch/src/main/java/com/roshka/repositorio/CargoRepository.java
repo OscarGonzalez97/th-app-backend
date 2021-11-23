@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface CargoRepository extends JpaRepository<Cargo,Long>{
-    public List<Cargo> findByNombreContainingIgnoreCase(String nombre);
+    public Page<Cargo> findByNombreContainingIgnoreCase(String nombre, Pageable pageable);
     
     public boolean existsByNombreIgnoreCase(String nombre);
 

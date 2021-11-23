@@ -5,32 +5,66 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <layout:extends name="layouts/base.jsp">
-    <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
+    <layout:put block="cssDeclaracion" type="APPEND">
+        <style>
+            label {
+                width: auto;
+            }
+        </style>
+    </layout:put>
     <layout:put block="contents" type="REPLACE">
         <h2>Lista de convocatorias</h2>
         <div>
             <form>
-                <label for="cargos">Cargos:</label>
-                <select  name="cargoId" id="cargos">
-                    <option value="">Todos los cargos</option>
-                    <c:forEach items="${cargos}" var="cargo">
-                        <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""} >${cargo.nombre}</option>
-                    </c:forEach>
-                </select>
-                Estado:
-                <input type="radio" id="cualquiera" name="isOpen" checked value="">
-                <label for="abierto">Cualquiera</label><br>
-                <input type="radio" id="abierto" name="isOpen" value="1">
-                <label for="abierto">Abierto</label><br>
-                <input type="radio" id="cerrado" name="isOpen" value="0">
-                <label for="cerrado">Cerrado</label><br>
-                <input type="submit" value="Buscar">
+                <div class="row row-cols-2 gy-2">
+
+                    <div class="col-auto">
+                        <div class="row">
+                            <div class="col-auto">
+
+                                <label class="form-label" for="cargos">Cargos:</label>
+                            </div>
+                            <div class="col">
+
+                                <select class="form-select form-select-sm" name="cargoId" id="cargos">
+                                    <option value="">Todos los cargos</option>
+                                    <c:forEach items="${cargos}" var="cargo">
+                                        <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""} >${cargo.nombre}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        
+                        <label for="form-check-label">Estado: </label>
+                        <div class="form-check form-check-inline">
+        
+                            <input class="form-check-input" type="radio" id="cualquiera" name="estado" checked value="">
+                            <label class="form-check-label" for="cualquiera">Cualquiera</label><br>
+                        </div>
+                        <c:forEach var="estado" items="${estados}">
+
+                            <div class="form-check form-check-inline">
+                                
+                                <input class="form-check-input" type="radio" id="${estado}" name="estado" value="${estado}">
+                                <label class="form-check-label" for="abierto">${estado}</label><br>
+                            </div>
+                        </c:forEach>
+                        
+                    </div>
+                    <div class="col-auto">
+                        
+                        <input type="submit" class="btn btn-primary btn-sm" value="Buscar">
+                    </div>
+                    
+                    
+                </div>
             </form>
         </div>
-
-        <a href="/convocatoria">Agregar Nueva Convocatoria</a>
+        
         <c:if test="${SUCCESS_MESSAGE != null}">
-            <div id="status_message" style="color: brown;">${SUCCESS_MESSAGE}</div>
+            <div id="status_message" style="color: brown;" >${SUCCESS_MESSAGE}</div>
         </c:if>
         <div class="card text-dark bg-light mt-3">
         
@@ -56,7 +90,11 @@
                             <td><fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd-MM-yyyy" /></td>
                             <td><fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd-MM-yyyy" /></td>
                             <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
-                            <td><button onclick=window.location.href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</button></td>
+                            <td>
+                                <c:if test="${convocatoria.getEstado() != 'cerrado'}">
+                                    <a class="btn btn-secondary" href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</a>
+                                </c:if>
+                            </td>
                         </tr>
                     </c:forEach>
                     
@@ -66,6 +104,17 @@
                 </table>
              </div>
             </div>
+            <div class="card-footer">
+                <div>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <c:forEach begin="1" end="${pages}" var="nro">
+                        <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+                      </c:forEach>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
         </div>
          
     </layout:put>

@@ -108,7 +108,7 @@ function validarfecha(fechaDesde, fechaHasta){
        return "la fecha desde no puede ser mayor a la fecha actual" ;   
     }
     
-    if(fechaHasta =! null && fechaDesde>fechaHasta){
+    if(fechaHasta =! null && fechaHasta.trim().length >0 && fechaDesde>fechaHasta){
         return "la fecha desde no puede ser mayor a la fecha hasta";
     
     }
@@ -223,7 +223,7 @@ function agregarFieldExpierncia(event){
     let pos_rec;
     let returnFlag = false;
 
-    let requiredValues = ["institucion", "cargo", "fechaDesde", "descripcion"]
+    let requiredValues = ["institucion", "cargo", "fechaDesde", "descripcion","nombreReferencia","telefonoReferencia"]
 
     formData.forEach((value, key)=>{
         if(requiredValues.includes(key)

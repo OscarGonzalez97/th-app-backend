@@ -47,6 +47,7 @@ public class Helper {
     }
 
     public static LocalDate convertToLocalDateViaSqlDate(Date dateToConvert) {
+        if(dateToConvert == null) return null;
         return new java.sql.Date(dateToConvert.getTime()).toLocalDate();
     }
 

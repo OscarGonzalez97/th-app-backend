@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -45,15 +44,6 @@ public class ConvocatoriaCargo {
 
     @Column(name = "fecha_fin")
     private Date fechaFin;
-
-
-    //para deserializar desde el form como string
-    @Transient
-    private String fechaFinS;
-    
-    //para deserializar desde el form como string
-    @Transient
-    private String fechaInicioS;
 
     @ManyToMany(mappedBy = "postulaciones")
     private List<Postulante> postulantes;
@@ -90,20 +80,7 @@ public class ConvocatoriaCargo {
     public void setCargoId(Long cargoId) {
         this.cargoId = cargoId;
     }
-    public String getFechaFinS() {
-        return fechaFinS;
-    }
-    public String getFechaInicioS() {
-        return fechaInicioS;
-    }
-    public void setFechaFinS(String fechaFinS) {
-        this.fechaFinS = fechaFinS;
-        setFechaFin(fechaFinS);
-    }
-    public void setFechaInicioS(String fechaInicioS) {
-        this.fechaInicioS = fechaInicioS;
-        setFechaInicio(fechaInicioS);
-    }
+    
 
     public Long getId() {
         return this.id;
@@ -128,5 +105,7 @@ public class ConvocatoriaCargo {
     public void setEstado(EstadoConvocatoria estado) {
         this.estado = estado;
     }
+
+    
 
 }

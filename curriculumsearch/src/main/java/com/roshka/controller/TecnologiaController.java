@@ -47,11 +47,17 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
     public String menuTecnologias(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
         final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
-        Page<Tecnologia> tecnologiaPag=tecRepo.findAllTecnologia(page);
-        List<Tecnologia> tecnologia = tecnologiaPag.getContent();
-        model.addAttribute("pages", tecnologiaPag.getTotalPages());
-        if(nombre == null || nombre.trim().isEmpty()) model.addAttribute("tecnologias", tecnologia);
-        else model.addAttribute("tecnologias", tecRepo.findByNombreContainingIgnoreCase(nombre));
+        
+        if(nombre == null || nombre.trim().isEmpty()) {
+            Page<Tecnologia> tecnologiaPag=tecRepo.findAllTecnologia(page);
+            model.addAttribute("tecnologias", tecnologiaPag.getContent());
+            model.addAttribute("pages", tecnologiaPag.getTotalPages());
+        }
+        else {
+            Page<Tecnologia> tecnologiaPag=tecRepo.findByNombreContainingIgnoreCase(nombre,page);    
+            model.addAttribute("pages", tecnologiaPag.getTotalPages());
+            model.addAttribute("tecnologias", tecnologiaPag.getContent());
+        }
         return "tecnologias";
     }
 
