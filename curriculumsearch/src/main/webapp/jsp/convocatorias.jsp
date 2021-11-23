@@ -29,7 +29,7 @@
         </div>
         <a href="/convocatoria">Agregar Nueva Convocatoria</a>
         <c:if test="${SUCCESS_MESSAGE != null}">
-            <div id="status_message">${SUCCESS_MESSAGE}</div>
+            <div id="status_message" style="color: brown;" >${SUCCESS_MESSAGE}</div>
         </c:if>
         <div class="card text-dark bg-light mt-3">
         
