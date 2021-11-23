@@ -104,7 +104,7 @@ public class PostulanteController {
         Postulante postulantex = post.findByNroDocument(postulante.getNroDocument());
         if(postulantex != null){
             postulante.setEstadoPostulante(postulantex.getEstadoPostulante());
-           postulante.setComentarioRRHH(postulantex.getComentarioRRHH()); 
+            postulante.setComentarioRRHH(postulantex.getComentarioRRHH()); 
             estudioRepository.findByPostulante(postulantex).forEach(x -> estudioRepository.delete(x));
             expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));

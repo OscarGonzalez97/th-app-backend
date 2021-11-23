@@ -3,14 +3,30 @@
       "id": 1,
       "cargoId": 1,
       "estado":0,
-      "fechaInicio": "2021-11-01",
-      "fechaFin": "2021-11-30"
+      "fechaInicio": "2021-11-01"
     },
     {
       "id": 2,
       "cargoId": 2,
       "estado":0,
-      "fechaInicio": "2021-11-01",
-      "fechaFin": "2021-11-30"
+      "fechaInicio": "2021-11-01"
+    },
+    {
+      "id": 3,
+      "cargoId": 3,
+      "estado":0,
+      "fechaInicio": "2021-11-01"
+    },
+    {
+      "id": 4,
+      "cargoId": 4,
+      "estado":0,
+      "fechaInicio": "2021-11-01"
+    },
+    {
+      "id": 5,
+      "cargoId": 5,
+      "estado":0,
+      "fechaInicio": "2021-11-01"
     }
   ]

@@ -12,9 +12,9 @@ function listarConvocatorias(id){
         const opt = document.createElement("option");    
         opt.value = conv.id;
         if(conv.fechaFin!=null){
-            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio)+"-"+" Hasta :"+new Date(conv.fechaFin);
+            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio).toISOString().slice(0,10)+"-"+" Hasta :"+new Date(conv.fechaFin).toISOString().slice(0,10);
         }else{
-            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio)
+            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio).toISOString().slice(0,10)
         }
         opt.setAttribute("data-CargoId",conv.cargoId);
         frag.appendChild(opt)
