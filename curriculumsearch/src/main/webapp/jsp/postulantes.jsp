@@ -4,7 +4,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
 <layout:extends name="layouts/base.jsp">
-    <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
+    <layout:put block="cssDeclaracion" type="APPEND">
+    <link href="../css/PostulanteStyle.css" rel="stylesheet" type="text/css"/> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    </layout:put>
     <layout:put block="contents" type="REPLACE">
       <h2>Lista de Postulantes</h2>
       <div id="buscador">
@@ -18,8 +22,92 @@
               <button class="btn btn-primary">Buscar</button>
             </div>
           </div>
-
-         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gy-1 mt-2">
+          <table class="w3-table ">
+            <thead>
+                <tr class="">
+                  <th scope="col">Estado</th>
+                  <th scope="col">Disponbilidad</th>
+                  <th scope="col">Nivel de ingles</th>
+                  <th scope="col">Institucion Educativa</th>
+                  <th scope="col">Tecnologias</th>
+                  <th scope="col">Nivel de Tecnologia</th>
+                  <th scope="col">Experiencia general</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col">Convocatoria</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <td>
+                    <select class="form-select form-select-sm" name="estado" id="estado">
+                      <option value="">Seleccione</option>
+                      <c:forEach items="${estadoP}" var="estados">
+                        <option value="${estados}" ${param.estado == estados ? "selected" : ""}>${estados.getEstado()}</option>
+                      </c:forEach>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="dispo" id="dispo">
+                      <option value="">Seleccione</option>
+                      <c:forEach items="${disponibilidades}" var="disponibilidad">
+                        <option value="${disponibilidad}" ${param.dispo == disponibilidad ? "selected" : ""}>${disponibilidad.getDescripcion()}</option>
+                      </c:forEach>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="lvlEng" id="lvlEng">
+                      <option value="">Seleccione</option>
+                      <c:forEach var = "lvl" begin = "1" end = "5">
+                        <option value="${lvl}" ${param.lvlEng == lvl ? "selected" : ""}>${lvl}</option>
+                      </c:forEach>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="instId" id="instId">
+                      <option value="">Seleccione</option>
+                      <c:forEach items="${institucionesEducativas}" var="inst">
+                        <option value="${inst.id}" ${param.instId == inst.id ? "selected" : ""}>${inst.nombre}</option>
+                      </c:forEach>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="tecId" id="tecId">
+                      <option value="">Seleccione</option>
+                      <c:forEach items="${tecnologias}" var="tecnologia">
+                        <option value="${tecnologia.id}" ${param.tecId == tecnologia.id ? "selected" : ""}>${tecnologia.nombre}</option>
+                      </c:forEach>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm" name="lvlTec" id="lvlTec">
+                      <option value="">Seleccione</option>
+                      <c:forEach var = "lvl" begin = "1" end = "5">
+                        <option value="${lvl}" ${param.lvlTec == lvl ? "selected" : ""}>${lvl}</option>
+                      </c:forEach>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="expInMonths" id="expInMonths">
+                      <option value="">Seleccione</option>
+                      <option value="6">Mayor a 6 meses</option>
+                      <option value="12">Mayor a 1 año</option>
+                      <option value="36">Mayor a 3 años</option>
+                      <option value="60">Mayor a 5 años</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="cargoId" id="cargoId">
+                      <option value="">Seleccione</option>
+                      <c:forEach items="${cargos}" var="cargo">
+                        <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""}>${cargo.getNombre()}</option>
+                      </c:forEach>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-select form-select-sm " name="convId" id="convId">
+                      <option value="">Seleccione</option>
+                    </select>
+                  </td>
+              </tbody>
+          </table>
+         <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gy-1 mt-2">
 
            <div class="col">
   
@@ -176,7 +264,7 @@
             </div>
           </div>           
         </div>
-       </div>
+       </div> -->
       </form>
           <div class="row">
               <div class="col-md-12">

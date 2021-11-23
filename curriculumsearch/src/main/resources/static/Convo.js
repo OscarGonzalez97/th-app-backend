@@ -6,7 +6,7 @@ function listarConvocatorias(id){
     const frag = document.createDocumentFragment();
     let optionDefault = document.createElement("option");
     optionDefault.value = "";
-    optionDefault.innerHTML = "Seleccione una opcion";
+    optionDefault.innerHTML = "Seleccione";
     frag.appendChild(optionDefault);
     for (const conv of ConvocatoriaAmostrar) {
         const opt = document.createElement("option");    

@@ -189,7 +189,7 @@ public class PostulanteRRHHController {
         response.setHeader(headerKey, headerValue);
 
         HashMap<String, String> filtros = new HashMap<String, String>();
-        filtros.put("nombre", nombre.equals("") ? "-":nombre);
+        filtros.put("nombre", nombre == null ? "-":nombre);
         filtros.put("nivelIngles", lvlEng == null ? "-" : lvlEng.toString());
         filtros.put("tecnologia", tecId == null ? "-" : tecRepo.findById(tecId).get().getNombre());
         filtros.put("nivelTecnologia", lvlTec == null ? "-" : lvlTec.toString());
@@ -197,6 +197,7 @@ public class PostulanteRRHHController {
         filtros.put("estado", estado == null ? "-" : estado.getEstado());
         filtros.put("experienciaEnMeses", expInMonths == null ? "-" : expInMonths.toString());
         filtros.put("convocatoria", convId == null ? "-" : cargoRepo.findById(convId).get().getCargo().getNombre());
+        filtros.put("convocatoriaFecha", convId == null ? "-" : cargoRepo.findById(convId).get().getFechaInicio().toString());
 
         PostulantesExcelExporter excelExporter = new PostulantesExcelExporter(postulantesDTO, filtros);
 
