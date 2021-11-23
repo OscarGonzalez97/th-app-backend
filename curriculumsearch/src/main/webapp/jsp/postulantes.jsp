@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
@@ -151,20 +152,32 @@
           <div class="col">
             <div class="row">
               <div class="col-auto col-md-4">
-                <label class="form-label" for="convId">Convocatoria</label>
+                <label class="form-label" for="cargoId">Cargo</label>
               </div>
               <div class="col-auto col-md-8">
-                <select class="form-select form-select-sm " name="convId" id="convId">
+                <select class="form-select form-select-sm " name="cargoId" id="cargoId">
                   <option value="">Seleccione una opcion</option>
-                  <c:forEach items="${convocatoriaC}" var="convo">
-                    <option value="${convo.id}" ${param.convId == convo.id ? "selected" : ""}>${convo.getCargo().getNombre()}</option>
+                  <c:forEach items="${cargos}" var="cargo">
+                    <option value="${cargo.id}" ${param.cargoId == cargo.id ? "selected" : ""}>${cargo.getNombre()}</option>
                   </c:forEach>
                 </select>
               </div>
             </div>           
           </div>
-         </div>
-        </form>
+        <div class="col">
+          <div class="row">
+            <div class="col-auto col-md-4">
+              <label class="form-label" for="convId">Convocatoria</label>
+            </div>
+            <div class="col-auto col-md-8">
+              <select class="form-select form-select-sm " name="convId" id="convId">
+                <option value="">Seleccione una opcion</option>
+              </select>
+            </div>
+          </div>           
+        </div>
+       </div>
+      </form>
           <div class="row">
               <div class="col-md-12">
                   <a href="/postulantesExcel?${query}" type="button" class="btn btn-light float-end">
@@ -200,7 +213,20 @@
                           <td>${postulante.nombre} ${postulante.apellido}</td>
                           <td>${postulante.disponibilidad.getDescripcion()}</td>
                           <td>${postulante.nivelIngles}</td>
-                          <td>${postulante.experienciaMeses}<op></td>
+                          <td><c:choose>
+         
+                            <c:when test = "${postulante.experienciaMeses < 12}">
+                               ${postulante.experienciaMeses} mes<c:if test="${postulante.experienciaMeses > 1}">es</c:if>
+                            </c:when>
+                            
+                            <c:when test = "${postulante.experienciaMeses > 12}">
+                              <fmt:parseNumber var="j" integerOnly="true" type="number" value="${postulante.experienciaMeses / 12}" />  
+                              <fmt:parseNumber var="k" integerOnly="true" type="number" value="${postulante.experienciaMeses % 12}" />  
+                               ${j} año<c:if test="${postulante.experienciaMeses >= 24}">s</c:if> <c:if test="${k > 0}"> y ${k} mes<c:if test="${k > 1}">es</c:if></c:if> 
+                            </c:when>
+
+                         </c:choose>
+                         </td>
                           <td>
                               <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia" varStatus="staTec">
                                   ${detalle_tecnologia.getTecnologia().getNombre()}${not staTec.last ? "," : ""}
@@ -236,9 +262,14 @@
         </div>
       </div>
      
+    
       
     </layout:put>
     <layout:put block="scripts" type="APPEND">
+      <script>
+        var convocatorias = ${convocatoriaC};
+      </script>
+      <script src="./Convo.js"></script>
       <script>
         function habilitarLvlTec(){
           //si se selecciono una tecnologia entonces permitir seleccionar un nivel
@@ -248,6 +279,7 @@
           }
           
         }
+
         function buscarPagina(nro){
           nro--
           const aBuscar = 'nroPagina='+nro
@@ -263,6 +295,8 @@
         const lvlTec = document.querySelector("#lvlTec");
         tecId.addEventListener('change',habilitarLvlTec);
         habilitarLvlTec()
+
+
       </script>
     </layout:put>
 </layout:extends>

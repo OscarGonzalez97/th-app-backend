@@ -148,18 +148,28 @@
                                   </div>
                                   <!-- Button Agregar Cargo al que postulas -->
                                   <hr>
-                                  <div class="inputs mb-3 col-md-12">
+                                  <div class="mb-3 col-md-12">
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>	
+                                        <h4 class="text-start">Cargos</h4>	
                                       </div>
                                       <div class="col-12">
-                                        <div class="mt-3 gap-2 row row-cols-4" style="display: flex;" id="cargos">
+                                        <div class="mt-3 gap-2 row" id="cargos">
+                                          <c:forEach items="${CargosDisponibles}" var="convocatoria">
+                                            
+                                            <div class="form-check form-check-inline col-2">
+                                              <div class="row">
+
+                                                <input class="form-check-input col-auto ms-1" type="checkbox" name="cargo-id" id="cargo-${convocatoria.getId()}" value="${convocatoria.getId()}">
+                                                <label class="col text-start" for="cargo-${convocatoria.getId()}">${convocatoria.getCargo().getNombre()}</label>
+                                              </div>
+                                            </div>
+                                          </c:forEach>
                                         </div>
                                       </div>
                                       <div class="col-12">
-                                        <p id="no-valid-cargo" style="display: none; color: red;" class="text-center">
+                                        <p id="no-valid-cargo" style="display: none; color: yellow;" class="text-center">
                                           *Agrega por lo menos un cargo
                                         </p>
                                       </div>
@@ -199,7 +209,7 @@
                                         
                                       </div>
                                       <div class="col-12">
-                                        <p id="no-valid-tecno" style="display: none; color: red;" class="text-center">
+                                        <p id="no-valid-tecno" style="display: none; color: yellow;" class="text-center">
                                           *Agrega por lo menos una tecnologia
                                         </p>   
                                       </div>

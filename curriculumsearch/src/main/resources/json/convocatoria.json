@@ -2,15 +2,15 @@
     {
       "id": 1,
       "cargoId": 1,
+      "estado":0,
       "fechaInicio": "2021-11-01",
-      "fechaFin": "2021-11-30",
-      "cupos": 20
+      "fechaFin": "2021-11-30"
     },
     {
       "id": 2,
       "cargoId": 2,
+      "estado":0,
       "fechaInicio": "2021-11-01",
-      "fechaFin": "2021-11-30",
-      "cupos": 20
+      "fechaFin": "2021-11-30"
     }
   ]

@@ -7,6 +7,7 @@ import java.time.YearMonth;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import com.roshka.modelo.DBFile;
 
@@ -31,12 +32,18 @@ public class Helper {
         }
     }
 
+    /**
+     * Diferencia en meses entre 2 fechas.
+     * @param date1 La fecha inicial. No puede ser nulo
+     * @param date2 La fecha final. Si es nulo, se asume a la fecha de hoy
+     * @return
+     */
     public static final long getMonthsDifference(Date date1, Date date2) {
         if(date2==null) date2 = new Date();
-        YearMonth m1 = YearMonth.from(date1.toInstant().atZone(ZoneOffset.UTC));
-        YearMonth m2 = YearMonth.from(date2.toInstant().atZone(ZoneOffset.UTC));
+        long diffInMillies = Math.abs(date2.getTime() - date1.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
     
-        return m1.until(m2, ChronoUnit.MONTHS) + 1;
+        return Math.round(diff/30.d) ;
     }
 
     public static DBFile createFile(MultipartFile file) {

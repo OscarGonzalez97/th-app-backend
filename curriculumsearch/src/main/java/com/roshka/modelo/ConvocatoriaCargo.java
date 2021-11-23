@@ -36,6 +36,9 @@ public class ConvocatoriaCargo {
 
     @Column(name = "cargo_id")
     private Long cargoId;
+    
+    @Column(name = "estado")
+    private EstadoConvocatoria estado;
 
     @Column(name = "fecha_inicio")
     private Date fechaInicio;
@@ -43,8 +46,6 @@ public class ConvocatoriaCargo {
     @Column(name = "fecha_fin")
     private Date fechaFin;
 
-    @Column(name = "cupos")
-    private int cupos;
 
     //para deserializar desde el form como string
     @Transient
@@ -102,6 +103,30 @@ public class ConvocatoriaCargo {
     public void setFechaInicioS(String fechaInicioS) {
         this.fechaInicioS = fechaInicioS;
         setFechaInicio(fechaInicioS);
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Cargo getCargo() {
+        return this.cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public EstadoConvocatoria getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(EstadoConvocatoria estado) {
+        this.estado = estado;
     }
 
 }

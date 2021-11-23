@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.HashMap;
+
 import java.util.List;
 
-
-
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
 import com.roshka.modelo.Disponibilidad;
@@ -105,12 +105,21 @@ public class PostulanteRRHHController {
         model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
         model.addAttribute("estadoP", EstadoPostulante.values());
-        model.addAttribute("convocatoriaC", cargoRepo.findAll());
+
+        model.addAttribute("cargos", carRepo.findAll());
+        model.addAttribute("cargoRepo", cargoRepo);
+        //model.addAttribute("convocatoriaC", cargoRepo.findAll());
+        try {
+            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(cargoRepo.findAll()));
+        } catch (JsonProcessingException er) {
+            // TODO Auto-generated catch block
+            er.printStackTrace();
+        }
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
                 nombre == null || nombre.trim().isEmpty() ?
-                        new TypedParameterValue(StringType.INSTANCE,null) :
-                        new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                            dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+                new TypedParameterValue(StringType.INSTANCE,null) :
+                new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
+                    dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
@@ -210,6 +219,10 @@ public class PostulanteRRHHController {
         //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
         Postulante postulanteVd = post.getById(postulanteId);
         postulanteVd.setEstadoPostulante(postulante.getEstadoPostulante());
+        //si se le contrata, actualizar la fecha actual
+        if(postulanteVd.getEstadoPostulante() == EstadoPostulante.CONTRATADO){
+            postulanteVd.setFechaContratado(new Date());
+        }
         postulanteVd.setComentarioRRHH(postulante.getComentarioRRHH());
         post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(), postulante.getComentarioRRHH(), postulanteId);
         //post.save(postulanteVd);

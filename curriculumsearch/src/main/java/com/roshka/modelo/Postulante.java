@@ -79,7 +79,7 @@ public class Postulante {
 
     @Column(name="estado_postulante")
     @NotNull
-    private EstadoPostulante estadoPostulante=EstadoPostulante.NUEVO;
+    private EstadoPostulante estadoPostulante;
     @Column(name="comentario_rrhh")
     private String comentarioRRHH;    
 
@@ -123,14 +123,30 @@ public class Postulante {
     @JoinColumn(name = "cvfile_id",referencedColumnName = "id")
     @JsonIgnore
     private DBFile cvFile;
-
-
-  
- 
-
    
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
+
+    @Column(name = "fecha_actualizacion")
+    private Date fechaActualizacion;
+
+    @Column(name = "fecha_contratado")
+    private Date fechaContratado;
+    
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
+    }
+
+    @PrePersist
+    public void precargarFechas(){
+        this.fechaCreacion = new Date();
+        this.fechaActualizacion = this.fechaCreacion;
+        this.estadoPostulante = EstadoPostulante.NUEVO;
+        this.comentarioRRHH = null;
+    }
+    @PreUpdate
+    public void actualizarFecha(){
+        this.fechaActualizacion= new Date();
     }
   
    
