@@ -2,6 +2,7 @@ package com.roshka.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.roshka.modelo.Cargo;
 import com.roshka.modelo.ConvocatoriaCargo;
@@ -16,6 +17,7 @@ import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ConvocatoriaController {
@@ -38,7 +41,7 @@ public class ConvocatoriaController {
     }
 
     @RequestMapping("/convocatorias")
-    public String menuConvocatorias(Model model,
+    public String menuConvocatorias(Model model,RedirectAttributes redirectAttrs,
                             @RequestParam(required = false) Long cargoId,
                             @RequestParam(required = false) Integer isOpen//1: true, 0: false
                             ) {
@@ -55,9 +58,15 @@ public class ConvocatoriaController {
         model.addAttribute("convocatoria", new ConvocatoriaCargo());
         return "convocatoria-form";
     }
-
+    
     @PostMapping("/convocatoria")
-    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result) {
+    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result,RedirectAttributes redirectAttributes) {
+        for (ConvocatoriaCargo conv:convoRepo.findByCargoId(convocatoria.getCargoId())) {
+            if(conv.getEstado()==EstadoConvocatoria.abierto){
+                redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", "Ya existe una convocatoria Abierta con ese cargo");
+                return "redirect:/convocatorias";
+           }
+        }
         if(result.hasErrors()); 
         convocatoria.setFechaInicio(new Date());
         convocatoria.setEstado(EstadoConvocatoria.abierto);
@@ -88,7 +97,6 @@ public class ConvocatoriaController {
 
     @RequestMapping("/convocatoria/{id}")
     public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id,Model model) {
-        if(result.hasErrors()); 
         if(id != null) convocatoria.setId(id);
         convocatoria=convoRepo.findByIdConvocatoriaCargo(id);
         convocatoria.setEstado(EstadoConvocatoria.cerrado);

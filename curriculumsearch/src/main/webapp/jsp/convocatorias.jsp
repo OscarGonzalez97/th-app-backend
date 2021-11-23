@@ -27,6 +27,9 @@
         </div>
         <div>
             <a href="/convocatoria">Agregar Nueva Convocatoria</a>
+            <c:if test="${SUCCESS_MESSAGE != null}">
+            <div id="status_message">${SUCCESS_MESSAGE}</div>
+            </c:if>
             <table class="table">
                 <thead>
                   <tr>
@@ -57,6 +60,7 @@
               </table>
              
         </div>
+         
     </layout:put>
     <layout:put block="scripts" type="APPEND">
         <script language="JavaScript">
