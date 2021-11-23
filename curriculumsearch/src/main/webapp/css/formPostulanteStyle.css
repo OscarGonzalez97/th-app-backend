@@ -217,7 +217,41 @@ form[name="postulante"]{
 label:hover {
     color: #bfbfbf;
 }
-/*ICONOS Y PLACEHOLDER
+/*ICONOS Y PLACEHOLDER*/
+.FA{
+    font-family: 'Shippori Antique B1',FontAwesome;
+}
+
+
+#nroDocument::-webkit-outer-spin-button,
+#nroDocument::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#nroDocument[type=number] {
+    -moz-appearance: textfield;
+}
+#telefono::-webkit-outer-spin-button,
+#telefono::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#telefono[type=number] {
+    -moz-appearance: textfield;
+}
+#refTel::-webkit-outer-spin-button,
+#refTel::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#refTel[type=number] {
+    -moz-appearance: textfield;
+}
+.pointer {cursor: pointer;}
+/*
 
 .size-placeholder::placeholder{
     background-size: 18px 18px;
@@ -239,15 +273,7 @@ Email
     background-image: url(../img/placeholder/email_ph.png);
 }
 Numero de documento*/
-#nroDocument::-webkit-outer-spin-button,
-#nroDocument::-webkit-inner-spin-button
-{
-    -webkit-appearance: none;
-    margin: 0;
-}
-#nroDocument[type=number] {
-    -moz-appearance: textfield;
-}
+
 /*
 .nroDocument-ph::placeholder{
     background-image: url(../img/placeholder/nroDocumento_ph.png);
@@ -259,15 +285,7 @@ Direccion
     background-size: 14px 14px;
 }*/
 /*Telefono*/
-#telefono::-webkit-outer-spin-button,
-#telefono::-webkit-inner-spin-button
-{
-    -webkit-appearance: none;
-    margin: 0;
-}
-#telefono[type=number] {
-    -moz-appearance: textfield;
-}
+
 /*
 .telefono-ph::placeholder{
     background-image: url(../img/placeholder/telephone_ph.png);  
@@ -293,15 +311,7 @@ Direccion
 #refNombre::placeholder{
     background-image: url(../img/placeholder/name_ph.png);  
 }*/
-#refTel::-webkit-outer-spin-button,
-#refTel::-webkit-inner-spin-button
-{
-    -webkit-appearance: none;
-    margin: 0;
-}
-#refTel[type=number] {
-    -moz-appearance: textfield;
-}
+
 /*
 .telefono-ph::placeholder{
     background-image: url(../img/placeholder/telephone_ph.png);  
@@ -315,6 +325,3 @@ Direccion
 */
 /*Prueba Font Awesome*/
 
-.FA{
-    font-family: 'Shippori Antique B1',FontAwesome;
-}
