@@ -40,19 +40,19 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "JAVA"
+          "id": 1
         },
         "nivel": 5
       },
       {
         "tecnologia": {
-          "nombre": "Python"
+          "id": 2
         },
         "nivel": 4
       },
       {
         "tecnologia": {
-          "nombre": "C"
+          "id": 3
         },
         "nivel": 5
       }
@@ -99,7 +99,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "Spring"
+          "id": 4
         },
         "nivel": 2
       }
@@ -146,7 +146,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "Django"
+          "id": 5
         },
         "nivel": 3
       }
@@ -193,7 +193,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "Flutter"
+          "id": 6
         },
         "nivel": 2
       }
@@ -240,7 +240,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "Switf"
+          "id": 3
         },
         "nivel": 5
       }
@@ -287,7 +287,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "SL"
+          "id": 2
         },
         "nivel": 4
       }
@@ -334,7 +334,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "nombre": "Scala"
+          "id": 5
         },
         "nivel": 5
       }

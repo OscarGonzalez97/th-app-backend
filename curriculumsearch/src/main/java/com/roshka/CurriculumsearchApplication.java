@@ -42,6 +42,7 @@ public class CurriculumsearchApplication {
 				guardarJson(convR,"/json/convocatoria.json",ConvocatoriaCargo.class);
 				guardarJson(depR,"/json/Departamento.json",Departamento.class);
 				guardarJson(ciudR,"/json/Ciudad.json",Ciudad.class);
+				guardarJson(tecRepo,"/json/tecnologia.json",Tecnologia.class);
 				guardarJson(postRepo,"/json/postulante.json",Postulante.class);
 				
 				String password = new BCryptPasswordEncoder().encode("test");

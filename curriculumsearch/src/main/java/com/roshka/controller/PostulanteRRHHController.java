@@ -182,7 +182,7 @@ public class PostulanteRRHHController {
             .orElseThrow(() -> new Exception("Postulante no encontrado"));
             return ResponseEntity.ok()
                     .contentType(MediaType.parseMediaType("application/pdf"))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "aver.pdf" + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + postulante.getNroDocument() + ".pdf" + "\"")
                     .body(new ByteArrayResource(pdf.generatePdfReport(postulante)));
         } catch (Exception e) {
             // TODO Auto-generated catch block

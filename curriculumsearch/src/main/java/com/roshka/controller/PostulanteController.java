@@ -114,10 +114,7 @@ public class PostulanteController {
             DBFile cv = Helper.createFile(file);
             if(cv!=null) cv.setPostulante(postulante);
             postulante.setCvFile(cv);
-        }
-        postulante.getTecnologias().stream().filter(tec -> tec.getTecnologia().getId() != 0)
-        .forEach(tec -> tec.setTecnologia(tecRepo.getById(tec.getTecnologia().getId())));
-                
+        }        
         for(Estudio estudio: postulante.getEstudios()){
             String nombreIns = "";
             nombreIns = estudio.getInstitucion().getNombre().toLowerCase();

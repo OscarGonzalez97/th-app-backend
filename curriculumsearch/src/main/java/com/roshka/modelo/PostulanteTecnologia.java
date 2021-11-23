@@ -31,7 +31,7 @@ public class PostulanteTecnologia {
    @Min(value = 1)
    @Max(value = 5)
    private Long nivel;
-    @ManyToOne(cascade = {CascadeType.PERSIST},optional = false)
+    @ManyToOne()
     @JoinColumn
    private Tecnologia tecnologia;
 
