@@ -46,7 +46,7 @@
                             <td>${convocatoria.getEstado().getDescripcion()}</td>
                             <td>${convocatoria.getFechaInicio().toString().split(" ")[0]}</td>
                             <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
-                            <td>Ver Postulantes</td>
+                            <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
                             <td><button onclick=window.location.href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</button></td>
                         </tr>
                     </c:forEach>
