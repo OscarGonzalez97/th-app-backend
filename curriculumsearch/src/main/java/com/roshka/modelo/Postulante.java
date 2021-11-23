@@ -93,8 +93,6 @@ public class Postulante {
     private TipoDocumento tipoDocumento;
 
 
-    @Column(name = "disponibilidad", length = 2)
-    private Disponibilidad disponibilidad;
 
     @Column(name = "tecnologia_otros")
     private String tecnologiaOtros;

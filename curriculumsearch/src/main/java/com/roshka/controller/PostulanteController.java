@@ -10,7 +10,6 @@ import javax.validation.ConstraintViolationException;
 import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoCivil;
 import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
@@ -79,7 +78,6 @@ public class PostulanteController {
     @RequestMapping(value = "/work-with-us",method = RequestMethod.GET)
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("tiposDeEstudio", TipoDeEstudio.values());
         model.addAttribute("estadosEstudio", EstadoEstudio.values());
         model.addAttribute("estadosCiviles", EstadoCivil.values());

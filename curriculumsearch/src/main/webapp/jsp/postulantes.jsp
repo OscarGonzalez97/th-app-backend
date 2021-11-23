@@ -26,7 +26,7 @@
             <thead>
                 <tr class="">
                   <th scope="col">Estado</th>
-                  <th scope="col">Disponbilidad</th>
+                  
                   <th scope="col">Nivel de ingles</th>
                   <th scope="col">Institucion Educativa</th>
                   <th scope="col">Tecnologias</th>
@@ -43,14 +43,6 @@
                       <c:forEach items="${estadoP}" var="estados">
                         <option value="${estados}" ${param.estado == estados ? "selected" : ""}>${estados.getEstado()}</option>
                       </c:forEach>
-                  </td>
-                  <td>
-                    <select class="form-select form-select-sm " name="dispo" id="dispo">
-                      <option value="">Seleccione</option>
-                      <c:forEach items="${disponibilidades}" var="disponibilidad">
-                        <option value="${disponibilidad}" ${param.dispo == disponibilidad ? "selected" : ""}>${disponibilidad.getDescripcion()}</option>
-                      </c:forEach>
-                    </select>
                   </td>
                   <td>
                     <select class="form-select form-select-sm " name="lvlEng" id="lvlEng">
@@ -136,14 +128,7 @@
                    <label class="form-label" for="dispo">Disponbilidad</label>
    
                  </div>
-                 <div class="col-auto col-md-8">
-                   <select class="form-select form-select-sm " name="dispo" id="dispo">
-                     <option value="">Seleccione una opcion</option>
-                     <c:forEach items="${disponibilidades}" var="disponibilidad">
-                       <option value="${disponibilidad}" ${param.dispo == disponibilidad ? "selected" : ""}>${disponibilidad.getDescripcion()}</option>
-                     </c:forEach>
-                   </select>
-                 </div>
+                 
                </div>
              </div>
              <div class="col">
@@ -287,7 +272,6 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Disponibilidad</th>
                   <th scope="col">Nivel de Ingles</th>
                   <th scope="col">Experiencia</th>
                   <th scope="col">Tecnologias</th>
@@ -299,7 +283,6 @@
                       <tr>
                           <th scope="row">${staPost.index + 1}</th>
                           <td>${postulante.nombre} ${postulante.apellido}</td>
-                          <td>${postulante.disponibilidad.getDescripcion()}</td>
                           <td>${postulante.nivelIngles}</td>
                           <td><c:choose>
          
