@@ -61,7 +61,7 @@
   {
     "direccion": "Do nostrud aliqua adipisicing in sunt aute id do elit ut dolor ad aliquip.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 2 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Hopkins",
@@ -108,7 +108,7 @@
   {
     "direccion": "Occaecat non cupidatat amet reprehenderit consectetur ullamco et.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 3 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Alejandra",
@@ -155,7 +155,7 @@
   {
     "direccion": "Qui ullamco excepteur velit ad ullamco id id nisi irure dolore cupidatat mollit ullamco veniam.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 4 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Angelina",
@@ -202,7 +202,7 @@
   {
     "direccion": "Deserunt tempor ut et eiusmod et labore Lorem.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 5 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Rivas",
@@ -249,7 +249,7 @@
   {
     "direccion": "Aliqua est adipisicing do exercitation sit laborum aliquip aliqua adipisicing enim aute.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 3 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Estelle",
@@ -296,7 +296,7 @@
   {
     "direccion": "Officia eiusmod ut reprehenderit tempor consequat elit amet ex voluptate aute anim do.",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [{ "id": 4 }],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
     "nombre": "Mariana",
