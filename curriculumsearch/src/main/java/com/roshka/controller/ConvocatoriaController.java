@@ -18,6 +18,10 @@ import org.hibernate.type.IntegerType;
 import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,12 +47,17 @@ public class ConvocatoriaController {
     @RequestMapping("/convocatorias")
     public String menuConvocatorias(Model model,RedirectAttributes redirectAttrs,
                             @RequestParam(required = false) Long cargoId,
-                            @RequestParam(required = false) Integer isOpen//1: true, 0: false
+                            @RequestParam(required = false) Integer isOpen,//1: true, 0: false
+                            @RequestParam(defaultValue = "0")Integer nroPagina
                             ) {
 
+        final Integer CANTIDAD_POR_PAGINA = 1;
+        Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("cargos", cargoRepo.findAll());
+        Page<ConvocatoriaCargo> convoPag=convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, cargoId), new Date(), new TypedParameterValue(IntegerType.INSTANCE, isOpen),page);
+        model.addAttribute("convocatorias", convoPag.getContent());
+        model.addAttribute("pages", convoPag.getTotalPages());
         
-        model.addAttribute("convocatorias", convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, cargoId), new Date(), new TypedParameterValue(IntegerType.INSTANCE, isOpen)));
         //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
         return "convocatorias";
     }
