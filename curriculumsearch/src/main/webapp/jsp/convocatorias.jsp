@@ -2,6 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <layout:extends name="layouts/base.jsp">
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
@@ -44,8 +46,8 @@
                             <th scope="row">${sta.index+1}</th>
                             <td>${convocatoria.getCargo().getNombre()}</td>
                             <td>${convocatoria.getEstado().getDescripcion()}</td>
-                            <td>${convocatoria.getFechaInicio().toString().split(" ")[0]}</td>
-                            <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
+                            <td><fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd-MM-yyyy" /></td>
+                            <td><fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd-MM-yyyy" /></td>
                             <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
                             <td><button onclick=window.location.href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</button></td>
                         </tr>
