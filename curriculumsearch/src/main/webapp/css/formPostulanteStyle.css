@@ -217,6 +217,7 @@ form[name="postulante"]{
 label:hover {
     color: #bfbfbf;
 }
+/*ICONOS Y PLACEHOLDER
 
 .size-placeholder::placeholder{
     background-size: 18px 18px;
@@ -225,19 +226,19 @@ label:hover {
     
  
 }
-/*Nombre*/
-.name-placeholder::placeholder{
+/*Nombre
+.nombre-ph::placeholder{
     background-image: url(../img/placeholder/name_ph.png);
 }
-/*Apellido*/
-.lastname-placeholder::placeholder{
+Apellido
+#apellido::placeholder{
     background-image: url(../img/placeholder/lastname_ph.png);
 }
-/*Email*/
-.email-placeholder::placeholder{
+Email
+#correo::placeholder{
     background-image: url(../img/placeholder/email_ph.png);
 }
-/*Numero de documento*/
+Numero de documento*/
 #nroDocument::-webkit-outer-spin-button,
 #nroDocument::-webkit-inner-spin-button
 {
@@ -247,15 +248,16 @@ label:hover {
 #nroDocument[type=number] {
     -moz-appearance: textfield;
 }
+/*
 .nroDocument-ph::placeholder{
     background-image: url(../img/placeholder/nroDocumento_ph.png);
     margin-left: 5px;
 }
-/*Direccion*/
-.direccion-ph::placeholder{
+Direccion
+#direccion::placeholder{
     background-image: url(../img/placeholder/adress_ph.png);
     background-size: 14px 14px;
-}
+}*/
 /*Telefono*/
 #telefono::-webkit-outer-spin-button,
 #telefono::-webkit-inner-spin-button
@@ -266,8 +268,53 @@ label:hover {
 #telefono[type=number] {
     -moz-appearance: textfield;
 }
+/*
 .telefono-ph::placeholder{
-    background-image: url(../img/placeholder/telephone_ph.png);
-    
-    
+    background-image: url(../img/placeholder/telephone_ph.png);  
 } 
+/*Modal Estudio
+#institucionEstudio::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+#temaDeEstudio::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+
+#institucionExperiencia::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+#cargo::placeholder{
+    background-image: url(../img/placeholder/cargo_ph.png);  
+}
+
+#descripcion::placeholder{
+    background-image: url(../img/placeholder/description_ph.png);  
+}
+#refNombre::placeholder{
+    background-image: url(../img/placeholder/name_ph.png);  
+}*/
+#refTel::-webkit-outer-spin-button,
+#refTel::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#refTel[type=number] {
+    -moz-appearance: textfield;
+}
+/*
+.telefono-ph::placeholder{
+    background-image: url(../img/placeholder/telephone_ph.png);  
+} 
+#motivoSalida::placeholder{
+    background-image: url(../img/placeholder/motivoSalida_ph.png);  
+}
+#relacion::placeholder{
+    background-image: url(../img/placeholder/relacion_ph.png);  
+}
+*/
+/*Prueba Font Awesome*/
+
+.FA{
+    font-family: 'Shippori Antique B1',FontAwesome;
+}
