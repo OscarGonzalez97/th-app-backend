@@ -26,6 +26,7 @@ import com.roshka.repositorio.ExperienciaRepository;
 import com.roshka.repositorio.InstitucionRepository;
 import com.roshka.repositorio.PostulanteRepository;
 import com.roshka.repositorio.TecnologiaRepository;
+import com.roshka.service.PdfGenerator;
 import com.roshka.utils.Helper;
 
 
@@ -240,6 +241,27 @@ public class PostulanteRRHHController {
                     .contentType(MediaType.parseMediaType(dbFile.getFileType()))
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + dbFile.getFileName() + "\"")
                     .body(new ByteArrayResource(dbFile.getData()));
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @GetMapping("/postulantes/{id}/pdf")
+    public ResponseEntity<Resource> downloadPDF(@PathVariable Long id) {
+        // Load file from database
+        PdfGenerator pdf =  new PdfGenerator();
+        
+        
+        try {
+            Postulante postulante = post.findById(id)
+            .orElseThrow(() -> new Exception("Postulante no encontrado"));
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType("application/pdf"))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + postulante.getNroDocument() + ".pdf" + "\"")
+                    .body(new ByteArrayResource(pdf.generatePdfReport(postulante)));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

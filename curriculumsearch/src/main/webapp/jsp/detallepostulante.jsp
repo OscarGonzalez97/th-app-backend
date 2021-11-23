@@ -145,6 +145,9 @@
                                    </c:when>
 
                                </c:choose>
+                               <div class="col">
+                                   <a class="btn btn-link" target="__blank" href="/postulantes/${postulante.id}/pdf">Obtener pdf</a>
+                               </div>
 
                            </div>
                        </div>

@@ -3,9 +3,9 @@ package com.roshka.utils;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.YearMonth;
-import java.time.ZoneOffset;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -44,6 +44,31 @@ public class Helper {
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
     
         return Math.round(diff/30.d) ;
+    }
+
+    public static LocalDate convertToLocalDateViaSqlDate(Date dateToConvert) {
+        return new java.sql.Date(dateToConvert.getTime()).toLocalDate();
+    }
+
+    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
+    }
+
+    public static int calculateAge(Date birthDate) {
+        LocalDate currentDate = LocalDate.now();
+        return calculateAge(convertToLocalDateViaSqlDate(birthDate),currentDate);
+    }
+
+    public static String formatDate(LocalDate fecha, String format){
+        if(fecha == null || format == null) return null;
+        return fecha.format(DateTimeFormatter.ofPattern(format));
+    }
+    public static String formatDate(Date fecha, String format){
+        return formatDate(convertToLocalDateViaSqlDate(fecha), format);
     }
 
     public static DBFile createFile(MultipartFile file) {
