@@ -214,3 +214,120 @@ h4{
 form[name="postulante"]{
     color: #ffffff;
 }
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #0d6efd;
+}
+
+label:hover {
+    color: #bfbfbf;
+}
+/*ICONOS Y PLACEHOLDER*/
+.FA{
+    font-family: 'Shippori Antique B1',FontAwesome;
+}
+
+
+#nroDocument::-webkit-outer-spin-button,
+#nroDocument::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#nroDocument[type=number] {
+    -moz-appearance: textfield;
+}
+#telefono::-webkit-outer-spin-button,
+#telefono::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#telefono[type=number] {
+    -moz-appearance: textfield;
+}
+#refTel::-webkit-outer-spin-button,
+#refTel::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#refTel[type=number] {
+    -moz-appearance: textfield;
+}
+.pointer {cursor: pointer;}
+/*
+
+.size-placeholder::placeholder{
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    
+ 
+}
+/*Nombre
+.nombre-ph::placeholder{
+    background-image: url(../img/placeholder/name_ph.png);
+}
+Apellido
+#apellido::placeholder{
+    background-image: url(../img/placeholder/lastname_ph.png);
+}
+Email
+#correo::placeholder{
+    background-image: url(../img/placeholder/email_ph.png);
+}
+Numero de documento*/
+
+/*
+.nroDocument-ph::placeholder{
+    background-image: url(../img/placeholder/nroDocumento_ph.png);
+    margin-left: 5px;
+}
+Direccion
+#direccion::placeholder{
+    background-image: url(../img/placeholder/adress_ph.png);
+    background-size: 14px 14px;
+}*/
+/*Telefono*/
+
+/*
+.telefono-ph::placeholder{
+    background-image: url(../img/placeholder/telephone_ph.png);  
+} 
+/*Modal Estudio
+#institucionEstudio::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+#temaDeEstudio::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+
+#institucionExperiencia::placeholder{
+    background-image: url(../img/placeholder/studios_ph.png);  
+}
+#cargo::placeholder{
+    background-image: url(../img/placeholder/cargo_ph.png);  
+}
+
+#descripcion::placeholder{
+    background-image: url(../img/placeholder/description_ph.png);  
+}
+#refNombre::placeholder{
+    background-image: url(../img/placeholder/name_ph.png);  
+}*/
+
+/*
+.telefono-ph::placeholder{
+    background-image: url(../img/placeholder/telephone_ph.png);  
+} 
+#motivoSalida::placeholder{
+    background-image: url(../img/placeholder/motivoSalida_ph.png);  
+}
+#relacion::placeholder{
+    background-image: url(../img/placeholder/relacion_ph.png);  
+}
+*/
+/*Prueba Font Awesome*/
+

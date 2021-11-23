@@ -252,7 +252,6 @@
               </div>
             </div>           
           </div>
-          
         <div class="col">
           <div class="row">
             <div class="col-auto col-md-4">
@@ -267,6 +266,16 @@
         </div>
        </div> -->
       </form>
+          <div class="row">
+              <div class="col-md-12">
+                  <a href="/postulantesExcel?${query}" type="button" class="btn btn-light float-end">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-excel-fill" viewBox="0 0 16 16">
+                          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM5.884 6.68 8 9.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 10l2.233 2.68a.5.5 0 0 1-.768.64L8 10.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 10 5.116 7.32a.5.5 0 1 1 .768-.64z"></path>
+                      </svg>
+                      Excel
+                  </a>
+              </div>
+          </div>
       </div>
       <div class="card text-dark bg-light mt-3">
         
@@ -324,11 +333,18 @@
         <div class="card-footer">
           <div>
             <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <c:forEach begin="1" end="${pages}" var="nro">
-                  <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-                </c:forEach>
-              </ul>
+              <div class="row">
+                  <div class="col-md-10">
+                      <ul class="pagination">
+                          <c:forEach begin="1" end="${pages}" var="nro">
+                              <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+                          </c:forEach>
+                      </ul>
+                  </div>
+                  <div class="col-md-2">
+                      <span class="badge bg-light text-dark">Numero de Ocurrencias: ${numeroOcurrencias}</span>
+                  </div>
+              </div>
             </nav>
           </div>
         </div>
@@ -355,12 +371,13 @@
         function buscarPagina(nro){
           nro--
           const aBuscar = 'nroPagina='+nro
-          if(!location.search) location.search = "?"+aBuscar
+          if(!location.search) location.search = aBuscar
           const inicial = location.search.search(aBuscar);
           if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search = "&"+aBuscar
+            location.search = "&"+aBuscar;
           }
           location.search.replace('nroPagina=',aBuscar)
+            console.log(location.search)
         }
         const tecId = document.querySelector("#tecId");
         const lvlTec = document.querySelector("#lvlTec");

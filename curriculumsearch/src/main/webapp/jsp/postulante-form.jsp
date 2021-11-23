@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="icon" href="../img/LogoRoshka.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shippori+Antique+B1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   </head>
 
   <body class="container">
@@ -30,25 +32,26 @@
                                 
                               </div>
                               <h4 class="text-start">Datos Personales</h4>
+                              <h6 class="text-start">Todos los campos con (*) deben estar rellenados</h6>
                               <div class="row">
                                   
 
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control  " id="nombre" required>
+                                    <label for="nombre" class="form-label">Nombre *</label>
+                                    <input placeholder="&#xf007;      Ingrese su nombre" type="text" name="nombre" class="form-control FA" id="nombre" required>
                                     
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="apellido" class="form-label">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control  " id="apellido" required>
+                                    <label for="apellido" class="form-label ">Apellido *</label>
+                                    <input placeholder="&#xf007;      Ingrese su apellido" type="text" name="apellido" class="form-control FA" id="apellido" required>
                                     
                                   </div>
           
 
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="correo" class="form-label">Email</label>
-                                    <input type="email" name="correo" class="form-control  " id="correo" required>
+                                    <label for="correo" class="form-label">Email *</label>
+                                    <input type="email" placeholder="&#xf0e0;     Ingrese su Email" name="correo" class="form-control FA" id="correo" required>
                                     
                                   </div>
 
@@ -65,14 +68,14 @@
                                     <label for="tipoDocumento" class="form-label"> Tipo de documento</label> 
                                     <select name="tipoDocumento" id="tipoDocumento" class="bg-light" required>
                                         <option value='CI' selected>C.I</option>
-                                        <option value='PAS'>Pasport</option>
+                                        <option value='PAS'>Passport</option>
                                         <option value='Otro'>Otro</option>
                                     </select> 
                                   </div>
                               
                                   <div class="inputs  mb-3 col-md-6">
                                     <label for="nroDocument" class="form-label">Numero de Documento</label>
-                                    <input type="number" name="nroDocument" class="form-control  " id="nroDocument" required>
+                                    <input placeholder="&#xf2c2;    Ingrese su numero de documento" type="number" name="nroDocument" class="form-control  nroDocument-ph FA" id="nroDocument" required>
                                     
                                   </div>
                                   
@@ -95,19 +98,19 @@
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="direccion" class="form-label">direccion</label>
-                                    <input type="text" name="direccion" class="form-control  " id="direccion" required> </textarea>
+                                    <label for="direccion" class="form-label">Direccion *</label>
+                                    <input placeholder="&#xf041;      Ingrese su direccion" type="text" name="direccion" class="form-control FA " id="direccion" required> </textarea>
                                   </div>
                                   
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="number" name="telefono" class="form-control  " id="telefono" required>
+                                    <label for="telefono" class="form-label">Telefono *</label>
+                                    <input placeholder="&#xf095;      Ingrese su numero de telefono" type="number" name="telefono" class="form-control telefono-ph FA" id="telefono" required>
                                     
                                   </div>
                                   
                                   <div class="inputs mb-3 col-md-6">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento *</label>
                                     <input type="date" name="fechaNacimiento" class="form-control  " id="fechaNacimiento" required>
                                     
                                   </div>
@@ -121,11 +124,11 @@
                         
                                   <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
-                                    <option value="1" selected>Ingles muy basico</option>
+                                    <option value="1" selected>Conocimiento de ingles muy basico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
-                                    <option value="3" >Puedo leer tranquilamente</option>
-                                    <option value="4" >Puedo escribir documentacion</option>
-                                    <option value="5" >Puedo escribir y hablar tranquilamente</option>
+                                    <option value="3" >Puedo entender todo lo que leo</option>
+                                    <option value="4" >Puedo escribir documentacion en ingles</option>
+                                    <option value="5" >Puedo escribir y hablar fluidamente</option>
                                     </select> 
                                   </div>
                                 
@@ -152,7 +155,7 @@
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos</h4>	
+                                        <h4 class="text-start">Cargos <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row" id="cargos">
@@ -182,7 +185,7 @@
 
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Estudios <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h4>	
+                                        <h4 class="text-start">Estudios <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#estudioForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="estudios">
@@ -200,7 +203,7 @@
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
                                         
-                                        <h4 class="text-start">Tecnologias <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
+                                        <h4 class="text-start">Tecnologias <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         
@@ -217,6 +220,27 @@
                                     
                                     </div>
                                   </div>
+                                  <!-- Button Otras tecnologias -->
+                                  <hr>
+                                  <div class="inputs mb-3 col-md-12">
+
+                                    <div class="row w-100  gy-2 mx-auto">
+                                      <div class="col-12 px-0">
+                                        
+                                        <h4 class="text-start">Otras Tecnologias </h4>	
+                                      </div>
+                                      <div class="col-6">
+                                        
+                                        <div class="mb-3">
+                                          <textarea class="form-control" id="exampleFormControlTextarea1" name="tecnologiaOtros" placeholder="Si tienes alguna tecnologia que no figura en la seccion anterior. Escribelos aqui."></textarea>
+                                        </div>
+                                        
+                                      </div>
+                                      
+                                      
+                                    
+                                    </div>
+                                  </div>
 
                                   <!-- Button Agregar Experiencia -->
                                   <hr>
@@ -224,7 +248,7 @@
 
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Experiencias <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h4>	
+                                        <h4 class="text-start">Experiencias <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#experienciaForm"></i></h4>	
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="experiencias">
@@ -238,7 +262,7 @@
                                   <div class="inputs mb-3 col-md-12">
                                     <div class="row  w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>	
+                                        <h4 class="text-start">Referencia Personal <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#referenciaForm"></i></h4>
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row row-cols-4" id="referencia">
@@ -264,7 +288,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" >CargosDisponibles</h5>
+            <h5 class="modal-title" id="exampleModalLabel" >Cargos Disponibles</h5>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -305,11 +329,11 @@
                 <form name="experiencia-form" class="needs-validation" novalidate>
 
                         <div class="inputs">
-                            <label for="institucionExperiencia" class="inputs form-label">Institucion</label>
-                            <input type="text" class="inputs form-control  " name="institucion" id="institucionExperiencia" required>
+                            <label for="institucionExperiencia" class="inputs form-label">Institucion *</label>
+                            <input placeholder="&#xf1ad;      Ingrese su institucion" type="text" class="inputs form-control FA" name="institucion" id="institucionExperiencia" required>
                         </div>
                         <div class="inputs">
-                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde</label>
+                            <label for="fechaDesdeExperiencia" class="form-label">Fecha Desde *</label>
                             <input type="date" class="form-control" name="fechaDesde" id="fechaDesdeExperiencia" required>
                             <div class="invalid-feedback errorFechaDesde">
                               
@@ -323,27 +347,27 @@
                           </div>
                         
                         <div class="inputs">
-                            <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control " name="cargo" id="cargo" required>
+                            <label for="cargo" class="form-label">Cargo *</label>
+                            <input placeholder="&#xf0b1;      Ingrese su cargo" type="text" class="form-control FA " name="cargo" id="cargo" required>
                         </div>
 
                         <div class="inputs">
-                          <label for="descripcion" class="form-label">Descripcion</label>
-                          <textarea  class="form-control" name="descripcion" id="descripcion" required></textarea>
+                          <label for="descripcion" class="form-label">Descripcion *</label>
+                          <textarea placeholder="&#xf022;     Ingrese una descripcion de su trabajo"  class="form-control FA" name="descripcion" id="descripcion" required></textarea>
 
                         </div>
                         <div class="inputs">
                           <label for="refNombre" class="form-label">Nombre de la Referencia</label>
-                          <input type="text" class="form-control  " name="nombreReferencia" id="refNombre" >
+                          <input placeholder="&#xf007;      Ingrese el nombre de su referencia" type="text" class="form-control FA " name="nombreReferencia" id="refNombre" >
                         </div>
                         <div class="inputs">
                           <label for="refTel" class="form-label">Telefono de la Referencia</label>
-                          <input type="text" class="form-control  " name="telefonoReferencia" id="refTel" >
+                          <input placeholder="&#xf095;      Ingrese el telefono de su referencia" type="number" class="form-control FA" name="telefonoReferencia" id="refTel" >
                         </div>
                         
                         <div class="inputs">
                           <label for="motivoSalida" class="form-label">Motivo de Salida</label>
-                          <textarea class="form-control  " name="motivoSalida" id="motivoSalida" ></textarea>
+                          <textarea placeholder="&#xf022;     Ingrese el motivo de su salida" class="form-control FA " name="motivoSalida" id="motivoSalida" ></textarea>
                         </div>
                         <div class="inputs">
                           <label for="tipoExperiencia" class="form-label"> Tipo de Experiencia</label> 
@@ -371,7 +395,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" >tecnologia</h5>
+              <h5 class="modal-title" id="exampleModalLabel" >Tecnologia</h5>
               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -430,12 +454,12 @@
 <%--                <label for="tipoDeEstudio" class="form-label">Tipo De Estudio</label>--%>
 <%--                <input type="text" class="form-control  " name="tipoDeEstudio" id="tipoDeEstudio">--%>
                 <div class="form-group">
-                    <label for="institucionEstudio" class="form-label">Institucion</label>
-                    <input type="text" class="form-control" name="institucion" id="institucionEstudio" required>
+                    <label for="institucionEstudio" class="form-label">Institucion *</label>
+                    <input placeholder="&#xf19c;      Ingrese su institucion" type="text" class="form-control FA" name="institucion" id="institucionEstudio" required>
                 </div>
                 <div class="form-group">
-                    <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso</label>
-                    <input type="text" class="form-control" name="temaDeEstudio" id="temaDeEstudio" required>
+                    <label for="temaDeEstudio" class="form-label">Carrera/Bachiller/Tema de Curso *</label>
+                    <input placeholder="&#xf02d;      Ingrese su carrera/bachiller/tema de curso " type="text" class="form-control FA" name="temaDeEstudio" id="temaDeEstudio" required>
                 </div>
                   <div class="form-group">
                       <label for="estado">Estado</label>
@@ -447,7 +471,7 @@
                       </select>
                   </div>
                 <div class="form-group">
-                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde</label>
+                    <label for="fechaDesdeEstudio" class="form-label">Fecha Desde *</label>
                     <input type="date" class="form-control  " name="fechaDesde" id="fechaDesdeEstudio" required>
                     <div class="invalid-feedback errorFechaDesde">
                               
@@ -486,17 +510,17 @@
             <div class="modal-body">
               <form name="referencia-form" class="needs-validation" novalidate>
                 <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                    <label for="nombre" class="form-label">Nombre *</label>
+                    <input placeholder="&#xf007;      Ingrese el nombre de su referencia" type="text" class="form-control FA " name="nombre" id="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="relacion" class="form-label">Relacion</label>
-                    <input type="text" class="form-control" name="relacion" id="relacion" required>
+                    <label for="relacion" class="form-label">Relacion *</label>
+                    <input placeholder="&#xf0c1;      Ingrese la relacion con su referencia" type="text" class="form-control FA" name="relacion" id="relacion" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="telefono" class="form-label">Telefono</label>
-                  <input type="number" class="form-control" name="telefono" id="telefono" required>
+                  <label for="telefono" class="form-label">Telefono *</label>
+                  <input placeholder="&#xf095;      Ingrese el numero de su referencia" type="number" class="form-control FA" name="telefono" id="telefono" required>
               </div>
                  
                 

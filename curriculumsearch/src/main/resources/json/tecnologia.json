@@ -18,5 +18,17 @@
   {
     "id": 5,
     "nombre": "spring"
+  },
+  {
+    "id": 6,
+    "nombre": "php"
+  },
+  {
+    "id": 7,
+    "nombre": "laravel"
+  },
+  {
+    "id": 8,
+    "nombre": "sqlserver"
   }
 ]

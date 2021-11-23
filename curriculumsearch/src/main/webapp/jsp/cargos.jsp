@@ -20,40 +20,45 @@ contentType="text/html;charset=UTF-8" language="java" %>
             </form>
             <a href="/cargo">Agregar Nuevo Cargo</a>
           </div>
-          <div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Cargo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <c:forEach items="${cargos}" var="cargo" varStatus="sta">
+          <div class="card text-dark bg-light mt-3">
+        
+            <div class="card-body">
+              <div class="table-responsive">
+              <table class="table">
+                <thead>
                   <tr>
-                    <th scope="row">${sta.index+1}</th>
-                    <td>${cargo.getNombre()}</td>
-                    <td>
-                      <a href="/convocatorias?cargoId=${cargo.id}"
-                        >Ver Convocatorias</a
-                      >
-                    </td>
-                    <td><a href="/cargo/${cargo.id}">Editar cargo</a></td>
+                    <th scope="col">#</th>
+                    <th scope="col">Cargo</th>
                   </tr>
-                </c:forEach>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <c:forEach items="${cargos}" var="cargo" varStatus="sta">
+                    <tr>
+                      <th scope="row">${sta.index+1}</th>
+                      <td>${cargo.getNombre()}</td>
+                      <td>
+                        <a href="/convocatorias?cargoId=${cargo.id}"
+                          >Ver Convocatorias</a
+                        >
+                      </td>
+                      <td><a href="/cargo/${cargo.id}">Editar cargo</a></td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <div>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <c:forEach begin="1" end="${pages}" var="nro">
-                  <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-                </c:forEach>
-              </ul>
-            </nav>
+          <div class="card-footer">
+            <div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <c:forEach begin="1" end="${pages}" var="nro">
+                    <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+                  </c:forEach>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>  

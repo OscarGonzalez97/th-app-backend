@@ -2,6 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <layout:extends name="layouts/base.jsp">
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
@@ -25,12 +27,16 @@
                 <input type="submit" value="Buscar">
             </form>
         </div>
-        <div>
-            <a href="/convocatoria">Agregar Nueva Convocatoria</a>
-            <c:if test="${SUCCESS_MESSAGE != null}">
-                <div id="status_message" style="color: brown;" >${SUCCESS_MESSAGE}</div>
-            </c:if>
-            <table class="table">
+
+        <a href="/convocatoria">Agregar Nueva Convocatoria</a>
+        <c:if test="${SUCCESS_MESSAGE != null}">
+            <div id="status_message" style="color: brown;">${SUCCESS_MESSAGE}</div>
+        </c:if>
+        <div class="card text-dark bg-light mt-3">
+        
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -47,9 +53,9 @@
                             <th scope="row">${sta.index+1}</th>
                             <td>${convocatoria.getCargo().getNombre()}</td>
                             <td>${convocatoria.getEstado().getDescripcion()}</td>
-                            <td>${convocatoria.getFechaInicio().toString().split(" ")[0]}</td>
-                            <td>${convocatoria.getFechaFin().toString().split(" ")[0]}</td>
-                            <td>Ver Postulantes</td>
+                            <td><fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd-MM-yyyy" /></td>
+                            <td><fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd-MM-yyyy" /></td>
+                            <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
                             <td><button onclick=window.location.href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</button></td>
                         </tr>
                     </c:forEach>
@@ -57,8 +63,9 @@
                   
                  
                 </tbody>
-              </table>
-             
+                </table>
+             </div>
+            </div>
         </div>
          
     </layout:put>
