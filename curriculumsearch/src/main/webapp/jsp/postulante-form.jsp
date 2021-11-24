@@ -122,7 +122,7 @@
                                   
                                   <br>
                         
-                                  <div class="inputs mb-3 col-md-4"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
+                                  <div class="inputs mb-3 col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de ingles</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
                                     <option value="1" selected>Conocimiento de ingles muy básico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
@@ -380,7 +380,7 @@
               <form name="tecnologia-form" class="needs-validation" novalidate>
                 <label for="tecnologia-nombre" class="form-label">Tecnología</label>
                 <div class="input-group mb-3">
-                  <select class="form-select" name="tecnologia-id" aria-label="Default select example" required>
+                  <select class="content-select" name="tecnologia-id" aria-label="Default select example" required>
                     
                     <c:forEach items="${tecnologias}" var="tecnologia">
                       <option value="${tecnologia.id}">${tecnologia.nombre}</option>

@@ -154,7 +154,6 @@ select:focus {
 	-moz-appearance: none;
 }
 .content-select{
-	max-width: 250px;
 	position: relative;
 }
  
