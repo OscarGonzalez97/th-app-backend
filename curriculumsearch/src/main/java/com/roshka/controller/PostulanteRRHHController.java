@@ -15,7 +15,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.*;
@@ -91,7 +90,6 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
                             @RequestParam(required = false)EstadoPostulante estado,
-                            @RequestParam(required = false)Disponibilidad dispo,
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
                             @RequestParam(required = false)Long instId,
@@ -104,7 +102,6 @@ public class PostulanteRRHHController {
         final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
         model.addAttribute("estadoP", EstadoPostulante.values());
 
@@ -121,14 +118,14 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
                 new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                    dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
+                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
         for (Postulante postulante : postulantes) {
             postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(),
-                    postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(),
+                    postulante.getApellido(), postulante.getNivelIngles(),
                     postulante.getMesesDeExperiencia(), postulante.getTecnologias(),postulante.getEstadoPostulante(),
                     postulante.getPostulaciones()));
         }
@@ -148,7 +145,6 @@ public class PostulanteRRHHController {
                                        @RequestParam(required = false)Long tecId,
                                        @RequestParam(required = false)String nombre,
                                        @RequestParam(required = false)EstadoPostulante estado,
-                                       @RequestParam(required = false)Disponibilidad dispo,
                                        @RequestParam(required = false)Long lvlEng,
                                        @RequestParam(required = false)Long lvlTec,
                                        @RequestParam(required = false)Long instId,
@@ -162,13 +158,13 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
+                        lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
 
         for (Postulante postulante : postulantes) {
             postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(),
-                    postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(),
+                    postulante.getApellido(), postulante.getNivelIngles(),
                     postulante.getMesesDeExperiencia(), postulante.getTecnologias(),postulante.getEstadoPostulante(),
                     postulante.getPostulaciones()));
         }
