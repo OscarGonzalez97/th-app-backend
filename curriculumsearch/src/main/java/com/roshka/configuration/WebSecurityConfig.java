@@ -53,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/home").authenticated()
                 .mvcMatchers("/cargo*").authenticated()
                 .mvcMatchers("/convocatoria*").authenticated()
+                .mvcMatchers("/convocatoria/crear/*").authenticated()
                 .mvcMatchers("/tecnologia*").authenticated()
                 .mvcMatchers("/postulantes","/postulantes/**").authenticated()
                 .mvcMatchers("/edit-user-data").authenticated()

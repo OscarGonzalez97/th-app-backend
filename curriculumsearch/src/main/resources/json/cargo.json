@@ -1,22 +1,27 @@
 [
     {
       "id": 1,
-      "nombre": "dev java"
+      "nombre": "dev java",
+      "existeConvocatoria":true
     },
     {
       "id": 2,
-      "nombre": "dev php"
+      "nombre": "dev php",
+      "existeConvocatoria":true
     },
     {
       "id": 3,
-      "nombre": "dev python"
+      "nombre": "dev python",
+      "existeConvocatoria":true
     },
     {
       "id": 4,
-      "nombre": "dev c"
+      "nombre": "dev c",
+      "existeConvocatoria":true
     },
     {
       "id": 5,
-      "nombre": "dev android"
+      "nombre": "dev android",
+      "existeConvocatoria":true
     }
   ]

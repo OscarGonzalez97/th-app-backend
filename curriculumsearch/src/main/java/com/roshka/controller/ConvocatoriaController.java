@@ -62,12 +62,6 @@ public class ConvocatoriaController {
         //model.addAttribute("convocatorias",cargoId==null? convoRepo.findAll() : convoRepo.findByCargoId(cargoId));
         return "convocatorias";
     }
-    @RequestMapping("/convocatoria")
-    public String formConvocatoria(Model model) {
-        model.addAttribute("cargos", cargoRepo.findAll());
-        model.addAttribute("convocatoria", new ConvocatoriaCargo());
-        return "convocatoria-form";
-    }
     
     @PostMapping("/convocatoria")
     public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result,RedirectAttributes redirectAttributes) {
@@ -84,7 +78,20 @@ public class ConvocatoriaController {
         System.out.println(convocatoria.getFechaInicio());
         return "redirect:/convocatorias";
     }
-
+    @RequestMapping("/convocatoria/crear/{id}")
+    public String guardarConvocatoriaa(@PathVariable(required = false) Long id) {
+        ConvocatoriaCargo convocatoria=new ConvocatoriaCargo();  
+        convocatoria.setCargo(cargoRepo.findByIdCargo(id));
+        convocatoria.setCargoId(cargoRepo.findByIdCargo(id).getId());
+        System.out.println(cargoRepo.findByIdCargo(id).getNombre());
+        convocatoria.setFechaInicio(new Date());
+        convocatoria.setEstado(EstadoConvocatoria.abierto);
+        convocatoria.getCargo().setExisteConvocatoria(true);
+        convoRepo.save(convocatoria);
+        System.out.println(convocatoria.getFechaInicio());
+        
+        return "redirect:/convocatorias";
+    }
 
    /* @RequestMapping("/convocatoria/{id}")
     public String formConvocatoria(Model model,@PathVariable(required = false) Long id) {
@@ -111,6 +118,7 @@ public class ConvocatoriaController {
         convocatoria=convoRepo.findByIdConvocatoriaCargo(id);
         convocatoria.setEstado(EstadoConvocatoria.cerrado);
         convocatoria.setFechaFin(new Date());
+        convocatoria.getCargo().setExisteConvocatoria(false);
         convoRepo.save(convocatoria);
         /*if(id != null) convocatoria.setId(id);
         //System.out.println(convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId()));
