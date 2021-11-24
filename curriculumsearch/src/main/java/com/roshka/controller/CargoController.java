@@ -63,7 +63,10 @@ public class CargoController {
             model.addAttribute("mismoNombre", true);
             return "cargo-form";
         }; 
-        if(id != null ) cargo.setId(id);
+        if(id != null ){
+            cargo.setId(id);
+            cargo.setExisteConvocatoria(cargoRepo.getById(id).isExisteConvocatoria());
+        } 
         cargoRepo.save(cargo);
         System.out.println(cargo.getNombre());
         return "redirect:/cargos";

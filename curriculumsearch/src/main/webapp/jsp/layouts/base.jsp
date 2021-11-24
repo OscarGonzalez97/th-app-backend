@@ -39,7 +39,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="/cargo">Agregar Cargo</a></li>
-                      <li><a class="dropdown-item" href="/convocatoria">Agregar Convocatoria</a></li>
                       <li><a class="dropdown-item" href="/cargos">Listar cargos</a></li>
                       <li><a class="dropdown-item" href="/convocatorias">Listar convocatorias</a></li>
                     </ul>

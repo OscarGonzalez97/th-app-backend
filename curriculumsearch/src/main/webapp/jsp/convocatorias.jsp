@@ -48,7 +48,7 @@
                             <div class="form-check form-check-inline">
                                 
                                 <input class="form-check-input" type="radio" id="${estado}" name="estado" value="${estado}">
-                                <label class="form-check-label" for="abierto">${estado}</label><br>
+                                <label class="form-check-label" for="${estado}">${estado}</label><br>
                             </div>
                         </c:forEach>
                         

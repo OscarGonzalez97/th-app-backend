@@ -30,6 +30,9 @@ public class Cargo {
     @JsonManagedReference
     private List<ConvocatoriaCargo> convocatorias;
 
+    @Column(name = "existe_convocatoria")
+    private boolean existeConvocatoria=false;
+
     public List<ConvocatoriaCargo> getConvocatorias() {
         return convocatorias;
     }
@@ -39,4 +42,13 @@ public class Cargo {
     public static Object values() {
         return null;
     }
+
+    public boolean isExisteConvocatoria() {
+        return this.existeConvocatoria;
+    }
+
+    public void setExisteConvocatoria(boolean existeConvocatoria) {
+        this.existeConvocatoria = existeConvocatoria;
+    }
+
 }

@@ -51,6 +51,11 @@ contentType="text/html;charset=UTF-8" language="java" %>
                         >
                       </td>
                       <td><a href="/cargo/${cargo.id}">Editar cargo</a></td>
+                      <td>
+                        <c:if test="${!cargo.isExisteConvocatoria()}">  
+                          <a class="btn btn-secondary" href="/convocatoria/crear/${cargo.id}">abrirConvocatoria</a>
+                        </c:if>
+                      </td>
                     </tr>
                   </c:forEach>
                 </tbody>

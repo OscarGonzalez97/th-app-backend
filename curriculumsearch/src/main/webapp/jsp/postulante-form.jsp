@@ -334,11 +334,11 @@
                         </div>
                         <div class="inputs">
                           <label for="refNombre" class="form-label">Nombre de la referencia</label>
-                          <input placeholder="&#xf007;      Ingrese el nombre de su referencia" type="text" class="form-control FA " name="nombreReferencia" id="refNombre" >
+                          <input placeholder="&#xf007;      Ingrese el nombre de su referencia" type="text" class="form-control FA " name="nombreReferencia" id="refNombre" required >
                         </div>
                         <div class="inputs">
                           <label for="refTel" class="form-label">Teléfono de la referencia</label>
-                          <input placeholder="&#xf095;      Ingrese el teléfono de su referencia" type="number" class="form-control FA" name="telefonoReferencia" id="refTel" >
+                          <input placeholder="&#xf095;      Ingrese el teléfono de su referencia" type="number" class="form-control FA" name="telefonoReferencia" id="refTel" required>
                         </div>
                         
                         <div class="inputs">
