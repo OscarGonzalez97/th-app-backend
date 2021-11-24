@@ -404,7 +404,7 @@
                   margin:       [1, 1, 1, 1],
                   filename:     'myfile.pdf',
                   image:        { type: 'jpeg', quality: 0.98 },
-                  html2canvas:  { scale: 2 },
+                  html2canvas:  { scale: 1, height: 1400, width: 1300 },
                   jsPDF:        { unit: 'in', format: 'a2', orientation: 'portrait' }
               };
               buttonsRow.style.display = "none";
