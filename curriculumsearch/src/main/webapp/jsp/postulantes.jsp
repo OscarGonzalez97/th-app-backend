@@ -100,7 +100,7 @@
       <div class="col">
         <div class="row">
           <div class="col-auto col-md-4">
-            <label class="form-label" for="instId">Institucion Educativa</label>
+            <label class="form-label" for="instId">Institución Educativa</label>
 
           </div>
           <div class="col-auto col-md-8">
@@ -118,7 +118,7 @@
              <div class="col">
               <div class="row">
                 <div class="col-auto col-md-4">
-                  <label class="form-label" for="lvlEng">Nivel de Ingles</label>
+                  <label class="form-label" for="lvlEng">Nivel de Inglés</label>
                 </div>
                 <div class="col-auto col-md-8">
                   <select class="form-select form-select-sm " name="lvlEng" id="lvlEng">
@@ -139,7 +139,7 @@
 
             <div class="row">
               <div class="col-auto col-md-4">
-                <label class="form-label" for="tecId">Tecnologias</label>
+                <label class="form-label" for="tecId">Tecnologías</label>
 
               </div>
               <div class="col-auto col-md-8">
@@ -156,7 +156,7 @@
           <div class="col">
             <div class="row" id="lvlTecBlock">
               <div class="col-auto col-md-4">
-                <label class="form-label" for="lvlTec">Nivel de Tecnologia</label>
+                <label class="form-label" for="lvlTec">Nivel de Tecnología</label>
               </div>
               <div class="col-auto col-md-8">
                 <select class="form-select form-select-sm" name="lvlTec" id="lvlTec">
@@ -186,9 +186,9 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Nivel de Ingles</th>
+                  <th scope="col">Nivel de Inglés</th>
                   <th scope="col">Experiencia</th>
-                  <th scope="col">Tecnologias</th>
+                  <th scope="col">Tecnologías</th>
                   <th scope="col">Estado</th>
                 </tr>
               </thead>
@@ -239,7 +239,7 @@
                       </ul>
                   </div>
                   <div class="col-md-2">
-                      <span class="badge bg-light text-dark">Numero de Ocurrencias: ${numeroOcurrencias}</span>
+                      <span class="badge bg-light text-dark">Postulantes: ${numeroOcurrencias}</span>
                   </div>
               </div>
             </nav>

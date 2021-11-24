@@ -90,7 +90,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "UNB" },
         "fechaDesde": "2014-07-08",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -137,7 +137,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "UNC" },
         "fechaDesde": "2014-02-13",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -184,7 +184,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "UND" },
         "fechaDesde": "2014-12-22",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"
@@ -231,7 +231,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "AMERICANA" },
         "fechaDesde": "2014-08-03",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "lic inf"
@@ -278,7 +278,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "UCA" },
         "fechaDesde": "2014-07-13",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"
@@ -325,7 +325,7 @@
       {
         "tipoDeEstudio": "TERCIARIO",
         "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
+        "institucion": { "nombre": "UCOM" },
         "fechaDesde": "2014-10-03",
         "fechaHasta": "2016-01-01",
         "temaDeEstudio": "ing inf"

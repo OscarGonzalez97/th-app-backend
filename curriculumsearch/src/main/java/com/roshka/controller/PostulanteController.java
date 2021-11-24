@@ -117,9 +117,9 @@ public class PostulanteController {
             postulante.setCvFile(cv);
         }        
         for(Estudio estudio: postulante.getEstudios()){
-            String nombreIns = "";
-            nombreIns = estudio.getInstitucion().getNombre().toLowerCase();
-            Institucion institucion = institucionRepository.findByNombre(nombreIns);
+            String nombreIns = estudio.getInstitucion().getNombre();
+            
+            Institucion institucion = institucionRepository.findByNombreIgnoreCase(nombreIns);
             if(institucion==null){
                 institucionRepository.save(estudio.getInstitucion());
             }else{

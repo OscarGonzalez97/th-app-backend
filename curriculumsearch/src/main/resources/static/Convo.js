@@ -20,9 +20,9 @@ function listarConvocatorias(id){
         const opt = document.createElement("option");    
         opt.value = conv.id;
         if(conv.fechaFin!=null){
-            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio).toISOString().slice(0,10)+"-"+" Hasta :"+new Date(conv.fechaFin).toISOString().slice(0,10);
+            opt.innerHTML =new Date(conv.fechaInicio).toLocaleDateString("es-PY")+" - "+new Date(conv.fechaFin).toLocaleDateString("es-PY");
         }else{
-            opt.innerHTML ="Desde :"+new Date(conv.fechaInicio).toISOString().slice(0,10)
+            opt.innerHTML ="Inicio en: "+new Date(conv.fechaInicio).toLocaleDateString("es-PY")
         }
         opt.setAttribute("data-CargoId",conv.cargoId);
         frag.appendChild(opt)

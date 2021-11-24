@@ -6,7 +6,7 @@
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
-        <h2>${tecnologia.id == null ? "Agregar" : "Modificar"} Tecnologia</h2>
+        <h2>${tecnologia.id == null ? "Agregar" : "Modificar"} Tecnología</h2>
         <div class="p-3 mb-2 bg-light text-dark  bg-transparent">
 
             <form:form action="/tecnologia/${tecnologia.id == null ? '' : tecnologia.id}"  method="post" modelAttribute="tecnologia" class="row row-cols-lg-auto g-3 align-items-center">

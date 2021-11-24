@@ -119,11 +119,6 @@
          
     </layout:put>
     <layout:put block="scripts" type="APPEND">
-        <script language="JavaScript">
-                let mostrar=document.querySelector(convocatoria.getFechaFin())
-                if(mostrar!=null){
-                    
-                }
-            </script>
+        
     </layout:put>
 </layout:extends>

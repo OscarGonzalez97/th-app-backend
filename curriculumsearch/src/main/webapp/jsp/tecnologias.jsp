@@ -5,7 +5,7 @@
 <layout:extends name="layouts/base.jsp">
     <layout:put block="cssDeclaracion" type="APPEND"></layout:put>
     <layout:put block="contents" type="REPLACE">
-        <h2>Lista de Tecnologias</h2>
+        <h2>Lista de Tecnologías</h2>
 
         <div>
             <form>
@@ -38,7 +38,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Tecnologia</th>
+                      <th scope="col">Tecnología</th>
                       <th scope="col"></th>
                     </tr>
                   </thead>
