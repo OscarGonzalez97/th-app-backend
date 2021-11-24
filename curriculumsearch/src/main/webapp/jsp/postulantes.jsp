@@ -59,10 +59,11 @@
               <div class="col-auto col-md-8">
                 <select class="form-select form-select-sm " name="expInMonths" id="expInMonths">
                   <option value="">Todas</option>
-                  <option value="6">Mayor a 6 meses</option>
-                  <option value="12">Mayor a 1 año</option>
-                  <option value="36">Mayor a 3 años</option>
-                  <option value="60">Mayor a 5 años</option>
+                    <option value="0-6">Menor a 6 meses</option>
+                    <option value="0-12">Menor a 1 año</option>
+                    <option value="0-36">Menor a 3 años</option>
+                    <option value="0-60">Menor a 5 años</option>
+                    <option value="60-1200">Mayor a 5 años</option>
                 </select>
 
               </div>        
