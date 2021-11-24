@@ -1,13 +1,10 @@
 package com.roshka.repositorio;
 
+import com.roshka.modelo.Tecnologia;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
-
-import com.roshka.modelo.Tecnologia;
 
 public interface TecnologiaRepository extends JpaRepository<Tecnologia,Long> {
 

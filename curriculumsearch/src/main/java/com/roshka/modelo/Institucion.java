@@ -1,7 +1,6 @@
 package com.roshka.modelo;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.Data;
 
 import javax.persistence.*;

@@ -1,9 +1,8 @@
 package com.roshka.modelo;
 
-import java.util.Arrays;
-
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+import java.util.Arrays;
 
 @Converter(autoApply = true)
 public class TipoDocumentoConverter implements AttributeConverter<TipoDocumento, String> {

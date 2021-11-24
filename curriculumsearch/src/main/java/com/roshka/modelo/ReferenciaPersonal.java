@@ -1,11 +1,10 @@
 package com.roshka.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import lombok.Data;
 
 @Entity @Data
 @Table(name = "referencia_personal")

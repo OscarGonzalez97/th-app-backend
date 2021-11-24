@@ -1,7 +1,8 @@
 package com.roshka.modelo;
-import java.util.Arrays;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+import java.util.Arrays;
 
 @Converter(autoApply = true)
 public class EstadoConvocatoriaConverter implements AttributeConverter<EstadoConvocatoria, String>, org.springframework.core.convert.converter.Converter<String,EstadoConvocatoria>  {

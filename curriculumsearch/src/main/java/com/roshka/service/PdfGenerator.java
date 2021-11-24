@@ -1,26 +1,16 @@
 package com.roshka.service;
 
-import java.io.ByteArrayOutputStream;
-import java.util.Date;
-import java.util.stream.Collectors;
-
-import com.itextpdf.text.List;
-import com.itextpdf.text.ListItem;
-
-
-import org.springframework.stereotype.Component;
-
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.roshka.modelo.Estudio;
 import com.roshka.modelo.Experiencia;
 import com.roshka.modelo.Postulante;
 import com.roshka.utils.Helper;
+import org.springframework.stereotype.Component;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Date;
+import java.util.stream.Collectors;
 
 @Component("pdfGenerator")
 public class PdfGenerator {

@@ -1,49 +1,41 @@
 package com.roshka.controller;
 
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.DTO.PostulanteListaDTO;
-import com.roshka.modelo.*;
+import com.roshka.modelo.DBFile;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.*;
-import com.roshka.repositorio.CiudadRepository;
-import com.roshka.repositorio.ConvocatoriaRepository;
-import com.roshka.repositorio.DepartamentoRepository;
-import com.roshka.repositorio.ExperienciaRepository;
-import com.roshka.repositorio.InstitucionRepository;
-import com.roshka.repositorio.PostulanteRepository;
-import com.roshka.repositorio.TecnologiaRepository;
 import com.roshka.service.PdfGenerator;
-import com.roshka.utils.Helper;
-
-
 import com.roshka.utils.PostulantesExcelExporter;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 
 @Controller

@@ -1,8 +1,8 @@
 package com.roshka.modelo;
 
-import javax.persistence.*;
-
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity @Data
 @Table(name = "recursos_humanos_user")

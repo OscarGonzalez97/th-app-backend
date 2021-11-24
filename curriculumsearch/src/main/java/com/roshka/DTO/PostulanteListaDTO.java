@@ -1,10 +1,10 @@
 package com.roshka.DTO;
 
-import java.util.List;
-
 import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.PostulanteTecnologia;
+
+import java.util.List;
 
 public class PostulanteListaDTO {
     private Long id;

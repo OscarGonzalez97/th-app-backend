@@ -1,9 +1,8 @@
 package com.roshka.repositorio;
 
 import com.roshka.modelo.Postulante;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.roshka.modelo.PostulanteTecnologia;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 

@@ -1,9 +1,7 @@
 package com.roshka.repositorio;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
+import com.roshka.modelo.EstadoPostulante;
+import com.roshka.modelo.Postulante;
 import org.hibernate.jpa.TypedParameterValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,9 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import com.roshka.modelo.ConvocatoriaCargo;
-import com.roshka.modelo.EstadoPostulante;
-import com.roshka.modelo.Postulante;
+import javax.transaction.Transactional;
+import java.util.List;
 
 
 public interface PostulanteRepository extends JpaRepository<Postulante,Long> {

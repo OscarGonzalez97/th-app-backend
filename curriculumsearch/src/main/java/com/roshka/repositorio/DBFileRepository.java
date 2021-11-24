@@ -2,7 +2,6 @@ package com.roshka.repositorio;
 
 import com.roshka.modelo.DBFile;
 import com.roshka.modelo.Postulante;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

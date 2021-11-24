@@ -1,16 +1,13 @@
 package com.roshka.modelo;
 
-import java.util.Date;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.roshka.utils.Helper;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.roshka.utils.Helper;
+import java.util.Date;
 @Entity
 @Table(name="estudio")
 public class Estudio {  

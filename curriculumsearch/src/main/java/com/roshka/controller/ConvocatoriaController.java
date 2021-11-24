@@ -1,23 +1,10 @@
 package com.roshka.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import com.roshka.modelo.Cargo;
 import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.modelo.EstadoConvocatoria;
-import com.roshka.modelo.EstadoConvocatoriaConverter;
 import com.roshka.repositorio.CargoRepository;
 import com.roshka.repositorio.ConvocatoriaRepository;
-
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-import org.dom4j.Branch;
-import org.hibernate.jpa.TypedParameterValue;
-import org.hibernate.type.IntegerType;
-import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,12 +12,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Date;
 
 @Controller
 public class ConvocatoriaController {

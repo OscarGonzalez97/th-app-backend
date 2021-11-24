@@ -1,16 +1,13 @@
 package com.roshka.repositorio;
 
-import java.util.Date;
-import java.util.List;
-
 import com.roshka.modelo.ConvocatoriaCargo;
 import com.roshka.modelo.EstadoConvocatoria;
-
-import org.hibernate.jpa.TypedParameterValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface ConvocatoriaRepository extends JpaRepository<ConvocatoriaCargo,Long> {
     @Query(value = "SELECT c FROM ConvocatoriaCargo c WHERE c.id=?1")

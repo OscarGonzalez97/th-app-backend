@@ -1,32 +1,11 @@
 package com.roshka.controller;
 
 
-import java.io.IOException;
-import java.util.Date;
-
-
-import javax.validation.ConstraintViolationException;
-
-import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roshka.modelo.EstadoCivil;
-import com.roshka.modelo.Nacionalidad;
-import com.roshka.modelo.Postulante;
-import com.roshka.modelo.TipoExperiencia;
+import com.roshka.modelo.*;
 import com.roshka.repositorio.*;
-import com.roshka.repositorio.CiudadRepository;
-import com.roshka.repositorio.ConvocatoriaRepository;
-import com.roshka.repositorio.DepartamentoRepository;
-import com.roshka.repositorio.ExperienciaRepository;
-import com.roshka.repositorio.InstitucionRepository;
-import com.roshka.repositorio.PostulanteRepository;
-import com.roshka.repositorio.TecnologiaRepository;
 import com.roshka.utils.Helper;
-
-import org.hibernate.jpa.TypedParameterValue;
-import org.hibernate.type.IntegerType;
-import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -34,12 +13,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.validation.ConstraintViolationException;
 
 
 @Controller

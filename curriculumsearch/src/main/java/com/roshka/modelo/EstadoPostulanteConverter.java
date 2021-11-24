@@ -1,9 +1,8 @@
 package com.roshka.modelo;
 
-import java.util.Arrays;
-
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+import java.util.Arrays;
 
 @Converter(autoApply = true)
 public class EstadoPostulanteConverter implements AttributeConverter<EstadoPostulante, String>, org.springframework.core.convert.converter.Converter<String,EstadoPostulante> {
