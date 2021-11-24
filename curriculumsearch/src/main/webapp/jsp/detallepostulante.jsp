@@ -131,24 +131,34 @@
                                </div>
                            </div>
                            <hr>
-                           <div class="row" id="buttonRow" style="display: block">
-                               <div class="col">
-                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Agregar observacion</button>
-                                   <button id="pdf" type="button" class="btn btn-primary">PDF</button>
-                               </div>
-                               <c:choose>
-
-                                   <c:when test = "${cvId != null}">
-                                       <div class="col">
-                                           <a class="btn btn-link" target="__blank" href="/postulantes/cvFile/${cvId}">Descargar CV</a>
+                           <div id="buttonRow" style="display: block">
+                               <div class="row">
+                                   <div class="col-4">
+                                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Agregar observacion</button>
+                                   </div>
+                                   <div class="col-4">
+                                       <div class="dropdown">
+                                           <button class="dropdown-toggle btn btn-light" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                               PDF
+                                           </button>
+                                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                               <li><a id="pdf" type="button" class="dropdown-item">Imagen</a></li>
+                                               <li><a class="dropdown-item" target="__blank" href="/postulantes/${postulante.id}/pdf">Info</a></li>
+                                           </ul>
                                        </div>
-                                   </c:when>
+                                   </div>
+                                   <c:choose>
 
-                               </c:choose>
-                               <div class="col">
-                                   <a class="btn btn-link" target="__blank" href="/postulantes/${postulante.id}/pdf">Obtener pdf</a>
+                                       <c:when test = "${cvId != null}">
+                                           <div class="col-4">
+                                               <a class="btn btn-link" target="__blank" href="/postulantes/cvFile/${cvId}">Descargar CV</a>
+                                           </div>
+                                       </c:when>
+
+                                   </c:choose>
+
+
                                </div>
-
                            </div>
                        </div>
                    </div>
@@ -400,7 +410,7 @@
               var carousels = document.querySelectorAll(".pdf-carousel");
               var hrs = document.querySelectorAll(".lineas-pdf");
               var opt = {
-                  margin:       1,
+                  margin:       [1, 1, 1, 1],
                   filename:     'myfile.pdf',
                   image:        { type: 'jpeg', quality: 0.98 },
                   html2canvas:  { scale: 2 },
@@ -414,7 +424,6 @@
                  element.style.display = "block"
               });
               await html2pdf().set(opt).from(element).toPdf().save();
-              console.log('xd');
               buttonsRow.style.display = "block";
               carousels.forEach((element)=>{
                   element.classList.add('carousel-item')

@@ -62,8 +62,11 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     " and (e.institucion.id = ?6 or ?6 is null ) "+
     " and (conv.cargoId = ?7 or ?7 is null ) "+
     "and (p.estadoPostulante = ?8 or ?8 is null) "+
-    " and (conv.id=?9 or ?9 is null ) ")
-    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable, EstadoPostulante estado, Long convo);
+    " and (conv.id=?9 or ?9 is null ) " +
+            "and (p.mesesDeExperiencia >= ?10 or ?10 is null ) ")
+    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad,
+                                                   Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId,
+                                                   Pageable pageable, EstadoPostulante estado, Long convo, Long expInMonths);
     
     @Transactional      
     @Modifying

@@ -135,10 +135,15 @@ public class Postulante {
 
     @Column(name = "fecha_contratado")
     private Date fechaContratado;
+
+    @Column(name = "meses_de_exp")
+    private Long mesesDeExperiencia;
     
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = Helper.convertirFecha(fechaNacimiento);
     }
+
+
 
     @PrePersist
     public void precargarFechas(){
@@ -147,6 +152,17 @@ public class Postulante {
         this.estadoPostulante = EstadoPostulante.NUEVO;
         this.comentarioRRHH = null;
     }
+
+    @PostPersist
+    private void calcularExperienciaEnMese(){
+        long expTotal = 0;
+        //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
+        for (Experiencia experiencia : this.experiencias) {
+            expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
+        }
+        this.mesesDeExperiencia = expTotal;
+    }
+
     @PreUpdate
     public void actualizarFecha(){
         this.fechaActualizacion= new Date();
