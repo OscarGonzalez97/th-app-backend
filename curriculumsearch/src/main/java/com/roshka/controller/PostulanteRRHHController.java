@@ -15,7 +15,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.*;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
 import com.roshka.repositorio.*;
@@ -91,7 +90,6 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
                             @RequestParam(required = false)EstadoPostulante estado,
-                            @RequestParam(required = false)Disponibilidad dispo,
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
                             @RequestParam(required = false)Long instId,
@@ -100,10 +98,9 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) throws IOException {
-        final Integer CANTIDAD_POR_PAGINA = 5;
+        final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("institucionesEducativas", institucionRepository.findAll());
         model.addAttribute("estadoP", EstadoPostulante.values());
 
@@ -120,7 +117,7 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
                 new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                    dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
@@ -133,7 +130,7 @@ public class PostulanteRRHHController {
                 expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
             }
             if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
         }
 
         model.addAttribute("pages", postulantesPag.getTotalPages());
@@ -151,7 +148,6 @@ public class PostulanteRRHHController {
                                        @RequestParam(required = false)Long tecId,
                                        @RequestParam(required = false)String nombre,
                                        @RequestParam(required = false)EstadoPostulante estado,
-                                       @RequestParam(required = false)Disponibilidad dispo,
                                        @RequestParam(required = false)Long lvlEng,
                                        @RequestParam(required = false)Long lvlTec,
                                        @RequestParam(required = false)Long instId,
@@ -165,7 +161,7 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                dispo, lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+                 lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
 
@@ -177,7 +173,7 @@ public class PostulanteRRHHController {
                 expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
             }
             if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getDisponibilidad(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
         }
 
         response.setContentType("application/octet-stream");

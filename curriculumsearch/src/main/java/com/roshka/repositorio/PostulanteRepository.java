@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.roshka.modelo.ConvocatoriaCargo;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
 
@@ -55,15 +54,15 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     "left join p.tecnologias pt " +
     "left join p.postulaciones conv " +
     "where (?1 is null or lower(p.nombre) LIKE lower(?1) or lower(p.apellido) LIKE lower(?1) ) " +
-    "and (p.disponibilidad = ?2 or ?2 is null) " +
-    "and (p.nivelIngles >= ?3 or ?3 is null) "+
-    "and (pt.nivel >= ?4 or ?4 is null) "+
-    "and (pt.tecnologia.id = ?5 or ?5 is null) "+
-    " and (e.institucion.id = ?6 or ?6 is null ) "+
-    " and (conv.cargoId = ?7 or ?7 is null ) "+
-    "and (p.estadoPostulante = ?8 or ?8 is null) "+
-    " and (conv.id=?9 or ?9 is null ) ")
-    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Disponibilidad disponibilidad, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable, EstadoPostulante estado, Long convo);
+    
+    "and (p.nivelIngles >= ?2 or ?2 is null) "+
+    "and (pt.nivel >= ?3 or ?3 is null) "+
+    "and (pt.tecnologia.id = ?4 or ?4 is null) "+
+    " and (e.institucion.id = ?5 or ?5 is null ) "+
+    " and (conv.cargoId = ?6 or ?6 is null ) "+
+    "and (p.estadoPostulante = ?7 or ?7 is null) "+
+    " and (conv.id=?8 or ?8 is null ) ")
+    public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Long nivelInges, Long nivel, Long tecnoId, Long instId,Long cargoId, Pageable pageable, EstadoPostulante estado, Long convo);
     
     @Transactional      
     @Modifying

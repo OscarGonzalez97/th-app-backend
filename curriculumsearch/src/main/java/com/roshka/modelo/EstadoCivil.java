@@ -3,7 +3,7 @@ package com.roshka.modelo;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum EstadoCivil {
-    SOLTERO("Soltero/a"),CONCUBINADO("Concubinado/a"),CASADO("Casado/a"),VIUDO("Viudo/a"),DIVORCIADO("Divorciado/a");
+    SOLTERO("Soltero"),CONCUBINADO("Concubinado"),CASADO("Casado"),VIUDO("Viudo"),DIVORCIADO("Divorciado");
     private String descripcion;
 
     private EstadoCivil(String descripcion) {

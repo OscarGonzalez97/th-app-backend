@@ -132,15 +132,9 @@
                                     </select> 
                                   </div>
                                 
-                                  <div class="inputs mb-3 col-md-4"> 
-                                    <label for="disponibilidad" class="form-label"> Disponibilidad</label> 
-                                    <select name="disponibilidad" id="disponibilidad" class="content-select">
-                                      <c:forEach items="${disponibilidades}" var="disponibilidad">
-                                        <option value="${disponibilidad.getCode()}">${disponibilidad.getDescripcion()}</option>
-                                      </c:forEach>
-                                    
-                                  </select> </div>
-                                
+                                  
+                                <!--
+
                                   <div class="inputs mb-3 col-md-4"> 
                                     <label for="estadoCivil" class="form-label"> Estado civil</label> 
                                     <select name="estadoCivil" id="estadoCivil" class="content-select">
@@ -149,13 +143,25 @@
                                       </c:forEach>
                                     </select> 
                                   </div>
+                                -->
+                                <div class="inputs mb-3 col-md-6"> 
+                                  <label for="estadoCivil" class="form-label"> Estado civil</label>
+                                  <select name="estadoCivil" id="estadoCivil" class="content-select">
+                                      <option value='Soltero' selected>Soltero/a</option>
+                                      <option value='Concubinado'>Concubinado/a</option>
+                                      <option value='Casado'>Casado/a</option>
+                                      <option value='Viudo'>Viudo/a</option>
+                                      <option value='Divorciado'>Divorciado/a</option>
+                                  </select> 
+                                </div>
+
                                   <!-- Button Agregar Cargo al que postulas -->
                                   <hr>
                                   <div class="mb-3 col-md-12">
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#cargoForm"></i></h4>
+                                        <h4 class="text-start">Cargos </h4>
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row" id="cargos">
@@ -283,36 +289,6 @@
                           </div>
                       </div>
     </form>
-    <!---------------------------------------Modal de Cargos disponibles---------------------------------------------------------------->
-    <div class="modal fade" id="cargoForm" tabindex="-1" role="dialog" aria-labelledby="cargoForm" aria-hidden="true" >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" >Cargos disponibles</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color:#21130d;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form name="cargo-form" class="needs-validation" novalidate>
-              <label for="cargo-nombre" class="form-label">Cargo</label>
-              <div class="input-group mb-3">
-                <select class="form-select" name="cargo-id" aria-label="Default select example" required>
-                  
-                  <c:forEach items="${CargosDisponibles}" var="convocatoria">
-                                <option value="${convocatoria.getId()}">${convocatoria.getCargo().getNombre()}</option>
-                  </c:forEach>>
-                </select>
-              </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="agregarFieldCargo()">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>  
   <!-------------------------------------------------------------------------------------------------------------------------->
 
       <!--Modal de Experiencia-->

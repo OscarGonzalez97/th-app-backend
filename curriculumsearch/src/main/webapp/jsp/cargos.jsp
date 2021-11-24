@@ -9,16 +9,25 @@ contentType="text/html;charset=UTF-8" language="java" %>
         <h2>Lista de cargos</h2>
           <div>
             <form>
-              <label for="cargos">Nombre:</label>
-              <input
-                type="text"
-                name="nombre"
-                id="nombre"
-                value="${param.nombre}"
-              />
-              <input type="submit" value="Buscar" />
+              <div class="row justify-content-start gy-2">
+                <div class="col-auto">
+                  <input
+                    class="form-control" 
+                    placeholder="Nombre"
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    value="${param.nombre}"
+                  />
+
+                </div>
+                <div class="col-auto">
+
+                  <input type="submit" class="btn btn-primary" value="Buscar" />
+                </div>
+                
+              </div>
             </form>
-            <a href="/cargo">Agregar Nuevo Cargo</a>
           </div>
           <div class="card text-dark bg-light mt-3">
         
@@ -48,16 +57,16 @@ contentType="text/html;charset=UTF-8" language="java" %>
               </table>
               </div>
             </div>
-          </div>
-          <div class="card-footer">
-            <div>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <c:forEach begin="1" end="${pages}" var="nro">
-                    <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
-                  </c:forEach>
-                </ul>
-              </nav>
+            <div class="card-footer">
+              <div>
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <c:forEach begin="1" end="${pages}" var="nro">
+                      <li class="page-item ${(param.nroPagina == null and nro == 1)  or param.nroPagina == nro-1 ? 'active' : ''}"><a class="page-link" href="javascript:buscarPagina(${nro})">${nro}</a></li>
+                    </c:forEach>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -65,16 +74,7 @@ contentType="text/html;charset=UTF-8" language="java" %>
     </layout:put>
     <layout:put block="scripts" type="APPEND">
       <script>
-        function buscarPagina(nro){
-          nro--
-          const aBuscar = 'nroPagina='+nro
-          if(!location.search) location.search = "?"+aBuscar
-          const inicial = location.search.search(aBuscar);
-          if(inicial==-1){//si no se encuentra y hay otros queries
-            location.search = "&"+aBuscar
-          }
-          location.search.replace('nroPagina=',aBuscar)
-        }
+        
       </script>
     </layout:put>
 </layout:extends>

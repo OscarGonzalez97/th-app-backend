@@ -10,7 +10,6 @@ import javax.validation.ConstraintViolationException;
 import com.roshka.modelo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoCivil;
 import com.roshka.modelo.Nacionalidad;
 import com.roshka.modelo.Postulante;
@@ -29,6 +28,8 @@ import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -77,13 +78,13 @@ public class PostulanteController {
     @RequestMapping(value = "/work-with-us",method = RequestMethod.GET)
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("disponibilidades", Disponibilidad.values());
         model.addAttribute("tiposDeEstudio", TipoDeEstudio.values());
         model.addAttribute("estadosEstudio", EstadoEstudio.values());
         model.addAttribute("estadosCiviles", EstadoCivil.values());
         model.addAttribute("nacionalidades", Nacionalidad.values());
         model.addAttribute("tiposExperencia", TipoExperiencia.values());
-        model.addAttribute("CargosDisponibles", convoRepo.f1ndByCargoAndEstado(new TypedParameterValue(LongType.INSTANCE, null), new Date(), new TypedParameterValue(IntegerType.INSTANCE, 1)));
+        model.addAttribute("CargosDisponibles", 
+                convoRepo.findByCargoAndEstado(null, EstadoConvocatoria.abierto, PageRequest.of(0,Integer.MAX_VALUE,Sort.by("id"))).getContent());
         try {
             model.addAttribute("ciudades", new ObjectMapper().writeValueAsString(ciuRepo.findAll()));
         } catch (JsonProcessingException er) {

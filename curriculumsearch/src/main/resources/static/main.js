@@ -17,7 +17,6 @@ form = document.querySelector("form");
 const depSelect = document.querySelector("#departamentos");
 
 console.log("saddsa", bootstrap)
-const modalCargo = bootstrap.Modal.getOrCreateInstance(document.getElementById('cargoForm'))
 const modalExperiencia = bootstrap.Modal.getOrCreateInstance(document.getElementById('experienciaForm'))
 const modalTecnologia = bootstrap.Modal.getOrCreateInstance(document.getElementById('tecnologiaForm'))
 const modalEstudio = bootstrap.Modal.getOrCreateInstance(document.getElementById('estudioForm'))
@@ -108,7 +107,7 @@ function validarfecha(fechaDesde, fechaHasta){
        return "la fecha desde no puede ser mayor a la fecha actual" ;   
     }
     
-    if(fechaHasta =! null && fechaDesde>fechaHasta){
+    if(fechaHasta =! null && fechaHasta.trim().length >0 && fechaDesde>fechaHasta){
         return "la fecha desde no puede ser mayor a la fecha hasta";
     
     }
@@ -223,7 +222,7 @@ function agregarFieldExpierncia(event){
     let pos_rec;
     let returnFlag = false;
 
-    let requiredValues = ["institucion", "cargo", "fechaDesde", "descripcion"]
+    let requiredValues = ["institucion", "cargo", "fechaDesde", "descripcion","nombreReferencia","telefonoReferencia"]
 
     formData.forEach((value, key)=>{
         if(requiredValues.includes(key)
@@ -414,84 +413,6 @@ function eliminarEstudio(index) {
     estudios[index]=null
     //eliminar en html
     document.getElementById("est-"+index).remove()
-}
-/*------------Cargos----------------------------------------*/
-function agregarFieldCargo(){
-    //recoger del form
-    const pairs = {};
-    const formcar = document.querySelector("[name=cargo-form]");
-    const formData = new FormData(formcar);
-
-    //Validacion
-    let returnFlag = false;
-
-    let requiredValues = ["nombre"]
-
-    formData.forEach((value, key)=>{
-        if(requiredValues.includes(key)
-            && value==="" && returnFlag == false){
-            console.log(key, value)
-            returnFlag = true;
-        }
-    });
-
-    if(returnFlag===true){
-        let message = "Rellene "
-        for(let i=0;i<requiredValues.length;i++){
-            message+=", "+requiredValues[i];
-        }
-        message += " como minimo."
-        alert(message);
-        return;
-    }
-
-    for (const [name, value] of formData){
-        pairs[name] = value
-    }
-    console.log(pairs)
-    for(let i=0;i<cont_cargo;i++){
-        if(postulaciones[i]!==null){
-            if(postulaciones[i]["id"]===pairs["cargo-id"]){
-                alert("Ya has agregado ese cargo!")
-                //cont_cargo--;
-                return;
-            }
-        }
-    }
-    postulaciones[cont_cargo]={}
-    postulaciones[cont_cargo]["id"]=pairs["cargo-id"]
-    //postulaciones[cont_cargo]["cargo"]=pairs["cargo-id"]=="-1"?{nombre: pairs["cargo-nombre"]}:{id: pairs["cargo-id"],nombre:document.querySelector('[name=cargo-id] > option[value="'+pairs["cargo-id"]+'"]').innerHTML}
-    console.log(postulaciones)
-    formcar.reset();
-    //imprimir lista actualizada
-    const div = document.querySelector("#cargos")
-    const div1 = document.createElement('div');
-
-    let content1=''
-    for (let index = 0; index < postulaciones.length; index++) {
-        const car = postulaciones[index];
-        if(car==null) continue;
-        content1 += `
-        <div class="col-auto" id="car-${index}" style="text-transform: uppercase;">
-            ${document.querySelector('[name=cargo-id] >  option[value="'+car.id+'"]').innerHTML} &nbsp;<i class="bi bi-trash-fill pointer" onclick="eliminarCargoPostulante(event)"></i>     
-            
-        </div>
-
-        `
-    }
-    //content1 += "</ul>" 
-    div.innerHTML = content1
-    //div.innerHTML = '';
-    //div.appendChild(div1);
-    cont_cargo++;
-    document.querySelector("#no-valid-cargo").style.display = "none";
-    modalCargo.hide()
-}
-function eliminarCargoPostulante(event) {
-    //eliminar del array
-    postulaciones[event.target.parentElement.id.split("-")[1]]=null
-    //eliminar en html
-    event.target.parentElement.remove()
 }
 
 /*--------------Referencias----------------------------- */

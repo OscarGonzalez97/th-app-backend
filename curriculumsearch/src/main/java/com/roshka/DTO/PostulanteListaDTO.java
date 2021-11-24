@@ -3,7 +3,6 @@ package com.roshka.DTO;
 import java.util.List;
 
 import com.roshka.modelo.ConvocatoriaCargo;
-import com.roshka.modelo.Disponibilidad;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.PostulanteTecnologia;
 
@@ -11,19 +10,17 @@ public class PostulanteListaDTO {
     private Long id;
     private String nombre;
     private String apellido;
-    private Disponibilidad disponibilidad;
     private Long nivelIngles;
     private Long experienciaMeses;
     private List<PostulanteTecnologia> tecnologias;
     private EstadoPostulante estado;
     private List<ConvocatoriaCargo> convocatoria;
 
-    public PostulanteListaDTO(Long id, String nombre, String apellido, Disponibilidad disponibilidad,
+    public PostulanteListaDTO(Long id, String nombre, String apellido,
     Long nivelIngles, Long experienciaMeses, List<PostulanteTecnologia> tecnologias,EstadoPostulante estado,List<ConvocatoriaCargo> convocatoria) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.disponibilidad = disponibilidad;
         this.nivelIngles = nivelIngles;
         this.experienciaMeses = experienciaMeses;
         this.tecnologias = tecnologias;
@@ -47,12 +44,6 @@ public class PostulanteListaDTO {
     }
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-    public Disponibilidad getDisponibilidad() {
-        return disponibilidad;
-    }
-    public void setDisponibilidad(Disponibilidad disponibilidad) {
-        this.disponibilidad = disponibilidad;
     }
     public Long getNivelIngles() {
         return nivelIngles;
