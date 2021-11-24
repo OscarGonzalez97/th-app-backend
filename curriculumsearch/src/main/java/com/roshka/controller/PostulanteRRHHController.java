@@ -98,6 +98,7 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
                             ) throws IOException {
+
         final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
@@ -117,20 +118,16 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
                 new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
         
         for (Postulante postulante : postulantes) {
-            long expTotal = 0;
-            //Sumamos el tiempo de experiencia total en meses de cada postulante
-            //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
-            for (Experiencia experiencia : postulante.getExperiencias()) {
-                expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
-            }
-            if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(),
+                    postulante.getApellido(), postulante.getNivelIngles(),
+                    postulante.getMesesDeExperiencia(), postulante.getTecnologias(),postulante.getEstadoPostulante(),
+                    postulante.getPostulaciones()));
         }
 
         model.addAttribute("pages", postulantesPag.getTotalPages());
@@ -161,19 +158,15 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                 lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId);
+                        lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
 
         for (Postulante postulante : postulantes) {
-            long expTotal = 0;
-            //Sumamos el tiempo de experiencia total en meses de cada postulante
-            //expTotal = postulante.getExperiencias().stream().mapToLong(e -> Helper.getMonthsDifference(e.getFechaDesde(), e.getFechaHasta())).sum();
-            for (Experiencia experiencia : postulante.getExperiencias()) {
-                expTotal +=  Helper.getMonthsDifference(experiencia.getFechaDesde(), experiencia.getFechaHasta());
-            }
-            if(expInMonths != null && expInMonths > expTotal) continue;
-            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(), postulante.getApellido(), postulante.getNivelIngles(), expTotal, postulante.getTecnologias(),postulante.getEstadoPostulante(),postulante.getPostulaciones()));
+            postulantesDTO.add(new PostulanteListaDTO(postulante.getId(), postulante.getNombre(),
+                    postulante.getApellido(), postulante.getNivelIngles(),
+                    postulante.getMesesDeExperiencia(), postulante.getTecnologias(),postulante.getEstadoPostulante(),
+                    postulante.getPostulaciones()));
         }
 
         response.setContentType("application/octet-stream");

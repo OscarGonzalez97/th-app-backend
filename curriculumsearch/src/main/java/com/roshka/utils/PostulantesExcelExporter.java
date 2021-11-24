@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.PostulanteTecnologia;
 import com.roshka.modelo.Tecnologia;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -42,9 +40,16 @@ public class PostulantesExcelExporter {
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
+        font.setFontHeightInPoints((short)14);
+        font.setColor(IndexedColors.WHITE.getIndex());
         font.setBold(true);
-        font.setFontHeight(14);
+        font.setItalic(false);
+
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER);
+        // Setting font to style
         style.setFont(font);
+
         createCell(row, 0, "Postulantes "+currentDateTime, style);
 
         row = sheet.createRow(2);
