@@ -1,12 +1,20 @@
 const cargoSelect = document.querySelector("#cargoId");
-
+const convoBlock = document.querySelector("#convocatoriaBlock");
 function listarConvocatorias(id){
     const ConvocatoriaAmostrar = convocatorias.filter(c=>c.cargoId==id);
+    
+    if(ConvocatoriaAmostrar.length>0) {
+        convoBlock.style.display = "";
+    }
+    else{
+        convoBlock.style.display = "none";
+    }
+    
     const convocatoria = document.querySelector("select[name=convId]");
     const frag = document.createDocumentFragment();
     let optionDefault = document.createElement("option");
     optionDefault.value = "";
-    optionDefault.innerHTML = "Seleccione";
+    optionDefault.innerHTML = "Todas";
     frag.appendChild(optionDefault);
     for (const conv of ConvocatoriaAmostrar) {
         const opt = document.createElement("option");    
