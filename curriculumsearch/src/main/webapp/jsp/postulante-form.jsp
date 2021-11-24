@@ -124,10 +124,10 @@
                         
                                   <div class="inputs mb-3 col-md-6"> <label for="nivelIngles" class="form-label"> Nivel de inglés</label> 
                                     <select name="nivelIngles" id="nivelIngles" class="content-select">
-                                    <option value="1" selected>Conocimiento de ingles muy básico</option>
+                                    <option value="1" selected>Conocimiento de inglés muy básico</option>
                                     <option value="2" >Comprendo algunas cosas y puedo leer con la ayuda del traductor</option>
                                     <option value="3" >Puedo entender todo lo que leo</option>
-                                    <option value="4" >Puedo escribir documentación en ingles</option>
+                                    <option value="4" >Puedo escribir documentación en inglés</option>
                                     <option value="5" >Puedo escribir y hablar fluidamente</option>
                                     </select> 
                                   </div>

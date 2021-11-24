@@ -205,8 +205,8 @@
                             </c:when>
                             
                             <c:when test = "${postulante.experienciaMeses > 12}">
-                              <fmt:parseNumber var="j" integerOnly="true" type="number" value="${postulante.experienciaMeses / 12}" />  
-                              <fmt:parseNumber var="k" integerOnly="true" type="number" value="${postulante.experienciaMeses % 12}" />  
+                              <fmt:parseNumber var="j" integerOnly="true" type="NUMBER" value="${postulante.experienciaMeses / 12}" parseLocale="en_US" />  
+                              <fmt:parseNumber var="k" integerOnly="true" type="NUMBER" value="${postulante.experienciaMeses % 12}"  parseLocale="en_US" />  
                                ${j} año<c:if test="${postulante.experienciaMeses >= 24}">s</c:if> <c:if test="${k > 0}"> y ${k} mes<c:if test="${k > 1}">es</c:if></c:if> 
                             </c:when>
 
