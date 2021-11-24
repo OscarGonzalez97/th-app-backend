@@ -4,12 +4,7 @@ package com.roshka.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
-import java.util.Date;
-import java.util.HashMap;
-
-import java.util.List;
+import java.util.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -93,7 +88,7 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
                             @RequestParam(required = false)Long instId,
-                            @RequestParam(required = false)Long expInMonths,
+                            @RequestParam(required = false)String expInMonths,
                             @RequestParam(required = false)Long cargoId,
                             @RequestParam(required = false)Long convId, 
                             @RequestParam(defaultValue = "0")Integer nroPagina
@@ -114,11 +109,18 @@ public class PostulanteRRHHController {
             // TODO Auto-generated catch block
             er.printStackTrace();
         }
+        long infRange = 0L;
+        long supRange = 1200L;
+        if(expInMonths != null && !expInMonths.trim().isEmpty()){
+            String[] rango = expInMonths.split("-");
+            infRange = Long.parseLong(rango[0]);
+            supRange = Long.parseLong(rango[1]);
+        }
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
                 new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
+                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
@@ -148,17 +150,24 @@ public class PostulanteRRHHController {
                                        @RequestParam(required = false)Long lvlEng,
                                        @RequestParam(required = false)Long lvlTec,
                                        @RequestParam(required = false)Long instId,
-                                       @RequestParam(required = false)Long expInMonths,
+                                       @RequestParam(required = false)String expInMonths,
                                        @RequestParam(required = false)Long cargoId,
                                        @RequestParam(required = false)Long convId,
                                        @RequestParam(defaultValue = "0")Integer nroPagina
     ) throws IOException {
         Pageable page = PageRequest.of(0,Integer.MAX_VALUE,Sort.by("id"));
+        long infRange = 0L;
+        long supRange = 1200L;
+        if(expInMonths != null && !expInMonths.trim().isEmpty()){
+            String[] rango = expInMonths.split("-");
+            infRange = Long.parseLong(rango[0]);
+            supRange = Long.parseLong(rango[1]);
+        }
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
                 nombre == null || nombre.trim().isEmpty() ?
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                        lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, expInMonths);
+                        lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
 
