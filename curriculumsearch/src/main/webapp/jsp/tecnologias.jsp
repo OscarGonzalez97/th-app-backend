@@ -9,11 +9,26 @@
 
         <div>
             <form>
-                <label for="tecnologias">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" value="${param.nombre}"/>
-                <input type="submit" value="Buscar">
+              <div class="row justify-content-start gy-2">
+                <div class="col-auto">
+                  <input
+                    class="form-control" 
+                    placeholder="Nombre"
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    value="${param.nombre}"
+                  />
+
+                </div>
+                <div class="col-auto">
+
+                  <input type="submit" class="btn btn-primary" value="Buscar" />
+                </div>
+                
+              </div>
             </form>
-            <a href="/tecnologia">Agregar Nueva Tecnologia</a>
+            
         </div>
         <div class="card text-dark bg-light mt-3">
         
@@ -61,17 +76,6 @@
         
       </layout:put>
       <layout:put block="scripts" type="APPEND">
-        <script>
-          function buscarPagina(nro){
-            nro--
-            const aBuscar = 'nroPagina='+nro
-            if(!location.search) location.search = "?"+aBuscar
-            const inicial = location.search.search(aBuscar);
-            if(inicial==-1){//si no se encuentra y hay otros queries
-              location.search = "&"+aBuscar
-            }
-            location.search.replace('nroPagina=',aBuscar)
-          }
-        </script>
+        
       </layout:put>
 </layout:extends>

@@ -11,7 +11,7 @@ import com.roshka.modelo.Tecnologia;
 
 public interface TecnologiaRepository extends JpaRepository<Tecnologia,Long> {
 
-	public List<Tecnologia> findByNombreContainingIgnoreCase(String nombre);
+	public Page<Tecnologia> findByNombreContainingIgnoreCase(String nombre, Pageable pageable);
 
 	public boolean existsByNombreIgnoreCase(String nombre);
 	
