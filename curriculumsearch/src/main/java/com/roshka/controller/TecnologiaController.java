@@ -69,7 +69,6 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
         } 
         if(id != null ) tecnologia.setId(id);
         tecRepo.save(tecnologia);
-        System.out.println(tecnologia.getNombre());
         return "redirect:/tecnologias";
     } 
 

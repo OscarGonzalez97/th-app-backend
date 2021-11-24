@@ -68,7 +68,6 @@ public class CargoController {
             cargo.setExisteConvocatoria(cargoRepo.getById(id).isExisteConvocatoria());
         } 
         cargoRepo.save(cargo);
-        System.out.println(cargo.getNombre());
         return "redirect:/cargos";
     }
 

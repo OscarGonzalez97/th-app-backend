@@ -75,7 +75,6 @@ public class ConvocatoriaController {
         convocatoria.setFechaInicio(new Date());
         convocatoria.setEstado(EstadoConvocatoria.abierto);
         convoRepo.save(convocatoria);
-        System.out.println(convocatoria.getFechaInicio());
         return "redirect:/convocatorias";
     }
     @RequestMapping("/convocatoria/crear/{id}")
@@ -83,12 +82,11 @@ public class ConvocatoriaController {
         ConvocatoriaCargo convocatoria=new ConvocatoriaCargo();  
         convocatoria.setCargo(cargoRepo.findByIdCargo(id));
         convocatoria.setCargoId(cargoRepo.findByIdCargo(id).getId());
-        System.out.println(cargoRepo.findByIdCargo(id).getNombre());
         convocatoria.setFechaInicio(new Date());
         convocatoria.setEstado(EstadoConvocatoria.abierto);
         convocatoria.getCargo().setExisteConvocatoria(true);
         convoRepo.save(convocatoria);
-        System.out.println(convocatoria.getFechaInicio());
+        
         
         return "redirect:/convocatorias";
     }
@@ -120,26 +118,7 @@ public class ConvocatoriaController {
         convocatoria.setFechaFin(new Date());
         convocatoria.getCargo().setExisteConvocatoria(false);
         convoRepo.save(convocatoria);
-        /*if(id != null) convocatoria.setId(id);
-        //System.out.println(convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId()));
-        for(ConvocatoriaCargo c: convoRepo.filtrarConvocatoriasPorCargo(convocatoria.getCargoId())){
-            
-           
-            if(result.hasErrors() || c.getCargoId()==convocatoria.getCargoId() &&   c.getFechaFin().after(convocatoria.getFechaInicio()) )
-            {           
-                
-                model.addAttribute("existeFecha", true);
-                System.out.println("no debe");
-                return "convocatoria-form";
-                             
-            }
-            else{
-                convoRepo.save(convocatoria);
-                System.out.println("si anda");
-                break;
-
-            }
-        }*/
+        
 
         
         return "redirect:/convocatorias";

@@ -87,8 +87,6 @@ public class RRHHUserController {
     @GetMapping("/edit-user-data")
     public String editUserData(HttpServletRequest request, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth.getPrincipal().toString());
-        System.out.println(rrhhUserRepository.findByEmail(auth.getPrincipal().toString()));
         model.addAttribute("user", rrhhUserRepository.findByEmail(auth.getPrincipal().toString()));
         return "edit-user-data";
     }
