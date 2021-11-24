@@ -123,9 +123,12 @@
                 <div class="col-auto col-md-8">
                   <select class="form-select form-select-sm " name="lvlEng" id="lvlEng">
                     <option value="">Todas</option>
-                    <c:forEach var = "lvl" begin = "1" end = "5">
-                      <option value="${lvl}" ${param.lvlEng == lvl ? "selected" : ""}>${lvl}</option>
-                    </c:forEach>
+                    <option value="1">Básico</option>
+                    <option value="2">Regular</option>
+                    <option value="3">Intermedio</option>
+                    <option value="4">Avanzado</option>
+                    <option value="5">Proficiente</option>
+                    
                   </select>
                 </div>
               </div>
