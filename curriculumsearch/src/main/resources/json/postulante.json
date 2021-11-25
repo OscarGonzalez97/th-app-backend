@@ -21,13 +21,13 @@
     "nroDocument": 1931312,
     "ciudadId": 197,
     "telefono": "(902) 453-2114",
-    "fechaNacimiento": "2021-06-10",
+    "fechaNacimiento": "1980-06-10",
     "nivelIngles": 2,
     "experiencias": [
       {
         "institucion": "Tripsch",
         "fechaDesde": "2014-01-08",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-04-01",
         "cargo": "developer frontend",
         "descripcion": "Sit velit cupidatat sit aute commodo nisi esse sint eu sint nisi et.",
         "nombreReferencia": "Sallie",
@@ -103,7 +103,7 @@
     "nroDocument": 4879946,
     "ciudadId": 47,
     "telefono": "(975) 451-3454",
-    "fechaNacimiento": "2020-12-03",
+    "fechaNacimiento": "1981-12-03",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -196,7 +196,7 @@
     "nroDocument": 5481163,
     "ciudadId": 181,
     "telefono": "(907) 524-2462",
-    "fechaNacimiento": "2020-12-02",
+    "fechaNacimiento": "1982-12-02",
     "nivelIngles": 1,
     "experiencias": [
       {
@@ -286,7 +286,7 @@
     "nroDocument": 3617097,
     "ciudadId": 98,
     "telefono": "(897) 507-2999",
-    "fechaNacimiento": "2021-05-21",
+    "fechaNacimiento": "1983-05-21",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -378,13 +378,13 @@
     "nroDocument": 5713887,
     "ciudadId": 131,
     "telefono": "(974) 548-2840",
-    "fechaNacimiento": "2021-02-06",
+    "fechaNacimiento": "1984-02-06",
     "nivelIngles": 3,
     "experiencias": [
       {
         "institucion": "Bleendot",
         "fechaDesde": "2014-05-22",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-07-01",
         "cargo": "dba",
         "descripcion": "Eu sit magna id ullamco cupidatat nisi incididunt id dolore Lorem cupidatat in.",
         "nombreReferencia": "Mason",
@@ -468,13 +468,13 @@
     "nroDocument": 1488230,
     "ciudadId": 11,
     "telefono": "(824) 412-3682",
-    "fechaNacimiento": "2021-01-27",
+    "fechaNacimiento": "1985-01-27",
     "nivelIngles": 1,
     "experiencias": [
       {
         "institucion": "Codact",
         "fechaDesde": "2014-07-20",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-12-01",
         "cargo": "dba",
         "descripcion": "Anim laboris occaecat excepteur excepteur incididunt ad cupidatat commodo eiusmod tempor nisi est voluptate reprehenderit.",
         "nombreReferencia": "Tanya",
@@ -517,7 +517,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "id": 7
+          "id": 9
         },
         "nivel": 1
       },
@@ -551,13 +551,13 @@
     "nroDocument": 4884655,
     "ciudadId": 162,
     "telefono": "(907) 537-2762",
-    "fechaNacimiento": "2021-09-12",
+    "fechaNacimiento": "1986-09-12",
     "nivelIngles": 5,
     "experiencias": [
       {
         "institucion": "Fuelton",
         "fechaDesde": "2014-04-02",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-01-01",
         "cargo": "developer frontend",
         "descripcion": "Nostrud quis pariatur Lorem dolor proident deserunt esse sunt.",
         "nombreReferencia": "Chan",
@@ -636,7 +636,7 @@
     "nroDocument": 2671061,
     "ciudadId": 226,
     "telefono": "(916) 488-2247",
-    "fechaNacimiento": "2020-11-14",
+    "fechaNacimiento": "1987-11-14",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -719,7 +719,7 @@
     "nroDocument": 4740134,
     "ciudadId": 218,
     "telefono": "(817) 499-3717",
-    "fechaNacimiento": "2021-03-13",
+    "fechaNacimiento": "1988-03-13",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -788,7 +788,7 @@
     "nroDocument": 4274813,
     "ciudadId": 3,
     "telefono": "(837) 402-3553",
-    "fechaNacimiento": "2021-06-27",
+    "fechaNacimiento": "1989-06-27",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -878,7 +878,7 @@
     "nroDocument": 5839103,
     "ciudadId": 43,
     "telefono": "(942) 566-2313",
-    "fechaNacimiento": "2021-08-01",
+    "fechaNacimiento": "1990-08-01",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -961,7 +961,7 @@
     "nroDocument": 1576323,
     "ciudadId": 53,
     "telefono": "(950) 437-2238",
-    "fechaNacimiento": "2021-10-30",
+    "fechaNacimiento": "1991-10-30",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1037,7 +1037,7 @@
     "nroDocument": 2976754,
     "ciudadId": 215,
     "telefono": "(819) 461-2714",
-    "fechaNacimiento": "2021-05-01",
+    "fechaNacimiento": "1992-05-01",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1137,7 +1137,7 @@
     "nroDocument": 1022119,
     "ciudadId": 183,
     "telefono": "(981) 425-3589",
-    "fechaNacimiento": "2021-03-22",
+    "fechaNacimiento": "1993-03-22",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -1207,7 +1207,7 @@
     "nroDocument": 3466668,
     "ciudadId": 249,
     "telefono": "(868) 420-2944",
-    "fechaNacimiento": "2021-10-01",
+    "fechaNacimiento": "1994-10-01",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1290,7 +1290,7 @@
     "nroDocument": 2186440,
     "ciudadId": 73,
     "telefono": "(935) 475-2605",
-    "fechaNacimiento": "2021-08-12",
+    "fechaNacimiento": "1995-08-12",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -1354,7 +1354,7 @@
     "nroDocument": 3796850,
     "ciudadId": 202,
     "telefono": "(852) 464-2931",
-    "fechaNacimiento": "2021-06-01",
+    "fechaNacimiento": "1996-06-01",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1399,7 +1399,7 @@
       },
       {
         "tecnologia": {
-          "id": 4
+          "id": 9
         },
         "nivel": 4
       },
@@ -1445,7 +1445,7 @@
     "nroDocument": 3623434,
     "ciudadId": 150,
     "telefono": "(822) 487-2387",
-    "fechaNacimiento": "2020-11-08",
+    "fechaNacimiento": "1997-11-08",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -1534,7 +1534,7 @@
     "nroDocument": 3406555,
     "ciudadId": 13,
     "telefono": "(812) 584-3129",
-    "fechaNacimiento": "2021-09-23",
+    "fechaNacimiento": "1998-09-23",
     "nivelIngles": 1,
     "experiencias": [
       {
@@ -1627,7 +1627,7 @@
     "nroDocument": 4000978,
     "ciudadId": 133,
     "telefono": "(839) 412-3286",
-    "fechaNacimiento": "2021-04-08",
+    "fechaNacimiento": "1999-04-08",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -1724,7 +1724,7 @@
     "nroDocument": 1006103,
     "ciudadId": 182,
     "telefono": "(813) 418-3346",
-    "fechaNacimiento": "2021-11-04",
+    "fechaNacimiento": "1980-11-04",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1808,7 +1808,7 @@
     "nroDocument": 2267680,
     "ciudadId": 63,
     "telefono": "(858) 426-3958",
-    "fechaNacimiento": "2021-08-12",
+    "fechaNacimiento": "1981-08-12",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -1917,7 +1917,7 @@
     "nroDocument": 5542891,
     "ciudadId": 97,
     "telefono": "(950) 568-2011",
-    "fechaNacimiento": "2021-08-06",
+    "fechaNacimiento": "1982-08-06",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -1994,7 +1994,7 @@
     "nroDocument": 1786934,
     "ciudadId": 245,
     "telefono": "(982) 523-2626",
-    "fechaNacimiento": "2021-09-22",
+    "fechaNacimiento": "1983-09-22",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -2070,7 +2070,7 @@
     "nroDocument": 5603527,
     "ciudadId": 74,
     "telefono": "(908) 532-2333",
-    "fechaNacimiento": "2021-08-25",
+    "fechaNacimiento": "1984-08-25",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -2169,7 +2169,7 @@
     "nroDocument": 2399194,
     "ciudadId": 122,
     "telefono": "(980) 566-3470",
-    "fechaNacimiento": "2021-06-18",
+    "fechaNacimiento": "1985-06-18",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -2255,7 +2255,7 @@
     "nroDocument": 5541715,
     "ciudadId": 218,
     "telefono": "(846) 582-2018",
-    "fechaNacimiento": "2021-01-13",
+    "fechaNacimiento": "1986-01-13",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -2318,7 +2318,7 @@
     "nroDocument": 1491237,
     "ciudadId": 177,
     "telefono": "(852) 552-2879",
-    "fechaNacimiento": "2021-03-27",
+    "fechaNacimiento": "1987-03-27",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -2418,7 +2418,7 @@
     "nroDocument": 3396988,
     "ciudadId": 23,
     "telefono": "(948) 472-2691",
-    "fechaNacimiento": "2021-08-16",
+    "fechaNacimiento": "1988-08-16",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -2504,7 +2504,7 @@
     "nroDocument": 5901523,
     "ciudadId": 44,
     "telefono": "(967) 576-2818",
-    "fechaNacimiento": "2021-09-12",
+    "fechaNacimiento": "1989-09-12",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -2573,7 +2573,7 @@
     "nroDocument": 5063647,
     "ciudadId": 27,
     "telefono": "(901) 446-2284",
-    "fechaNacimiento": "2021-05-23",
+    "fechaNacimiento": "1990-05-23",
     "nivelIngles": 3,
     "experiencias": [
       {
@@ -2647,7 +2647,7 @@
     "nroDocument": 4699791,
     "ciudadId": 192,
     "telefono": "(842) 489-3465",
-    "fechaNacimiento": "2021-06-11",
+    "fechaNacimiento": "1991-06-11",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -2724,13 +2724,13 @@
     "nroDocument": 2012089,
     "ciudadId": 67,
     "telefono": "(954) 447-3151",
-    "fechaNacimiento": "2021-02-14",
+    "fechaNacimiento": "1992-02-14",
     "nivelIngles": 1,
     "experiencias": [
       {
         "institucion": "Quizka",
         "fechaDesde": "2014-09-22",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-06-01",
         "cargo": "developer frontend",
         "descripcion": "Veniam ea veniam ut Lorem cillum elit exercitation pariatur elit elit fugiat sit exercitation non.",
         "nombreReferencia": "Humphrey",
@@ -2788,7 +2788,7 @@
     "nroDocument": 2529945,
     "ciudadId": 78,
     "telefono": "(920) 502-3490",
-    "fechaNacimiento": "2021-10-25",
+    "fechaNacimiento": "1993-10-25",
     "nivelIngles": 3,
     "experiencias": [
       {
@@ -2876,7 +2876,7 @@
     "nroDocument": 1121378,
     "ciudadId": 126,
     "telefono": "(815) 404-3974",
-    "fechaNacimiento": "2021-03-16",
+    "fechaNacimiento": "1994-03-16",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -2941,7 +2941,7 @@
       },
       {
         "tecnologia": {
-          "id": 5
+          "id": 9
         },
         "nivel": 3
       },
@@ -2990,7 +2990,7 @@
     "nroDocument": 1424921,
     "ciudadId": 87,
     "telefono": "(921) 592-2048",
-    "fechaNacimiento": "2021-07-28",
+    "fechaNacimiento": "1995-07-28",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -3070,7 +3070,7 @@
     "nroDocument": 5193911,
     "ciudadId": 63,
     "telefono": "(867) 553-2599",
-    "fechaNacimiento": "2021-03-03",
+    "fechaNacimiento": "1996-03-03",
     "nivelIngles": 1,
     "experiencias": [
       {
@@ -3155,7 +3155,7 @@
     "nroDocument": 4212974,
     "ciudadId": 204,
     "telefono": "(859) 540-3824",
-    "fechaNacimiento": "2021-03-26",
+    "fechaNacimiento": "1997-03-26",
     "nivelIngles": 3,
     "experiencias": [
       {
@@ -3235,7 +3235,7 @@
     "nroDocument": 3741003,
     "ciudadId": 210,
     "telefono": "(889) 446-2043",
-    "fechaNacimiento": "2021-05-02",
+    "fechaNacimiento": "1998-05-02",
     "nivelIngles": 1,
     "experiencias": [
       {
@@ -3314,7 +3314,7 @@
     "nroDocument": 1787314,
     "ciudadId": 223,
     "telefono": "(839) 466-2513",
-    "fechaNacimiento": "2021-10-10",
+    "fechaNacimiento": "1999-10-10",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -3394,7 +3394,7 @@
     "nroDocument": 5196272,
     "ciudadId": 49,
     "telefono": "(903) 541-3165",
-    "fechaNacimiento": "2021-08-20",
+    "fechaNacimiento": "1980-08-20",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -3502,7 +3502,7 @@
     "nroDocument": 4431767,
     "ciudadId": 230,
     "telefono": "(810) 471-2703",
-    "fechaNacimiento": "2021-08-24",
+    "fechaNacimiento": "1981-08-24",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -3602,7 +3602,7 @@
     "nroDocument": 1686867,
     "ciudadId": 245,
     "telefono": "(958) 454-3232",
-    "fechaNacimiento": "2020-12-18",
+    "fechaNacimiento": "1982-12-18",
     "nivelIngles": 3,
     "experiencias": [
       {
@@ -3697,13 +3697,13 @@
     "nroDocument": 2162566,
     "ciudadId": 161,
     "telefono": "(838) 581-3481",
-    "fechaNacimiento": "2021-10-19",
+    "fechaNacimiento": "1983-10-19",
     "nivelIngles": 3,
     "experiencias": [
       {
         "institucion": "Anocha",
         "fechaDesde": "2014-08-23",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-10-01",
         "cargo": "developer frontend",
         "descripcion": "Deserunt cupidatat proident occaecat cupidatat ullamco magna esse sit deserunt anim sunt esse.",
         "nombreReferencia": "Nina",
@@ -3713,7 +3713,7 @@
       {
         "institucion": "Hairport",
         "fechaDesde": "2014-11-23",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-02-01",
         "cargo": "developer frontend",
         "descripcion": "Occaecat ad sunt dolore laborum adipisicing exercitation nisi et aute id anim.",
         "nombreReferencia": "Chavez",
@@ -3723,7 +3723,7 @@
       {
         "institucion": "Xurban",
         "fechaDesde": "2014-12-08",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-01-01",
         "cargo": "developer backend",
         "descripcion": "Veniam et nostrud consectetur magna aute cupidatat aute elit do non veniam.",
         "nombreReferencia": "Ball",
@@ -3772,7 +3772,7 @@
       },
       {
         "tecnologia": {
-          "id": 3
+          "id": 9
         },
         "nivel": 3
       },
@@ -3803,7 +3803,7 @@
     "nroDocument": 1453177,
     "ciudadId": 73,
     "telefono": "(972) 572-2318",
-    "fechaNacimiento": "2021-06-09",
+    "fechaNacimiento": "1984-06-09",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -3895,7 +3895,7 @@
     "nroDocument": 2003119,
     "ciudadId": 136,
     "telefono": "(897) 499-2259",
-    "fechaNacimiento": "2021-02-08",
+    "fechaNacimiento": "1985-02-08",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -3976,7 +3976,7 @@
     "nroDocument": 2568572,
     "ciudadId": 70,
     "telefono": "(928) 514-3477",
-    "fechaNacimiento": "2021-01-17",
+    "fechaNacimiento": "1986-01-17",
     "nivelIngles": 5,
     "experiencias": [
       {
@@ -4061,7 +4061,7 @@
     "nroDocument": 5638888,
     "ciudadId": 29,
     "telefono": "(977) 470-3927",
-    "fechaNacimiento": "2021-03-14",
+    "fechaNacimiento": "1987-03-14",
     "nivelIngles": 2,
     "experiencias": [
       {
@@ -4147,7 +4147,7 @@
     "nroDocument": 3690565,
     "ciudadId": 50,
     "telefono": "(931) 592-3309",
-    "fechaNacimiento": "2021-06-07",
+    "fechaNacimiento": "1988-06-07",
     "nivelIngles": 4,
     "experiencias": [
       {
@@ -4232,7 +4232,7 @@
     "nroDocument": 1591093,
     "ciudadId": 37,
     "telefono": "(800) 578-3214",
-    "fechaNacimiento": "2020-12-11",
+    "fechaNacimiento": "1989-12-11",
     "nivelIngles": 4,
     "experiencias": [
       {

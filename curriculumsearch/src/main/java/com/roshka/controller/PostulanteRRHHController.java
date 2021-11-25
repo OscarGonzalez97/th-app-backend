@@ -3,6 +3,7 @@ package com.roshka.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roshka.DTO.ConvocatoriaDTO;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.DBFile;
 import com.roshka.modelo.EstadoPostulante;
@@ -36,9 +37,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
+@RequestMapping("/postulantes")
 public class PostulanteRRHHController {
     PostulanteRepository post;
     TecnologiaRepository tecRepo;
@@ -48,7 +51,7 @@ public class PostulanteRRHHController {
     CiudadRepository ciuRepo;
     EstudioRepository estudioRepository;
     PostulanteTecnologiaRepository postulanteTecnologiaRepository;
-    ConvocatoriaRepository cargoRepo;
+    ConvocatoriaRepository convRepo;
     CargoRepository carRepo;
     DBFileRepository fileRepo;
 
@@ -58,7 +61,7 @@ public class PostulanteRRHHController {
             InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
             CiudadRepository ciuRepo, EstudioRepository estudioRepository,
             PostulanteTecnologiaRepository postulanteTecnologiaRepository,
-            ConvocatoriaRepository cargoRepo, CargoRepository carRepo, DBFileRepository fileRepo) {
+            ConvocatoriaRepository convRepo, CargoRepository carRepo, DBFileRepository fileRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
@@ -67,12 +70,12 @@ public class PostulanteRRHHController {
         this.ciuRepo = ciuRepo;
         this.estudioRepository = estudioRepository;
         this.postulanteTecnologiaRepository = postulanteTecnologiaRepository;
-        this.cargoRepo =cargoRepo;
+        this.convRepo =convRepo;
         this.carRepo=carRepo;
         this.fileRepo = fileRepo;
     }
 
-    @RequestMapping("/postulantes")
+    @RequestMapping()
     public String postulantes(HttpServletRequest request, Model model,
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
@@ -93,10 +96,13 @@ public class PostulanteRRHHController {
         model.addAttribute("estadoP", EstadoPostulante.values());
 
         model.addAttribute("cargos", carRepo.findAll());
-        model.addAttribute("cargoRepo", cargoRepo);
-        //model.addAttribute("convocatoriaC", cargoRepo.findAll());
         try {
-            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(cargoRepo.findAll()));
+            //se convierte a DTO las convocatorias
+            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(
+                convRepo.findAll().stream().map(conv ->
+                        new ConvocatoriaDTO(conv.getId(), conv.getCargoId(), conv.getEstado(), conv.getFechaInicio(), conv.getFechaFin()) )
+                .collect(Collectors.toList()))
+            );
         } catch (JsonProcessingException er) {
             // TODO Auto-generated catch block
             er.printStackTrace();
@@ -111,7 +117,7 @@ public class PostulanteRRHHController {
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
-                new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
+                new TypedParameterValue(StringType.INSTANCE,"%"+nombre.trim()+"%"),
                      lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
@@ -134,7 +140,7 @@ public class PostulanteRRHHController {
     }
 
 
-    @RequestMapping("/postulantesExcel")
+    @RequestMapping("/excel")
     public void exportPostulantesExcel(HttpServletResponse response, Model model,
                                        @RequestParam(required = false)Long tecId,
                                        @RequestParam(required = false)String nombre,
@@ -186,8 +192,8 @@ public class PostulanteRRHHController {
         filtros.put("institucion", instId == null ? "-" : institucionRepository.findById(instId).get().getNombre());
         filtros.put("estado", estado == null ? "-" : estado.getEstado());
         filtros.put("experienciaEnMeses", expInMonths == null ? "-" : expInMonths.toString());
-        filtros.put("convocatoria", convId == null ? "-" : cargoRepo.findById(convId).get().getCargo().getNombre());
-        filtros.put("convocatoriaFecha", convId == null ? "-" : cargoRepo.findById(convId).get().getFechaInicio().toString());
+        filtros.put("convocatoria", convId == null ? "-" : convRepo.findById(convId).get().getCargo().getNombre());
+        filtros.put("convocatoriaFecha", convId == null ? "-" : convRepo.findById(convId).get().getFechaInicio().toString());
 
         PostulantesExcelExporter excelExporter = new PostulantesExcelExporter(postulantesDTO, filtros);
 
@@ -195,7 +201,7 @@ public class PostulanteRRHHController {
     }
  
 
-    @GetMapping({"/postulantes/{postulanteId}"})
+    @GetMapping({"/{postulanteId}"})
     public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
         Postulante p = post.findById(postulanteId).orElse(null);
         model.addAttribute("postulante",p);
@@ -206,7 +212,7 @@ public class PostulanteRRHHController {
     }
 
 
-    @PostMapping({"/postulantes/{postulanteId}"})
+    @PostMapping({"/{postulanteId}"})
     public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
         //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
         Postulante postulanteVd = post.getById(postulanteId);
@@ -221,7 +227,7 @@ public class PostulanteRRHHController {
         return "redirect:/postulantes/"+postulanteId;
     }
 
-    @GetMapping("/postulantes/cvFile/{fileId}")
+    @GetMapping("/cvFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) {
         // Load file from database
         DBFile dbFile;
@@ -240,7 +246,7 @@ public class PostulanteRRHHController {
 
     }
 
-    @GetMapping("/postulantes/{id}/pdf")
+    @GetMapping("/{id}/pdf")
     public ResponseEntity<Resource> downloadPDF(@PathVariable Long id) {
         // Load file from database
         PdfGenerator pdf =  new PdfGenerator();

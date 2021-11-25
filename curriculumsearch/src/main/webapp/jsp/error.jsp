@@ -4,6 +4,8 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
     <link rel="icon" href="/img/LogoRoshka.ico">
 </head>
 <style>
@@ -13,7 +15,7 @@
         background: #EBF0F5;
     }
     h1 {
-        color: #506BEE;
+        color: #ff0000;
         font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
         font-weight: 900;
         font-size: 40px;
@@ -26,7 +28,7 @@
         margin: 0;
     }
     i {
-        color: #506BEE;
+        color: #ff0000;
         font-size: 100px;
         line-height: 200px;
         margin-left:-15px;
@@ -42,11 +44,11 @@
 </style>
 <body>
 <div class="card">
-    <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
-    </div>
-    <h1>Genial!</h1>
-    <p>${mensaje1}<br/>${mensaje2}</p>
+    <h1>
+        <i class="bi bi-emoji-smile-upside-down"></i>
+    </h1>
+    <h1>Oops!</h1>
+    <p>Ha ocurrido un error.<br/>Ponganse en contacto con los bootcampers.</p>
 </div>
 </body>
 </html>

@@ -92,7 +92,7 @@
                             <td><a href="/postulantes?convId=${convocatoria.id}">Ver postulantes</a></td>
                             <td>
                                 <c:if test="${convocatoria.getEstado() != 'cerrado'}">
-                                    <a class="btn btn-secondary" href="/convocatoria/${convocatoria.id}">Cerrar convocatoria</a>
+                                    <a class="btn btn-secondary" href="/convocatorias/cerrar/${convocatoria.id}">Cerrar convocatoria</a>
                                 </c:if>
                             </td>
                         </tr>

@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="icon" href="../img/LogoRoshka.ico">
+    <link rel="icon" href="/img/LogoRoshka.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <layout:block name="cssDeclaracion">
-      <link href="../css/cargoStyle.css" rel="stylesheet" type="text/css"/>
+      <link href="/css/cargoStyle.css" rel="stylesheet" type="text/css"/>
     </layout:block>
 
     <title>RRHH</title>
@@ -38,7 +38,7 @@
                       Cargos
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/cargo">Agregar Cargo</a></li>
+                      <li><a class="dropdown-item" href="/cargos/agregar">Agregar Cargo</a></li>
                       <li><a class="dropdown-item" href="/cargos">Listar cargos</a></li>
                       <li><a class="dropdown-item" href="/convocatorias">Listar convocatorias</a></li>
                     </ul>
@@ -48,7 +48,7 @@
                       Tecnologías
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/tecnologia">Agregar</a></li>
+                      <li><a class="dropdown-item" href="/tecnologias/agregar">Agregar</a></li>
                       <li><a class="dropdown-item" href="/tecnologias">Listar</a></li>
                     </ul>
                   </li>

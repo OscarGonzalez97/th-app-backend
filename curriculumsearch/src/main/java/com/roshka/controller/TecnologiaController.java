@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/tecnologias")
 public class TecnologiaController {
  
     TecnologiaRepository tecRepo;
@@ -26,7 +27,7 @@ public TecnologiaController(TecnologiaRepository tecRepo){
 
 }
 
-@GetMapping(path = {"/tecnologia","/tecnologia/{id}"})
+@GetMapping(path = {"/agregar","/modificar/{id}"})
 public String addtecnologiaView(Model model,@PathVariable(required = false) Long id) {
     
     
@@ -35,7 +36,7 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
     return "tecnologia-form";
 }
 
-@RequestMapping("/tecnologias")
+@RequestMapping()
     public String menuTecnologias(Model model,@RequestParam(required = false) String nombre,@RequestParam(defaultValue = "0")Integer nroPagina) {
         final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
@@ -46,14 +47,14 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
             model.addAttribute("pages", tecnologiaPag.getTotalPages());
         }
         else {
-            Page<Tecnologia> tecnologiaPag=tecRepo.findByNombreContainingIgnoreCase(nombre,page);    
+            Page<Tecnologia> tecnologiaPag=tecRepo.findByNombreContainingIgnoreCase(nombre.trim(),page);    
             model.addAttribute("pages", tecnologiaPag.getTotalPages());
             model.addAttribute("tecnologias", tecnologiaPag.getContent());
         }
         return "tecnologias";
     }
 
-@PostMapping(path = {"/tecnologia","/tecnologia/{id}"})
+@PostMapping(path = {"/agregar","/modificar/{id}"})
     public String addtecnologia(@Valid @ModelAttribute Tecnologia tecnologia, BindingResult result, @PathVariable(required = false) Long id, Model model) {
         if(result.hasErrors() || (id==null && tecRepo.existsByNombreIgnoreCase(tecnologia.getNombre()))){
             model.addAttribute("mismoNombre", true);

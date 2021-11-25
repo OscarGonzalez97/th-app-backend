@@ -10,7 +10,7 @@
               <h5>Tecnología</h5>
             </div>
               <form:form
-              action="/tecnologia/${tecnologia.id == null ? '' : tecnologia.id}"
+              action="/tecnologias/${tecnologia.id == null ? 'agregar' : 'modificar/'.concat(tecnologia.id)}"
               method="post"
               modelAttribute="tecnologia"
               class="d-flex flex-column"

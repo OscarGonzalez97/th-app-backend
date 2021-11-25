@@ -4,8 +4,8 @@
 <%@ taglib uri="http://kwonnam.pe.kr/jsp/template-inheritance" prefix="layout"%>
 <layout:extends name="layouts/base.jsp">
     <layout:put block="cssDeclaracion" type="REPLACE">
-        <link href="../css/indexStyle.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" href="../img/LogoRoshka.ico">
+        <link href="/css/indexStyle.css" rel="stylesheet" type="text/css"/>
+        <link rel="icon" href="/img/LogoRoshka.ico">
     </layout:put>
     <layout:put block="contents" type="REPLACE">
     <body>
