@@ -161,7 +161,7 @@
 
                                     <div class="row w-100 gy-2 mx-auto">
                                       <div class="col-12 px-0">
-                                        <h4 class="text-start">Cargos </h4>
+                                        <h4 class="text-start">Cargos *</h4>
                                       </div>
                                       <div class="col-12">
                                         <div class="mt-3 gap-2 row" id="cargos">
@@ -179,7 +179,7 @@
                                       </div>
                                       <div class="col-12">
                                         <p id="no-valid-cargo" style="display: none; color: yellow;" class="text-center">
-                                          *Agrega por lo menos un cargo !
+                                          *Debe seleccionar al menos un cargo
                                         </p>
                                       </div>
                                     </div>
@@ -209,7 +209,7 @@
                                     <div class="row w-100  gy-2 mx-auto">
                                       <div class="col-12 px-0">
                                         
-                                        <h4 class="text-start">Tecnologías <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i></h4>	
+                                        <h4 class="text-start">Tecnologías <i class="bi bi-plus-square pointer" data-bs-toggle="modal" data-bs-target="#tecnologiaForm"></i> *</h4>	
                                       </div>
                                       <div class="col-12">
                                         
@@ -219,7 +219,7 @@
                                       </div>
                                       <div class="col-12">
                                         <p id="no-valid-tecno" style="display: none; color: yellow;" class="text-center">
-                                          *Agrega por lo menos una tecnología
+                                          *Debe escoger al menos una tecnología
                                         </p>   
                                       </div>
                                       
