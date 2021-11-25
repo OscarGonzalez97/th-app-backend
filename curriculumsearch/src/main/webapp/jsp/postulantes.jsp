@@ -257,7 +257,7 @@
       <script>
         var convocatorias = ${convocatoriaC};
       </script>
-      <script src="/Convo.js"></script>
+      <script src="/js/Convo.js"></script>
       <script>
         function habilitarLvlTec(){
           //si se selecciono una tecnologia entonces permitir seleccionar un nivel
