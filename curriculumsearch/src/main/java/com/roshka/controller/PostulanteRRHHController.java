@@ -3,6 +3,7 @@ package com.roshka.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roshka.DTO.ConvocatoriaDTO;
 import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.DBFile;
 import com.roshka.modelo.EstadoPostulante;
@@ -12,6 +13,7 @@ import com.roshka.service.PdfGenerator;
 import com.roshka.utils.PostulantesExcelExporter;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.StringType;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -36,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -49,7 +52,7 @@ public class PostulanteRRHHController {
     CiudadRepository ciuRepo;
     EstudioRepository estudioRepository;
     PostulanteTecnologiaRepository postulanteTecnologiaRepository;
-    ConvocatoriaRepository cargoRepo;
+    ConvocatoriaRepository convRepo;
     CargoRepository carRepo;
     DBFileRepository fileRepo;
 
@@ -59,7 +62,7 @@ public class PostulanteRRHHController {
             InstitucionRepository institucionRepository, DepartamentoRepository depRepo,
             CiudadRepository ciuRepo, EstudioRepository estudioRepository,
             PostulanteTecnologiaRepository postulanteTecnologiaRepository,
-            ConvocatoriaRepository cargoRepo, CargoRepository carRepo, DBFileRepository fileRepo) {
+            ConvocatoriaRepository convRepo, CargoRepository carRepo, DBFileRepository fileRepo) {
         this.post = post;
         this.tecRepo = tecRepo;
         this.expRepo = expRepo;
@@ -68,7 +71,7 @@ public class PostulanteRRHHController {
         this.ciuRepo = ciuRepo;
         this.estudioRepository = estudioRepository;
         this.postulanteTecnologiaRepository = postulanteTecnologiaRepository;
-        this.cargoRepo =cargoRepo;
+        this.convRepo =convRepo;
         this.carRepo=carRepo;
         this.fileRepo = fileRepo;
     }
@@ -94,10 +97,13 @@ public class PostulanteRRHHController {
         model.addAttribute("estadoP", EstadoPostulante.values());
 
         model.addAttribute("cargos", carRepo.findAll());
-        model.addAttribute("cargoRepo", cargoRepo);
-        //model.addAttribute("convocatoriaC", cargoRepo.findAll());
         try {
-            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(cargoRepo.findAll()));
+            //se convierte a DTO las convocatorias
+            model.addAttribute("convocatoriaC", new ObjectMapper().writeValueAsString(
+                convRepo.findAll().stream().map(conv ->
+                        new ConvocatoriaDTO(conv.getId(), conv.getCargoId(), conv.getEstado(), conv.getFechaInicio(), conv.getFechaFin()) )
+                .collect(Collectors.toList()))
+            );
         } catch (JsonProcessingException er) {
             // TODO Auto-generated catch block
             er.printStackTrace();
@@ -187,8 +193,8 @@ public class PostulanteRRHHController {
         filtros.put("institucion", instId == null ? "-" : institucionRepository.findById(instId).get().getNombre());
         filtros.put("estado", estado == null ? "-" : estado.getEstado());
         filtros.put("experienciaEnMeses", expInMonths == null ? "-" : expInMonths.toString());
-        filtros.put("convocatoria", convId == null ? "-" : cargoRepo.findById(convId).get().getCargo().getNombre());
-        filtros.put("convocatoriaFecha", convId == null ? "-" : cargoRepo.findById(convId).get().getFechaInicio().toString());
+        filtros.put("convocatoria", convId == null ? "-" : convRepo.findById(convId).get().getCargo().getNombre());
+        filtros.put("convocatoriaFecha", convId == null ? "-" : convRepo.findById(convId).get().getFechaInicio().toString());
 
         PostulantesExcelExporter excelExporter = new PostulantesExcelExporter(postulantesDTO, filtros);
 
