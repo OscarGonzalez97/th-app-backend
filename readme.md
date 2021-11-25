@@ -29,3 +29,6 @@ Opción de listar tecnologías donde podrá visualizar todas las tecnologías ca
 # <img alt="YAP" src="https://imgur.com/SdiYI1A.png">
 Opción de visualizar Postulantes, donde podrá ver a todos los postulantes que llenaron el formulario, tendrá la opción de filtrar datos para realizar una búsqueda en específico, descargar un Excel de todos los postulantes cargos o los postulantes filtrados.
 # <img alt="YAP" src="https://imgur.com/ApA7A5a.png">
+
+## Diagrama de la base de datos
+# <img alt="YAP" src="./db_diagram.png">
