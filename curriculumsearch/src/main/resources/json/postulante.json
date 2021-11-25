@@ -27,7 +27,7 @@
       {
         "institucion": "Tripsch",
         "fechaDesde": "2014-01-08",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-04-01",
         "cargo": "developer frontend",
         "descripcion": "Sit velit cupidatat sit aute commodo nisi esse sint eu sint nisi et.",
         "nombreReferencia": "Sallie",
@@ -384,7 +384,7 @@
       {
         "institucion": "Bleendot",
         "fechaDesde": "2014-05-22",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-07-01",
         "cargo": "dba",
         "descripcion": "Eu sit magna id ullamco cupidatat nisi incididunt id dolore Lorem cupidatat in.",
         "nombreReferencia": "Mason",
@@ -474,7 +474,7 @@
       {
         "institucion": "Codact",
         "fechaDesde": "2014-07-20",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-12-01",
         "cargo": "dba",
         "descripcion": "Anim laboris occaecat excepteur excepteur incididunt ad cupidatat commodo eiusmod tempor nisi est voluptate reprehenderit.",
         "nombreReferencia": "Tanya",
@@ -517,7 +517,7 @@
     "tecnologias": [
       {
         "tecnologia": {
-          "id": 7
+          "id": 9
         },
         "nivel": 1
       },
@@ -557,7 +557,7 @@
       {
         "institucion": "Fuelton",
         "fechaDesde": "2014-04-02",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-01-01",
         "cargo": "developer frontend",
         "descripcion": "Nostrud quis pariatur Lorem dolor proident deserunt esse sunt.",
         "nombreReferencia": "Chan",
@@ -1399,7 +1399,7 @@
       },
       {
         "tecnologia": {
-          "id": 4
+          "id": 9
         },
         "nivel": 4
       },
@@ -2730,7 +2730,7 @@
       {
         "institucion": "Quizka",
         "fechaDesde": "2014-09-22",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-06-01",
         "cargo": "developer frontend",
         "descripcion": "Veniam ea veniam ut Lorem cillum elit exercitation pariatur elit elit fugiat sit exercitation non.",
         "nombreReferencia": "Humphrey",
@@ -2941,7 +2941,7 @@
       },
       {
         "tecnologia": {
-          "id": 5
+          "id": 9
         },
         "nivel": 3
       },
@@ -3703,7 +3703,7 @@
       {
         "institucion": "Anocha",
         "fechaDesde": "2014-08-23",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2014-10-01",
         "cargo": "developer frontend",
         "descripcion": "Deserunt cupidatat proident occaecat cupidatat ullamco magna esse sit deserunt anim sunt esse.",
         "nombreReferencia": "Nina",
@@ -3713,7 +3713,7 @@
       {
         "institucion": "Hairport",
         "fechaDesde": "2014-11-23",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-02-01",
         "cargo": "developer frontend",
         "descripcion": "Occaecat ad sunt dolore laborum adipisicing exercitation nisi et aute id anim.",
         "nombreReferencia": "Chavez",
@@ -3723,7 +3723,7 @@
       {
         "institucion": "Xurban",
         "fechaDesde": "2014-12-08",
-        "fechaHasta": "2016-01-01",
+        "fechaHasta": "2015-01-01",
         "cargo": "developer backend",
         "descripcion": "Veniam et nostrud consectetur magna aute cupidatat aute elit do non veniam.",
         "nombreReferencia": "Ball",
@@ -3772,7 +3772,7 @@
       },
       {
         "tecnologia": {
-          "id": 3
+          "id": 9
         },
         "nivel": 3
       },
