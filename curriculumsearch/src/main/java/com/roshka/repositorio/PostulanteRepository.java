@@ -2,6 +2,8 @@ package com.roshka.repositorio;
 
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
+import com.roshka.modelo.TipoDeEstudio;
+
 import org.hibernate.jpa.TypedParameterValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +21,7 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
 
     @Query("select p from Postulante p join p.estudios e on e.institucion.nombre LIKE %?1%")
 	public List<Postulante> findByInstitucionEstudio(String institucion);
+
     
     @Query("select p from Postulante p " +
             "JOIN PostulanteTecnologia pt ON pt.postulante.id = p.id " +
@@ -54,13 +57,14 @@ public interface PostulanteRepository extends JpaRepository<Postulante,Long> {
     "and (p.nivelIngles >= ?2 or ?2 is null) "+
     "and (pt.nivel >= ?3 or ?3 is null) "+
     "and (pt.tecnologia.id = ?4 or ?4 is null) "+
-    " and (e.institucion.id = ?5 or ?5 is null ) "+
+   // " and (e.institucion.id = ?5 or ?5 is null ) "+
+   " and (e.tipoDeEstudio = ?5 or ?5 is null ) "+
     " and (conv.cargoId = ?6 or ?6 is null ) "+
     "and (p.estadoPostulante = ?7 or ?7 is null) "+
     " and (conv.id=?8 or ?8 is null ) " +
             "and (p.mesesDeExperiencia >= ?9 and p.mesesDeExperiencia <= ?10 ) ")
     public Page<Postulante> postulantesMultiFiltro(TypedParameterValue nombre, Long nivelInges, Long nivel, Long tecnoId,
-                                                   Long instId,Long cargoId, Pageable pageable, EstadoPostulante estado,
+                                                   TipoDeEstudio tipoDeEstudio,Long cargoId, Pageable pageable, EstadoPostulante estado,
                                                    Long convo, Long infRangeExp, Long supRangeExp);
     
     @Transactional      
