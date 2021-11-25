@@ -21,8 +21,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.ConstraintViolationException;
 
-
 @Controller
+@RequestMapping("/work-with-us")
 public class PostulanteController {
     PostulanteRepository post;
     TecnologiaRepository tecRepo;
@@ -55,7 +55,7 @@ public class PostulanteController {
     }
 
     
-    @RequestMapping(value = "/work-with-us",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getFormPostulante(Model model){
         model.addAttribute("tecnologias", tecRepo.findAll());
         model.addAttribute("tiposDeEstudio", TipoDeEstudio.values());
@@ -77,7 +77,7 @@ public class PostulanteController {
     }
 
     
-    @PostMapping(value = "/work-with-us",consumes = "multipart/form-data")
+    @PostMapping(consumes = "multipart/form-data")
     public RedirectView guardarPostulante(@RequestPart(name = "file",required = false) MultipartFile file,@RequestPart("postulante") Postulante postulante, RedirectAttributes redirectAttributes){
         //Codigo encargado de modificar postulacion si se envia mismo CI
         //Codigo encargado de modificar postulacion si se envia mismo CI
@@ -117,7 +117,7 @@ public class PostulanteController {
 
     
     
-    @GetMapping("/work-with-us/postulacion-correcta")
+    @GetMapping("/postulacion-correcta")
     public String successPostulation(Model model){
         model.addAttribute("mensaje1", "Tu informacion se ha recibido correctamente!");
         model.addAttribute("mensaje2", " espera por que nos pongamos en contacto!");

@@ -49,7 +49,7 @@
                               <th scope="row">${sta.index+1}</th>
                               <td>${tecnologia.getNombre()}</td>
                             
-                              <td><a href="/tecnologia/${tecnologia.id}"><i class="bi bi-pencil-fill"></i></a></td>
+                              <td><a href="/tecnologias/modificar/${tecnologia.id}"><i class="bi bi-pencil-fill"></i></a></td>
                           </tr>
                       </c:forEach>
                       

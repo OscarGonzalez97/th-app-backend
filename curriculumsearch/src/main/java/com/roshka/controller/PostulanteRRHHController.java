@@ -39,6 +39,7 @@ import java.util.List;
 
 
 @Controller
+@RequestMapping("/postulantes")
 public class PostulanteRRHHController {
     PostulanteRepository post;
     TecnologiaRepository tecRepo;
@@ -72,7 +73,7 @@ public class PostulanteRRHHController {
         this.fileRepo = fileRepo;
     }
 
-    @RequestMapping("/postulantes")
+    @RequestMapping()
     public String postulantes(HttpServletRequest request, Model model,
                             @RequestParam(required = false)Long tecId,
                             @RequestParam(required = false)String nombre,
@@ -134,7 +135,7 @@ public class PostulanteRRHHController {
     }
 
 
-    @RequestMapping("/postulantesExcel")
+    @RequestMapping("/excel")
     public void exportPostulantesExcel(HttpServletResponse response, Model model,
                                        @RequestParam(required = false)Long tecId,
                                        @RequestParam(required = false)String nombre,
@@ -195,7 +196,7 @@ public class PostulanteRRHHController {
     }
  
 
-    @GetMapping({"/postulantes/{postulanteId}"})
+    @GetMapping({"/{postulanteId}"})
     public String getPostulanteDetalle(Model model, @PathVariable("postulanteId") Long postulanteId) {
         Postulante p = post.findById(postulanteId).orElse(null);
         model.addAttribute("postulante",p);
@@ -206,7 +207,7 @@ public class PostulanteRRHHController {
     }
 
 
-    @PostMapping({"/postulantes/{postulanteId}"})
+    @PostMapping({"/{postulanteId}"})
     public String setPostulanteEstado(@ModelAttribute Postulante postulante, BindingResult result, @PathVariable("postulanteId") Long postulanteId) {
         //post.setPostulanteEstadoAndComentario(postulante.getEstadoPostulante(),postulante.getComentarioRRHH(), postulante.getId());
         Postulante postulanteVd = post.getById(postulanteId);
@@ -221,7 +222,7 @@ public class PostulanteRRHHController {
         return "redirect:/postulantes/"+postulanteId;
     }
 
-    @GetMapping("/postulantes/cvFile/{fileId}")
+    @GetMapping("/cvFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) {
         // Load file from database
         DBFile dbFile;
@@ -240,7 +241,7 @@ public class PostulanteRRHHController {
 
     }
 
-    @GetMapping("/postulantes/{id}/pdf")
+    @GetMapping("/{id}/pdf")
     public ResponseEntity<Resource> downloadPDF(@PathVariable Long id) {
         // Load file from database
         PdfGenerator pdf =  new PdfGenerator();

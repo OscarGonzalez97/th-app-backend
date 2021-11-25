@@ -390,49 +390,49 @@
            </div>
 
        </div>
-  <layout:put block="scripts" type="APPEND">
-
-    <script src="../valEdad.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script>
-          document.querySelector('#pdf').addEventListener("click", async ()=>{
-              var buttonsRow = document.querySelector('#buttonRow');
-              var element = document.getElementById('element-to-print');
-              var carousels = document.querySelectorAll(".pdf-carousel");
-              var hrs = document.querySelectorAll(".lineas-pdf");
-              var opt = {
-                  margin:       [1, 1, 1, 1],
-                  filename:     'myfile.pdf',
-                  image:        { type: 'jpeg', quality: 0.98 },
-                  html2canvas:  { scale: 1, height: 1400, width: 1300 },
-                  jsPDF:        { unit: 'in', format: 'a2', orientation: 'portrait' }
-              };
-              buttonsRow.style.display = "none";
-              carousels.forEach((element)=>{
-                 element.classList.remove('carousel-item')
-              });
-              hrs.forEach((element)=>{
-                 element.style.display = "block"
-              });
-              await html2pdf().set(opt).from(element).toPdf().save();
-              buttonsRow.style.display = "block";
-              carousels.forEach((element)=>{
-                  element.classList.add('carousel-item')
-              });
-              hrs.forEach((element)=>{
-                  element.style.display = "none"
-              });
-          })
-
-          <%--location.replace("/postulantes/${postulante.id}/")--%>
-      </script>
-
-  </layout:put>
-
-            
-        
-    
- 
+       
+       
+       
+       
+       
+    </layout:put>
+    <layout:put block="scripts" type="APPEND">
+  
+      <script src="/valEdad.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            document.querySelector('#pdf').addEventListener("click", async ()=>{
+                var buttonsRow = document.querySelector('#buttonRow');
+                var element = document.getElementById('element-to-print');
+                var carousels = document.querySelectorAll(".pdf-carousel");
+                var hrs = document.querySelectorAll(".lineas-pdf");
+                var opt = {
+                    margin:       [1, 1, 1, 1],
+                    filename:     'myfile.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 1, height: 1400, width: 1300 },
+                    jsPDF:        { unit: 'in', format: 'a2', orientation: 'portrait' }
+                };
+                buttonsRow.style.display = "none";
+                carousels.forEach((element)=>{
+                   element.classList.remove('carousel-item')
+                });
+                hrs.forEach((element)=>{
+                   element.style.display = "block"
+                });
+                await html2pdf().set(opt).from(element).toPdf().save();
+                buttonsRow.style.display = "block";
+                carousels.forEach((element)=>{
+                    element.classList.add('carousel-item')
+                });
+                hrs.forEach((element)=>{
+                    element.style.display = "none"
+                });
+            })
+  
+            <%--location.replace("/postulantes/${postulante.id}/")--%>
+        </script>
+  
     </layout:put>
 </layout:extends>
 
