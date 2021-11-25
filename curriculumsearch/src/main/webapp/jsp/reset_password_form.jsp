@@ -12,8 +12,8 @@
 </head>
 <body>
 <jsp:include page="alerts.jsp"/>
-<div>
-    <h2>Reset Your Password</h2>
+<div class="container">
+        <h2>Cambia tu contraseña</h2>
 </div>
 
 <form:form action="/reset-password" method="post" style="max-width: 350px; margin: 0 auto;">

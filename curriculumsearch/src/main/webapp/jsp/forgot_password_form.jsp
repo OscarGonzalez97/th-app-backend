@@ -13,15 +13,15 @@
 </head>
 <body>
     <jsp:include page="alerts.jsp"/>
-    <div>
-        <h2>Forgot Password</h2>
+    <div class="container">
+        <h2 class="col float-center">Recuperación de Contraseña</h2>
     </div>
 
 
     <form:form action="/forgot-password" method="post" style="max-width: 420px; margin: 0 auto;">
         <div class="border border-secondary rounded p-3">
             <div>
-                <p>We will be sending a reset password link to your email.</p>
+                <p>Te enviaremos el link de recuperación de tu cuenta a tu email</p>
             </div>
             <div>
                 <p>
