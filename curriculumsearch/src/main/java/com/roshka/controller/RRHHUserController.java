@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 
 @Controller
 public class RRHHUserController {
-    private static final long REGISTER_CODE = 1234;
+    private static String REGISTER_CODE = "123456";
     RRHHUserRepository rrhhUserRepository;
 
     @Autowired
@@ -46,6 +46,15 @@ public class RRHHUserController {
         return "registration";
     }
 
+    @PostMapping("/generarCodigoRegistro")
+    public RedirectView generarCodigoRegistro(Model model, RedirectAttributes redirectAttributes){
+        RedirectView redirectView = new RedirectView("/home", true);
+
+        REGISTER_CODE = RandomString.make(6);
+        redirectAttributes.addFlashAttribute("clave", REGISTER_CODE);
+        return redirectView;
+    }
+
     @GetMapping("/login")
     public String getLogin(Model model, HttpServletRequest request) {
         if(request.getParameter("error")!=null){
@@ -57,8 +66,7 @@ public class RRHHUserController {
     @PostMapping("/process_register")
     public RedirectView processRegister(HttpServletRequest request, RRHHUser user, RedirectAttributes redirectAttributes) {
         RedirectView redirectView = new RedirectView("/register",true);
-        redirectAttributes.addFlashAttribute("success", "Datos actualizados");
-        if(Long.parseLong(request.getParameter("registrationCode")) != REGISTER_CODE){
+        if(!request.getParameter("registrationCode").equals(REGISTER_CODE)){
             redirectAttributes.addFlashAttribute("error", "Codigo Incorrecto");
             return redirectView;
         }
@@ -140,6 +148,8 @@ public class RRHHUserController {
         });
         emailExecutor.shutdown();
 
+        model.addAttribute("success", "Se ha enviado el link de recuperación a su " +
+                "correo electronico. Si no lo recibió intente nuevamente.");
         return "forgot_password_form";
     }
 

@@ -72,6 +72,22 @@
             </div>
           </nav>
     </header>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Esta seguro que desea salir?</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="/logout" class="btn btn-danger">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="container-xxl my-md-4 bd-layout">
         <layout:block name="contents">
