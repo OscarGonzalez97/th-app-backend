@@ -11,12 +11,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Date;
 
+@RequestMapping("/convocatorias")
 @Controller
 public class ConvocatoriaController {
 
@@ -29,7 +29,7 @@ public class ConvocatoriaController {
         this.convoRepo = convoRepo;
     }
 
-    @RequestMapping("/convocatorias")
+    @RequestMapping()
     public String menuConvocatorias(Model model,RedirectAttributes redirectAttrs,
                             @RequestParam(required = false) Long cargoId,
                             @RequestParam(required = false) EstadoConvocatoria estado,//1: true, 0: false
@@ -48,7 +48,7 @@ public class ConvocatoriaController {
         return "convocatorias";
     }
     
-    @RequestMapping("/convocatoria/crear/{id}")
+    @RequestMapping("/crear/{id}")
     public String guardarConvocatoriaa(@PathVariable(required = false) Long id,RedirectAttributes redirectAttributes) {
         for (ConvocatoriaCargo conv:convoRepo.findByCargoId(id)) {
             if(conv.getEstado()==EstadoConvocatoria.abierto){
@@ -68,36 +68,16 @@ public class ConvocatoriaController {
         return "redirect:/convocatorias";
     }
 
-   /* @RequestMapping("/convocatoria/{id}")
-    public String formConvocatoria(Model model,@PathVariable(required = false) Long id) {
-        model.addAttribute("cargos", cargoRepo.findAll());
-        if(id == null){
-             model.addAttribute("convocatoria", new ConvocatoriaCargo());
-             model.addAttribute("listaConvocatoria", convoRepo.findAll());
-        }
-        else {
-            ConvocatoriaCargo cc = convoRepo.getById(id);
-            cc.setFechaFinS(new SimpleDateFormat("yyyy-MM-dd").format((cc.getFechaFin())));
-            cc.setFechaInicioS(new SimpleDateFormat("yyyy-MM-dd").format((cc.getFechaInicio())));
-            
-            model.addAttribute("convocatoria", cc);
-            model.addAttribute("listaConvocatoria", convoRepo.findAll());
-        }
-        
-        return "convocatoria-form";
-    }*/
 
-    @RequestMapping("/convocatoria/{id}")
-    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result, @PathVariable(required = false) Long id,Model model) {
-        if(id != null) convocatoria.setId(id);
-        convocatoria=convoRepo.findByIdConvocatoriaCargo(id);
+    @RequestMapping("/cerrar/{id}")
+    public String cerrarConvocatoria( @PathVariable(required = false) Long id) {
+        
+        ConvocatoriaCargo convocatoria=convoRepo.getById(id);
+        if(convocatoria == null || convocatoria.getEstado() == EstadoConvocatoria.cerrado) return "error"; 
         convocatoria.setEstado(EstadoConvocatoria.cerrado);
         convocatoria.setFechaFin(new Date());
         convocatoria.getCargo().setExisteConvocatoria(false);
         convoRepo.save(convocatoria);
-        
-
-        
         return "redirect:/convocatorias";
     }
 }

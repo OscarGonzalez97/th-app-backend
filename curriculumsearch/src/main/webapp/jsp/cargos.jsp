@@ -50,10 +50,10 @@ contentType="text/html;charset=UTF-8" language="java" %>
                           >Ver Convocatorias</a
                         >
                       </td>
-                      <td><a href="/cargo/${cargo.id}">Editar cargo</a></td>
+                      <td><a href="/cargos/modificar/${cargo.id}">Editar cargo</a></td>
                       <td>
                         <c:if test="${!cargo.isExisteConvocatoria()}">  
-                          <a class="btn btn-secondary" href="/convocatoria/crear/${cargo.id}">Abrir Convocatoria</a>
+                          <a class="btn btn-secondary" href="/convocatorias/crear/${cargo.id}">Abrir Convocatoria</a>
                         </c:if>
                       </td>
                     </tr>

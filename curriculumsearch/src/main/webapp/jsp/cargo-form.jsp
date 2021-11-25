@@ -10,7 +10,7 @@
           <h5>Cargo</h5>
         </div>
           <form:form
-          action="/cargo/${cargo.id == null ? '' : cargo.id}"
+          action="/cargos/${cargo.id == null ? 'agregar' : 'modificar/'.concat(cargo.id)}"
           method="post"
           modelAttribute="cargo"
           class="d-flex flex-column"
