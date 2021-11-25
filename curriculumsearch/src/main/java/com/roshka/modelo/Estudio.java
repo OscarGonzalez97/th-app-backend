@@ -21,7 +21,7 @@ public class Estudio {
     private TipoDeEstudio tipoDeEstudio;
 
     @NotNull(message = "Este campo no puede estar vacio")
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private Institucion institucion;
 

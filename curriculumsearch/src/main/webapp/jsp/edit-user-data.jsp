@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-footer d-flex flex-column">
                   <div class="mt-2 align-self-end">
-                      <input type="submit" value='${tecnologia.id == null ? "Agregar" : "Modificar"}' class="btn btn-primary" />
+                      <input type="submit" value='Guardar' class="btn btn-primary" />
                   </div>
                 </div>
               </form:form>

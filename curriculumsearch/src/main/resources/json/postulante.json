@@ -1,48 +1,343 @@
 [
   {
-    "direccion": "In irure aliquip qui cillum veniam sint amet amet sint ex proident anim mollit.",
+    "direccion": "Dahill Road",
+    "nombre": "Muriel",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 1 }],
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 4
+      }
+    ],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
-    "nombre": "Taylor",
-    "apellido": "Obrien",
-    "correo": "gladysalexander@dadabase.com",
-    "nroDocument": 5821432,
-    "ciudadId": 238,
-    "telefono": "(950) 417-3681",
-    "fechaNacimiento": "1986-08-16",
-    "nivelIngles": 1,
-    
-
+    "apellido": "Roth",
+    "correo": "camposrichard@xylar.com",
+    "nroDocument": 1931312,
+    "ciudadId": 197,
+    "telefono": "(902) 453-2114",
+    "fechaNacimiento": "2021-06-10",
+    "nivelIngles": 2,
     "experiencias": [
       {
-        "institucion": "Fanfare",
-        "fechaDesde": "2014-09-10",
+        "institucion": "Tripsch",
+        "fechaDesde": "2014-01-08",
         "fechaHasta": "2016-01-01",
-        "tipoExperiencia": "Trabajo Normal",
-        "cargo": "dba",
-        "descripcion": "Enim qui Lorem ut magna.",
-        "nombreReferencia": "Marissa",
-        "telefonoReferencia": "(804) 471-2089"
+        "cargo": "developer frontend",
+        "descripcion": "Sit velit cupidatat sit aute commodo nisi esse sint eu sint nisi et.",
+        "nombreReferencia": "Sallie",
+        "telefonoReferencia": "(851) 542-2333",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
-        "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNA" },
-        "fechaDesde": "2014-08-28",
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-09",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "analista"
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-03-12",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
       }
     ],
     "tecnologias": [
       {
         "tecnologia": {
-          "id": 1
+          "id": 5
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 6
         },
         "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Chester Avenue",
+    "nombre": "Serena",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "PAS",
+    "apellido": "Patrick",
+    "correo": "aliciabridges@injoy.com",
+    "nroDocument": 4879946,
+    "ciudadId": 47,
+    "telefono": "(975) 451-3454",
+    "fechaNacimiento": "2020-12-03",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Sureplex",
+        "fechaDesde": "2014-10-21",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Enim sit eu Lorem veniam nulla consectetur sit eu excepteur.",
+        "nombreReferencia": "Sheri",
+        "telefonoReferencia": "(947) 590-2936",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Quarmony",
+        "fechaDesde": "2014-03-05",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Incididunt sunt nostrud officia aliqua.",
+        "nombreReferencia": "Cecelia",
+        "telefonoReferencia": "(825) 503-3872",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-12-26",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-01-27",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-06",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Coyle Street",
+    "nombre": "Kristine",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Mclaughlin",
+    "correo": "dixiedickerson@kegular.com",
+    "nroDocument": 5481163,
+    "ciudadId": 181,
+    "telefono": "(907) 524-2462",
+    "fechaNacimiento": "2020-12-02",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Xixan",
+        "fechaDesde": "2014-07-05",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Lorem eu aliqua est dolor.",
+        "nombreReferencia": "Coffey",
+        "telefonoReferencia": "(922) 531-3551",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Oronoko",
+        "fechaDesde": "2014-07-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Ex magna id laborum ea fugiat mollit magna consequat ipsum.",
+        "nombreReferencia": "Katelyn",
+        "telefonoReferencia": "(921) 559-2903",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-02-12",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-11-29",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-05-06",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Croton Loop",
+    "nombre": "Tami",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Mays",
+    "correo": "rogersterrell@zaj.com",
+    "nroDocument": 3617097,
+    "ciudadId": 98,
+    "telefono": "(897) 507-2999",
+    "fechaNacimiento": "2021-05-21",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Omatom",
+        "fechaDesde": "2014-07-19",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Lorem dolor laborum laboris non laborum.",
+        "nombreReferencia": "Jackie",
+        "telefonoReferencia": "(828) 440-2883",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-19",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-09-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-05-29",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 3
       },
       {
         "tecnologia": {
@@ -52,95 +347,501 @@
       },
       {
         "tecnologia": {
-          "id": 3
+          "id": 7
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Noble Street",
+    "nombre": "Kent",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "PAS",
+    "apellido": "Owen",
+    "correo": "princeburt@snacktion.com",
+    "nroDocument": 5713887,
+    "ciudadId": 131,
+    "telefono": "(974) 548-2840",
+    "fechaNacimiento": "2021-02-06",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Bleendot",
+        "fechaDesde": "2014-05-22",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Eu sit magna id ullamco cupidatat nisi incididunt id dolore Lorem cupidatat in.",
+        "nombreReferencia": "Mason",
+        "telefonoReferencia": "(924) 475-2006",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Dancity",
+        "fechaDesde": "2014-03-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Sint aliqua fugiat tempor veniam fugiat consectetur.",
+        "nombreReferencia": "Carrillo",
+        "telefonoReferencia": "(870) 511-2412",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zolar",
+        "fechaDesde": "2014-01-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Proident nulla quis sunt qui incididunt.",
+        "nombreReferencia": "Henson",
+        "telefonoReferencia": "(863) 464-2968",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-04-24",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-05",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Middleton Street",
+    "nombre": "Marla",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 2
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
+    "apellido": "Branch",
+    "correo": "mariabuchanan@amril.com",
+    "nroDocument": 1488230,
+    "ciudadId": 11,
+    "telefono": "(824) 412-3682",
+    "fechaNacimiento": "2021-01-27",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Codact",
+        "fechaDesde": "2014-07-20",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Anim laboris occaecat excepteur excepteur incididunt ad cupidatat commodo eiusmod tempor nisi est voluptate reprehenderit.",
+        "nombreReferencia": "Tanya",
+        "telefonoReferencia": "(856) 556-2136",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Quilch",
+        "fechaDesde": "2014-08-12",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Enim officia cupidatat esse tempor fugiat quis laborum dolore ullamco exercitation nostrud eu quis ea.",
+        "nombreReferencia": "Reva",
+        "telefonoReferencia": "(876) 433-3824",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Exospace",
+        "fechaDesde": "2014-06-15",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Nostrud ullamco ullamco amet velit voluptate est.",
+        "nombreReferencia": "Margie",
+        "telefonoReferencia": "(977) 558-2760",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-02-06",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 6
         },
         "nivel": 5
       }
     ]
   },
   {
-    "direccion": "Do nostrud aliqua adipisicing in sunt aute id do elit ut dolor ad aliquip.",
-    "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 2 }],
-    "estadoCivil": "Soltero",
-    "tipoDocumento": "CI",
-    "nombre": "Hopkins",
-    "apellido": "Parks",
-    "correo": "grahamgriffith@zilidium.com",
-    "nroDocument": 4213361,
-    "ciudadId": 96,
-    "telefono": "(866) 560-2541",
-    "fechaNacimiento": "1980-09-04",
+    "direccion": "Congress Street",
+    "nombre": "Eloise",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Gutierrez",
+    "correo": "krismcclure@omnigog.com",
+    "nroDocument": 4884655,
+    "ciudadId": 162,
+    "telefono": "(907) 537-2762",
+    "fechaNacimiento": "2021-09-12",
     "nivelIngles": 5,
-    
-
     "experiencias": [
       {
-        "institucion": "Pyramia",
-        "fechaDesde": "2014-07-15",
+        "institucion": "Fuelton",
+        "fechaDesde": "2014-04-02",
         "fechaHasta": "2016-01-01",
         "cargo": "developer frontend",
-        "descripcion": "Consequat fugiat qui sint deserunt ullamco.",
-        "nombreReferencia": "Iva",
-        "tipoExperiencia": "Trabajo Normal",
-        "telefonoReferencia": "(947) 580-2363"
+        "descripcion": "Nostrud quis pariatur Lorem dolor proident deserunt esse sunt.",
+        "nombreReferencia": "Chan",
+        "telefonoReferencia": "(900) 552-2125",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zentility",
+        "fechaDesde": "2014-05-11",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Nostrud dolor fugiat tempor reprehenderit ullamco culpa.",
+        "nombreReferencia": "Melissa",
+        "telefonoReferencia": "(966) 527-2508",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNB" },
-        "fechaDesde": "2014-07-08",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-12-03",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "lic inf"
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
       }
     ],
     "tecnologias": [
       {
         "tecnologia": {
+          "id": 6
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
           "id": 4
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 7
         },
         "nivel": 2
       }
     ]
   },
   {
-    "direccion": "Occaecat non cupidatat amet reprehenderit consectetur ullamco et.",
+    "direccion": "Nevins Street",
+    "nombre": "Corina",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 3 }],
-    "estadoCivil": "Soltero",
-    "tipoDocumento": "CI",
-    "nombre": "Alejandra",
-    "apellido": "Riggs",
-    "correo": "ruthrobertson@homelux.com",
-    "nroDocument": 4605787,
-    "ciudadId": 30,
-    "telefono": "(876) 580-2411",
-    "fechaNacimiento": "2000-01-28",
-    "nivelIngles": 3,
-    
-
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 4
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "PAS",
+    "apellido": "Conner",
+    "correo": "kirktillman@bulljuice.com",
+    "nroDocument": 2671061,
+    "ciudadId": 226,
+    "telefono": "(916) 488-2247",
+    "fechaNacimiento": "2020-11-14",
+    "nivelIngles": 4,
     "experiencias": [
       {
-        "institucion": "Geeky",
-        "fechaDesde": "2014-08-26",
+        "institucion": "Incubus",
+        "fechaDesde": "2014-02-26",
         "fechaHasta": "2016-01-01",
         "cargo": "dba",
-        "tipoExperiencia": "Trabajo Normal",
-        "descripcion": "Aute culpa ea mollit adipisicing dolore dolore amet adipisicing occaecat commodo enim cillum.",
-        "nombreReferencia": "Rose",
-        "telefonoReferencia": "(853) 471-2006"
+        "descripcion": "Do deserunt officia sunt quis deserunt magna non aute est elit elit ullamco dolor nulla.",
+        "nombreReferencia": "Juarez",
+        "telefonoReferencia": "(952) 543-3808",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Joviold",
+        "fechaDesde": "2014-07-06",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Deserunt ut minim sint dolor amet est irure nisi quis consequat labore et.",
+        "nombreReferencia": "House",
+        "telefonoReferencia": "(926) 479-3858",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Baluba",
+        "fechaDesde": "2014-12-02",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Culpa magna ad incididunt fugiat do dolor sit ea.",
+        "nombreReferencia": "Aida",
+        "telefonoReferencia": "(972) 507-2400",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-02-02",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Elm Place",
+    "nombre": "Horne",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
+    "apellido": "Waller",
+    "correo": "jacobscopeland@uni.com",
+    "nroDocument": 4740134,
+    "ciudadId": 218,
+    "telefono": "(817) 499-3717",
+    "fechaNacimiento": "2021-03-13",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Letpro",
+        "fechaDesde": "2014-04-08",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Aliqua officia tempor nisi dolore anim nostrud magna excepteur fugiat quis cillum officia sit officia.",
+        "nombreReferencia": "Harvey",
+        "telefonoReferencia": "(905) 536-3159",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Clay Street",
+    "nombre": "Buckner",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "CI",
+    "apellido": "Leon",
+    "correo": "karawagner@zaggle.com",
+    "nroDocument": 4274813,
+    "ciudadId": 3,
+    "telefono": "(837) 402-3553",
+    "fechaNacimiento": "2021-06-27",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Songlines",
+        "fechaDesde": "2014-03-15",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Consequat consectetur cillum voluptate veniam fugiat velit.",
+        "nombreReferencia": "Kathryn",
+        "telefonoReferencia": "(841) 442-3277",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Scenty",
+        "fechaDesde": "2014-06-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Incididunt occaecat commodo occaecat ex magna sint dolor occaecat aute eiusmod exercitation consectetur est.",
+        "nombreReferencia": "Livingston",
+        "telefonoReferencia": "(843) 482-3171",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UNC" },
-        "fechaDesde": "2014-02-13",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-09-24",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "lic inf"
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-12-01",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-02-02",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
       }
     ],
     "tecnologias": [
@@ -153,41 +854,843 @@
     ]
   },
   {
-    "direccion": "Qui ullamco excepteur velit ad ullamco id id nisi irure dolore cupidatat mollit ullamco veniam.",
+    "direccion": "Bedford Place",
+    "nombre": "Williamson",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 4 }],
-    "estadoCivil": "Soltero",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
     "tipoDocumento": "CI",
-    "nombre": "Angelina",
-    "apellido": "Wallace",
-    "correo": "christiwalls@capscreen.com",
-    "nroDocument": 4591352,
-    "ciudadId": 65,
-    "telefono": "(931) 499-3122",
-    "fechaNacimiento": "1972-06-05",
-    "nivelIngles": 4,
-    
-
+    "apellido": "Stark",
+    "correo": "jewelgreen@zerology.com",
+    "nroDocument": 5839103,
+    "ciudadId": 43,
+    "telefono": "(942) 566-2313",
+    "fechaNacimiento": "2021-08-01",
+    "nivelIngles": 5,
     "experiencias": [
       {
-        "institucion": "Orbiflex",
-        "fechaDesde": "2014-08-19",
+        "institucion": "Limozen",
+        "fechaDesde": "2014-02-28",
         "fechaHasta": "2016-01-01",
         "cargo": "developer backend",
-        "descripcion": "Aliquip occaecat minim dolor enim commodo.",
-        "nombreReferencia": "Elba",
-        "telefonoReferencia": "(881) 568-2597",
-        "tipoExperiencia": "Trabajo Normal"
+        "descripcion": "Culpa reprehenderit reprehenderit qui magna laborum voluptate pariatur est in nisi irure nulla cupidatat.",
+        "nombreReferencia": "Odonnell",
+        "telefonoReferencia": "(829) 500-3216",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Prismatic",
+        "fechaDesde": "2014-07-17",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Cupidatat occaecat ut reprehenderit laborum mollit reprehenderit magna aute duis aliquip velit reprehenderit fugiat.",
+        "nombreReferencia": "Dotson",
+        "telefonoReferencia": "(887) 543-2142",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Bostonic",
+        "fechaDesde": "2014-12-14",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Officia anim reprehenderit nulla excepteur ea non dolor deserunt proident qui dolore.",
+        "nombreReferencia": "Benjamin",
+        "telefonoReferencia": "(948) 558-2358",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-30",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Buffalo Avenue",
+    "nombre": "Saunders",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 5
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "PAS",
+    "apellido": "Montoya",
+    "correo": "rosemurphy@medalert.com",
+    "nroDocument": 1576323,
+    "ciudadId": 53,
+    "telefono": "(950) 437-2238",
+    "fechaNacimiento": "2021-10-30",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Buzzness",
+        "fechaDesde": "2014-08-17",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Veniam velit ad laboris ea eiusmod qui.",
+        "nombreReferencia": "Bonner",
+        "telefonoReferencia": "(807) 598-3425",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Apexia",
+        "fechaDesde": "2014-03-21",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Ex deserunt culpa esse cupidatat.",
+        "nombreReferencia": "Jessie",
+        "telefonoReferencia": "(957) 421-3313",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UND" },
-        "fechaDesde": "2014-12-22",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-19",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "ing inf"
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Lloyd Court",
+    "nombre": "Adriana",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Viudo",
+    "tipoDocumento": "Otro",
+    "apellido": "Neal",
+    "correo": "katrinarowe@moreganic.com",
+    "nroDocument": 2976754,
+    "ciudadId": 215,
+    "telefono": "(819) 461-2714",
+    "fechaNacimiento": "2021-05-01",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Xinware",
+        "fechaDesde": "2014-03-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Veniam laborum enim amet laborum id voluptate do exercitation in deserunt pariatur laborum id voluptate.",
+        "nombreReferencia": "Vinson",
+        "telefonoReferencia": "(921) 449-3288",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Intergeek",
+        "fechaDesde": "2014-06-08",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Fugiat dolore ea aliquip exercitation fugiat dolor sit dolore.",
+        "nombreReferencia": "Saundra",
+        "telefonoReferencia": "(916) 443-2115",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Waterbaby",
+        "fechaDesde": "2014-07-16",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Cillum minim ex labore aute duis irure.",
+        "nombreReferencia": "Reyes",
+        "telefonoReferencia": "(910) 463-3312",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-15",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-03-24",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-07-30",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 3
+      }
+    ]
+  },
+  {
+    "direccion": "Whitty Lane",
+    "nombre": "Mckenzie",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Lambert",
+    "correo": "tranwarren@maroptic.com",
+    "nroDocument": 1022119,
+    "ciudadId": 183,
+    "telefono": "(981) 425-3589",
+    "fechaNacimiento": "2021-03-22",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Thredz",
+        "fechaDesde": "2014-10-04",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Tempor cillum nostrud minim ut magna laborum laboris fugiat dolor eiusmod ex.",
+        "nombreReferencia": "Valdez",
+        "telefonoReferencia": "(980) 506-2476",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-22",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":2
+        },
+        "fechaDesde": "2014-08-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Court Square",
+    "nombre": "Simmons",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Ortega",
+    "correo": "hestercastro@globoil.com",
+    "nroDocument": 3466668,
+    "ciudadId": 249,
+    "telefono": "(868) 420-2944",
+    "fechaNacimiento": "2021-10-01",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Xelegyl",
+        "fechaDesde": "2014-10-01",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Excepteur nisi labore laboris officia labore.",
+        "nombreReferencia": "Hughes",
+        "telefonoReferencia": "(953) 476-2307",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Puria",
+        "fechaDesde": "2014-09-18",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Occaecat magna mollit consectetur ex.",
+        "nombreReferencia": "Doyle",
+        "telefonoReferencia": "(949) 419-2624",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-14",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Jamison Lane",
+    "nombre": "Janine",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Melendez",
+    "correo": "effiechang@geekmosis.com",
+    "nroDocument": 2186440,
+    "ciudadId": 73,
+    "telefono": "(935) 475-2605",
+    "fechaNacimiento": "2021-08-12",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Eargo",
+        "fechaDesde": "2014-05-02",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Laboris pariatur aliqua velit sit exercitation ea aute eu in aliqua fugiat.",
+        "nombreReferencia": "Marlene",
+        "telefonoReferencia": "(888) 559-2105",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Techade",
+        "fechaDesde": "2014-01-05",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Qui do pariatur in laboris nostrud eiusmod consectetur dolore aliqua.",
+        "nombreReferencia": "Finch",
+        "telefonoReferencia": "(875) 462-3421",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-08",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Randolph Street",
+    "nombre": "Jamie",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Cook",
+    "correo": "vaughanburton@entroflex.com",
+    "nroDocument": 3796850,
+    "ciudadId": 202,
+    "telefono": "(852) 464-2931",
+    "fechaNacimiento": "2021-06-01",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Rameon",
+        "fechaDesde": "2014-07-07",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Voluptate sunt excepteur anim laboris fugiat adipisicing ipsum.",
+        "nombreReferencia": "Wiggins",
+        "telefonoReferencia": "(855) 577-2930",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-14",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-03-14",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Lafayette Walk",
+    "nombre": "Sheree",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
+    "apellido": "Mckee",
+    "correo": "concettaharding@exposa.com",
+    "nroDocument": 3623434,
+    "ciudadId": 150,
+    "telefono": "(822) 487-2387",
+    "fechaNacimiento": "2020-11-08",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Kangle",
+        "fechaDesde": "2014-07-24",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Dolore id cillum exercitation consequat commodo commodo est ullamco tempor excepteur et proident sit.",
+        "nombreReferencia": "Pope",
+        "telefonoReferencia": "(868) 402-3311",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-31",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":3
+        },
+        "fechaDesde": "2014-04-27",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":4
+        },
+        "fechaDesde": "2014-02-17",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Hart Street",
+    "nombre": "Lila",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 2
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Wheeler",
+    "correo": "dianeroman@dancerity.com",
+    "nroDocument": 3406555,
+    "ciudadId": 13,
+    "telefono": "(812) 584-3129",
+    "fechaNacimiento": "2021-09-23",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Netur",
+        "fechaDesde": "2014-11-04",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Consectetur adipisicing elit cillum consequat proident ullamco nostrud cillum ea ea proident.",
+        "nombreReferencia": "Iva",
+        "telefonoReferencia": "(971) 426-2390",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Fibrodyne",
+        "fechaDesde": "2014-12-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Anim pariatur do ipsum ut nisi exercitation labore.",
+        "nombreReferencia": "Sherry",
+        "telefonoReferencia": "(850) 584-3868",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Makingway",
+        "fechaDesde": "2014-02-25",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Quis consequat enim in officia.",
+        "nombreReferencia": "Frost",
+        "telefonoReferencia": "(885) 547-2132",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-02",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-03",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Norfolk Street",
+    "nombre": "Brittany",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "CI",
+    "apellido": "Rodgers",
+    "correo": "valentinethompson@biohab.com",
+    "nroDocument": 4000978,
+    "ciudadId": 133,
+    "telefono": "(839) 412-3286",
+    "fechaNacimiento": "2021-04-08",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Kindaloo",
+        "fechaDesde": "2014-06-14",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Tempor amet adipisicing est cillum qui esse proident incididunt ex.",
+        "nombreReferencia": "Sherman",
+        "telefonoReferencia": "(825) 423-2780",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Nurali",
+        "fechaDesde": "2014-09-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Duis nulla adipisicing velit proident ea et nulla anim veniam commodo anim exercitation do proident.",
+        "nombreReferencia": "Ester",
+        "telefonoReferencia": "(964) 576-3198",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Megall",
+        "fechaDesde": "2014-04-09",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Dolore qui fugiat ut consequat cupidatat exercitation sit labore.",
+        "nombreReferencia": "Mcintosh",
+        "telefonoReferencia": "(844) 478-2575",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-31",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-05-31",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-28",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
       }
     ],
     "tecnologias": [
@@ -200,44 +1703,442 @@
     ]
   },
   {
-    "direccion": "Deserunt tempor ut et eiusmod et labore Lorem.",
+    "direccion": "Luquer Street",
+    "nombre": "Whitaker",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 5 }],
-    "estadoCivil": "Soltero",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Casado",
     "tipoDocumento": "CI",
-    "nombre": "Rivas",
-    "apellido": "Owens",
-    "correo": "shirleyguzman@equitox.com",
-    "nroDocument": 3969318,
-    "ciudadId": 143,
-    "telefono": "(972) 524-2610",
-    "fechaNacimiento": "1989-09-09",
-    "nivelIngles": 5,
-    
-
+    "apellido": "Snow",
+    "correo": "morganfranks@magnafone.com",
+    "nroDocument": 1006103,
+    "ciudadId": 182,
+    "telefono": "(813) 418-3346",
+    "fechaNacimiento": "2021-11-04",
+    "nivelIngles": 4,
     "experiencias": [
       {
-        "institucion": "Uncorp",
-        "fechaDesde": "2014-02-01",
+        "institucion": "Dymi",
+        "fechaDesde": "2014-09-02",
         "fechaHasta": "2016-01-01",
         "cargo": "developer backend",
-        "descripcion": "Dolore nulla deserunt fugiat est reprehenderit tempor qui excepteur.",
-        "nombreReferencia": "Crawford",
-        "telefonoReferencia": "(903) 568-2045",
-        "tipoExperiencia": "Trabajo Normal"
+        "descripcion": "Magna cupidatat sit nulla sunt.",
+        "nombreReferencia": "Sparks",
+        "telefonoReferencia": "(973) 537-3246",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Entogrok",
+        "fechaDesde": "2014-11-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Enim ullamco culpa exercitation aliqua proident cillum.",
+        "nombreReferencia": "Mavis",
+        "telefonoReferencia": "(903) 430-2727",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Enersol",
+        "fechaDesde": "2014-10-21",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Pariatur deserunt eu aute ad voluptate ex ad duis dolor laborum sunt ea.",
+        "nombreReferencia": "Fischer",
+        "telefonoReferencia": "(988) 482-2173",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
-        "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "AMERICANA" },
-        "fechaDesde": "2014-08-03",
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-30",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "lic inf"
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-01",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "TESIS"
       }
     ],
     "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Broome Street",
+    "nombre": "Marcia",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 5
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Odonnell",
+    "correo": "bassguy@verbus.com",
+    "nroDocument": 2267680,
+    "ciudadId": 63,
+    "telefono": "(858) 426-3958",
+    "fechaNacimiento": "2021-08-12",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Hatology",
+        "fechaDesde": "2014-08-20",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Deserunt sint dolor est culpa amet ipsum.",
+        "nombreReferencia": "Bird",
+        "telefonoReferencia": "(942) 521-3394",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Kineticut",
+        "fechaDesde": "2014-05-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Cillum amet dolor sint commodo sint.",
+        "nombreReferencia": "Phelps",
+        "telefonoReferencia": "(934) 490-3917",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Comcubine",
+        "fechaDesde": "2014-02-05",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Laborum dolore labore anim sit aute laboris mollit.",
+        "nombreReferencia": "Vaughn",
+        "telefonoReferencia": "(949) 471-3063",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-02",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-01-22",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Merit Court",
+    "nombre": "Leonard",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "Otro",
+    "apellido": "Gordon",
+    "correo": "candaceburns@zogak.com",
+    "nroDocument": 5542891,
+    "ciudadId": 97,
+    "telefono": "(950) 568-2011",
+    "fechaNacimiento": "2021-08-06",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Fitcore",
+        "fechaDesde": "2014-07-15",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "In est ut eiusmod nostrud.",
+        "nombreReferencia": "Millie",
+        "telefonoReferencia": "(998) 590-3001",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Recritube",
+        "fechaDesde": "2014-09-14",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Officia adipisicing tempor sint officia quis consequat sint quis sint ea ex fugiat veniam ea.",
+        "nombreReferencia": "Miller",
+        "telefonoReferencia": "(820) 580-3686",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-12",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-05",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Pitkin Avenue",
+    "nombre": "Carver",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 5
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Valenzuela",
+    "correo": "newmandean@acruex.com",
+    "nroDocument": 1786934,
+    "ciudadId": 245,
+    "telefono": "(982) 523-2626",
+    "fechaNacimiento": "2021-09-22",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Furnafix",
+        "fechaDesde": "2014-01-31",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Dolore veniam officia eu elit minim deserunt veniam.",
+        "nombreReferencia": "Latoya",
+        "telefonoReferencia": "(954) 402-3607",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-27",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-26",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Adler Place",
+    "nombre": "Ursula",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "Otro",
+    "apellido": "Benson",
+    "correo": "lindsayhess@isotronic.com",
+    "nroDocument": 5603527,
+    "ciudadId": 74,
+    "telefono": "(908) 532-2333",
+    "fechaNacimiento": "2021-08-25",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Accidency",
+        "fechaDesde": "2014-08-09",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "In id aliqua eiusmod aute eiusmod enim dolor.",
+        "nombreReferencia": "Cervantes",
+        "telefonoReferencia": "(894) 524-2398",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Gadtron",
+        "fechaDesde": "2014-11-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Eu in occaecat anim ut.",
+        "nombreReferencia": "Alexandra",
+        "telefonoReferencia": "(862) 419-2720",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Prosure",
+        "fechaDesde": "2014-09-30",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Adipisicing ad reprehenderit deserunt aliqua proident.",
+        "nombreReferencia": "Casey",
+        "telefonoReferencia": "(868) 420-2757",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-01-23",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-16",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 4
+      },
       {
         "tecnologia": {
           "id": 3
@@ -247,41 +2148,320 @@
     ]
   },
   {
-    "direccion": "Aliqua est adipisicing do exercitation sit laborum aliquip aliqua adipisicing enim aute.",
+    "direccion": "Nolans Lane",
+    "nombre": "Hampton",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 3 }],
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 3
+      }
+    ],
     "estadoCivil": "Soltero",
     "tipoDocumento": "CI",
-    "nombre": "Estelle",
-    "apellido": "Gamble",
-    "correo": "mclaughlinpate@enomen.com",
-    "nroDocument": 2329745,
-    "ciudadId": 248,
-    "telefono": "(933) 501-3525",
-    "fechaNacimiento": "1994-03-24",
-    "nivelIngles": 1,
-    
-
+    "apellido": "Delacruz",
+    "correo": "lancastervelasquez@netplode.com",
+    "nroDocument": 2399194,
+    "ciudadId": 122,
+    "telefono": "(980) 566-3470",
+    "fechaNacimiento": "2021-06-18",
+    "nivelIngles": 2,
     "experiencias": [
       {
-        "institucion": "Extrawear",
-        "fechaDesde": "2014-11-10",
+        "institucion": "Supremia",
+        "fechaDesde": "2014-05-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Minim elit sunt enim dolore magna deserunt cupidatat ipsum.",
+        "nombreReferencia": "Magdalena",
+        "telefonoReferencia": "(955) 499-2402",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Ecstasia",
+        "fechaDesde": "2014-11-25",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Non veniam et adipisicing nisi tempor nulla Lorem.",
+        "nombreReferencia": "Bertie",
+        "telefonoReferencia": "(882) 556-3629",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zanity",
+        "fechaDesde": "2014-08-12",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Voluptate occaecat sunt deserunt culpa quis irure eu irure minim.",
+        "nombreReferencia": "Lenore",
+        "telefonoReferencia": "(863) 559-2971",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-05-30",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 3
+      }
+    ]
+  },
+  {
+    "direccion": "Anna Court",
+    "nombre": "Melinda",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Figueroa",
+    "correo": "arlinebarber@nitracyr.com",
+    "nroDocument": 5541715,
+    "ciudadId": 218,
+    "telefono": "(846) 582-2018",
+    "fechaNacimiento": "2021-01-13",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Frosnex",
+        "fechaDesde": "2014-02-27",
         "fechaHasta": "2016-01-01",
         "cargo": "developer frontend",
-        "descripcion": "Do do est ad ea pariatur aliquip sit ipsum in duis laborum velit magna.",
-        "nombreReferencia": "Schultz",
-        "telefonoReferencia": "(903) 420-3902",
-        "tipoExperiencia": "Trabajo Normal"
+        "descripcion": "Occaecat sit velit eiusmod enim irure occaecat ea commodo nulla esse commodo ad aliqua.",
+        "nombreReferencia": "Jane",
+        "telefonoReferencia": "(800) 485-2619",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-14",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Harman Street",
+    "nombre": "Sara",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "CI",
+    "apellido": "Colon",
+    "correo": "nanniehart@orbaxter.com",
+    "nroDocument": 1491237,
+    "ciudadId": 177,
+    "telefono": "(852) 552-2879",
+    "fechaNacimiento": "2021-03-27",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Lovepad",
+        "fechaDesde": "2014-09-19",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Veniam incididunt sit est ad mollit eu magna laborum laboris exercitation ad laborum.",
+        "nombreReferencia": "Cross",
+        "telefonoReferencia": "(811) 567-2192",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Insource",
+        "fechaDesde": "2014-12-06",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Nulla laboris veniam dolor eu laborum.",
+        "nombreReferencia": "Gena",
+        "telefonoReferencia": "(848) 431-2237",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zenthall",
+        "fechaDesde": "2014-11-19",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Eu Lorem consequat ut et nulla laboris aliqua nulla sit pariatur ex exercitation veniam.",
+        "nombreReferencia": "Frazier",
+        "telefonoReferencia": "(872) 510-3594",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
         "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UCA" },
-        "fechaDesde": "2014-07-13",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-26",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "ing inf"
+        "temaDeEstudio": "lic inf",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-22",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-17",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "McClancy Place",
+    "nombre": "Claire",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
+    "apellido": "Vega",
+    "correo": "bennettwitt@acumentor.com",
+    "nroDocument": 3396988,
+    "ciudadId": 23,
+    "telefono": "(948) 472-2691",
+    "fechaNacimiento": "2021-08-16",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Aquamate",
+        "fechaDesde": "2014-01-01",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Magna fugiat sint occaecat cupidatat.",
+        "nombreReferencia": "Natasha",
+        "telefonoReferencia": "(989) 559-2894",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Orbixtar",
+        "fechaDesde": "2014-10-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Sint anim duis culpa deserunt excepteur dolore.",
+        "nombreReferencia": "Mann",
+        "telefonoReferencia": "(898) 454-3879",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Irack",
+        "fechaDesde": "2014-04-19",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Mollit sint ullamco eu ullamco esse quis officia eiusmod.",
+        "nombreReferencia": "Ronda",
+        "telefonoReferencia": "(941) 416-3713",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-12",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
       }
     ],
     "tecnologias": [
@@ -289,46 +2469,154 @@
         "tecnologia": {
           "id": 2
         },
-        "nivel": 4
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 2
       }
     ]
   },
   {
-    "direccion": "Officia eiusmod ut reprehenderit tempor consequat elit amet ex voluptate aute anim do.",
+    "direccion": "Lake Avenue",
+    "nombre": "Bradford",
     "nacionalidad": "Paraguaya",
-    "postulaciones": [{ "id": 4 }],
-    "estadoCivil": "Soltero",
-    "tipoDocumento": "CI",
-    "nombre": "Mariana",
-    "apellido": "Ratliff",
-    "correo": "loramiddleton@musanpoly.com",
-    "nroDocument": 4519594,
-    "ciudadId": 104,
-    "telefono": "(817) 492-2493",
-    "fechaNacimiento": "2002-07-30",
-    "nivelIngles": 5,
-    
-
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Viudo",
+    "tipoDocumento": "Otro",
+    "apellido": "Norman",
+    "correo": "deanfarmer@tersanki.com",
+    "nroDocument": 5901523,
+    "ciudadId": 44,
+    "telefono": "(967) 576-2818",
+    "fechaNacimiento": "2021-09-12",
+    "nivelIngles": 2,
     "experiencias": [
       {
-        "institucion": "Uberlux",
-        "fechaDesde": "2014-07-01",
+        "institucion": "Talae",
+        "fechaDesde": "2014-01-27",
         "fechaHasta": "2016-01-01",
         "cargo": "developer backend",
-        "descripcion": "Anim labore anim veniam deserunt ex aute.",
-        "nombreReferencia": "Francesca",
-        "telefonoReferencia": "(961) 420-2150",
-        "tipoExperiencia": "Trabajo Normal"
+        "descripcion": "Officia ad dolore id reprehenderit veniam est id.",
+        "nombreReferencia": "Byers",
+        "telefonoReferencia": "(964) 400-2666",
+        "tipoExperiencia" : "Trabajo Normal"
       }
     ],
     "estudios": [
       {
-        "tipoDeEstudio": "TERCIARIO",
-        "estado": "SUSPENDIDO",
-        "institucion": { "nombre": "UCOM" },
-        "fechaDesde": "2014-10-03",
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-05",
         "fechaHasta": "2016-01-01",
-        "temaDeEstudio": "ing inf"
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Radde Place",
+    "nombre": "Adeline",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "PAS",
+    "apellido": "Decker",
+    "correo": "addieblankenship@dreamia.com",
+    "nroDocument": 5063647,
+    "ciudadId": 27,
+    "telefono": "(901) 446-2284",
+    "fechaNacimiento": "2021-05-23",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Ultrimax",
+        "fechaDesde": "2014-08-06",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Nostrud id velit culpa adipisicing non aliqua aliqua ullamco ut laboris irure.",
+        "nombreReferencia": "Sybil",
+        "telefonoReferencia": "(838) 509-2540",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Magmina",
+        "fechaDesde": "2014-05-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Tempor dolore ipsum aute amet nostrud nostrud id exercitation eiusmod nulla ad velit reprehenderit ullamco.",
+        "nombreReferencia": "Angelique",
+        "telefonoReferencia": "(939) 575-3219",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-13",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-28",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
       }
     ],
     "tecnologias": [
@@ -336,7 +2624,1680 @@
         "tecnologia": {
           "id": 5
         },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Java Street",
+    "nombre": "Solis",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "CI",
+    "apellido": "Macdonald",
+    "correo": "carolestuart@boilicon.com",
+    "nroDocument": 4699791,
+    "ciudadId": 192,
+    "telefono": "(842) 489-3465",
+    "fechaNacimiento": "2021-06-11",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Artworlds",
+        "fechaDesde": "2014-08-20",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Qui deserunt eiusmod irure incididunt Lorem veniam occaecat velit elit et consequat laboris.",
+        "nombreReferencia": "Teresa",
+        "telefonoReferencia": "(875) 564-3691",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Gology",
+        "fechaDesde": "2014-03-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Ex consectetur dolore culpa velit voluptate.",
+        "nombreReferencia": "Trevino",
+        "telefonoReferencia": "(899) 553-3234",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Quordate",
+        "fechaDesde": "2014-01-16",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Cillum ex veniam ullamco velit ut eu qui ex commodo voluptate anim laborum esse sit.",
+        "nombreReferencia": "Luella",
+        "telefonoReferencia": "(892) 509-3736",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-25",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Boerum Place",
+    "nombre": "Greene",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Viudo",
+    "tipoDocumento": "Otro",
+    "apellido": "Leonard",
+    "correo": "vivianbrown@digial.com",
+    "nroDocument": 2012089,
+    "ciudadId": 67,
+    "telefono": "(954) 447-3151",
+    "fechaNacimiento": "2021-02-14",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Quizka",
+        "fechaDesde": "2014-09-22",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Veniam ea veniam ut Lorem cillum elit exercitation pariatur elit elit fugiat sit exercitation non.",
+        "nombreReferencia": "Humphrey",
+        "telefonoReferencia": "(944) 592-3795",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-09",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Columbia Place",
+    "nombre": "Buck",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "Otro",
+    "apellido": "Cochran",
+    "correo": "vazquezbartlett@extragen.com",
+    "nroDocument": 2529945,
+    "ciudadId": 78,
+    "telefono": "(920) 502-3490",
+    "fechaNacimiento": "2021-10-25",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Kage",
+        "fechaDesde": "2014-06-10",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Officia ut eiusmod fugiat reprehenderit.",
+        "nombreReferencia": "Fran",
+        "telefonoReferencia": "(863) 505-3425",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-20",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-08",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Perry Place",
+    "nombre": "Lawson",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "Otro",
+    "apellido": "Mooney",
+    "correo": "nicholsmcdowell@slofast.com",
+    "nroDocument": 1121378,
+    "ciudadId": 126,
+    "telefono": "(815) 404-3974",
+    "fechaNacimiento": "2021-03-16",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Evidends",
+        "fechaDesde": "2014-02-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Voluptate nulla veniam est qui.",
+        "nombreReferencia": "Herrera",
+        "telefonoReferencia": "(854) 514-3444",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zentix",
+        "fechaDesde": "2014-10-02",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Id labore deserunt anim tempor nostrud enim consequat cillum aliqua elit adipisicing occaecat nulla irure.",
+        "nombreReferencia": "Hurst",
+        "telefonoReferencia": "(933) 575-3969",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Gynko",
+        "fechaDesde": "2014-10-07",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Cillum cillum aliquip cupidatat ex incididunt reprehenderit duis cupidatat commodo irure pariatur do ut.",
+        "nombreReferencia": "Mai",
+        "telefonoReferencia": "(861) 425-2049",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-19",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-23",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Hale Avenue",
+    "nombre": "Robertson",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 4
+      }
+    ],
+    "estadoCivil": "Viudo",
+    "tipoDocumento": "CI",
+    "apellido": "Nunez",
+    "correo": "rollinsavery@comstar.com",
+    "nroDocument": 1424921,
+    "ciudadId": 87,
+    "telefono": "(921) 592-2048",
+    "fechaNacimiento": "2021-07-28",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Gink",
+        "fechaDesde": "2014-10-16",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Enim minim do minim et dolore.",
+        "nombreReferencia": "Paula",
+        "telefonoReferencia": "(892) 510-2523",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Gronk",
+        "fechaDesde": "2014-04-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Minim ut sint nostrud Lorem incididunt aute est.",
+        "nombreReferencia": "Navarro",
+        "telefonoReferencia": "(805) 571-3751",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Xleen",
+        "fechaDesde": "2014-05-14",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Elit anim excepteur exercitation consectetur quis minim minim tempor laborum veniam.",
+        "nombreReferencia": "Pruitt",
+        "telefonoReferencia": "(932) 504-2130",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-09-07",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Lawrence Street",
+    "nombre": "Cantrell",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Viudo",
+    "tipoDocumento": "Otro",
+    "apellido": "Atkins",
+    "correo": "randallgay@pathways.com",
+    "nroDocument": 5193911,
+    "ciudadId": 63,
+    "telefono": "(867) 553-2599",
+    "fechaNacimiento": "2021-03-03",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Fangold",
+        "fechaDesde": "2014-04-12",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "In enim ea irure cupidatat irure qui enim anim ullamco nostrud proident.",
+        "nombreReferencia": "Lora",
+        "telefonoReferencia": "(989) 452-2234",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Uncorp",
+        "fechaDesde": "2014-04-05",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Ex pariatur ex occaecat aliquip in officia amet eu.",
+        "nombreReferencia": "Marta",
+        "telefonoReferencia": "(935) 502-2423",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-06",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
         "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 3
+      }
+    ]
+  },
+  {
+    "direccion": "Chestnut Street",
+    "nombre": "Krista",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "CI",
+    "apellido": "Burgess",
+    "correo": "camilleshaw@netility.com",
+    "nroDocument": 4212974,
+    "ciudadId": 204,
+    "telefono": "(859) 540-3824",
+    "fechaNacimiento": "2021-03-26",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Opportech",
+        "fechaDesde": "2014-03-01",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Magna consectetur magna sunt est ex et enim ex labore non sint consectetur.",
+        "nombreReferencia": "Corine",
+        "telefonoReferencia": "(961) 551-3103",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Grupoli",
+        "fechaDesde": "2014-11-06",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Occaecat eu amet sit ullamco et aliquip irure velit cupidatat et deserunt velit.",
+        "nombreReferencia": "Francisca",
+        "telefonoReferencia": "(889) 585-2247",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Microluxe",
+        "fechaDesde": "2014-05-29",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Proident velit qui esse sit labore dolore magna anim esse sit dolor consectetur sunt.",
+        "nombreReferencia": "Hammond",
+        "telefonoReferencia": "(916) 400-2126",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-22",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Harbor Court",
+    "nombre": "Hope",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "Otro",
+    "apellido": "Bruce",
+    "correo": "eulahayes@inrt.com",
+    "nroDocument": 3741003,
+    "ciudadId": 210,
+    "telefono": "(889) 446-2043",
+    "fechaNacimiento": "2021-05-02",
+    "nivelIngles": 1,
+    "experiencias": [
+      {
+        "institucion": "Elpro",
+        "fechaDesde": "2014-12-04",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Adipisicing id adipisicing id ullamco cillum sint in incididunt laboris ipsum.",
+        "nombreReferencia": "Jodie",
+        "telefonoReferencia": "(915) 518-3165",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Pearlessa",
+        "fechaDesde": "2014-01-26",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Ex minim veniam non cillum ullamco.",
+        "nombreReferencia": "Ayers",
+        "telefonoReferencia": "(819) 558-3059",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Hawthorne Street",
+    "nombre": "Kayla",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "Otro",
+    "apellido": "Cervantes",
+    "correo": "alicesherman@twiggery.com",
+    "nroDocument": 1787314,
+    "ciudadId": 223,
+    "telefono": "(839) 466-2513",
+    "fechaNacimiento": "2021-10-10",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Pharmacon",
+        "fechaDesde": "2014-10-09",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Tempor minim nostrud id id mollit reprehenderit deserunt duis Lorem enim.",
+        "nombreReferencia": "Beverly",
+        "telefonoReferencia": "(965) 468-3713",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Surelogic",
+        "fechaDesde": "2014-01-25",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Consectetur nisi cillum dolore aute irure proident non sit consectetur consectetur ea ullamco.",
+        "nombreReferencia": "Roman",
+        "telefonoReferencia": "(899) 530-3274",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-01-03",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-17",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Tennis Court",
+    "nombre": "Pacheco",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "PAS",
+    "apellido": "Roy",
+    "correo": "maureendillard@ecolight.com",
+    "nroDocument": 5196272,
+    "ciudadId": 49,
+    "telefono": "(903) 541-3165",
+    "fechaNacimiento": "2021-08-20",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Ecrater",
+        "fechaDesde": "2014-07-29",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Minim sunt tempor consequat irure enim occaecat.",
+        "nombreReferencia": "Lynette",
+        "telefonoReferencia": "(905) 409-3883",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Netagy",
+        "fechaDesde": "2014-08-22",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Ex occaecat sit irure elit incididunt est enim dolor eu tempor commodo sunt incididunt.",
+        "nombreReferencia": "Liliana",
+        "telefonoReferencia": "(874) 487-2413",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-01-21",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-05-27",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-18",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Forbell Street",
+    "nombre": "Faith",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 4
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "PAS",
+    "apellido": "Dennis",
+    "correo": "kochmejia@exoteric.com",
+    "nroDocument": 4431767,
+    "ciudadId": 230,
+    "telefono": "(810) 471-2703",
+    "fechaNacimiento": "2021-08-24",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Proxsoft",
+        "fechaDesde": "2014-04-07",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Minim anim nisi id aliqua id consequat veniam adipisicing proident consectetur veniam quis non amet.",
+        "nombreReferencia": "Dena",
+        "telefonoReferencia": "(810) 510-2824",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zensure",
+        "fechaDesde": "2014-09-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Consequat nostrud eiusmod laboris sint incididunt proident est dolor excepteur.",
+        "nombreReferencia": "Heath",
+        "telefonoReferencia": "(938) 437-3708",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Deviltoe",
+        "fechaDesde": "2014-10-02",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Labore nisi cupidatat nisi aliqua pariatur mollit tempor eu esse eu non dolore.",
+        "nombreReferencia": "Wendi",
+        "telefonoReferencia": "(850) 528-3392",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-18",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-11-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-23",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 5
+      }
+    ]
+  },
+  {
+    "direccion": "Hooper Street",
+    "nombre": "Dale",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "Otro",
+    "apellido": "Camacho",
+    "correo": "langleymckinney@blurrybus.com",
+    "nroDocument": 1686867,
+    "ciudadId": 245,
+    "telefono": "(958) 454-3232",
+    "fechaNacimiento": "2020-12-18",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Pyramax",
+        "fechaDesde": "2014-09-16",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Velit consequat sint nisi non non labore aliquip do ad voluptate.",
+        "nombreReferencia": "Melody",
+        "telefonoReferencia": "(960) 586-3417",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Zoinage",
+        "fechaDesde": "2014-08-15",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Consectetur voluptate incididunt commodo id Lorem enim eiusmod minim consequat eiusmod esse anim.",
+        "nombreReferencia": "Pearson",
+        "telefonoReferencia": "(919) 565-3991",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Calcu",
+        "fechaDesde": "2014-02-18",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Voluptate id occaecat incididunt et ipsum tempor tempor reprehenderit aliquip tempor elit est.",
+        "nombreReferencia": "Lula",
+        "telefonoReferencia": "(948) 489-2934",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Eldert Lane",
+    "nombre": "Guzman",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "PAS",
+    "apellido": "Bryant",
+    "correo": "rodgersmarsh@corepan.com",
+    "nroDocument": 2162566,
+    "ciudadId": 161,
+    "telefono": "(838) 581-3481",
+    "fechaNacimiento": "2021-10-19",
+    "nivelIngles": 3,
+    "experiencias": [
+      {
+        "institucion": "Anocha",
+        "fechaDesde": "2014-08-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Deserunt cupidatat proident occaecat cupidatat ullamco magna esse sit deserunt anim sunt esse.",
+        "nombreReferencia": "Nina",
+        "telefonoReferencia": "(825) 511-2609",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Hairport",
+        "fechaDesde": "2014-11-23",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Occaecat ad sunt dolore laborum adipisicing exercitation nisi et aute id anim.",
+        "nombreReferencia": "Chavez",
+        "telefonoReferencia": "(859) 404-2499",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Xurban",
+        "fechaDesde": "2014-12-08",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer backend",
+        "descripcion": "Veniam et nostrud consectetur magna aute cupidatat aute elit do non veniam.",
+        "nombreReferencia": "Ball",
+        "telefonoReferencia": "(907) 565-3364",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-30",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-06-19",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 4
+      }
+    ]
+  },
+  {
+    "direccion": "Kane Street",
+    "nombre": "Judith",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Soltero",
+    "tipoDocumento": "CI",
+    "apellido": "Levy",
+    "correo": "cochranjenkins@zenolux.com",
+    "nroDocument": 1453177,
+    "ciudadId": 73,
+    "telefono": "(972) 572-2318",
+    "fechaNacimiento": "2021-06-09",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Rodeocean",
+        "fechaDesde": "2014-04-18",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Deserunt ad enim esse commodo.",
+        "nombreReferencia": "Lindsey",
+        "telefonoReferencia": "(874) 565-3117",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-29",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-31",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-05-07",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 1
+      }
+    ]
+  },
+  {
+    "direccion": "Matthews Court",
+    "nombre": "Britney",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 3
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 1
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "PAS",
+    "apellido": "Herring",
+    "correo": "englishcase@exostream.com",
+    "nroDocument": 2003119,
+    "ciudadId": 136,
+    "telefono": "(897) 499-2259",
+    "fechaNacimiento": "2021-02-08",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Otherway",
+        "fechaDesde": "2014-12-03",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Veniam sit deserunt voluptate ea qui elit.",
+        "nombreReferencia": "Kristie",
+        "telefonoReferencia": "(814) 502-3665",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "OTRO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-03-17",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "CURSANDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 3
+      }
+    ]
+  },
+  {
+    "direccion": "Forest Place",
+    "nombre": "Angeline",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 2
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "Otro",
+    "apellido": "Brady",
+    "correo": "mercerlewis@portica.com",
+    "nroDocument": 2568572,
+    "ciudadId": 70,
+    "telefono": "(928) 514-3477",
+    "fechaNacimiento": "2021-01-17",
+    "nivelIngles": 5,
+    "experiencias": [
+      {
+        "institucion": "Corporana",
+        "fechaDesde": "2014-01-07",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Occaecat do proident officia minim Lorem adipisicing adipisicing sit anim consectetur consectetur.",
+        "nombreReferencia": "Mcmahon",
+        "telefonoReferencia": "(809) 544-3439",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "CURSANDO"
+      },
+      {
+        "tipoDeEstudio": "POSTGRADO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-04-08",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 3
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 3
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Crawford Avenue",
+    "nombre": "Bradshaw",
+    "nacionalidad": "Paraguaya",
+    "postulaciones": [
+      {
+        "id": 2
+      },
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ],
+    "estadoCivil": "Casado",
+    "tipoDocumento": "Otro",
+    "apellido": "Gillespie",
+    "correo": "mallorymorrow@aclima.com",
+    "nroDocument": 5638888,
+    "ciudadId": 29,
+    "telefono": "(977) 470-3927",
+    "fechaNacimiento": "2021-03-14",
+    "nivelIngles": 2,
+    "experiencias": [
+      {
+        "institucion": "Powernet",
+        "fechaDesde": "2014-12-08",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Consectetur incididunt magna dolore ea reprehenderit.",
+        "nombreReferencia": "Alana",
+        "telefonoReferencia": "(841) 478-3999",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-01-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "FINALIZADO"
+      },
+      {
+        "tipoDeEstudio": "CURSO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-10-13",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "SUSPENDIDO"
+      },
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-08-01",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "ing inf",
+        "estado": "SUSPENDIDO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 4
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Ide Court",
+    "nombre": "Weber",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 1
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Divorciado",
+    "tipoDocumento": "PAS",
+    "apellido": "Barlow",
+    "correo": "anastrong@sonique.com",
+    "nroDocument": 3690565,
+    "ciudadId": 50,
+    "telefono": "(931) 592-3309",
+    "fechaNacimiento": "2021-06-07",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Austex",
+        "fechaDesde": "2014-11-01",
+        "fechaHasta": "2016-01-01",
+        "cargo": "developer frontend",
+        "descripcion": "Nostrud ex adipisicing elit ut deserunt do nostrud et adipisicing velit veniam amet enim.",
+        "nombreReferencia": "Mildred",
+        "telefonoReferencia": "(905) 425-2868",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "TERCIARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-12-04",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "TESIS"
+      },
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-02-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "lic inf",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 8
+        },
+        "nivel": 2
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 2
+      }
+    ]
+  },
+  {
+    "direccion": "Hazel Court",
+    "nombre": "Cora",
+    "nacionalidad": "Extranjera",
+    "postulaciones": [
+      {
+        "id": 4
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 5
+      }
+    ],
+    "estadoCivil": "Concubinado",
+    "tipoDocumento": "Otro",
+    "apellido": "Hartman",
+    "correo": "odessamaldonado@luxuria.com",
+    "nroDocument": 1591093,
+    "ciudadId": 37,
+    "telefono": "(800) 578-3214",
+    "fechaNacimiento": "2020-12-11",
+    "nivelIngles": 4,
+    "experiencias": [
+      {
+        "institucion": "Eplosion",
+        "fechaDesde": "2014-03-30",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Mollit velit voluptate quis aute.",
+        "nombreReferencia": "Silvia",
+        "telefonoReferencia": "(858) 480-3626",
+        "tipoExperiencia" : "Trabajo Normal"
+      },
+      {
+        "institucion": "Nipaz",
+        "fechaDesde": "2014-03-02",
+        "fechaHasta": "2016-01-01",
+        "cargo": "dba",
+        "descripcion": "Pariatur incididunt Lorem consequat nostrud.",
+        "nombreReferencia": "Maynard",
+        "telefonoReferencia": "(867) 568-3953",
+        "tipoExperiencia" : "Trabajo Normal"
+      }
+    ],
+    "estudios": [
+      {
+        "tipoDeEstudio": "SECUNDARIO",
+        "institucion": {
+          "id":1
+        },
+        "fechaDesde": "2014-07-10",
+        "fechaHasta": "2016-01-01",
+        "temaDeEstudio": "analista",
+        "estado": "FINALIZADO"
+      }
+    ],
+    "tecnologias": [
+      {
+        "tecnologia": {
+          "id": 5
+        },
+        "nivel": 1
+      },
+      {
+        "tecnologia": {
+          "id": 1
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 7
+        },
+        "nivel": 4
+      },
+      {
+        "tecnologia": {
+          "id": 6
+        },
+        "nivel": 5
+      },
+      {
+        "tecnologia": {
+          "id": 2
+        },
+        "nivel": 3
       }
     ]
   }

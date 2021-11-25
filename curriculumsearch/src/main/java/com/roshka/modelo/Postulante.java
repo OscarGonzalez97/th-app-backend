@@ -86,7 +86,7 @@ public class Postulante {
     @NotNull
     private Nacionalidad nacionalidad;
 
-    @Column(name = "tipo_documento",length = 3)
+    @Column(name = "tipo_documento",length = 4)
     @NotNull
     private TipoDocumento tipoDocumento;
 

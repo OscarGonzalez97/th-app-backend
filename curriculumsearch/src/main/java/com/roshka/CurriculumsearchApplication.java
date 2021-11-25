@@ -33,7 +33,7 @@ public class CurriculumsearchApplication {
 
 	@Bean
 	CommandLineRunner runner(PostulanteRepository postRepo, TecnologiaRepository tecRepo, DepartamentoRepository depR,
-							 CiudadRepository ciudR, RRHHUserRepository rrhhUserRepository, CargoRepository cargoR, ConvocatoriaRepository convR) {
+							 CiudadRepository ciudR, RRHHUserRepository rrhhUserRepository, CargoRepository cargoR, ConvocatoriaRepository convR, InstitucionRepository insR) {
 		return args -> {
 			try {
 				// read json and write to db
@@ -42,6 +42,7 @@ public class CurriculumsearchApplication {
 				guardarJson(depR,"/json/Departamento.json",Departamento.class);
 				guardarJson(ciudR,"/json/Ciudad.json",Ciudad.class);
 				guardarJson(tecRepo,"/json/tecnologia.json",Tecnologia.class);
+				guardarJson(insR,"/json/institucion.json",Institucion.class);
 				guardarJson(postRepo,"/json/postulante.json",Postulante.class);
 				
 				String password = new BCryptPasswordEncoder().encode("test");
