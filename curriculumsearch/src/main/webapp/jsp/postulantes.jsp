@@ -100,14 +100,14 @@
       <div class="col">
         <div class="row">
           <div class="col-auto col-md-4">
-            <label class="form-label" for="instId">Institución Educativa</label>
+            <label class="form-label" for="tipoest">Tipo de estudio</label>
 
           </div>
           <div class="col-auto col-md-8">
-            <select class="form-select form-select-sm " name="instId" id="instId">
+            <select class="form-select form-select-sm " name="tipoest" id="tipoest">
               <option value="">Todas</option>
-              <c:forEach items="${institucionesEducativas}" var="inst">
-                <option value="${inst.id}" ${param.instId == inst.id ? "selected" : ""}>${inst.nombre}</option>
+              <c:forEach items="${tiposDeEstudios}" var="inst">
+                <option value="${inst}" ${param.tipoest == inst ? "selected" : ""}>${inst.getName()}</option>
               </c:forEach>
             </select>
           </div>

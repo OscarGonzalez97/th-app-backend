@@ -59,7 +59,7 @@ public class PostulantesExcelExporter {
         createCell(row, 2, "Experiencia (Meses)", style);
         createCell(row, 3, "Tecnologias", style);
         createCell(row, 4, "Nivel Tecnologia", style);
-        createCell(row, 5, "Institucion", style);
+        createCell(row, 5, "Tipo de estudio", style);
         createCell(row, 6, "Estado", style);
         createCell(row, 7, "Convocatoria", style);
         createCell(row, 8, "Fecha Inicio Convocatoria", style);
@@ -118,7 +118,7 @@ public class PostulantesExcelExporter {
         createCell(row, 2, filtros.get("experienciaEnMeses"), style);
         createCell(row, 3, filtros.get("tecnologia"), style);
         createCell(row, 4, filtros.get("nivelTecnologia"), style);
-        createCell(row, 5, filtros.get("institucion"), style);
+        createCell(row, 5, filtros.get("tipoDeEstudio"), style);
         createCell(row, 6, filtros.get("estado"), style);
         createCell(row, 7, filtros.get("convocatoria"), style);
         createCell(row, 8, filtros.get("convocatoriaFecha"), style);

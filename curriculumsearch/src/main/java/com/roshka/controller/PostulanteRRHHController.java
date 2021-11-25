@@ -8,6 +8,7 @@ import com.roshka.DTO.PostulanteListaDTO;
 import com.roshka.modelo.DBFile;
 import com.roshka.modelo.EstadoPostulante;
 import com.roshka.modelo.Postulante;
+import com.roshka.modelo.TipoDeEstudio;
 import com.roshka.repositorio.*;
 import com.roshka.service.PdfGenerator;
 import com.roshka.utils.PostulantesExcelExporter;
@@ -82,7 +83,7 @@ public class PostulanteRRHHController {
                             @RequestParam(required = false)EstadoPostulante estado,
                             @RequestParam(required = false)Long lvlEng,
                             @RequestParam(required = false)Long lvlTec,
-                            @RequestParam(required = false)Long instId,
+                            @RequestParam(required = false)TipoDeEstudio tipoest,
                             @RequestParam(required = false)String expInMonths,
                             @RequestParam(required = false)Long cargoId,
                             @RequestParam(required = false)Long convId, 
@@ -92,7 +93,7 @@ public class PostulanteRRHHController {
         final Integer CANTIDAD_POR_PAGINA = 10;
         Pageable page = PageRequest.of(nroPagina,CANTIDAD_POR_PAGINA,Sort.by("id"));
         model.addAttribute("tecnologias", tecRepo.findAll());
-        model.addAttribute("institucionesEducativas", institucionRepository.findAll());
+        model.addAttribute("tiposDeEstudios", TipoDeEstudio.values());
         model.addAttribute("estadoP", EstadoPostulante.values());
 
         model.addAttribute("cargos", carRepo.findAll());
@@ -118,7 +119,7 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
                 new TypedParameterValue(StringType.INSTANCE,"%"+nombre.trim()+"%"),
-                     lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
+                     lvlEng, lvlTec, tecId, tipoest,cargoId,page,estado,convId, infRange, supRange);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
@@ -147,7 +148,7 @@ public class PostulanteRRHHController {
                                        @RequestParam(required = false)EstadoPostulante estado,
                                        @RequestParam(required = false)Long lvlEng,
                                        @RequestParam(required = false)Long lvlTec,
-                                       @RequestParam(required = false)Long instId,
+                                       @RequestParam(required = false)TipoDeEstudio tipoest,
                                        @RequestParam(required = false)String expInMonths,
                                        @RequestParam(required = false)Long cargoId,
                                        @RequestParam(required = false)Long convId,
@@ -165,7 +166,7 @@ public class PostulanteRRHHController {
                 nombre == null || nombre.trim().isEmpty() ?
                         new TypedParameterValue(StringType.INSTANCE,null) :
                         new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
-                        lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
+                        lvlEng, lvlTec, tecId, tipoest,cargoId,page,estado,convId, infRange, supRange);
         List<Postulante> postulantes = postulantesPag.getContent();
         List<PostulanteListaDTO> postulantesDTO = new ArrayList<>();
 
@@ -189,8 +190,8 @@ public class PostulanteRRHHController {
         filtros.put("nivelIngles", lvlEng == null ? "-" : lvlEng.toString());
         filtros.put("tecnologia", tecId == null ? "-" : tecRepo.findById(tecId).get().getNombre());
         filtros.put("nivelTecnologia", lvlTec == null ? "-" : lvlTec.toString());
-        filtros.put("institucion", instId == null ? "-" : institucionRepository.findById(instId).get().getNombre());
-        filtros.put("estado", estado == null ? "-" : estado.getEstado());
+        filtros.put("tipoDeEstudio", tipoest == null ? "-" : tipoest.getName());
+    filtros.put("estado", estado == null ? "-" : estado.getEstado());
         filtros.put("experienciaEnMeses", expInMonths == null ? "-" : expInMonths.toString());
         filtros.put("convocatoria", convId == null ? "-" : convRepo.findById(convId).get().getCargo().getNombre());
         filtros.put("convocatoriaFecha", convId == null ? "-" : convRepo.findById(convId).get().getFechaInicio().toString());
