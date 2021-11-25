@@ -47,7 +47,7 @@ public String addtecnologiaView(Model model,@PathVariable(required = false) Long
             model.addAttribute("pages", tecnologiaPag.getTotalPages());
         }
         else {
-            Page<Tecnologia> tecnologiaPag=tecRepo.findByNombreContainingIgnoreCase(nombre,page);    
+            Page<Tecnologia> tecnologiaPag=tecRepo.findByNombreContainingIgnoreCase(nombre.trim(),page);    
             model.addAttribute("pages", tecnologiaPag.getTotalPages());
             model.addAttribute("tecnologias", tecnologiaPag.getContent());
         }

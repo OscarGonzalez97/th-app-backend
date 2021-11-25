@@ -117,7 +117,7 @@ public class PostulanteRRHHController {
         Page<Postulante> postulantesPag = post.postulantesMultiFiltro(
                 nombre == null || nombre.trim().isEmpty() ?
                 new TypedParameterValue(StringType.INSTANCE,null) :
-                new TypedParameterValue(StringType.INSTANCE,"%"+nombre+"%"),
+                new TypedParameterValue(StringType.INSTANCE,"%"+nombre.trim()+"%"),
                      lvlEng, lvlTec, tecId, instId,cargoId,page,estado,convId, infRange, supRange);
         model.addAttribute("numeroOcurrencias", postulantesPag.getTotalElements());
         List<Postulante> postulantes = postulantesPag.getContent();

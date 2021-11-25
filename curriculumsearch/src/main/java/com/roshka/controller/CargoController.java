@@ -36,7 +36,7 @@ public class CargoController {
             model.addAttribute("pages", CargoPag.getTotalPages());
         }
         else {
-            Page<Cargo> CargoPag=cargoRepo.findByNombreContainingIgnoreCase(nombre,page);    
+            Page<Cargo> CargoPag=cargoRepo.findByNombreContainingIgnoreCase(nombre.trim(),page);    
             model.addAttribute("pages", CargoPag.getTotalPages());
             model.addAttribute("cargos", CargoPag.getContent());
         }
