@@ -13,7 +13,6 @@ import com.roshka.service.PdfGenerator;
 import com.roshka.utils.PostulantesExcelExporter;
 import org.hibernate.jpa.TypedParameterValue;
 import org.hibernate.type.StringType;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
