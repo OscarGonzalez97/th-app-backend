@@ -48,22 +48,14 @@ public class ConvocatoriaController {
         return "convocatorias";
     }
     
-    @PostMapping("/convocatoria")
-    public String guardarConvocatoria(@ModelAttribute ConvocatoriaCargo convocatoria, BindingResult result,RedirectAttributes redirectAttributes) {
-        for (ConvocatoriaCargo conv:convoRepo.findByCargoId(convocatoria.getCargoId())) {
+    @RequestMapping("/convocatoria/crear/{id}")
+    public String guardarConvocatoriaa(@PathVariable(required = false) Long id,RedirectAttributes redirectAttributes) {
+        for (ConvocatoriaCargo conv:convoRepo.findByCargoId(id)) {
             if(conv.getEstado()==EstadoConvocatoria.abierto){
                 redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", "Ya existe una convocatoria Abierta con ese cargo");
                 return "redirect:/convocatorias";
            }
         }
-        if(result.hasErrors()); 
-        convocatoria.setFechaInicio(new Date());
-        convocatoria.setEstado(EstadoConvocatoria.abierto);
-        convoRepo.save(convocatoria);
-        return "redirect:/convocatorias";
-    }
-    @RequestMapping("/convocatoria/crear/{id}")
-    public String guardarConvocatoriaa(@PathVariable(required = false) Long id) {
         ConvocatoriaCargo convocatoria=new ConvocatoriaCargo();  
         convocatoria.setCargo(cargoRepo.findByIdCargo(id));
         convocatoria.setCargoId(cargoRepo.findByIdCargo(id).getId());
