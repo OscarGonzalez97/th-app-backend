@@ -90,6 +90,8 @@ public class PostulanteController {
             expRepo.findByPostulante(postulantex).forEach(x -> expRepo.delete(x));
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
             postulante.setId(postulantex.getId());
+            postulante.setFechaCreacion((postulantex.getFechaCreacion())); 
+            postulante.setMesesDeExperiencia(postulantex.getMesesDeExperiencia());
         }
         if(file!=null){
             DBFile cv = Helper.createFile(file);
