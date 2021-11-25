@@ -7,5 +7,14 @@
         <link href="../css/indexStyle.css" rel="stylesheet" type="text/css"/>
         <link rel="icon" href="../img/LogoRoshka.ico">
     </layout:put>
-    
+    <layout:put block="contents" type="REPLACE">
+    <body>
+        <form:form method="post" action="/generarCodigoRegistro">
+            <button class="btn btn-outline-light"><strong>Generar clave de Registro:</strong></button>  ${clave}
+        </form:form>
+        <c:if test="${clave}">
+            Clave de Registro:
+        </c:if>
+    </body>
+    </layout:put>
 </layout:extends>
