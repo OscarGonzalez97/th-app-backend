@@ -44,7 +44,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">Nro de Documento</h6>
+                                   <h6 class="mb-0">Nro de documento</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.tipoDocumento}: ${postulante.nroDocument}
@@ -53,7 +53,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">Telefono</h6>
+                                   <h6 class="mb-0">Teléfono</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.telefono}
@@ -70,7 +70,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">Direccion</h6>
+                                   <h6 class="mb-0">Dirección</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.direccion}
@@ -79,7 +79,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">Nivel de Ingles</h6>
+                                   <h6 class="mb-0">Nivel de inglés</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.nivelIngles}
@@ -88,7 +88,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">Estado Civil</h6>
+                                   <h6 class="mb-0">Estado civil</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.estadoCivil.getDescripcion()}
@@ -115,7 +115,7 @@
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   <h6 class="mb-0">ComentarioRRHH</h6>
+                                   <h6 class="mb-0">Observación</h6>
                                </div>
                                <div class="col-sm-9 text-secondary">
                                        ${postulante.getComentarioRRHH()}
@@ -125,7 +125,7 @@
                            <div id="buttonRow" style="display: block">
                                <div class="row">
                                    <div class="col-4">
-                                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Agregar observacion</button>
+                                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#estadoModalLong">Agregar observación</button>
                                    </div>
                                    <div class="col-4">
                                        <div class="dropdown">
@@ -169,11 +169,11 @@
                                                <c:choose>
                                                    <c:when test="${postulante.experiencias.size() > 1}">
                                                        <i class="bi bi-arrow-left-circle-fill" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"></i>
-                                                       Experiencias
+                                                       Experiencia(s)
                                                        <i class="bi bi-arrow-right-circle-fill" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></i>
                                                    </c:when>
                                                    <c:otherwise>
-                                                       Experiencias
+                                                       Experiencia(s)
                                                    </c:otherwise>
 
                                                </c:choose>
@@ -185,18 +185,18 @@
 
                                                    <ul class="list-group list-group-flush ">
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Institucion</h6>
+                                                           <h6 class="mb-0">Institución</h6>
                                                            <span class="text-secondary">${detalle_experiencia.getInstitucion()}</span>
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Fecha Inicio</h6>
+                                                           <h6 class="mb-0">Fecha inicio</h6>
                                                            <span class="text-secondary"><fmt:formatDate value="${detalle_experiencia.getFechaDesde()}" pattern="dd-MM-yyyy" /></span>
                                                            <!--    <input style="display:none;" id="fechaInicioExp" value="${detalle_experiencia.getFechaDesde()}">
 
                                                 <span style="display: none;" class="text-secondary" id="fechaInicioExp2">${detalle_experiencia.getFechaDesde()}</span>-->
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Fecha Fin</h6>
+                                                           <h6 class="mb-0">Fecha fin</h6>
                                                            <span class="text-secondary"><fmt:formatDate value="${detalle_experiencia.getFechaHasta()}" pattern="dd-MM-yyyy" /></span>
                                                            <!--    <input style="display:none;" id="fechaFinExp" value="${detalle_experiencia.getFechaHasta()}">
                                                 <span style="display: none;" class="text-secondary" id="fechaFinExp2">${detalle_experiencia.getFechaHasta()}</span>-->
@@ -206,7 +206,7 @@
                                                            <span class="text-secondary">${detalle_experiencia.getNombreReferencia()}</span>
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Telefono de la referencia</h6>
+                                                           <h6 class="mb-0">Teléfono de la referencia</h6>
                                                            <span class="text-secondary">${detalle_experiencia.getTelefonoReferencia()}</span>
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -244,11 +244,11 @@
                                                <c:choose>
                                                    <c:when test="${postulante.estudios.size() > 1}">
                                                        <i class="bi bi-arrow-left-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev"></i>
-                                                       Estudio
+                                                       Estudio(s)
                                                        <i class="bi bi-arrow-right-circle-fill" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next"></i>
                                                    </c:when>
                                                    <c:otherwise>
-                                                       Estudios
+                                                       Estudio(s)
                                                    </c:otherwise>
 
                                                </c:choose>
@@ -258,24 +258,24 @@
 
                                                    <ul class="list-group list-group-flush ">
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Institucion</h6>
+                                                           <h6 class="mb-0">Institución</h6>
                                                            <span class="text-secondary">${detalle_estudios.getInstitucion().getNombre()}</span>
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Fecha Inicio</h6>
+                                                           <h6 class="mb-0">Fecha inicio</h6>
                                                            <span class="text-secondary"><fmt:formatDate value="${detalle_estudios.getFechaDesde()}" pattern="dd-MM-yyyy" /></span>
 
                                                            <!-- <input style="display:none;" id="fechaInicioEst" value="${detalle_estudios.getFechaDesde()}">-->
 
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Fecha Fin</h6>
+                                                           <h6 class="mb-0">Fecha fin</h6>
                                                            <span class="text-secondary"><fmt:formatDate value="${detalle_estudios.getFechaHasta()}" pattern="dd-MM-yyyy" /></span>
 
                                                            <!--  <input style="display:none;" id="fechaFinEst" value="${detalle_estudios.getFechaHasta()}">-->
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                           <h6 class="mb-0">Tipo de Estudio</h6>
+                                                           <h6 class="mb-0">Tipo de estudio</h6>
                                                            <span class="text-secondary">${detalle_estudios.getTipoDeEstudio()}</span>
                                                        </li>
                                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -304,7 +304,7 @@
                        <div class="col-md-6">
                            <div class="card h-100">
                                <div class="card-body">
-                                   <h6 class="text-start fw-bold">Tecnologias</h6>
+                                   <h6 class="text-start fw-bold">Tecnología(s)</h6>
                                    <c:forEach items="${postulante.tecnologias}" var="detalle_tecnologia">
                                        <small>${detalle_tecnologia.getTecnologia().getNombre()}</small>
                                        <div class="progress mb-3" style="height: 5px">
@@ -312,7 +312,7 @@
                                        </div>
                                    </c:forEach>
                                    <hr>
-                                   <h6 class="text-start fw-bold">Cargos al que postula</h6>
+                                   <h6 class="text-start fw-bold">Cargo(s) al que postula</h6>
                                    <ul class="list-group list-group-flush">
                                        <c:forEach items="${postulante.postulaciones}" var="convocatoria">
 
@@ -321,10 +321,10 @@
 
                                                <div class="ms-2 me-auto">
                                                 <div class="fw-bold">${convocatoria.getCargo().getNombre()}</div>
-                                                Inicio en: <fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd/MM/yyyy" />
+                                                Inició en: <fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd/MM/yyyy" />
                                                 <c:if test="${convocatoria.getFechaFin() != null}">
                                                     <br>
-                                                    Finalizo el: <fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd/MM/yyyy" />
+                                                    Finalizó el: <fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd/MM/yyyy" />
                                                 </c:if>
                                               </div>
                                            </li>
@@ -338,7 +338,7 @@
                        <div class="col-md-6">
                            <div class="card">
                                <div class="card-body">
-                                   <h6 class="text-start fw-bold">Referencias Personales</h6>
+                                   <h6 class="text-start fw-bold">Referencias personales</h6>
                                    <ul class="list-group list-group-flush">
                                        <c:forEach items="${postulante.referencias}" var="referencia">
 
@@ -383,7 +383,7 @@
                                    </form:select>
                                </div>
                                <div class="inputs">
-                                   <form:label path="comentarioRRHH" class="form-label">ComentarioRRHH</form:label>
+                                   <form:label path="comentarioRRHH" class="form-label">ObservaciónRRHH</form:label>
                                    <form:textarea  class="form-control" path="comentarioRRHH" id="comentarioRRHH"></form:textarea>
                                </div><br>
 

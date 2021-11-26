@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="ISO-8859-1">
@@ -30,7 +31,7 @@
         <jsp:include page="alerts.jsp"/>
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-6">
-                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style="text-align: center;">Informacion de Registro</h3>
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style="text-align: center;">Información de Registro</h3>
                 <div class="card rounded-3">
                     <div class="card-body p-4 p-md-5">
 
@@ -56,7 +57,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <form:label path="password" class="form-label">Contrasena</form:label>
+                                <form:label path="password" class="form-label">Contraseña</form:label>
                                 <form:input type="password" path="password" class="form-control" required="required"></form:input>
                             </div>
                             <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
@@ -70,7 +71,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-lg mb-1">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg mb-1">Guardar</button>
                         </form:form>
 
                     </div>

@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,10 +42,10 @@
 
                         <hr class="my-4">
                         <div class="row">
-                            <a href="/forgot-password">Olvidaste tu contrasena?</a>
+                            <a href="/forgot-password">Olvidaste tu contraseña?</a>
                         </div>
                         <div class="row">
-                            <a href="/register">Registrate</a>
+                            <a href="/register">Regístrate !</a>
                         </div>
                     </div>
                 </div>

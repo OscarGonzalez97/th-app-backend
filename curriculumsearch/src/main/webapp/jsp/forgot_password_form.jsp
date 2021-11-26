@@ -32,7 +32,7 @@
             </div>
             <div>
                 <p>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your e-mail" required autofocus/>
+                    <input type="email" name="email" class="form-control" placeholder="Ingrese su Email" required autofocus/>
                 </p>
                 <p class="text-center">
                     <input type="submit" value="Send" class="btn btn-primary" />
