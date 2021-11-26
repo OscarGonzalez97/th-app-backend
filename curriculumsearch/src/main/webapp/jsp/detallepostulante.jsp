@@ -317,8 +317,16 @@
                                        <c:forEach items="${postulante.postulaciones}" var="convocatoria">
 
                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                               <h6 class="mb-0">${convocatoria.getCargo().getNombre()}</h6>
-                                               <span class="text-secondary"></span>
+                                               
+
+                                               <div class="ms-2 me-auto">
+                                                <div class="fw-bold">${convocatoria.getCargo().getNombre()}</div>
+                                                Inicio en: <fmt:formatDate value="${convocatoria.getFechaInicio()}" pattern="dd/MM/yyyy" />
+                                                <c:if test="${convocatoria.getFechaFin() != null}">
+                                                    <br>
+                                                    Finalizo el: <fmt:formatDate value="${convocatoria.getFechaFin()}" pattern="dd/MM/yyyy" />
+                                                </c:if>
+                                              </div>
                                            </li>
                                        </c:forEach>
 

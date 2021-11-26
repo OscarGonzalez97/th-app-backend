@@ -19,6 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.validation.ConstraintViolationException;
 
 @Controller
@@ -91,7 +95,19 @@ public class PostulanteController {
             postulanteTecnologiaRepository.findByPostulante(postulantex).forEach(x -> postulanteTecnologiaRepository.delete(x));
             postulante.setId(postulantex.getId());
             postulante.setFechaCreacion((postulantex.getFechaCreacion())); 
-            postulante.setMesesDeExperiencia(postulantex.getMesesDeExperiencia());
+            //postulante.setMesesDeExperiencia(postulantex.getMesesDeExperiencia());
+            ArrayList<ConvocatoriaCargo> postulaciones = new ArrayList<>();
+            Set<Long> indices = new HashSet<>();
+            for (ConvocatoriaCargo convocatoriaCargo : postulante.getPostulaciones()) {
+                indices.add(convocatoriaCargo.getId());
+                postulaciones.add(convocatoriaCargo);
+            }
+            for (ConvocatoriaCargo convocatoriaCargo : postulantex.getPostulaciones()) {
+                if(indices.contains(convocatoriaCargo.getId())) continue;
+                postulaciones.add(convocatoriaCargo);
+            }
+            postulante.setPostulaciones(postulaciones);
+            
         }
         if(file!=null){
             DBFile cv = Helper.createFile(file);

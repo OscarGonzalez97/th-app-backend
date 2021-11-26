@@ -162,6 +162,7 @@ public class Postulante {
     @PreUpdate
     public void actualizarFecha(){
         this.fechaActualizacion= new Date();
+        this.calcularExperienciaEnMese();
     }
   
    
