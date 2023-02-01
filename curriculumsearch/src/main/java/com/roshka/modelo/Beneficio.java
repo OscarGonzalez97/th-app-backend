@@ -13,7 +13,11 @@ public class Beneficio {
     @Id
     @Column(name="id")
     private Long id;
-    @Column(name="beneficio")
+    @Column(name="titulo")
     @NotBlank(message = "Este campo no puede estar vacio")
-    private String beneficio;
+    private String titulo;
+
+    @Column(name="descripcion", length = 500)
+    @NotBlank(message = "Este campo no puede estar vacio")
+    private String descripcion;
 }
