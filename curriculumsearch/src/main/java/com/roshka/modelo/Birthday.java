@@ -1,6 +1,7 @@
 package com.roshka.modelo;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +19,7 @@ public class Birthday {
     @NotBlank(message = "Este campo no puede estar vacio")
     private String nombreCompleto;
     @Column(name="fecha")
-    @NotBlank(message = "Este campo no puede estar vacio")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 }
