@@ -70,6 +70,15 @@
                       <li><a class="dropdown-item" href="/beneficios">Listar</a></li>
                     </ul>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Cumpleaños
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/cumples/agregar">Agregar</a></li>
+                      <li><a class="dropdown-item" href="/cumples">Listar</a></li>
+                    </ul>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/edit-user-data">Editar Perfil</a>
                   </li>
