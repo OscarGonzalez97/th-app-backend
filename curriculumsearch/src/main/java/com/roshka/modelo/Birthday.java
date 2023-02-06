@@ -22,4 +22,6 @@ public class Birthday {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
+    @Column(nullable = true, length = 64)
+    private String foto;
 }
