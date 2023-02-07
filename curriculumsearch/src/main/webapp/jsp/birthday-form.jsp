@@ -14,19 +14,29 @@
               method="post"
               modelAttribute="cumple"
               class="d-flex flex-column"
+              enctype="multipart/form-data"
               >
                 <div class="card-body">
-                    <form:label class="form-label visually-hidden" path="nombreCompleto"
+                    <label class="form-label visually-hidden" path="nombreCompleto"
                     >Nombre Completo
-                    </form:label>
-                    <form:input type="text" path="nombreCompleto" class="form-control ${ mismoNombre ? 'is-invalid' : ''}" required="true" placeholder="Nombre completo"/>
+                    </label>
+                    <input type="text" name="nombreCompleto" path="nombreCompleto" class="form-control ${ mismoNombre ? 'is-invalid' : ''}" required="true" placeholder="Nombre completo"/>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                       Este nombre completo ya existe
                     </div>
-                    <form:label class="form-label visually-hidden" path="fecha"
+                    <label class="form-label visually-hidden" path="idSlack"
+                    >ID Slack
+                    </label>
+                    <input type="text" name="idSlack" path="idSlack" class="form-control" required="true" placeholder="ID Slack"/>
+
+                    <label class="form-label visually-hidden" path="fecha"
                     >Descripción
-                    </form:label>
-                    <form:input type="date" path="fecha" class="form-control" required="true" placeholder="Fecha cumple"/>
+                    </label>
+                    <input type="date" name="fecha" class="form-control" required="true" placeholder="Fecha cumple"/>
+                    <label class="form-label visually-hidden" path="foto"
+                    >Foto
+                    </label>
+                    <input type="file" name="file" path="file" class="form-control" required="true"/>
 
                 </div>
                 <div class="card-footer d-flex flex-column">
