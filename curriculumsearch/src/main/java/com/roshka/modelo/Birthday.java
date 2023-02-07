@@ -18,10 +18,13 @@ public class Birthday {
     @Column(name="nombreCompleto")
     @NotBlank(message = "Este campo no puede estar vacio")
     private String nombreCompleto;
+    @Column(name = "idSlack")
+    @NotBlank(message = "Este campo no puede estar vacio")
+    private String idSlack;
     @Column(name="fecha")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
-    @Column(nullable = true, length = 64)
+    @Column(nullable = true, length = 500)
     private String foto;
 }
