@@ -17,7 +17,7 @@ public class Beneficio {
     @NotBlank(message = "Este campo no puede estar vacio")
     private String titulo;
 
-    @Column(name="descripcion", length = 500)
+    @Column(name="descripcion", length = 2000)
     @NotBlank(message = "Este campo no puede estar vacio")
     private String descripcion;
 }
