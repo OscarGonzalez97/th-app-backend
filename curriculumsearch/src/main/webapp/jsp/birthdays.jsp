@@ -39,7 +39,9 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nombre Completo</th>
+                      <th scope="col">ID slack</th>
                       <th scope="col">Fecha de cumpleaños</th>
+                      <th scope="col">Url foto</th>
                       <th scope="col"></th>
                     </tr>
                   </thead>
@@ -49,8 +51,9 @@
                           <tr>
                               <th scope="row">${sta.index+1}</th>
                               <td>${cumple.getNombreCompleto()}</td>
+                              <td>${cumple.getIdSlack()}</td>
                               <td>${cumple.getFecha()}</td>
-
+                              <td>${cumple.getFoto()}</td>
                               <td><a href="/cumples/modificar/${cumple.id}"><i class="bi bi-pencil-fill"></i></a></td>
                           </tr>
                       </c:forEach>
