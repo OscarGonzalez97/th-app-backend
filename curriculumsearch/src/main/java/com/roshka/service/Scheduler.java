@@ -21,11 +21,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Configuration
 @EnableScheduling
@@ -37,10 +35,13 @@ public class Scheduler {
     @PersistenceContext
     private EntityManager entityManager;
 
-    //    @Scheduled(cron = "0 0 8 * * MON-FRI")
-    @Scheduled(cron = "0 * * * * *")
+        @Scheduled(cron = "0 0 8 * * MON-FRI")
+//    @Scheduled(cron = "0 * * * * *")
     public void cumples() {
         String url = "https://hooks.slack.com/services/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";
+        // todo verificar que no sea feriado
+        // mandar los cumpleaños que fueron sabado y domingo
+            // si hoy es lunes buscar si hubo cumpleaños sabado y domingo
         // Verificar el cumpleaños de quien es
         List<Birthday> cumples = birthdayRepository.findAllByFecha(new Date());
         for (Birthday cumple : cumples) {
@@ -83,8 +84,8 @@ public class Scheduler {
         }
     }
 
-    //    @Scheduled(cron = "0 0 15 * * FRI")
-    @Scheduled(cron = "0 * * * * *")
+        @Scheduled(cron = "0 0 15 * * FRI")
+//    @Scheduled(cron = "0 * * * * *")
     public void beneficios() {
         String url = "https://hooks.slack.com/services/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";
         // Traer random
