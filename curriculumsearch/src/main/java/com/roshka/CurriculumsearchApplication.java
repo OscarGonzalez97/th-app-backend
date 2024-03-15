@@ -37,13 +37,13 @@ public class CurriculumsearchApplication {
 		return args -> {
 			try {
 				// read json and write to db
-				guardarJson(cargoR,"/json/cargo.json",Cargo.class);
-				guardarJson(convR,"/json/convocatoria.json",ConvocatoriaCargo.class);
-				guardarJson(depR,"/json/Departamento.json",Departamento.class);
-				guardarJson(ciudR,"/json/Ciudad.json",Ciudad.class);
-				guardarJson(tecRepo,"/json/tecnologia.json",Tecnologia.class);
-				guardarJson(insR,"/json/institucion.json",Institucion.class);
-				guardarJson(postRepo,"/json/postulante.json",Postulante.class);
+//				guardarJson(cargoR,"/json/cargo.json",Cargo.class);
+//				guardarJson(convR,"/json/convocatoria.json",ConvocatoriaCargo.class);
+//				guardarJson(depR,"/json/Departamento.json",Departamento.class);
+//				guardarJson(ciudR,"/json/Ciudad.json",Ciudad.class);
+//				guardarJson(tecRepo,"/json/tecnologia.json",Tecnologia.class);
+//				guardarJson(insR,"/json/institucion.json",Institucion.class);
+//				guardarJson(postRepo,"/json/postulante.json",Postulante.class);
 				
 				String password = new BCryptPasswordEncoder().encode("test");
 				RRHHUser testuser = new RRHHUser();
@@ -54,8 +54,8 @@ public class CurriculumsearchApplication {
 				rrhhUserRepository.save(testuser);
 				System.out.println("Usuario Test: \nEmail: test@test.com\nPassword: test");
 				
-			} catch (IOException e){
-				System.out.println("Unable to save: " + e.getMessage());
+//			} catch (IOException e){
+//				System.out.println("Unable to save: " + e.getMessage());
 			}
 			catch(PersistentObjectException ex){
 				System.out.println("Unable to save: " + ex.getMessage());
